@@ -10,7 +10,7 @@ import json
 import os
 import threading
 
-HTTP_PORT = 8080
+HTTP_PORT = 8158
 ADVENTURES_DIR = os.path.join(os.path.dirname(__file__), "adventures")
 
 
