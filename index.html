@@ -1,0 +1,1450 @@
+<!-- StoryForge - Gamebook Engine Client -->
+<!-- Andrew Hilton -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0e0c08">
+    <title>StoryForge</title>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg:           #0e0c08;
+            --parchment:    #1a1510;
+            --parchment-hi: #252018;
+            --ink:          #d4c4a0;
+            --ink-dim:      #7a6e58;
+            --border:       #3a3228;
+            --red:          #cc4433;
+            --red-hi:       #ff6655;
+            --green:        #448844;
+            --green-hi:     #66aa66;
+            --gold:         #c8961e;
+            --gold-hi:      #e8b030;
+            --blue:         #446688;
+            --blue-hi:      #6699bb;
+            --stamina-color:#cc4433;
+            --skill-color:  #446688;
+            --luck-color:   #c8961e;
+        }
+
+        html, body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Share Tech Mono', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── Screens ─────────────────────────────────── */
+        .screen { display: none; }
+        .screen.active { display: flex; }
+
+        /* ── Select Screen ───────────────────────────── */
+        #screen-select {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        .title-block {
+            text-align: center;
+        }
+
+        .title-block h1 {
+            font-family: 'IM Fell English', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--gold-hi);
+            letter-spacing: 0.05em;
+            text-shadow: 0 0 30px rgba(200, 150, 30, 0.4);
+            line-height: 1;
+        }
+
+        .title-block .subtitle {
+            color: var(--ink-dim);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .ornament {
+            color: var(--border);
+            font-size: 1.2rem;
+            letter-spacing: 0.5em;
+            margin: 0.5rem 0;
+        }
+
+        .adventure-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            max-width: 560px;
+        }
+
+        .adventure-list h2 {
+            font-family: 'IM Fell English', serif;
+            color: var(--ink-dim);
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .adventure-card {
+            background: var(--parchment);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 1.1rem 1.25rem;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .adventure-card:hover {
+            background: var(--parchment-hi);
+            border-left-color: var(--gold-hi);
+        }
+
+        .adventure-card .card-title {
+            font-family: 'IM Fell English', serif;
+            font-size: 1.2rem;
+            color: var(--gold-hi);
+        }
+
+        .adventure-card .card-author {
+            font-size: 0.75rem;
+            color: var(--ink-dim);
+            margin-top: 0.3rem;
+        }
+
+        .adventure-card .card-intro {
+            font-size: 0.8rem;
+            color: var(--ink-dim);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .loading-text {
+            color: var(--ink-dim);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* ── Create Screen ───────────────────────────── */
+        #screen-create {
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            gap: 1.5rem;
+        }
+
+        #screen-create h1 {
+            font-family: 'IM Fell English', serif;
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
+            color: var(--gold-hi);
+            text-align: center;
+        }
+
+        .intro-box {
+            background: var(--parchment);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 1.25rem 1.5rem;
+            max-width: 680px;
+            width: 100%;
+            line-height: 1.75;
+            font-size: 0.9rem;
+            color: var(--ink);
+            white-space: pre-line;
+            font-family: 'IM Fell English', serif;
+            font-size: 1rem;
+        }
+
+        .create-section {
+            max-width: 680px;
+            width: 100%;
+        }
+
+        .create-section h2 {
+            font-family: 'IM Fell English', serif;
+            color: var(--ink-dim);
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .stat-rolls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-roll-box {
+            flex: 1;
+            min-width: 120px;
+            background: var(--parchment);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-roll-box .stat-name {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-roll-box .stat-value {
+            font-family: 'IM Fell English', serif;
+            font-size: 2.5rem;
+            color: var(--gold-hi);
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-roll-box .stat-value.skill-val  { color: var(--blue-hi); }
+        .stat-roll-box .stat-value.stamina-val { color: var(--red-hi); }
+        .stat-roll-box .stat-value.luck-val    { color: var(--gold-hi); }
+
+        .stat-roll-box .stat-formula {
+            font-size: 0.7rem;
+            color: var(--ink-dim);
+            margin-top: 0.25rem;
+        }
+
+        .starting-items-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .item-tag {
+            background: var(--parchment);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.7rem;
+            font-size: 0.8rem;
+            color: var(--ink);
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--ink);
+            padding: 0.75rem 2rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            border-color: var(--gold);
+            color: var(--gold-hi);
+        }
+
+        .btn:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .btn:disabled:hover {
+            border-color: var(--border);
+            color: var(--ink);
+        }
+
+        .btn-primary {
+            border-color: var(--gold);
+            color: var(--gold-hi);
+        }
+
+        .btn-primary:hover {
+            background: rgba(200, 150, 30, 0.1);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            max-width: 680px;
+            width: 100%;
+        }
+
+        /* ── Game Screen ─────────────────────────────── */
+        #screen-game {
+            flex-direction: row;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* Passage panel */
+        .passage-panel {
+            flex: 1;
+            min-width: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 720px;
+        }
+
+        .passage-panel .adventure-title {
+            font-family: 'IM Fell English', serif;
+            font-size: 0.85rem;
+            color: var(--ink-dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .passage-box {
+            background: var(--parchment);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem;
+            line-height: 1.85;
+            font-family: 'IM Fell English', serif;
+            font-size: 1.05rem;
+            color: var(--ink);
+            white-space: pre-line;
+            min-height: 120px;
+        }
+
+        /* Choices */
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .choices h3 {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            margin-bottom: 0.25rem;
+        }
+
+        .choice-btn {
+            background: var(--parchment);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--border);
+            color: var(--ink);
+            padding: 0.85rem 1.1rem;
+            text-align: left;
+            font-family: 'IM Fell English', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            width: 100%;
+        }
+
+        .choice-btn:hover {
+            background: var(--parchment-hi);
+            border-left-color: var(--gold);
+            color: var(--gold-hi);
+        }
+
+        /* Combat UI */
+        .combat-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .combat-header {
+            font-family: 'IM Fell English', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--red-hi);
+        }
+
+        .combatants {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .combatant-box {
+            flex: 1;
+            min-width: 140px;
+            background: var(--parchment);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .combatant-box .combatant-name {
+            font-family: 'IM Fell English', serif;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .combatant-box.enemy-box .combatant-name { color: var(--red-hi); }
+        .combatant-box.player-box .combatant-name { color: var(--blue-hi); }
+
+        .combatant-box .combatant-stats {
+            font-size: 0.8rem;
+            color: var(--ink-dim);
+        }
+
+        .combatant-box .combatant-stats span {
+            color: var(--ink);
+        }
+
+        .combat-log {
+            background: var(--parchment);
+            border: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            font-size: 0.82rem;
+            color: var(--ink-dim);
+            min-height: 80px;
+            max-height: 180px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .log-entry { line-height: 1.4; }
+        .log-entry.player-win  { color: var(--green-hi); }
+        .log-entry.enemy-win   { color: var(--red-hi); }
+        .log-entry.neutral     { color: var(--ink-dim); }
+        .log-entry.luck-good   { color: var(--gold-hi); }
+        .log-entry.luck-bad    { color: var(--red-hi); }
+
+        .combat-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-attack  { border-color: var(--red);   color: var(--red-hi); }
+        .btn-attack:hover  { background: rgba(204, 68, 51, 0.1); }
+        .btn-luck    { border-color: var(--gold);  color: var(--gold-hi); }
+        .btn-luck:hover    { background: rgba(200, 150, 30, 0.1); }
+        .btn-flee    { border-color: var(--border); color: var(--ink-dim); }
+        .btn-flee:hover    { background: var(--parchment-hi); }
+
+        /* Luck test UI */
+        .luck-test-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .luck-test-area .luck-prompt {
+            font-family: 'IM Fell English', serif;
+            font-size: 1rem;
+            color: var(--gold-hi);
+            font-style: italic;
+        }
+
+        .luck-result {
+            background: var(--parchment);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 1rem 1.25rem;
+            font-family: 'IM Fell English', serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .luck-result.lucky   { border-left-color: var(--green); color: var(--green-hi); }
+        .luck-result.unlucky { border-left-color: var(--red);   color: var(--red-hi); }
+
+        /* Ending */
+        .ending-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .ending-title {
+            font-family: 'IM Fell English', serif;
+            font-size: 1.4rem;
+        }
+
+        .ending-title.victory { color: var(--gold-hi); }
+        .ending-title.defeat  { color: var(--red-hi);  }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+            background: var(--parchment);
+            border-left: 1px solid var(--border);
+            padding: 1.5rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            min-height: 100vh;
+        }
+
+        .sidebar-section h3 {
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            margin-bottom: 0.85rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Stat bars */
+        .stat-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .stat-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+        }
+
+        .stat-label { color: var(--ink-dim); letter-spacing: 0.1em; }
+        .stat-num   { color: var(--ink); }
+
+        .stat-bar-track {
+            height: 5px;
+            background: var(--border);
+            overflow: hidden;
+        }
+
+        .stat-bar-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .stat-bar-fill.skill-bar   { background: var(--skill-color); }
+        .stat-bar-fill.stamina-bar { background: var(--stamina-color); }
+        .stat-bar-fill.luck-bar    { background: var(--luck-color); }
+
+        /* Inventory */
+        .inv-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .inv-item {
+            font-size: 0.82rem;
+            color: var(--ink);
+            padding: 0.35rem 0.5rem;
+            background: var(--parchment-hi);
+            border: 1px solid var(--border);
+        }
+
+        .inv-item .inv-item-name { color: var(--ink); }
+
+        .provisions-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.82rem;
+        }
+
+        .provisions-row span { color: var(--ink-dim); }
+        .provisions-row strong { color: var(--ink); }
+
+        .btn-provisions {
+            padding: 0.4rem 0.9rem;
+            font-size: 0.75rem;
+        }
+
+        /* Death screen */
+        .death-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.88);
+            z-index: 100;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .death-overlay.active { display: flex; }
+
+        .death-overlay h2 {
+            font-family: 'IM Fell English', serif;
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            color: var(--red-hi);
+        }
+
+        .death-overlay p {
+            font-family: 'IM Fell English', serif;
+            font-size: 1.1rem;
+            color: var(--ink-dim);
+            max-width: 400px;
+            line-height: 1.7;
+        }
+
+        /* ── Dice roll animation ─────────────────────── */
+        @keyframes diceFlicker {
+            0%   { opacity: 0.3; }
+            50%  { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        .rolling { animation: diceFlicker 0.12s infinite; }
+
+        /* ── Responsive ──────────────────────────────── */
+        @media (max-width: 700px) {
+            #screen-game { flex-direction: column; }
+            .sidebar {
+                width: 100%;
+                min-height: unset;
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+            .passage-panel { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ SELECT SCREEN ══════════════════════════════════ -->
+<div id="screen-select" class="screen active">
+    <div class="title-block">
+        <div class="ornament">✦ ✦ ✦</div>
+        <h1>StoryForge</h1>
+        <div class="subtitle">A Gamebook Engine</div>
+        <div class="ornament">✦ ✦ ✦</div>
+    </div>
+
+    <div class="adventure-list">
+        <h2>Choose Your Adventure</h2>
+        <div id="adventure-cards">
+            <div class="loading-text">Loading adventures...</div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ CREATE SCREEN ══════════════════════════════════ -->
+<div id="screen-create" class="screen">
+    <h1 id="create-title"></h1>
+
+    <div class="intro-box" id="create-intro"></div>
+
+    <div class="create-section">
+        <h2>Your Character</h2>
+        <div class="stat-rolls">
+            <div class="stat-roll-box">
+                <div class="stat-name">Skill</div>
+                <div class="stat-value skill-val" id="roll-skill">—</div>
+                <div class="stat-formula" id="formula-skill"></div>
+            </div>
+            <div class="stat-roll-box">
+                <div class="stat-name">Stamina</div>
+                <div class="stat-value stamina-val" id="roll-stamina">—</div>
+                <div class="stat-formula" id="formula-stamina"></div>
+            </div>
+            <div class="stat-roll-box">
+                <div class="stat-name">Luck</div>
+                <div class="stat-value luck-val" id="roll-luck">—</div>
+                <div class="stat-formula" id="formula-luck"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="create-section">
+        <h2>Starting Equipment</h2>
+        <div class="starting-items-list" id="starting-items"></div>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn btn-primary" id="btn-roll">Roll Character</button>
+        <button class="btn btn-primary" id="btn-begin" disabled>Begin Adventure</button>
+        <button class="btn" id="btn-back-select">Back</button>
+    </div>
+</div>
+
+<!-- ══ GAME SCREEN ════════════════════════════════════ -->
+<div id="screen-game" class="screen">
+
+    <!-- Left: passage panel -->
+    <div class="passage-panel">
+        <div class="adventure-title" id="game-title"></div>
+
+        <div class="passage-box" id="passage-text"></div>
+
+        <!-- Choices (normal navigation) -->
+        <div class="choices" id="choices-area" style="display:none">
+            <h3>What do you do?</h3>
+            <div id="choices-list"></div>
+        </div>
+
+        <!-- Combat -->
+        <div class="combat-area" id="combat-area" style="display:none">
+            <div class="combat-header">⚔ Combat</div>
+            <div class="combatants">
+                <div class="combatant-box enemy-box">
+                    <div class="combatant-name" id="enemy-name"></div>
+                    <div class="combatant-stats">
+                        SKILL <span id="enemy-skill"></span> &nbsp;|&nbsp;
+                        STAMINA <span id="enemy-stamina"></span>
+                    </div>
+                </div>
+                <div class="combatant-box player-box">
+                    <div class="combatant-name">You</div>
+                    <div class="combatant-stats">
+                        SKILL <span id="combat-player-skill"></span> &nbsp;|&nbsp;
+                        STAMINA <span id="combat-player-stamina"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="combat-log" id="combat-log"></div>
+            <div class="combat-buttons">
+                <button class="btn btn-attack" id="btn-attack">Attack</button>
+                <button class="btn btn-luck"   id="btn-combat-luck" style="display:none">Test Your Luck</button>
+                <button class="btn btn-flee"   id="btn-flee"   style="display:none">Flee</button>
+            </div>
+        </div>
+
+        <!-- Luck Test -->
+        <div class="luck-test-area" id="luck-area" style="display:none">
+            <div class="luck-prompt">Do you wish to Test Your Luck?</div>
+            <div class="combatant-stats" style="font-size:0.82rem">
+                Current LUCK: <span id="luck-current-display" style="color:var(--gold-hi)"></span>
+            </div>
+            <div class="luck-result" id="luck-result-box"></div>
+            <div class="combat-buttons">
+                <button class="btn btn-luck"  id="btn-test-luck">Test Your Luck</button>
+                <button class="btn"           id="btn-skip-luck" style="display:none">Continue</button>
+            </div>
+        </div>
+
+        <!-- Ending -->
+        <div class="ending-area" id="ending-area" style="display:none">
+            <div class="ending-title" id="ending-title"></div>
+            <button class="btn btn-primary" id="btn-play-again">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Right: sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-section">
+            <h3>Attributes</h3>
+            <div class="stat-row">
+                <div class="stat-item">
+                    <div class="stat-label-row">
+                        <span class="stat-label">SKILL</span>
+                        <span class="stat-num" id="sb-skill">0</span>
+                    </div>
+                    <div class="stat-bar-track">
+                        <div class="stat-bar-fill skill-bar" id="bar-skill" style="width:0%"></div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label-row">
+                        <span class="stat-label">STAMINA</span>
+                        <span class="stat-num" id="sb-stamina">0 / 0</span>
+                    </div>
+                    <div class="stat-bar-track">
+                        <div class="stat-bar-fill stamina-bar" id="bar-stamina" style="width:0%"></div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label-row">
+                        <span class="stat-label">LUCK</span>
+                        <span class="stat-num" id="sb-luck">0 / 0</span>
+                    </div>
+                    <div class="stat-bar-track">
+                        <div class="stat-bar-fill luck-bar" id="bar-luck" style="width:0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Inventory</h3>
+            <div class="inv-list" id="inv-list"></div>
+            <div class="provisions-row">
+                <span>Provisions: <strong id="provisions-count">0</strong></span>
+                <button class="btn btn-provisions" id="btn-provisions">Eat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Death overlay -->
+<div class="death-overlay" id="death-overlay">
+    <h2>You have died.</h2>
+    <p id="death-message">Your adventure ends here. Perhaps next time fortune will smile upon you.</p>
+    <button class="btn btn-primary" id="btn-try-again">Try Again</button>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════
+//  Game State
+// ══════════════════════════════════════════════════════
+
+const gameState = {
+    adventure:      null,   // loaded adventure JSON
+    currentPassage: "1",    // current passage ID
+    skill:    { current: 0, max: 0 },
+    stamina:  { current: 0, max: 0 },
+    luck:     { current: 0, max: 0 },
+    items:    [],           // array of item IDs in inventory
+    flags:    new Set(),    // story state flags
+    provisions: 0,
+    combat: null,           // { enemy, enemyCurrentStamina, pendingDamage, lastHitPlayer }
+    inCombat: false
+};
+
+// ══════════════════════════════════════════════════════
+//  Screen management
+// ══════════════════════════════════════════════════════
+
+function showScreen(name) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(`screen-${name}`).classList.add('active');
+}
+
+// ══════════════════════════════════════════════════════
+//  Utility
+// ══════════════════════════════════════════════════════
+
+function rollDice(count) {
+    let total = 0;
+    for (let i = 0; i < count; i++) total += Math.floor(Math.random() * 6) + 1;
+    return total;
+}
+
+// Animate a stat value counting up to its final number
+function animateStat(elId, finalValue, duration = 600) {
+    const el = document.getElementById(elId);
+    el.classList.add('rolling');
+    const start = Date.now();
+    const tick = setInterval(() => {
+        const elapsed = Date.now() - start;
+        if (elapsed >= duration) {
+            clearInterval(tick);
+            el.classList.remove('rolling');
+            el.textContent = finalValue;
+        } else {
+            el.textContent = Math.floor(Math.random() * 20) + 1;
+        }
+    }, 60);
+}
+
+function clamp(val, min, max) {
+    return Math.max(min, Math.min(max, val));
+}
+
+function getEffectiveSkill() {
+    // Best weapon skill bonus in inventory (not stacked — use highest only)
+    let best = 0;
+    for (const id of gameState.items) {
+        const def = gameState.adventure.items[id];
+        if (def && def.skill_bonus && def.skill_bonus > best) best = def.skill_bonus;
+    }
+    return gameState.skill.current + best;
+}
+
+// ══════════════════════════════════════════════════════
+//  Adventure loading
+// ══════════════════════════════════════════════════════
+
+async function loadAdventureList() {
+    try {
+        const res = await fetch('/api/adventures');
+        const list = await res.json();
+        const container = document.getElementById('adventure-cards');
+        container.innerHTML = '';
+        if (list.length === 0) {
+            container.innerHTML = '<div class="loading-text">No adventures found.</div>';
+            return;
+        }
+        for (const adv of list) {
+            const card = document.createElement('div');
+            card.className = 'adventure-card';
+            card.innerHTML = `
+                <div class="card-title">${adv.title}</div>
+                <div class="card-author">by ${adv.author}</div>
+                ${adv.introduction ? `<div class="card-intro">${adv.introduction}</div>` : ''}
+            `;
+            card.addEventListener('click', () => openAdventure(adv.id));
+            container.appendChild(card);
+        }
+    } catch (e) {
+        document.getElementById('adventure-cards').innerHTML =
+            '<div class="loading-text">Failed to load adventures.</div>';
+    }
+}
+
+async function openAdventure(id) {
+    try {
+        const res = await fetch(`/api/adventures/${id}`);
+        gameState.adventure = await res.json();
+        showCreateScreen();
+    } catch (e) {
+        alert('Failed to load adventure.');
+    }
+}
+
+// ══════════════════════════════════════════════════════
+//  Character creation
+// ══════════════════════════════════════════════════════
+
+function showCreateScreen() {
+    const adv = gameState.adventure;
+    document.getElementById('create-title').textContent = adv.title;
+    document.getElementById('create-intro').textContent = adv.introduction || '';
+
+    // Show formula hints
+    const cfg = adv.character;
+    document.getElementById('formula-skill').textContent =
+        `${cfg.skill_base} + ${cfg.skill_dice}d6`;
+    document.getElementById('formula-stamina').textContent =
+        `${cfg.stamina_base} + ${cfg.stamina_dice}d6`;
+    document.getElementById('formula-luck').textContent =
+        `${cfg.luck_base} + ${cfg.luck_dice}d6`;
+
+    // Reset roll display
+    ['roll-skill','roll-stamina','roll-luck'].forEach(id => {
+        document.getElementById(id).textContent = '—';
+    });
+    document.getElementById('btn-begin').disabled = true;
+
+    // Starting items
+    const container = document.getElementById('starting-items');
+    container.innerHTML = '';
+    for (const itemId of (cfg.starting_items || [])) {
+        const def = adv.items[itemId];
+        const tag = document.createElement('div');
+        tag.className = 'item-tag';
+        tag.textContent = def ? def.name : itemId;
+        container.appendChild(tag);
+    }
+    if (cfg.starting_provisions > 0) {
+        const tag = document.createElement('div');
+        tag.className = 'item-tag';
+        tag.textContent = `Provisions ×${cfg.starting_provisions}`;
+        container.appendChild(tag);
+    }
+
+    showScreen('create');
+}
+
+function rollCharacter() {
+    const cfg = gameState.adventure.character;
+    const skill   = cfg.skill_base   + rollDice(cfg.skill_dice);
+    const stamina = cfg.stamina_base + rollDice(cfg.stamina_dice);
+    const luck    = cfg.luck_base    + rollDice(cfg.luck_dice);
+
+    animateStat('roll-skill',   skill,   500);
+    animateStat('roll-stamina', stamina, 650);
+    animateStat('roll-luck',    luck,    800);
+
+    setTimeout(() => {
+        // Store rolled stats
+        gameState.skill   = { current: skill,   max: skill };
+        gameState.stamina = { current: stamina, max: stamina };
+        gameState.luck    = { current: luck,    max: luck };
+        gameState.items   = [...(cfg.starting_items || [])];
+        gameState.flags   = new Set();
+        gameState.provisions = cfg.starting_provisions || 0;
+        gameState.combat  = null;
+        gameState.inCombat = false;
+
+        document.getElementById('btn-begin').disabled = false;
+    }, 900);
+}
+
+function beginAdventure() {
+    const adv = gameState.adventure;
+    document.getElementById('game-title').textContent = adv.title;
+    showScreen('game');
+    navigateToPassage("1");
+}
+
+// ══════════════════════════════════════════════════════
+//  Passage navigation
+// ══════════════════════════════════════════════════════
+
+function navigateToPassage(id) {
+    const passage = gameState.adventure.passages[id];
+    if (!passage) {
+        console.error(`Passage "${id}" not found`);
+        return;
+    }
+
+    gameState.currentPassage = id;
+    gameState.inCombat = false;
+    gameState.combat = null;
+
+    // Apply arrival effects
+    if (passage.add_stamina) {
+        gameState.stamina.current = clamp(
+            gameState.stamina.current + passage.add_stamina,
+            0, gameState.stamina.max
+        );
+    }
+    if (passage.add_skill) {
+        gameState.skill.current = clamp(
+            gameState.skill.current + passage.add_skill,
+            0, gameState.skill.max
+        );
+    }
+    if (passage.add_luck) {
+        gameState.luck.current = clamp(
+            gameState.luck.current + passage.add_luck,
+            0, gameState.luck.max
+        );
+    }
+    if (passage.add_items) {
+        for (const item of passage.add_items) {
+            if (!gameState.items.includes(item)) gameState.items.push(item);
+        }
+    }
+    if (passage.remove_items) {
+        gameState.items = gameState.items.filter(i => !passage.remove_items.includes(i));
+    }
+    if (passage.set_flags) {
+        for (const flag of passage.set_flags) gameState.flags.add(flag);
+    }
+    if (passage.clear_flags) {
+        for (const flag of passage.clear_flags) gameState.flags.delete(flag);
+    }
+
+    updateSidebar();
+
+    // Death check
+    if (gameState.stamina.current <= 0) {
+        showDeath();
+        return;
+    }
+
+    renderPassage(passage);
+}
+
+// ══════════════════════════════════════════════════════
+//  Passage rendering
+// ══════════════════════════════════════════════════════
+
+function hideAllAreas() {
+    document.getElementById('choices-area').style.display  = 'none';
+    document.getElementById('combat-area').style.display   = 'none';
+    document.getElementById('luck-area').style.display     = 'none';
+    document.getElementById('ending-area').style.display   = 'none';
+}
+
+function renderPassage(passage) {
+    document.getElementById('passage-text').textContent = passage.text;
+    hideAllAreas();
+
+    if (passage.ending) {
+        renderEnding(passage);
+    } else if (passage.combat) {
+        startCombat(passage.combat);
+    } else if (passage.test_luck) {
+        renderLuckTest(passage.test_luck);
+    } else {
+        renderChoices(passage.choices || []);
+    }
+}
+
+function renderChoices(choices) {
+    const list = document.getElementById('choices-list');
+    list.innerHTML = '';
+
+    const available = choices.filter(c => isChoiceAvailable(c));
+
+    if (available.length === 0) {
+        // Dead end — shouldn't happen in a well-authored adventure
+        list.innerHTML = '<div class="loading-text">No paths forward.</div>';
+    } else {
+        for (const choice of available) {
+            const btn = document.createElement('button');
+            btn.className = 'choice-btn';
+            btn.textContent = choice.text;
+            btn.addEventListener('click', () => navigateToPassage(choice.goto));
+            list.appendChild(btn);
+        }
+    }
+
+    document.getElementById('choices-area').style.display = 'flex';
+}
+
+function isChoiceAvailable(choice) {
+    if (choice.requires_item && !gameState.items.includes(choice.requires_item)) return false;
+    if (choice.requires_flag && !gameState.flags.has(choice.requires_flag)) return false;
+    if (choice.requires_no_flag && gameState.flags.has(choice.requires_no_flag)) return false;
+    return true;
+}
+
+function renderEnding(passage) {
+    const titleEl = document.getElementById('ending-title');
+    const isVictory = passage.ending_type === 'victory';
+    titleEl.textContent = isVictory ? 'Victory!' : 'Defeat.';
+    titleEl.className = `ending-title ${isVictory ? 'victory' : 'defeat'}`;
+    document.getElementById('ending-area').style.display = 'flex';
+}
+
+// ══════════════════════════════════════════════════════
+//  Combat
+// ══════════════════════════════════════════════════════
+
+function startCombat(combatDef) {
+    const enemyDef = gameState.adventure.enemies[combatDef.enemy];
+    gameState.inCombat = true;
+    gameState.combat = {
+        def:                  combatDef,
+        enemyDef:             enemyDef,
+        enemyCurrentStamina:  enemyDef.stamina,
+        pendingDamage:        null,  // damage waiting for luck test
+        lastHitPlayer:        false  // true if enemy hit player this round
+    };
+
+    // Update combat UI
+    document.getElementById('enemy-name').textContent    = enemyDef.name;
+    document.getElementById('enemy-skill').textContent   = enemyDef.skill;
+    document.getElementById('enemy-stamina').textContent = enemyDef.stamina;
+    updateCombatPlayerStats();
+
+    document.getElementById('combat-log').innerHTML = '';
+    addLogEntry(`A ${enemyDef.name} stands before you!`, 'neutral');
+
+    document.getElementById('btn-attack').disabled = false;
+    document.getElementById('btn-combat-luck').style.display = 'none';
+    document.getElementById('btn-flee').style.display =
+        combatDef.flee_allowed ? 'inline-block' : 'none';
+
+    document.getElementById('combat-area').style.display = 'flex';
+}
+
+function updateCombatPlayerStats() {
+    document.getElementById('combat-player-skill').textContent  = getEffectiveSkill();
+    document.getElementById('combat-player-stamina').textContent = gameState.stamina.current;
+}
+
+function addLogEntry(text, cssClass) {
+    const log = document.getElementById('combat-log');
+    const div = document.createElement('div');
+    div.className = `log-entry ${cssClass}`;
+    div.textContent = text;
+    log.appendChild(div);
+    log.scrollTop = log.scrollHeight;
+}
+
+function attackRound() {
+    const combat = gameState.combat;
+    const playerAttack = rollDice(2) + getEffectiveSkill();
+    const enemyAttack  = rollDice(2) + combat.enemyDef.skill;
+
+    document.getElementById('btn-attack').disabled = true;
+    document.getElementById('btn-combat-luck').style.display = 'none';
+
+    addLogEntry(`You attack: ${playerAttack}   ${combat.enemyDef.name}: ${enemyAttack}`, 'neutral');
+
+    if (playerAttack > enemyAttack) {
+        // Player wins round
+        combat.lastHitPlayer = false;
+        combat.pendingDamage = 2;
+        addLogEntry(`You wound the ${combat.enemyDef.name} for 2 STAMINA!`, 'player-win');
+        document.getElementById('btn-combat-luck').style.display = 'inline-block';
+        // Apply damage after luck decision window (or immediately via button re-enable)
+        document.getElementById('btn-attack').dataset.pendingTarget = 'enemy';
+        document.getElementById('btn-attack').textContent = 'Continue';
+        document.getElementById('btn-attack').disabled = false;
+        document.getElementById('btn-attack').onclick = applyPendingDamage;
+    } else if (enemyAttack > playerAttack) {
+        // Enemy wins round
+        combat.lastHitPlayer = true;
+        combat.pendingDamage = 2;
+        addLogEntry(`The ${combat.enemyDef.name} wounds you for 2 STAMINA!`, 'enemy-win');
+        document.getElementById('btn-combat-luck').style.display = 'inline-block';
+        document.getElementById('btn-attack').dataset.pendingTarget = 'player';
+        document.getElementById('btn-attack').textContent = 'Continue';
+        document.getElementById('btn-attack').disabled = false;
+        document.getElementById('btn-attack').onclick = applyPendingDamage;
+    } else {
+        addLogEntry(`Both attacks clash — no damage dealt.`, 'neutral');
+        document.getElementById('btn-attack').textContent = 'Attack';
+        document.getElementById('btn-attack').disabled = false;
+        document.getElementById('btn-attack').onclick = attackRound;
+    }
+
+    updateCombatPlayerStats();
+}
+
+function applyPendingDamage() {
+    const combat = gameState.combat;
+    const dmg = combat.pendingDamage || 2;
+
+    document.getElementById('btn-combat-luck').style.display = 'none';
+    document.getElementById('btn-attack').textContent = 'Attack';
+    document.getElementById('btn-attack').onclick = attackRound;
+    combat.pendingDamage = null;
+
+    if (!combat.lastHitPlayer) {
+        // Damage to enemy
+        combat.enemyCurrentStamina -= dmg;
+        document.getElementById('enemy-stamina').textContent =
+            Math.max(0, combat.enemyCurrentStamina);
+        if (combat.enemyCurrentStamina <= 0) {
+            addLogEntry(`The ${combat.enemyDef.name} is defeated!`, 'player-win');
+            endCombat('victory');
+            return;
+        }
+    } else {
+        // Damage to player
+        gameState.stamina.current = clamp(
+            gameState.stamina.current - dmg, 0, gameState.stamina.max
+        );
+        updateSidebar();
+        updateCombatPlayerStats();
+        if (gameState.stamina.current <= 0) {
+            showDeath();
+            return;
+        }
+    }
+
+    document.getElementById('btn-attack').disabled = false;
+}
+
+function testLuckInCombat() {
+    const lucky = testLuck();
+    const combat = gameState.combat;
+    document.getElementById('btn-combat-luck').style.display = 'none';
+
+    if (!combat.lastHitPlayer) {
+        // Player hit enemy: lucky = +1 extra (3 total), unlucky = -1 (1 total)
+        if (lucky) {
+            combat.pendingDamage = 3;
+            addLogEntry(`Lucky! You deal an extra blow — 3 STAMINA damage!`, 'luck-good');
+        } else {
+            combat.pendingDamage = 1;
+            addLogEntry(`Unlucky! Your blow glances off — only 1 STAMINA damage.`, 'luck-bad');
+        }
+    } else {
+        // Enemy hit player: lucky = -1 (1 total), unlucky = +1 extra (3 total)
+        if (lucky) {
+            combat.pendingDamage = 1;
+            addLogEntry(`Lucky! You deflect most of the blow — only 1 STAMINA damage!`, 'luck-good');
+        } else {
+            combat.pendingDamage = 3;
+            addLogEntry(`Unlucky! The blow lands hard — 3 STAMINA damage!`, 'luck-bad');
+        }
+    }
+
+    updateSidebar();
+}
+
+function fleeCombat() {
+    const combat = gameState.combat;
+    const cost = combat.def.flee_stamina_cost || 2;
+    gameState.stamina.current = clamp(
+        gameState.stamina.current - cost, 0, gameState.stamina.max
+    );
+    updateSidebar();
+    if (gameState.stamina.current <= 0) { showDeath(); return; }
+    gameState.inCombat = false;
+    gameState.combat = null;
+    navigateToPassage(combat.def.flee_goto);
+}
+
+function endCombat(result) {
+    const combat = gameState.combat;
+    gameState.inCombat = false;
+    gameState.combat = null;
+    document.getElementById('combat-area').style.display = 'none';
+    if (result === 'victory') {
+        navigateToPassage(combat.def.win_goto);
+    }
+}
+
+// ══════════════════════════════════════════════════════
+//  Luck Test
+// ══════════════════════════════════════════════════════
+
+function testLuck() {
+    const roll = rollDice(2);
+    const lucky = roll <= gameState.luck.current;
+    gameState.luck.current = Math.max(0, gameState.luck.current - 1);
+    updateSidebar();
+    return lucky;
+}
+
+function renderLuckTest(luckDef) {
+    document.getElementById('luck-current-display').textContent = gameState.luck.current;
+    document.getElementById('luck-result-box').style.display = 'none';
+    document.getElementById('btn-test-luck').style.display = 'inline-block';
+    document.getElementById('btn-skip-luck').style.display = 'none';
+    document.getElementById('luck-area').style.display = 'flex';
+
+    // Store def on the button for use in handler
+    document.getElementById('btn-test-luck').onclick = () => resolveLuckTest(luckDef);
+}
+
+function resolveLuckTest(luckDef) {
+    const lucky = testLuck();
+    const resultBox = document.getElementById('luck-result-box');
+
+    if (lucky) {
+        resultBox.textContent = luckDef.lucky_text;
+        resultBox.className = 'luck-result lucky';
+        if (luckDef.lucky_stamina_cost) {
+            gameState.stamina.current = clamp(
+                gameState.stamina.current - luckDef.lucky_stamina_cost,
+                0, gameState.stamina.max
+            );
+        }
+        if (luckDef.lucky_add_items) {
+            for (const item of luckDef.lucky_add_items) {
+                if (!gameState.items.includes(item)) gameState.items.push(item);
+            }
+        }
+    } else {
+        resultBox.textContent = luckDef.unlucky_text;
+        resultBox.className = 'luck-result unlucky';
+        if (luckDef.unlucky_stamina_cost) {
+            gameState.stamina.current = clamp(
+                gameState.stamina.current - luckDef.unlucky_stamina_cost,
+                0, gameState.stamina.max
+            );
+        }
+        if (luckDef.unlucky_add_items) {
+            for (const item of luckDef.unlucky_add_items) {
+                if (!gameState.items.includes(item)) gameState.items.push(item);
+            }
+        }
+    }
+
+    resultBox.style.display = 'block';
+    updateSidebar();
+
+    document.getElementById('btn-test-luck').style.display = 'none';
+    document.getElementById('btn-skip-luck').style.display = 'inline-block';
+
+    const gotoId = lucky ? luckDef.lucky_goto : luckDef.unlucky_goto;
+    document.getElementById('btn-skip-luck').onclick = () => {
+        if (gameState.stamina.current <= 0) { showDeath(); return; }
+        navigateToPassage(gotoId);
+    };
+}
+
+// ══════════════════════════════════════════════════════
+//  Provisions
+// ══════════════════════════════════════════════════════
+
+function useProvisions() {
+    if (gameState.provisions <= 0 || gameState.inCombat) return;
+    const restoreDef = gameState.adventure.items['provisions'];
+    const restore = (restoreDef && restoreDef.stamina_restore) ? restoreDef.stamina_restore : 4;
+    gameState.stamina.current = clamp(
+        gameState.stamina.current + restore,
+        0, gameState.stamina.max
+    );
+    gameState.provisions--;
+    updateSidebar();
+}
+
+// ══════════════════════════════════════════════════════
+//  Death
+// ══════════════════════════════════════════════════════
+
+function showDeath() {
+    document.getElementById('death-overlay').classList.add('active');
+}
+
+function tryAgain() {
+    document.getElementById('death-overlay').classList.remove('active');
+    showCreateScreen();
+}
+
+// ══════════════════════════════════════════════════════
+//  Sidebar update
+// ══════════════════════════════════════════════════════
+
+function updateSidebar() {
+    const { skill, stamina, luck } = gameState;
+
+    document.getElementById('sb-skill').textContent   = skill.current;
+    document.getElementById('sb-stamina').textContent = `${stamina.current} / ${stamina.max}`;
+    document.getElementById('sb-luck').textContent    = `${luck.current} / ${luck.max}`;
+
+    document.getElementById('bar-skill').style.width   = `${(skill.current / skill.max) * 100}%`;
+    document.getElementById('bar-stamina').style.width = `${(stamina.current / stamina.max) * 100}%`;
+    document.getElementById('bar-luck').style.width    = `${(luck.current / luck.max) * 100}%`;
+
+    // Inventory
+    const invList = document.getElementById('inv-list');
+    invList.innerHTML = '';
+    for (const id of gameState.items) {
+        const def = gameState.adventure ? gameState.adventure.items[id] : null;
+        const div = document.createElement('div');
+        div.className = 'inv-item';
+        div.innerHTML = `<span class="inv-item-name">${def ? def.name : id}</span>`;
+        invList.appendChild(div);
+    }
+
+    document.getElementById('provisions-count').textContent = gameState.provisions;
+    document.getElementById('btn-provisions').disabled =
+        gameState.provisions <= 0 || gameState.inCombat;
+
+    // Luck test display in luck area
+    const luckDisplay = document.getElementById('luck-current-display');
+    if (luckDisplay) luckDisplay.textContent = gameState.luck.current;
+}
+
+// ══════════════════════════════════════════════════════
+//  Event listeners
+// ══════════════════════════════════════════════════════
+
+document.getElementById('btn-roll').addEventListener('click', rollCharacter);
+document.getElementById('btn-begin').addEventListener('click', beginAdventure);
+document.getElementById('btn-back-select').addEventListener('click', () => showScreen('select'));
+
+document.getElementById('btn-attack').addEventListener('click', attackRound);
+document.getElementById('btn-combat-luck').addEventListener('click', testLuckInCombat);
+document.getElementById('btn-flee').addEventListener('click', fleeCombat);
+
+document.getElementById('btn-provisions').addEventListener('click', useProvisions);
+
+document.getElementById('btn-play-again').addEventListener('click', () => showCreateScreen());
+document.getElementById('btn-try-again').addEventListener('click', tryAgain);
+
+// ══════════════════════════════════════════════════════
+//  Init
+// ══════════════════════════════════════════════════════
+
+loadAdventureList();
+</script>
+</body>
+</html>
