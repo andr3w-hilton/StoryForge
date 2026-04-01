@@ -887,7 +887,7 @@ async function loadAdventureList() {
 
     let list;
     try {
-        const res = await fetch('/api/adventures');
+        const res = await fetch('adventures/index.json');
         list = await res.json();
     } catch (e) {
         container.innerHTML = '<div class="loading-text">Failed to load adventures.</div>';
@@ -913,7 +913,7 @@ async function loadAdventureList() {
 
 async function openAdventure(id) {
     try {
-        const res = await fetch(`/api/adventures/${id}`);
+        const res = await fetch(`adventures/${id}.json`);
         gameState.adventure = await res.json();
         showCreateScreen();
     } catch (e) {
