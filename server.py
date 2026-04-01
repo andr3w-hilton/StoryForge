@@ -10,7 +10,7 @@ import json
 import os
 import threading
 
-HTTP_PORT = 8158
+HTTP_PORT = 8765
 ADVENTURES_DIR = os.path.join(os.path.dirname(__file__), "adventures")
 
 
@@ -93,8 +93,12 @@ class StoryForgeHandler(http.server.SimpleHTTPRequestHandler):
         pass  # Suppress request logging
 
 
+class StoryForgeServer(http.server.ThreadingHTTPServer):
+    allow_reuse_address = True
+
+
 def main():
-    server = http.server.ThreadingHTTPServer(("0.0.0.0", HTTP_PORT), StoryForgeHandler)
+    server = StoryForgeServer(("0.0.0.0", HTTP_PORT), StoryForgeHandler)
 
     print("=" * 50)
     print("  STORYFORGE - Gamebook Engine")
