@@ -2,6 +2,9 @@
     "title": "The Crypt of Count Valdric",
     "author": "Andrew Hilton",
     "version": "1.0",
+    "accent_color": "#5c7d5c",
+    "genre_tag": "GOTHIC HORROR",
+    "theme_icon": "☠",
     "introduction": "The village of Ashford is dying. For three months its crops have withered in the fields and its people have sickened with a wasting fever that no healer can cure. The village elder, Maren — a sharp-eyed woman who remembers the old stories — knows the cause.\n\nA century ago, the necromancer Count Valdric ruled these lands from the fortress now known as Valdric Keep. When the people finally rose against him, they sealed his corpse in the crypt beneath the ruins with a signet ring of binding. But the ring has been lost — stolen, perhaps, or shaken loose by the tremors that struck last autumn — and without it, Valdric's death-curse bleeds freely into the land.\n\nMaren has hired you to descend into the crypt, recover the Signet Ring, and reseal the tomb before Ashford withers entirely. She presses a vial of holy water into your hand as you leave. 'You will need this,' she says. 'The dead do not rest easily beneath Valdric Keep.'\n\nYour adventure begins on the road to the ruins.",
     "character": {
         "skill_base": 6,

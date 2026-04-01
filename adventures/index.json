@@ -3,12 +3,18 @@
     "id": "the_crypt_of_count_valdric",
     "title": "The Crypt of Count Valdric",
     "author": "Andrew Hilton",
+    "accent_color": "#5c7d5c",
+    "genre_tag": "GOTHIC HORROR",
+    "theme_icon": "☠",
     "introduction": "The village of Ashford is dying. For three months its crops have withered in the fields and its people have sickened with a wasting fever that no healer can cure. The village elder, Maren \u2014 a sharp-eyed woman who remembers the old stories \u2014 knows the cause.\n\nA century ago, the necromancer Count Valdric ruled these lands from the fortress now known as Valdric Keep. When the people finally rose against him, they sealed his corpse in the crypt beneath the ruins with a signet ring of binding. But the ring has been lost \u2014 stolen, perhaps, or shaken loose by the tremors that struck last autumn \u2014 and without it, Valdric's death-curse bleeds freely into the land.\n\nMaren has hired you to descend into the crypt, recover the Signet Ring, and reseal the tomb before Ashford withers entirely. She presses a vial of holy water into your hand as you leave. 'You will need this,' she says. 'The dead do not rest easily beneath Valdric Keep.'\n\nYour adventure begins on the road to the ruins."
   },
   {
     "id": "the_scavenger_of_new_babylon_station",
     "title": "The Scavenger of New Babylon Station",
     "author": "Andrew Hilton",
+    "accent_color": "#4a8ab5",
+    "genre_tag": "SPACE OPERA",
+    "theme_icon": "✦",
     "introduction": "New Babylon Station hangs in the dark between stars, a vast ring of corroded steel and failing systems at the ragged edge of Imperial space. Once it was a trade hub \u2014 a crossroads where a dozen species bartered fuel, ore, and information. That was before the war. Before the Empire pulled its garrison and left the station to rot.\n\nNow it is a place for people who have nowhere else to go. Smugglers, refugees, deserters, opportunists. People like you.\n\nYou are a scavenger \u2014 a freelance wreck-rat who makes a living pulling salvage from the station's dead lower decks. Three days ago, a dying Qeth trader pressed a data chip into your hand containing coordinates for something called the Void Compass \u2014 a Precursor navigation device worth more than the station itself. But Inquisitor Malachar of the Imperial Bureau of Antiquities is two jumps out and closing. You have six hours.\n\nYour adventure begins in the Freeport Market on New Babylon's middle ring."
   }
 ]

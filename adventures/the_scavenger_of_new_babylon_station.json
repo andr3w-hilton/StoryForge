@@ -2,6 +2,9 @@
     "title": "The Scavenger of New Babylon Station",
     "author": "Andrew Hilton",
     "version": "1.0",
+    "accent_color": "#4a8ab5",
+    "genre_tag": "SPACE OPERA",
+    "theme_icon": "✦",
     "introduction": "New Babylon Station hangs in the dark between stars, a vast ring of corroded steel and failing systems at the ragged edge of Imperial space. Once it was a trade hub — a crossroads where a dozen species bartered fuel, ore, and information. That was before the war. Before the Empire pulled its garrison and left the station to rot.\n\nNow it is a place for people who have nowhere else to go. Smugglers, refugees, deserters, opportunists. People like you.\n\nYou are a scavenger — a freelance wreck-rat who makes a living pulling salvage from the station's dead lower decks, where the lights failed years ago and the atmosphere recyclers groan like wounded animals. It is dangerous work, but it pays. Most of the time.\n\nThree days ago, a dying Qeth trader pressed a data chip into your hand in a docking bay cantina. The chip contained coordinates — not for a wreck, but for something inside New Babylon itself. Deep in the sealed-off lower decks. An artefact called the Void Compass, a navigation device built by the Precursors millennia before humanity ever left Earth. Worth more than the station itself to the right buyer.\n\nBut you are not the only one who knows. Word has reached Inquisitor Malachar of the Imperial Bureau of Antiquities — a man who collects alien artefacts the way other men collect debts, and who leaves bodies behind him with the same indifference. His corvette was spotted two jumps out, eighteen hours ago.\n\nYou have perhaps six hours before he docks. Time to gear up, get down to the lower decks, find the Compass, and get out before Malachar turns this station into a crime scene.\n\nYour adventure begins in the Freeport Market on New Babylon's middle ring.",
     "character": {
         "skill_base": 6,
