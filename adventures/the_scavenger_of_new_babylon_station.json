@@ -3,7 +3,6 @@
     "author": "Andrew Hilton",
     "version": "1.0",
     "introduction": "New Babylon Station hangs in the dark between stars, a vast ring of corroded steel and failing systems at the ragged edge of Imperial space. Once it was a trade hub — a crossroads where a dozen species bartered fuel, ore, and information. That was before the war. Before the Empire pulled its garrison and left the station to rot.\n\nNow it is a place for people who have nowhere else to go. Smugglers, refugees, deserters, opportunists. People like you.\n\nYou are a scavenger — a freelance wreck-rat who makes a living pulling salvage from the station's dead lower decks, where the lights failed years ago and the atmosphere recyclers groan like wounded animals. It is dangerous work, but it pays. Most of the time.\n\nThree days ago, a dying Qeth trader pressed a data chip into your hand in a docking bay cantina. The chip contained coordinates — not for a wreck, but for something inside New Babylon itself. Deep in the sealed-off lower decks. An artefact called the Void Compass, a navigation device built by the Precursors millennia before humanity ever left Earth. Worth more than the station itself to the right buyer.\n\nBut you are not the only one who knows. Word has reached Inquisitor Malachar of the Imperial Bureau of Antiquities — a man who collects alien artefacts the way other men collect debts, and who leaves bodies behind him with the same indifference. His corvette was spotted two jumps out, eighteen hours ago.\n\nYou have perhaps six hours before he docks. Time to gear up, get down to the lower decks, find the Compass, and get out before Malachar turns this station into a crime scene.\n\nYour adventure begins in the Freeport Market on New Babylon's middle ring.",
-
     "character": {
         "skill_base": 6,
         "skill_dice": 1,
@@ -11,117 +10,258 @@
         "stamina_dice": 2,
         "luck_base": 6,
         "luck_dice": 1,
-        "starting_items": ["vibro_knife", "provisions"],
+        "starting_items": [
+            "vibro_knife",
+            "provisions"
+        ],
         "starting_provisions": 3
     },
-
     "items": {
-        "vibro_knife":      { "name": "Vibro-Knife",       "type": "weapon",     "skill_bonus": 0, "description": "A short blade with a molecular-edge oscillator. Standard scavenger kit — good for cutting cable and throats alike." },
-        "plasma_pistol":    { "name": "Plasma Pistol",     "type": "weapon",     "skill_bonus": 1, "description": "A compact sidearm that fires superheated gas. Devastating at close range. +1 SKILL in combat." },
-        "void_compass":     { "name": "Void Compass",      "type": "quest",      "description": "A Precursor navigation device — a sphere of dark crystal veined with silver light. It pulses with an intelligence older than human civilisation." },
-        "security_keycard": { "name": "Security Keycard",   "type": "quest",      "description": "A Station Authority keycard, still active. Opens security bulkheads in the lower decks." },
-        "repair_kit":       { "name": "Repair Kit",        "type": "tool",       "description": "Micro-tools, sealant paste, and spare circuit boards. Useful for patching systems or jury-rigging doors." },
-        "stim_pack":        { "name": "Stim-Pack",         "type": "consumable", "stamina_restore": 4, "description": "A military-grade stimulant injector. Floods the system with adrenaline and nano-healers. Restores 4 STAMINA." },
-        "data_chip":        { "name": "Qeth Data Chip",    "type": "quest",      "description": "The data chip from the dying Qeth trader. It contains a map to the Void Compass — coordinates deep in the lower decks." },
-        "emp_grenade":      { "name": "EMP Grenade",       "type": "tool",       "description": "A single-use electromagnetic pulse device. Fries electronics in a ten-metre radius." },
-        "provisions":       { "name": "Ration Pack",       "type": "consumable", "stamina_restore": 4, "description": "Vacuum-sealed protein bars and a water pouch. Tastes like cardboard and regret. Restores 4 STAMINA." }
+        "vibro_knife": {
+            "name": "Vibro-Knife",
+            "type": "weapon",
+            "skill_bonus": 0,
+            "description": "A short blade with a molecular-edge oscillator. Standard scavenger kit — good for cutting cable and throats alike."
+        },
+        "plasma_pistol": {
+            "name": "Plasma Pistol",
+            "type": "weapon",
+            "skill_bonus": 1,
+            "description": "A compact sidearm that fires superheated gas. Devastating at close range. +1 SKILL in combat."
+        },
+        "void_compass": {
+            "name": "Void Compass",
+            "type": "quest",
+            "description": "A Precursor navigation device — a sphere of dark crystal veined with silver light. It pulses with an intelligence older than human civilisation."
+        },
+        "security_keycard": {
+            "name": "Security Keycard",
+            "type": "quest",
+            "description": "A Station Authority keycard, still active. Opens security bulkheads in the lower decks."
+        },
+        "repair_kit": {
+            "name": "Repair Kit",
+            "type": "tool",
+            "description": "Micro-tools, sealant paste, and spare circuit boards. Useful for patching systems or jury-rigging doors."
+        },
+        "stim_pack": {
+            "name": "Stim-Pack",
+            "type": "consumable",
+            "stamina_restore": 4,
+            "description": "A military-grade stimulant injector. Floods the system with adrenaline and nano-healers. Restores 4 STAMINA."
+        },
+        "data_chip": {
+            "name": "Qeth Data Chip",
+            "type": "quest",
+            "description": "The data chip from the dying Qeth trader. It contains a map to the Void Compass — coordinates deep in the lower decks."
+        },
+        "emp_grenade": {
+            "name": "EMP Grenade",
+            "type": "tool",
+            "description": "A single-use electromagnetic pulse device. Fries electronics in a ten-metre radius."
+        },
+        "provisions": {
+            "name": "Ration Pack",
+            "type": "consumable",
+            "stamina_restore": 4,
+            "description": "Vacuum-sealed protein bars and a water pouch. Tastes like cardboard and regret. Restores 4 STAMINA."
+        }
     },
-
     "enemies": {
-        "security_drone":       { "name": "Security Drone",        "skill": 6, "stamina": 5 },
-        "imperial_soldier":     { "name": "Imperial Soldier",      "skill": 7, "stamina": 7 },
-        "duct_crawler":         { "name": "Duct Crawler",          "skill": 5, "stamina": 4 },
-        "mutant_stalker":       { "name": "Mutant Stalker",        "skill": 8, "stamina": 9 },
-        "imperial_enforcer":    { "name": "Imperial Enforcer",     "skill": 8, "stamina": 8 },
-        "inquisitor_malachar":  { "name": "Inquisitor Malachar",   "skill": 10, "stamina": 14 },
-        "malachar_weakened":    { "name": "Inquisitor Malachar (Wounded)", "skill": 8, "stamina": 10 }
+        "security_drone": {
+            "name": "Security Drone",
+            "skill": 6,
+            "stamina": 5
+        },
+        "imperial_soldier": {
+            "name": "Imperial Soldier",
+            "skill": 7,
+            "stamina": 7
+        },
+        "duct_crawler": {
+            "name": "Duct Crawler",
+            "skill": 5,
+            "stamina": 4
+        },
+        "mutant_stalker": {
+            "name": "Mutant Stalker",
+            "skill": 8,
+            "stamina": 9
+        },
+        "imperial_enforcer": {
+            "name": "Imperial Enforcer",
+            "skill": 8,
+            "stamina": 8
+        },
+        "inquisitor_malachar": {
+            "name": "Inquisitor Malachar",
+            "skill": 10,
+            "stamina": 14
+        },
+        "malachar_weakened": {
+            "name": "Inquisitor Malachar (Wounded)",
+            "skill": 8,
+            "stamina": 10
+        }
     },
-
     "passages": {
         "1": {
             "text": "The Freeport Market is a cathedral of noise and bad air. Stalls are crammed into what was once a cargo sorting bay — welded together from shipping containers, hung with LED strips and hand-lettered signs in a dozen languages. The air stinks of frying protein, coolant fluid, and unwashed bodies.\n\nYou push through the crowd, one hand on the data chip in your jacket pocket. Six hours. Maybe less. You need to get to the lower decks, and there are two ways down.\n\nThe maintenance shafts on the station's north spine are the direct route — dark, tight, and unmapped. Scavengers use them, but so do the things that live in the walls. The other option is the cargo elevator on the south side, which still works intermittently, but it passes through a section controlled by Harko's crew — smugglers who charge a toll and don't take no for an answer.\n\nBefore you decide, you notice a weapons dealer across the market hawking plasma pistols from a battered case. And near the market's edge, old Zara — the station's best-connected information broker — is watching you from her tea stall with knowing eyes.",
-            "add_items": ["data_chip"],
+            "add_items": [
+                "data_chip"
+            ],
             "choices": [
-                { "text": "Visit the weapons dealer first", "goto": "2" },
-                { "text": "Talk to Zara the information broker", "goto": "3" },
-                { "text": "Head straight for the north maintenance shafts", "goto": "6" },
-                { "text": "Head for the south cargo elevator", "goto": "7" }
+                {
+                    "text": "Visit the weapons dealer first",
+                    "goto": "2"
+                },
+                {
+                    "text": "Talk to Zara the information broker",
+                    "goto": "3"
+                },
+                {
+                    "text": "Head straight for the north maintenance shafts",
+                    "goto": "6"
+                },
+                {
+                    "text": "Head for the south cargo elevator",
+                    "goto": "7"
+                }
             ]
         },
-
         "2": {
             "text": "The dealer is a heavyset Vellian with four arms, each one busy with a different task — polishing a barrel, counting credits, scratching his neck, and beckoning you closer. His name, according to the sign, is Gruub.\n\n'You look like someone who needs firepower in a hurry,' Gruub says, grinning with too many teeth. 'Plasma pistol. Compact model. Three shots before the cell's dead, but those three shots will put a hole through hull plating.' He names a price — steep, but not unreasonable for hardware that could save your life.\n\nYou count your credits. You can afford it, barely.",
-            "add_items": ["plasma_pistol"],
+            "add_items": [
+                "plasma_pistol"
+            ],
             "add_luck": -1,
             "choices": [
-                { "text": "Talk to Zara the information broker", "goto": "3" },
-                { "text": "Head for the north maintenance shafts", "goto": "6" },
-                { "text": "Head for the south cargo elevator", "goto": "7" }
+                {
+                    "text": "Talk to Zara the information broker",
+                    "goto": "3"
+                },
+                {
+                    "text": "Head for the north maintenance shafts",
+                    "goto": "6"
+                },
+                {
+                    "text": "Head for the south cargo elevator",
+                    "goto": "7"
+                }
+            ],
+            "set_flags": [
+                "has_plasma_pistol"
             ]
         },
-
         "3": {
             "text": "Zara is ancient — nobody knows how old — and she sits behind her tea stall like a spider in a web. She pours you a cup of something dark and bitter without asking.\n\n'You have the Qeth's chip,' she says. It is not a question. 'I know what it leads to. And I know who is coming for it.' She sips her tea. 'Malachar. Eighteen hours ago he was two jumps out. Which means he docks in five hours, maybe four. His advance team may already be on the station.'\n\nShe leans forward. 'I can tell you two things. First: there is an Imperial deserter on the station. A soldier named Voss. He was part of Malachar's personal guard until he developed a conscience. He is hiding in the maintenance corridors near shaft seven. If you find him, he may help you — he knows Malachar's methods.'\n\nShe holds up a gnarled finger. 'Second: the lower decks are sealed with Station Authority bulkheads. You need a security keycard to get through them. I know where one is — the old security office on sub-level two, near the cargo elevator. It has not been looted because Harko's crew controls that section.'\n\nShe finishes her tea. 'That is all I will say for free.'",
-            "set_flags": ["zara_info"],
+            "set_flags": [
+                "zara_info"
+            ],
             "choices": [
-                { "text": "Visit the weapons dealer", "goto": "2", "requires_no_flag": "has_plasma_pistol" },
-                { "text": "Head for the north maintenance shafts — and look for Voss", "goto": "6" },
-                { "text": "Head for the south cargo elevator and the security office", "goto": "7" }
+                {
+                    "text": "Visit the weapons dealer",
+                    "goto": "2",
+                    "requires_no_flag": "has_plasma_pistol"
+                },
+                {
+                    "text": "Head for the north maintenance shafts — and look for Voss",
+                    "goto": "6"
+                },
+                {
+                    "text": "Head for the south cargo elevator and the security office",
+                    "goto": "7"
+                }
             ]
         },
-
         "4": {
             "text": "You find him in a dead-end service corridor near shaft seven, exactly where Zara said. He has made a nest of sorts — a sleeping bag, a portable heater, MRE wrappers. He is younger than you expected. Short military haircut growing out. Haunted eyes.\n\nHe has a weapon drawn before you finish rounding the corner, but he does not fire.\n\n'I'm not Imperial anymore,' he says quickly. 'If Malachar sent you—'\n\n'He didn't,' you say. 'Zara told me about you.'\n\nSomething loosens in his face. He lowers the weapon — a service pistol, standard Imperial issue. 'Zara. Right.' He exhales. 'I'm Voss. Corporal Voss, formerly of the Inquisitorial Guard. I walked away three weeks ago when Malachar ordered the execution of a Qeth archaeological team. Civilians. Scientists. He killed them for a map.'\n\nHis jaw tightens. 'The same map that's on your data chip, I'm guessing. He's coming here for the Void Compass. And he will burn this station to the hull if he has to.' Voss stands. 'I know his playbook. His tactics. His access codes. Take me with you and I can get us through doors that would otherwise stay shut.'",
-            "set_flags": ["met_voss"],
+            "set_flags": [
+                "met_voss"
+            ],
             "choices": [
-                { "text": "Accept Voss as an ally", "goto": "4a" },
-                { "text": "Decline — you work alone", "goto": "5" }
+                {
+                    "text": "Accept Voss as an ally",
+                    "goto": "4a"
+                },
+                {
+                    "text": "Decline — you work alone",
+                    "goto": "5"
+                }
             ]
         },
-
         "4a": {
             "text": "'Good,' Voss says, and there is visible relief in his face. He packs up his meagre camp in thirty seconds flat — military efficiency. 'The lower decks are dangerous. Atmosphere is thin in places, and the radiation shielding failed in some sections years ago. But the biggest problem is the wildlife.'\n\nHe checks his pistol. 'The maintenance levels between here and the sealed decks have duct crawlers — mutated vermin, mostly. Nasty but manageable. Below that, in the sealed sections...' He hesitates. 'Malachar's last report mentioned something else down there. Something bigger. His scouts didn't come back.'\n\nVoss clips a small device to his belt — a signal scrambler. 'This will keep Imperial sensors from tracking us. For a while, anyway. Let's move.'",
-            "set_flags": ["voss_allied"],
+            "set_flags": [
+                "voss_allied"
+            ],
             "add_luck": 1,
             "choices": [
-                { "text": "Descend into the maintenance shafts together", "goto": "8" }
+                {
+                    "text": "Descend into the maintenance shafts together",
+                    "goto": "8"
+                }
             ]
         },
-
         "5": {
             "text": "Voss nods slowly. 'Your call. But if you run into Malachar down there...' He does not finish the sentence. He does not need to.\n\nYou leave him in his corridor and continue toward the maintenance shafts. The station groans around you — the sound of metal expanding and contracting in the void. Somewhere far below, something is waiting.",
             "choices": [
-                { "text": "Continue into the maintenance shafts", "goto": "8" }
+                {
+                    "text": "Continue into the maintenance shafts",
+                    "goto": "8"
+                }
             ]
         },
-
         "6": {
             "text": "The north spine is a vertical column of infrastructure — pipes, cables, ventilation ducts — that runs the full height of the station. Maintenance shafts branch off it like ribs. Most of them are unlit, and the ones that descend toward the lower decks have been officially condemned for years.\n\nYou find shaft seven easily enough. The access hatch is wedged open with a pry bar — other scavengers have been here before you. Beyond the hatch, a ladder descends into darkness. Your headlamp cuts a thin beam through the dusty air.\n\nAs you prepare to descend, you notice boot prints in the dust. Fresh ones, leading to a side corridor.",
             "choices": [
-                { "text": "Follow the boot prints", "goto": "4", "requires_flag": "zara_info" },
-                { "text": "Investigate the side corridor", "goto": "4", "requires_no_flag": "zara_info" },
-                { "text": "Ignore them and descend the shaft immediately", "goto": "8" }
+                {
+                    "text": "Follow the boot prints",
+                    "goto": "4",
+                    "requires_flag": "zara_info"
+                },
+                {
+                    "text": "Investigate the side corridor",
+                    "goto": "4",
+                    "requires_no_flag": "zara_info"
+                },
+                {
+                    "text": "Ignore them and descend the shaft immediately",
+                    "goto": "8"
+                }
             ]
         },
-
         "7": {
             "text": "The south cargo elevator is a massive industrial platform designed to move shipping containers between decks. It still works — barely — shuddering and grinding as it descends. The problem is the territory it passes through.\n\nHarko's crew controls sub-levels one and two. They are smugglers, mostly — running contraband through the station's dead zones. They charge a toll to anyone who passes through their turf. Those who refuse to pay tend to disappear.\n\nYou ride the elevator down to sub-level one. The doors grind open to reveal a barricade of welded scrap metal, manned by two bored-looking thugs with shotguns. One of them holds up a hand.\n\n'Toll,' he says. 'Fifty credits or something worth fifty credits. Or you ride back up.'",
             "choices": [
-                { "text": "Pay the toll and pass through", "goto": "7a" },
-                { "text": "Bluff your way past — claim you're working for Harko", "goto": "7b" },
-                { "text": "Turn back and take the maintenance shafts instead", "goto": "6" }
+                {
+                    "text": "Pay the toll and pass through",
+                    "goto": "7a"
+                },
+                {
+                    "text": "Bluff your way past — claim you're working for Harko",
+                    "goto": "7b"
+                },
+                {
+                    "text": "Turn back and take the maintenance shafts instead",
+                    "goto": "6"
+                }
             ]
         },
-
         "7a": {
             "text": "You hand over the credits. The thug counts them with practised fingers, nods, and waves you through. Beyond the barricade, Harko's territory is surprisingly well-organised — better lit than most of the station, with power tapped from the main grid. Smugglers need infrastructure.\n\nYou move through quickly, keeping your head down. On sub-level two, you spot the old security office Zara mentioned — if she mentioned it. The door is dented but intact, and the lock panel beside it still has power.",
             "add_luck": -1,
             "choices": [
-                { "text": "Try to access the security office", "goto": "7c", "requires_flag": "zara_info" },
-                { "text": "Continue past to the maintenance shafts beyond Harko's territory", "goto": "8" }
+                {
+                    "text": "Try to access the security office",
+                    "goto": "7c"
+                },
+                {
+                    "text": "Continue past to the maintenance shafts beyond Harko's territory",
+                    "goto": "8"
+                }
             ]
         },
-
         "7b": {
             "text": "You straighten your back and put authority into your voice. 'Harko sent me. Sub-level three job. You want to call him and explain why his cargo is late?'\n\nThe two thugs exchange a glance.",
             "test_luck": {
@@ -133,48 +273,72 @@
                 "unlucky_stamina_cost": 3
             }
         },
-
         "7c_lucky": {
             "text": "The security office door is sealed, but the lock panel still has power. You examine it — a standard Station Authority biometric lock, but the biometric reader is smashed. Only the keypad entry still works. Someone has scratched four numbers into the wall beside it: 7-7-3-1. A previous scavenger's gift, perhaps.\n\nYou punch in the code. The door slides open with a reluctant hiss.\n\nInside, the office is small and ransacked — chairs overturned, monitors smashed. But in a drawer beneath the main console, you find what you need: a Station Authority security keycard, still sealed in its plastic sleeve. It should open the bulkhead doors to the lower decks.",
-            "add_items": ["security_keycard"],
+            "add_items": [
+                "security_keycard"
+            ],
             "choices": [
-                { "text": "Search the office more thoroughly", "goto": "7d" },
-                { "text": "Take the keycard and head for the maintenance shafts", "goto": "8" }
+                {
+                    "text": "Search the office more thoroughly",
+                    "goto": "7d"
+                },
+                {
+                    "text": "Take the keycard and head for the maintenance shafts",
+                    "goto": "8"
+                }
             ]
         },
-
         "7c": {
             "text": "The security office door is sealed, but the lock panel still has power. You examine it — a standard Station Authority biometric lock, but the biometric reader is smashed. Only the keypad entry still works. Someone has scratched four numbers into the wall beside it: 7-7-3-1. A previous scavenger's gift, perhaps.\n\nYou punch in the code. The door slides open with a reluctant hiss.\n\nInside, the office is small and ransacked — chairs overturned, monitors smashed. But in a drawer beneath the main console, you find what you need: a Station Authority security keycard, still sealed in its plastic sleeve.",
-            "add_items": ["security_keycard"],
+            "add_items": [
+                "security_keycard"
+            ],
             "choices": [
-                { "text": "Search the office more thoroughly", "goto": "7d" },
-                { "text": "Take the keycard and head for the maintenance shafts", "goto": "8" }
+                {
+                    "text": "Search the office more thoroughly",
+                    "goto": "7d"
+                },
+                {
+                    "text": "Take the keycard and head for the maintenance shafts",
+                    "goto": "8"
+                }
             ]
         },
-
         "7a_unlucky": {
             "text": "You pick yourself up from the floor, ribs aching, credits gone. The thugs have already lost interest. Beyond their barricade, you press on through sub-level two, nursing your bruises.\n\nYou pass the old security office but the door is sealed and you are in no mood to linger in Harko's territory. Better to keep moving.",
             "choices": [
-                { "text": "Continue to the maintenance shafts", "goto": "8" }
+                {
+                    "text": "Continue to the maintenance shafts",
+                    "goto": "8"
+                }
             ]
         },
-
         "7d": {
             "text": "You dig through the remaining drawers and cabinets. Most contain useless paperwork — duty rosters, incident reports from a station that no longer exists in any meaningful sense. But taped to the underside of the desk, you find a single EMP grenade. Military hardware — someone stashed it here as insurance.\n\nThe grenade is compact and heavy in your hand. One use only, but it would fry every electronic system within ten metres. Drones, locks, comm relays. Useful.",
-            "add_items": ["emp_grenade"],
+            "add_items": [
+                "emp_grenade"
+            ],
             "choices": [
-                { "text": "Head for the maintenance shafts", "goto": "8" }
+                {
+                    "text": "Head for the maintenance shafts",
+                    "goto": "8"
+                }
             ]
         },
-
         "8": {
             "text": "The maintenance shafts narrow as you descend. The walls are streaked with condensation and something that might be mould or might be worse. Your headlamp flickers — the electromagnetic interference this deep in the station plays havoc with unshielded electronics.\n\nThree levels down, the shaft opens into a horizontal crawlway. The air is thinner here and tastes of metal. Your data chip's coordinates point further down, but the crawlway branches — left toward what the station schematics call 'Service Corridor 7-Alpha,' and right toward 'Cargo Bay 12.'\n\nA sound echoes from the left branch. Scratching. Skittering. Something moving fast across metal.",
             "choices": [
-                { "text": "Go left toward Service Corridor 7-Alpha", "goto": "9" },
-                { "text": "Go right toward Cargo Bay 12", "goto": "10" }
+                {
+                    "text": "Go left toward Service Corridor 7-Alpha",
+                    "goto": "9"
+                },
+                {
+                    "text": "Go right toward Cargo Bay 12",
+                    "goto": "10"
+                }
             ]
         },
-
         "9": {
             "text": "The crawlway opens into Service Corridor 7-Alpha — a long, low-ceilinged passage lined with pipe runs and junction boxes. Emergency lighting flickers in intermittent red pulses, casting everything in a hellish strobe.\n\nThe skittering is louder here. You see movement — a shape the size of a large dog, pale and segmented, scuttling along the ceiling with too many legs. A DUCT CRAWLER. The station's lower decks breed them — mutated vermin that feed on cable insulation and anything else organic enough to digest.\n\nIt drops from the ceiling toward you, mandibles clicking.",
             "combat": {
@@ -185,37 +349,76 @@
                 "flee_stamina_cost": 2
             }
         },
-
         "9a": {
             "text": "The crawler twitches once and goes still, its pale ichor pooling on the deck plates. You step over it and continue along the corridor.\n\nAhead, the passage ends at a heavy bulkhead door — one of the Station Authority seals that locks off the lower decks. A red light blinks on the access panel beside it. RESTRICTED — AUTHORISED PERSONNEL ONLY.\n\nThe data chip's coordinates lie beyond this door.",
             "choices": [
-                { "text": "Use the security keycard", "goto": "12", "requires_item": "security_keycard" },
-                { "text": "Use the repair kit to bypass the lock", "goto": "11", "requires_item": "repair_kit" },
-                { "text": "Ask Voss to use his Imperial codes", "goto": "11a", "requires_flag": "voss_allied" },
-                { "text": "Try to force the door", "goto": "9b" }
+                {
+                    "text": "Use the security keycard",
+                    "goto": "12",
+                    "requires_item": "security_keycard"
+                },
+                {
+                    "text": "Use the repair kit to bypass the lock",
+                    "goto": "11",
+                    "requires_item": "repair_kit"
+                },
+                {
+                    "text": "Ask Voss to use his Imperial codes",
+                    "goto": "11a",
+                    "requires_flag": "voss_allied"
+                },
+                {
+                    "text": "Try to force the door",
+                    "goto": "9b"
+                }
             ]
         },
-
         "9b": {
             "text": "You throw your weight against the bulkhead door. It does not move. You try your vibro-knife on the lock mechanism, but the housing is reinforced tritanium — the blade skitters across the surface without leaving a mark.\n\nThis door was built to withstand explosive decompression. It is not going to yield to brute force. You need a keycard, a bypass tool, or someone with the right codes.",
             "add_stamina": -1,
             "choices": [
-                { "text": "Use the security keycard", "goto": "12", "requires_item": "security_keycard" },
-                { "text": "Use the repair kit to bypass the lock", "goto": "11", "requires_item": "repair_kit" },
-                { "text": "Ask Voss to use his Imperial codes", "goto": "11a", "requires_flag": "voss_allied" },
-                { "text": "Go back and try Cargo Bay 12 instead", "goto": "10" }
+                {
+                    "text": "Use the security keycard",
+                    "goto": "12",
+                    "requires_item": "security_keycard"
+                },
+                {
+                    "text": "Use the repair kit to bypass the lock",
+                    "goto": "11",
+                    "requires_item": "repair_kit"
+                },
+                {
+                    "text": "Ask Voss to use his Imperial codes",
+                    "goto": "11a",
+                    "requires_flag": "voss_allied"
+                },
+                {
+                    "text": "Go back and try Cargo Bay 12 instead",
+                    "goto": "10"
+                },
+                {
+                    "text": "Push deeper into the shafts — there must be another entrance",
+                    "goto": "death_station"
+                }
             ]
         },
-
         "10": {
             "text": "Cargo Bay 12 is cavernous — a vast dark space that swallows your headlamp beam. Shipping containers stand in rusting rows like the buildings of a dead city. The air is cold here, noticeably colder than the corridors above.\n\nYou pick your way between the containers, following the data chip's coordinates. The bay connects to the lower decks through a freight loading tunnel at its far end. But as you move deeper into the bay, you notice something wrong. The containers nearest the loading tunnel have been torn open — not by tools, but by something with terrible strength. Metal peeled back like paper. Claw marks gouged into steel.\n\nAnd there is a smell. Biological. Rank. The smell of something large and alive.",
             "choices": [
-                { "text": "Press on toward the loading tunnel", "goto": "10a" },
-                { "text": "Search the torn containers for salvage", "goto": "10b" },
-                { "text": "Go back and try Service Corridor 7-Alpha", "goto": "9" }
+                {
+                    "text": "Press on toward the loading tunnel",
+                    "goto": "10a"
+                },
+                {
+                    "text": "Search the torn containers for salvage",
+                    "goto": "10b"
+                },
+                {
+                    "text": "Go back and try Service Corridor 7-Alpha",
+                    "goto": "9"
+                }
             ]
         },
-
         "10a": {
             "text": "You are halfway to the loading tunnel when it emerges from behind a container stack. Huge. Three metres tall, hunched, its body a mass of grey-green muscle and chitinous plates. It might have been human once — the basic shape is there — but radiation and decades of isolation in the station's dead zones have turned it into something else entirely.\n\nA MUTANT STALKER. Its eyes are milky white and sightless, but its head tracks you with terrible precision. It hunts by sound and smell. It opens a mouth full of needle teeth and screams — a sound like tearing metal.\n\nIt charges.",
             "combat": {
@@ -226,72 +429,115 @@
                 "flee_stamina_cost": 3
             }
         },
-
         "10b": {
-            "text": "You check the torn containers cautiously. Most are empty — whatever cargo they held was consumed or destroyed long ago. But in one, wedged behind a collapsed shelf unit, you find a repair kit in a sealed case. Standard Station Authority maintenance issue. The tools inside are pristine.\n\nYou also find bones. Human bones, cracked and gnawed. Whatever tore these containers open, it has been feeding. You pocket the repair kit and move on quickly.",
-            "add_items": ["repair_kit"],
+            "text": "You check the torn containers cautiously. Most are empty — whatever cargo they held was consumed or destroyed long ago. But in one, wedged behind a collapsed shelf unit, you find a repair kit in a sealed case and, wedged beside it, a military stim-pack — stimulant and analgesic, enough to keep a wounded soldier fighting. Both still sealed.\n\nYou also find bones. Human bones, cracked and gnawed. Whatever tore these containers open, it has been feeding. You pocket the repair kit and move on quickly.",
+            "add_items": [
+                "repair_kit",
+                "stim_pack"
+            ],
             "choices": [
-                { "text": "Press on toward the loading tunnel", "goto": "10a" },
-                { "text": "Go back and try Service Corridor 7-Alpha", "goto": "9" }
+                {
+                    "text": "Press on toward the loading tunnel",
+                    "goto": "10a"
+                },
+                {
+                    "text": "Go back and try Service Corridor 7-Alpha",
+                    "goto": "9"
+                }
             ]
         },
-
         "11": {
             "text": "You kneel beside the access panel and pry off the housing with your vibro-knife. Inside, the lock mechanism is standard Station Authority hardware — old but well-engineered. You pull out your repair kit and get to work, bridging circuits and rerouting the authorisation pathway.\n\nIt takes five tense minutes. Twice you short a connection and have to start over. But finally, the panel chimes green and the bulkhead door grinds open, revealing a dark passage beyond.\n\nYou are through.",
             "choices": [
-                { "text": "Enter the lower decks", "goto": "12a" }
+                {
+                    "text": "Enter the lower decks",
+                    "goto": "12a"
+                }
             ]
         },
-
         "11a": {
             "text": "Voss steps up to the access panel and plugs in a small device from his belt. 'Imperial override codes,' he says, fingers moving quickly. 'Malachar changes them every rotation, but the Station Authority systems haven't been updated in years. They'll still accept the old ones.'\n\nThe panel flashes amber, then green. The bulkhead door groans open.\n\nVoss grins — the first time you have seen him smile. 'Being a traitor has its perks.'",
             "choices": [
-                { "text": "Enter the lower decks", "goto": "12a" }
+                {
+                    "text": "Enter the lower decks",
+                    "goto": "12a"
+                }
             ]
         },
-
         "12": {
             "text": "You press the security keycard against the reader. The panel flashes green immediately and the bulkhead door slides open with a deep hydraulic sigh. Beyond it, the air is noticeably colder. The emergency lighting here is blue instead of red — the lower decks operate on a different power grid.\n\nYou step through. The door seals behind you with a sound of finality.",
             "choices": [
-                { "text": "Continue into the lower decks", "goto": "12a" }
+                {
+                    "text": "Continue into the lower decks",
+                    "goto": "12a"
+                }
             ]
         },
-
         "12a": {
             "text": "The lower decks are different. Quieter. The constant background hum of the station's systems is muted here, replaced by an intermittent ticking — thermal expansion in the hull plates, where the station's skin meets the vacuum.\n\nYour data chip projects a holographic waypoint arrow, guiding you deeper. The corridors here are wider than the maintenance shafts above, designed for cargo transport. But they are dark, and the walls are rimed with frost where the heating has failed.\n\nAfter ten minutes of walking, the corridor forks. The waypoint arrow points left, toward what the station map labels 'Research Lab 7.' But from the right, you hear something unexpected — a voice. Human. Speaking in clipped, authoritative tones.\n\nImperial comms chatter. Malachar's advance team is already here.",
             "choices": [
-                { "text": "Follow the waypoint toward Research Lab 7", "goto": "14" },
-                { "text": "Investigate the Imperial comms", "goto": "13a" },
-                { "text": "Warn Voss and plan an ambush", "goto": "13b", "requires_flag": "voss_allied" }
+                {
+                    "text": "Follow the waypoint toward Research Lab 7",
+                    "goto": "14"
+                },
+                {
+                    "text": "Investigate the Imperial comms",
+                    "goto": "13a"
+                },
+                {
+                    "text": "Warn Voss and plan an ambush",
+                    "goto": "13b",
+                    "requires_flag": "voss_allied"
+                }
             ]
         },
-
         "13": {
             "text": "The mutant stalker lies dead among the shipping containers, its massive body still twitching. You do not linger. The loading tunnel at the far end of Cargo Bay 12 leads down — a steep ramp into the sealed lower decks.\n\nThe freight tunnel ends at another bulkhead, but this one is already open. Something — the stalker, probably — tore the door half off its track years ago. You squeeze through the gap.\n\nBeyond, the lower decks stretch out in cold silence. Your data chip projects a waypoint arrow, guiding you deeper into the dark. After a few minutes, you hear something that stops you cold.\n\nImperial comms chatter. Clipped voices, echoing from a corridor to your right. Malachar's advance team is already here.",
             "choices": [
-                { "text": "Follow the waypoint toward the Void Compass", "goto": "14" },
-                { "text": "Investigate the Imperial comms", "goto": "13a" }
+                {
+                    "text": "Follow the waypoint toward the Void Compass",
+                    "goto": "14"
+                },
+                {
+                    "text": "Investigate the Imperial comms",
+                    "goto": "13a"
+                }
             ]
         },
-
         "13a": {
             "text": "You creep toward the voices, keeping to the shadows. Around a corner, you see them — two Imperial soldiers in grey combat armour, setting up a portable sensor relay. They are scanning the lower decks, methodically, section by section.\n\nOne of them speaks into his comm. 'Sector seven clear. Moving to sector eight. No sign of the artefact yet.' A pause. 'Understood, Inquisitor. We'll report when we have it.'\n\nMalachar is directing them remotely. He may not be on the station yet, or he may be close. Either way, his people are between you and the Void Compass.\n\nYou could try to slip past them, or deal with them directly.",
-            "set_flags": ["spotted_imperials"],
+            "set_flags": [
+                "spotted_imperials"
+            ],
             "choices": [
-                { "text": "Try to sneak past while they're distracted", "goto": "13c" },
-                { "text": "Attack while you have surprise", "goto": "13d" },
-                { "text": "Use the EMP grenade to disable their equipment", "goto": "13e", "requires_item": "emp_grenade" }
+                {
+                    "text": "Try to sneak past while they're distracted",
+                    "goto": "13c"
+                },
+                {
+                    "text": "Attack while you have surprise",
+                    "goto": "13d"
+                },
+                {
+                    "text": "Use the EMP grenade to disable their equipment",
+                    "goto": "13e",
+                    "requires_item": "emp_grenade"
+                }
             ]
         },
-
         "13b": {
             "text": "You pull Voss into an alcove and describe what you heard. His face goes hard.\n\n'Advance team,' he says. 'Two or three soldiers, probably. Setting up sensor relays so Malachar can direct the search from his ship.' He thinks for a moment. 'I know their relay frequencies. If we find their equipment, I can feed false data — send them searching in the wrong direction. Buy us time.'\n\nHe checks his pistol. 'Or we can take them out quietly. Your call.'",
             "choices": [
-                { "text": "Have Voss sabotage their sensors — the quiet approach", "goto": "13f" },
-                { "text": "Take them out together", "goto": "13d" }
+                {
+                    "text": "Have Voss sabotage their sensors — the quiet approach",
+                    "goto": "13f"
+                },
+                {
+                    "text": "Take them out together",
+                    "goto": "13d"
+                }
             ]
         },
-
         "13c": {
             "text": "You wait until both soldiers are focused on their equipment, then move. The corridor is wide but the lighting is poor — plenty of shadows to use. You keep low, hugging the wall, placing each foot with care.",
             "test_luck": {
@@ -303,10 +549,11 @@
                 "unlucky_stamina_cost": 0
             }
         },
-
         "13d": {
             "text": "The Imperial soldier sees you and reacts with trained precision, snapping his weapon up and firing. The shot scorches the wall beside your head. You close the distance fast — at this range, in these tight corridors, it is close-quarters work.\n\nHis partner is further back, still at the relay. One enemy at a time.",
-            "set_flags": ["fought_imperials"],
+            "set_flags": [
+                "fought_imperials"
+            ],
             "combat": {
                 "enemy": "imperial_soldier",
                 "win_goto": "13g",
@@ -315,85 +562,136 @@
                 "flee_stamina_cost": 3
             }
         },
-
         "13e": {
             "text": "You pull the pin on the EMP grenade and roll it down the corridor toward the soldiers. It detonates with a blue-white flash and a sound like a thunderclap in a tin can. Every piece of electronics within ten metres dies instantly — the sensor relay, their comm units, their weapon optics, the corridor lighting.\n\nIn the sudden darkness, the soldiers shout in confusion. You hear them stumbling, blind without their helmet displays. By the time they recover, you are gone — moving fast through the dark corridors with only your data chip's waypoint to guide you.\n\nThe EMP also took out the soldiers' comm link to Malachar. He just lost eyes on this section.",
-            "remove_items": ["emp_grenade"],
-            "set_flags": ["emp_used"],
+            "remove_items": [
+                "emp_grenade"
+            ],
+            "set_flags": [
+                "emp_used"
+            ],
             "add_luck": 1,
             "choices": [
-                { "text": "Press on toward the Void Compass", "goto": "14" }
+                {
+                    "text": "Press on toward the Void Compass",
+                    "goto": "14"
+                }
             ]
         },
-
         "13f": {
             "text": "Voss circles around through a parallel corridor while you watch from cover. He moves with the practised silence of someone who spent years on covert operations. You see him reach the sensor relay, open a panel on its side, and make rapid adjustments.\n\nThe soldiers do not notice. Their helmet displays are focused outward, scanning for threats in the corridors ahead, not behind.\n\nVoss slips back to your position two minutes later. 'Done,' he whispers. 'Their sensors will show the lower sections as fully scanned and clear. Malachar will redirect them to the upper decks. We have maybe an hour before someone realises the data is wrong.'\n\nYou move on together, leaving the soldiers scanning empty corridors.",
-            "set_flags": ["sensors_sabotaged"],
+            "set_flags": [
+                "sensors_sabotaged"
+            ],
             "add_luck": 2,
             "choices": [
-                { "text": "Press on toward the Void Compass", "goto": "14" }
+                {
+                    "text": "Press on toward the Void Compass",
+                    "goto": "14"
+                }
             ]
         },
-
         "13g": {
             "text": "The soldier drops. His partner, back at the relay, raises his weapon — but hesitates when he sees his comrade down. He makes a split-second decision: he grabs the sensor relay and runs, disappearing down a side corridor.\n\nHe will report your position to Malachar. The clock just got shorter.\n\nYou check the fallen soldier quickly. He carries nothing useful — standard Imperial kit, all biometrically locked. But his comm unit crackles with a final transmission before going silent: 'All units, subject is armed and hostile. Sector seven. Converge.'",
-            "set_flags": ["alarm_triggered"],
+            "set_flags": [
+                "alarm_triggered"
+            ],
             "choices": [
-                { "text": "Move quickly toward the Void Compass", "goto": "14" }
+                {
+                    "text": "Move quickly toward the Void Compass",
+                    "goto": "14"
+                }
             ]
         },
-
         "14": {
             "text": "Research Lab 7 is a large, circular chamber — clearly pre-Imperial, built into the station's original structure. The walls are smooth dark metal, unmarked by the rust and decay that afflicts the rest of the lower decks. Precursor construction. This room was ancient before the station was built around it.\n\nIn the centre of the chamber, on a pedestal of black stone, sits the Void Compass.\n\nIt is smaller than you expected — a sphere of dark crystal no larger than your fist, veined with threads of silver light that pulse slowly, like a heartbeat. The light moves in patterns that hurt your eyes if you stare too long. This thing is old. Not centuries old. Millennia.\n\nAs you reach for it, Voss speaks sharply from behind you — or if Voss is not with you, a voice speaks from the chamber's entrance.",
             "choices": [
-                { "text": "Grab the Compass quickly", "goto": "15" },
-                { "text": "Wait — check for traps first", "goto": "14a" }
+                {
+                    "text": "Grab the Compass quickly",
+                    "goto": "15"
+                },
+                {
+                    "text": "Wait — check for traps first",
+                    "goto": "14a"
+                }
             ]
         },
-
         "14a": {
             "text": "Caution has kept you alive this long. You study the pedestal without touching it. The black stone is covered in Precursor script — angular symbols that no living species can fully translate. But you have seen enough Precursor salvage to recognise a warning when you see one.\n\nThe pedestal has a pressure plate. Remove the Compass without disabling it, and something happens — an alarm, a trap, a seal. You cannot tell which.\n\nYour repair kit could disable it. Or you could just grab it and deal with the consequences.",
             "choices": [
-                { "text": "Use the repair kit to disable the pressure plate", "goto": "14b", "requires_item": "repair_kit" },
-                { "text": "Just grab it — no time for caution", "goto": "15" }
+                {
+                    "text": "Use the repair kit to disable the pressure plate",
+                    "goto": "14b",
+                    "requires_item": "repair_kit"
+                },
+                {
+                    "text": "Just grab it — no time for caution",
+                    "goto": "15"
+                }
             ]
         },
-
         "14b": {
             "text": "You kneel beside the pedestal and work carefully with the micro-tools from your repair kit. The Precursor mechanism is unlike anything you have seen — no circuits, no wiring, just smooth channels cut into the stone that seem to carry light instead of electricity.\n\nBut engineering is engineering, regardless of who built it. You find the trigger point and bridge it with a length of conductive sealant. The pressure plate clicks softly and goes inert.\n\nYou lift the Void Compass from the pedestal. It is warm in your hand, and the silver veins pulse brighter at your touch. Something stirs in the crystal — not intelligence exactly, but awareness. It knows it has been found.\n\nNo alarms. No traps. Clean.",
-            "add_items": ["void_compass"],
-            "set_flags": ["clean_retrieval"],
+            "add_items": [
+                "void_compass"
+            ],
+            "set_flags": [
+                "clean_retrieval"
+            ],
             "choices": [
-                { "text": "Time to get out — head for the exit", "goto": "17" }
+                {
+                    "text": "Time to get out — head for the exit",
+                    "goto": "17"
+                }
             ]
         },
-
         "15": {
             "text": "You seize the Void Compass. The moment it leaves the pedestal, the silver light flares brilliant white and the chamber shudders. A deep harmonic tone reverberates through the station's bones — felt more than heard.\n\nThe Compass is warm in your hand, pulsing with alien light. Whatever that tone was, it just announced your location to everyone on the lower decks.\n\nThen the lights die. All of them. For three seconds you stand in absolute darkness. When the emergency lighting kicks in — blue, flickering — you hear the sound of boots. Many boots. Running toward you.",
-            "add_items": ["void_compass"],
-            "set_flags": ["alarm_triggered"],
+            "add_items": [
+                "void_compass"
+            ],
+            "set_flags": [
+                "alarm_triggered"
+            ],
             "choices": [
-                { "text": "Run for the exit — the way you came in", "goto": "16" },
-                { "text": "Look for another way out of the lab", "goto": "16a" }
+                {
+                    "text": "Run for the exit — the way you came in",
+                    "goto": "16"
+                },
+                {
+                    "text": "Look for another way out of the lab",
+                    "goto": "16a"
+                }
             ]
         },
-
         "16": {
             "text": "You sprint back through the corridors, the Void Compass clutched to your chest. Behind you, the sound of pursuit grows louder — boots on metal, shouted orders in Imperial military cadence.\n\nYou round a corner and skid to a halt. Two Imperial soldiers stand in the corridor ahead, weapons drawn, blocking your retreat. Behind you, more are closing in.",
             "choices": [
-                { "text": "Fight through them", "goto": "16b" },
-                { "text": "Use the EMP grenade to blind them", "goto": "16c", "requires_item": "emp_grenade" },
-                { "text": "Voss — create a diversion!", "goto": "16d", "requires_flag": "voss_allied" }
+                {
+                    "text": "Fight through them",
+                    "goto": "16b"
+                },
+                {
+                    "text": "Use the EMP grenade to blind them",
+                    "goto": "16c",
+                    "requires_item": "emp_grenade"
+                },
+                {
+                    "text": "Voss — create a diversion!",
+                    "goto": "16d",
+                    "requires_flag": "voss_allied"
+                }
             ]
         },
-
         "16a": {
             "text": "You scan the lab. The Precursor chamber has a second exit — a narrow passage in the far wall, half-hidden by shadow. It was not on the station schematics. Precursor construction again, older than the station itself.\n\nThe passage is tight but passable. You squeeze through as the sound of boots reaches the main entrance behind you. The passage twists, descends, then opens into a service tunnel. You are behind the Imperial cordon.\n\nBut you are not out yet. The service tunnel leads back toward the cargo bays — a long climb up to the main station.",
             "choices": [
-                { "text": "Move through the service tunnels toward the cargo bays", "goto": "17" }
+                {
+                    "text": "Move through the service tunnels toward the cargo bays",
+                    "goto": "17"
+                }
             ]
         },
-
         "16b": {
             "text": "There is no room for cleverness. You charge the soldiers ahead of you — the only direction that leads to escape. They open fire. A shot sears your arm, but you close the distance and engage the nearest one at close quarters.",
             "add_stamina": -2,
@@ -404,41 +702,65 @@
                 "flee_allowed": false
             }
         },
-
         "16c": {
             "text": "You pull the EMP grenade and hurl it into the corridor ahead. The blue-white flash kills every electronic system in range — lights, weapons optics, comm units. The soldiers' helmet displays go black and they stagger, momentarily blind.\n\nYou charge through the gap, shouldering past the disoriented soldiers and into the dark corridor beyond. In the chaos, no one gets a clean shot.",
-            "remove_items": ["emp_grenade"],
-            "set_flags": ["emp_used"],
+            "remove_items": [
+                "emp_grenade"
+            ],
+            "set_flags": [
+                "emp_used"
+            ],
             "choices": [
-                { "text": "Keep running toward the cargo bays", "goto": "17" }
+                {
+                    "text": "Keep running toward the cargo bays",
+                    "goto": "17"
+                }
             ]
         },
-
         "16d": {
             "text": "Voss does not hesitate. He pulls a flare from his belt and hurls it down a side corridor, then opens fire into the darkness — shooting at nothing, but the muzzle flash and the noise draw attention. 'Go!' he shouts. 'I'll lead them away and meet you at the cargo elevator!'\n\nThe soldiers turn toward the gunfire. You run the other way, the Void Compass heavy in your hand.",
-            "set_flags": ["voss_diversion"],
+            "set_flags": [
+                "voss_diversion"
+            ],
             "choices": [
-                { "text": "Run for the cargo bays", "goto": "17" }
+                {
+                    "text": "Run for the cargo bays",
+                    "goto": "17"
+                }
             ]
         },
-
         "17": {
             "text": "You are climbing. Back through the dark tunnels, back up through the station's guts, the Void Compass pulsing softly in your pack. The way out is close — you can feel it in the changing air pressure, the faint warmth of the inhabited decks above.\n\nYou emerge into Cargo Bay 12 from below, pulling yourself up through a floor hatch. The cavernous space is as you left it — dark, cold, silent.\n\nAlmost silent. A figure stands between you and the exit. Tall. Still. Waiting.\n\nInquisitor Malachar.",
             "choices": [
-                { "text": "Face Malachar", "goto": "18" }
+                {
+                    "text": "Face Malachar",
+                    "goto": "18"
+                }
             ]
         },
-
         "18": {
             "text": "He is exactly what the stories describe. Tall and gaunt, dressed in the black coat of the Imperial Bureau of Antiquities, silver insignia at his throat. His face is all angles — sharp cheekbones, hollow eyes, a thin mouth that has never smiled at anything good. A powered rapier hangs at his hip, humming faintly.\n\n'The scavenger,' he says. His voice is soft, precise, and utterly without warmth. 'You have something that belongs to the Empire. I will take it now.'\n\nHe extends one gloved hand. Behind him, you can see the cargo bay exit — and beyond it, the route back to the upper decks and your ship.\n\n'I will not ask twice,' Malachar says.",
             "choices": [
-                { "text": "Refuse — and fight him", "goto": "19", "requires_no_flag": "voss_allied" },
-                { "text": "Refuse — and fight him", "goto": "19a", "requires_flag": "voss_allied" },
-                { "text": "Try to negotiate — offer information instead", "goto": "18a" },
-                { "text": "Throw the Void Compass to distract him and run", "goto": "18b" }
+                {
+                    "text": "Refuse — and fight him",
+                    "goto": "19",
+                    "requires_no_flag": "voss_allied"
+                },
+                {
+                    "text": "Refuse — and fight him",
+                    "goto": "19a",
+                    "requires_flag": "voss_allied"
+                },
+                {
+                    "text": "Try to negotiate — offer information instead",
+                    "goto": "18a"
+                },
+                {
+                    "text": "Throw the Void Compass to distract him and run",
+                    "goto": "18b"
+                }
             ]
         },
-
         "18a": {
             "text": "'The Precursor chamber down there has more than just the Compass,' you say, thinking fast. 'There are inscriptions. Star charts. Coordinates to other Precursor sites. The Compass is a key — but the real treasure is the map it unlocks.'\n\nMalachar's eyes narrow. He is interested despite himself — you can see it. The Bureau does not collect artefacts for their monetary value. They collect them for power.\n\n'You are stalling,' he says. But he has not drawn his weapon yet.",
             "test_luck": {
@@ -452,15 +774,18 @@
                 "unlucky_add_items": []
             }
         },
-
         "18b": {
             "text": "You pull the Void Compass from your pack and hurl it — not at Malachar, but past him, over his shoulder, toward the far wall of the cargo bay. His eyes follow it instinctively.\n\nYou run. Not toward the Compass — toward the exit. Behind you, Malachar makes a sound of fury and you hear his rapier ignite. But he is torn between pursuing you and recovering the artefact.\n\nThe artefact wins. You hear his boots moving away from you, toward the Compass.\n\nYou reach the exit. You are alive. But you have lost the Void Compass.",
-            "remove_items": ["void_compass"],
+            "remove_items": [
+                "void_compass"
+            ],
             "choices": [
-                { "text": "Continue to your ship", "goto": "death_empty" }
+                {
+                    "text": "Continue to your ship",
+                    "goto": "death_empty"
+                }
             ]
         },
-
         "19": {
             "text": "You draw your weapon. Malachar's rapier ignites with a whine of charged plasma — a weapon designed to cut through ship armour. He is tall, fast, and has been killing people since before you were born.\n\nBut he is also arrogant. He walks toward you without haste, rapier held low, as if this is a formality.\n\nINQUISITOR MALACHAR attacks.",
             "combat": {
@@ -471,7 +796,6 @@
                 "flee_stamina_cost": 4
             }
         },
-
         "19a": {
             "text": "You draw your weapon — and then Voss steps out from behind a cargo container, his pistol levelled at Malachar.\n\n'Inquisitor,' Voss says. His voice is steady but his hand is not. 'It's over.'\n\nMalachar's expression does not change. 'Corporal Voss. I had hoped you would show yourself.' His rapier ignites. 'You realise that by defecting, you have condemned your family on Arcturus Prime.'\n\nVoss flinches but holds his ground. 'They're already gone. I got them out before I ran.' He fires — but Malachar moves impossibly fast, the shot scorching the air where he stood a moment ago.\n\nVoss' shot catches Malachar in the shoulder. The Inquisitor staggers, his rapier arm dropping for a moment. But he does not fall. He turns his gaze on you.\n\n'Deal with this one,' Voss shouts, falling back to cover. 'I'll keep his reinforcements off us!'\n\nMalachar advances on you, wounded but murderous. His SKILL and STAMINA are reduced.",
             "combat": {
@@ -482,7 +806,6 @@
                 "flee_stamina_cost": 4
             }
         },
-
         "20": {
             "text": "The Enforcer is a wall of muscle and combat augmentation — one of Malachar's personal guard, cybernetically enhanced and utterly loyal. He blocks the corridor with his bulk, a shock-maul crackling in each hand.\n\n'The Inquisitor sends his regards,' the Enforcer says. And attacks.",
             "combat": {
@@ -492,52 +815,61 @@
                 "flee_allowed": false
             }
         },
-
         "21": {
-            "text": "Malachar falls. The Inquisitor — terror of the frontier, collector of forbidden artefacts, destroyer of worlds — lies on the deck of a cargo bay in a dying station at the edge of nowhere, and he does not get up.\n\nThe Void Compass pulses in your pack, steady as a heartbeat. You are bleeding, exhausted, and a long way from safe. But you are alive, and the artefact is yours.\n\nYou step over Malachar's body and walk toward the exit.",
+            "text": "Malachar falls. The Inquisitor — terror of the frontier, collector of forbidden artefacts, destroyer of worlds — lies on the deck of a cargo bay in a dying station at the edge of nowhere, and he does not get up.\n\nThe Void Compass pulses in your pack, steady as a heartbeat. You are bleeding, exhausted, and a long way from safe. But you are alive, and the artefact is yours.\n\nYou step over Malachar’s body. If Voss is with you, he falls in at your shoulder and you move together toward the exit. If you are alone, the corridor ahead is still and silent — but silent is not the same as safe.",
             "choices": [
-                { "text": "Head for your ship", "goto": "22" }
+                {
+                    "text": "Head for your ship",
+                    "goto": "22",
+                    "requires_flag": "voss_allied"
+                },
+                {
+                    "text": "Fight through to the exit",
+                    "goto": "20",
+                    "requires_no_flag": "voss_allied"
+                }
             ]
         },
-
         "22": {
             "text": "The climb back to the upper decks is a blur of adrenaline and pain. You pass through Harko's territory — the smugglers take one look at your face and step aside without a word. Something about the blood, perhaps, or the look in your eyes.\n\nYou reach the docking ring. Your ship — the Sable Moth, a battered light freighter that is mostly engine and stubbornness — is where you left it. The docking clamps release, the engines cycle up, and for the first time in hours, you breathe.\n\nThe station falls away behind you, growing smaller in the viewport. New Babylon. Hive of the desperate. You will not miss it.",
             "choices": [
-                { "text": "Set a course and jump to lightspeed", "goto": "23", "requires_flag": "voss_allied" },
-                { "text": "Set a course and jump to lightspeed", "goto": "23a", "requires_no_flag": "voss_allied" }
+                {
+                    "text": "Set a course and jump to lightspeed",
+                    "goto": "23",
+                    "requires_flag": "voss_allied"
+                },
+                {
+                    "text": "Set a course and jump to lightspeed",
+                    "goto": "23a",
+                    "requires_no_flag": "voss_allied"
+                }
             ]
         },
-
         "23": {
             "text": "Voss finds you in the cockpit as the FTL drive spools up. He has a fresh bandage on his arm and a look on his face that you have not seen before — something close to peace.\n\n'Where are we going?' he asks.\n\n'Anywhere that isn't here.' You engage the drive. Stars stretch to lines. The Sable Moth leaps into the void.\n\nIn your hand, the Void Compass pulses — warm, alive, ancient. It contains star charts to places no living being has visited in ten thousand years. Precursor worlds. Lost civilisations. The kind of discoveries that change the course of history.\n\nBut that is a story for another day. Today, you survived. You found the artefact. You made an ally. And somewhere behind you, the Empire is learning that not everything in the galaxy can be taken by force.\n\nYou lean back in the pilot's chair and watch the stars burn.",
             "ending": true,
             "ending_type": "victory"
         },
-
         "23a": {
             "text": "You engage the FTL drive alone. Stars stretch to lines. The Sable Moth shudders once, then leaps into the void, leaving New Babylon Station as a dwindling point of light in the rear viewport.\n\nIn your hand, the Void Compass pulses — warm, alive, ancient. It contains star charts to places no living being has visited in ten thousand years. Precursor worlds. Lost civilisations. Treasure beyond counting.\n\nYou are alone, as always. But you are alive, and you are rich, and the Empire can choke on its own arrogance.\n\nYou set a course for the frontier. There is a fence on Tellus IV who deals in Precursor artefacts and does not ask questions. After that — well. The Compass is a map. And you have always wondered what lies beyond the edge of known space.\n\nThe stars burn cold and bright. The void awaits.",
             "ending": true,
             "ending_type": "victory"
         },
-
         "death_cornered": {
             "text": "There is nowhere left to run. The Imperial soldiers close in from every direction, weapons trained on you with professional precision. You fight — of course you fight, because that is what scavengers do — but there are too many of them.\n\nA stun round takes you in the chest. Then another. Your legs give out. The Void Compass rolls from your hand as you fall, its silver light pulsing once, twice, then going still.\n\nThe last thing you see is a black-gloved hand reaching down to pick it up. Malachar's hand.\n\n'A waste,' you hear him say, from very far away. 'It always is.'\n\nDarkness takes you. Your adventure ends here.",
             "ending": true,
             "ending_type": "death"
         },
-
         "death_malachar": {
             "text": "You try to run, but Malachar is faster. The powered rapier catches you across the back — a line of white-hot agony that drops you to the deck. The Void Compass spills from your pack and rolls across the floor, its silver veins flickering.\n\nMalachar steps over you without a second glance and picks up the Compass. He holds it to the light, studying it with the reverence of a collector who has found a missing piece.\n\n'Exquisite,' he murmurs.\n\nYou try to rise. You cannot. The cargo bay ceiling swims above you — rusted steel, ancient, indifferent. New Babylon Station does not care about your death. It has seen too many.\n\nYour vision dims. The last thing you hear is the click of Malachar's boots as he walks away.\n\nYour adventure ends here.",
             "ending": true,
             "ending_type": "death"
         },
-
         "death_empty": {
             "text": "You make it back to the Sable Moth. The engines start. The docking clamps release. You are alive.\n\nBut your hands are empty.\n\nThe Void Compass — the artefact that could have changed your life, that could have mapped routes to Precursor worlds and treasures beyond imagination — is in Malachar's hands now. You gave it up to save your skin, and as the station shrinks in your viewport, the weight of that decision settles on you like a stone.\n\nYou set a course for nowhere in particular. The frontier is vast and full of opportunities, they say. But opportunities like the Void Compass come once in a lifetime, and yours is gone.\n\nYou survived. That has to be enough.\n\nIt is not enough.\n\nYour adventure ends in failure.",
             "ending": true,
             "ending_type": "death"
         },
-
         "death_station": {
             "text": "The station's lower decks are not meant for the living. You pushed too deep, spent too long in the dark, and the station took its toll. Your headlamp died first. Then your comm. Then the atmosphere recycler on your suit began to falter, and the air turned thin and poisonous.\n\nYou sit down against a wall in a corridor you cannot name, in a section of the station that appears on no map. The Void Compass — if it even exists — is somewhere in the dark ahead of you. Or behind you. You have lost all sense of direction.\n\nThe cold comes slowly. Then the dark. Then nothing.\n\nNew Babylon Station adds another ghost to its collection.\n\nYour adventure ends here.",
             "ending": true,
