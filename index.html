@@ -631,6 +631,58 @@
             line-height: 1.7;
         }
 
+        /* ── Save prompt overlay ────────────────────── */
+        #save-prompt {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.82);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        #save-prompt.active { display: flex; }
+
+        .save-prompt-card {
+            background: var(--parchment);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--card-accent, var(--gold));
+            padding: 2rem;
+            max-width: 380px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .save-prompt-eyebrow {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--card-accent, var(--gold));
+            opacity: 0.85;
+        }
+
+        .save-prompt-title {
+            font-family: 'IM Fell English', serif;
+            font-size: 1.15rem;
+            color: var(--gold-hi);
+        }
+
+        .save-prompt-meta {
+            font-size: 0.75rem;
+            color: var(--ink-dim);
+            line-height: 1.6;
+        }
+
+        .save-prompt-buttons {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
         /* ── Dice roll animation ─────────────────────── */
         @keyframes diceFlicker {
             0%   { opacity: 0.3; }
@@ -826,6 +878,18 @@
     <button class="btn btn-primary" id="btn-try-again">Try Again</button>
 </div>
 
+<div id="save-prompt">
+    <div class="save-prompt-card">
+        <div class="save-prompt-eyebrow">Adventure in progress</div>
+        <div class="save-prompt-title" id="save-prompt-title"></div>
+        <div class="save-prompt-meta"  id="save-prompt-meta"></div>
+        <div class="save-prompt-buttons">
+            <button class="btn btn-primary" id="btn-continue-save">Continue</button>
+            <button class="btn"             id="btn-new-game">New Game</button>
+        </div>
+    </div>
+</div>
+
 <script>
 
 // ══════════════════════════════════════════════════════
@@ -834,6 +898,7 @@
 
 const gameState = {
     adventure:      null,   // loaded adventure JSON
+    adventureId:    null,   // adventure file ID (e.g. "the_crypt_of_count_valdric")
     currentPassage: "1",    // current passage ID
     skill:    { current: 0, max: 0 },
     stamina:  { current: 0, max: 0 },
@@ -931,7 +996,11 @@ async function loadAdventureList() {
             <div class="card-author">by ${adv.author}</div>
             ${adv.introduction ? `<div class="card-intro">${adv.introduction}</div>` : ''}
         `;
-        card.addEventListener('click', () => openAdventure(adv.id));
+        card.addEventListener('click', () => {
+            const save = loadSave(adv.id);
+            if (save) showSavePrompt(adv, save);
+            else openAdventure(adv.id);
+        });
         container.appendChild(card);
     }
 }
@@ -940,7 +1009,34 @@ async function openAdventure(id) {
     try {
         const res = await fetch(`adventures/${id}.json`);
         gameState.adventure = await res.json();
+        gameState.adventureId = id;
         showCreateScreen();
+    } catch (e) {
+        alert('Failed to load adventure.');
+    }
+}
+
+async function continueAdventure(id) {
+    hideSavePrompt();
+    const save = loadSave(id);
+    if (!save) { openAdventure(id); return; }
+    try {
+        const res = await fetch(`adventures/${id}.json`);
+        gameState.adventure   = await res.json();
+        gameState.adventureId = id;
+        gameState.currentPassage = save.passage;
+        gameState.skill      = save.skill;
+        gameState.stamina    = save.stamina;
+        gameState.luck       = save.luck;
+        gameState.items      = save.items;
+        gameState.flags      = new Set(save.flags);
+        gameState.provisions = save.provisions;
+        gameState.combat     = null;
+        gameState.inCombat   = false;
+        document.getElementById('game-title').textContent = gameState.adventure.title;
+        showScreen('game');
+        updateSidebar();
+        renderPassage(gameState.adventure.passages[save.passage]);
     } catch (e) {
         alert('Failed to load adventure.');
     }
@@ -1080,6 +1176,8 @@ function navigateToPassage(id) {
     }
 
     renderPassage(passage);
+    if (passage.ending) clearSave();
+    else saveProgress();
 }
 
 // ══════════════════════════════════════════════════════
@@ -1409,6 +1507,7 @@ function useProvisions() {
 // ══════════════════════════════════════════════════════
 
 function showDeath() {
+    clearSave();
     document.getElementById('death-overlay').classList.add('active');
 }
 
@@ -1450,6 +1549,64 @@ function updateSidebar() {
     // Luck test display in luck area
     const luckDisplay = document.getElementById('luck-current-display');
     if (luckDisplay) luckDisplay.textContent = gameState.luck.current;
+}
+
+// ══════════════════════════════════════════════════════
+//  Save / restore
+// ══════════════════════════════════════════════════════
+
+function saveProgress() {
+    if (!gameState.adventureId) return;
+    const data = {
+        passage:    gameState.currentPassage,
+        skill:      gameState.skill,
+        stamina:    gameState.stamina,
+        luck:       gameState.luck,
+        items:      [...gameState.items],
+        flags:      [...gameState.flags],
+        provisions: gameState.provisions,
+        savedAt:    Date.now()
+    };
+    localStorage.setItem(`storyforge_save_${gameState.adventureId}`, JSON.stringify(data));
+}
+
+function clearSave(id) {
+    localStorage.removeItem(`storyforge_save_${id || gameState.adventureId}`);
+}
+
+function loadSave(id) {
+    const raw = localStorage.getItem(`storyforge_save_${id}`);
+    return raw ? JSON.parse(raw) : null;
+}
+
+function timeAgo(ts) {
+    const diff  = Date.now() - ts;
+    const mins  = Math.floor(diff / 60000);
+    if (mins  < 1)  return 'just now';
+    if (mins  < 60) return `${mins} minute${mins !== 1 ? 's' : ''} ago`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
+    const days  = Math.floor(hours / 24);
+    return `${days} day${days !== 1 ? 's' : ''} ago`;
+}
+
+function showSavePrompt(adv, save) {
+    const card = document.querySelector('.save-prompt-card');
+    card.style.setProperty('--card-accent', adv.accent_color || 'var(--gold)');
+    document.getElementById('save-prompt-title').textContent = adv.title;
+    document.getElementById('save-prompt-meta').textContent  =
+        `Last played ${timeAgo(save.savedAt)}`;
+    document.getElementById('btn-continue-save').onclick = () => continueAdventure(adv.id);
+    document.getElementById('btn-new-game').onclick = () => {
+        clearSave(adv.id);
+        hideSavePrompt();
+        openAdventure(adv.id);
+    };
+    document.getElementById('save-prompt').classList.add('active');
+}
+
+function hideSavePrompt() {
+    document.getElementById('save-prompt').classList.remove('active');
 }
 
 // ══════════════════════════════════════════════════════
