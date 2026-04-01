@@ -34,7 +34,7 @@
             "choices": [
                 { "text": "Take the left tunnel",                          "goto": "2" },
                 { "text": "Take the right tunnel",                         "goto": "3" },
-                { "text": "Examine the smooth section of wall (Lantern)",  "goto": "4", "requires_item": "lantern" }
+                { "text": "Examine the smooth section of wall (Lantern)",  "goto": "4", "requires_item": "lantern", "requires_no_flag": "found_alcove" }
             ]
         },
 
@@ -61,8 +61,8 @@
         },
 
         "4": {
-            "text": "You hold the lantern close to the smooth stone and notice a faint seam — a hidden door! You work your fingers into the crack and push. The door grinds open, revealing a small alcove.\n\nInside, resting on a stone shelf wrapped in oilcloth, is a beautifully crafted sword. The blade has runes etched along its length and hums faintly when you pick it up. This is no ordinary weapon.",
-            "add_items": ["magic_sword"],
+            "text": "You hold the lantern close to the smooth stone and notice a faint seam — a hidden door! You work your fingers into the crack and push. The door grinds open, revealing a small alcove.\n\nInside, resting on a stone shelf wrapped in oilcloth, is a beautifully crafted sword. The blade has runes etched along its length and hums faintly when you pick it up. This is no ordinary weapon.\n\nBeside it, half-hidden under the oilcloth, is a small silver key on a ring.",
+            "add_items": ["magic_sword", "silver_key"],
             "remove_items": ["sword"],
             "set_flags": ["found_alcove"],
             "choices": [
