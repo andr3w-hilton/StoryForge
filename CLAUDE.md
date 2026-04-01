@@ -5,16 +5,19 @@ A data-driven Fighting Fantasy-style gamebook engine. Adventures are defined in 
 ## Architecture
 
 ```
-server.py                    # HTTP server, adventure list + JSON API (~90 lines)
-index.html                   # Single-file client — all CSS, HTML, JS (~650 lines)
-adventures/                  # Adventure JSON files (drop in to add new stories)
-  the_warlocks_cave.json     # Sample adventure exercising all mechanics
-Dockerfile                   # Python 3.11-slim, port 8080
+server.py                                        # HTTP server for local dev (~90 lines)
+index.html                                       # Single-file client — all CSS, HTML, JS (~700 lines)
+adventures/
+  index.json                                     # Static manifest — adventure list for the select screen
+  the_crypt_of_count_valdric.json
+  the_scavenger_of_new_babylon_station.json
+Dockerfile                                       # Python 3.11-slim, port 8080
 ```
 
-**Server:** Pure HTTP, no WebSockets. `ThreadingHTTPServer` on port 8080.
+**Server:** Pure HTTP, no WebSockets. `ThreadingHTTPServer` on port 8080. Used for local dev only.
 **Client:** Vanilla JS, no frameworks, no build tools. All game state lives in the browser.
-**Adventures:** Fully data-driven JSON. New adventures require no code changes.
+**Adventures:** Fully data-driven JSON. New adventures require no code changes — add JSON, update manifest.
+**Hosting:** Deployable as a fully static site (GitHub Pages). No server required in production.
 
 ## Running
 
@@ -23,13 +26,32 @@ python3 server.py
 # Open http://localhost:8080
 ```
 
-## API Endpoints
+## Static File API
 
-| Endpoint | Response |
+The client fetches two types of file directly — no server API needed in production:
+
+| Fetch | File |
 |---|---|
-| `GET /` | Serves `index.html` |
-| `GET /api/adventures` | List of `{ id, title, author, introduction }` |
-| `GET /api/adventures/<id>` | Full adventure JSON |
+| Adventure list | `adventures/index.json` |
+| Full adventure | `adventures/<id>.json` |
+
+`server.py` still serves these paths for local dev. In production (GitHub Pages) the files are served statically.
+
+### adventures/index.json
+
+Manually maintained manifest. **Must be updated when adding a new adventure.** Each entry:
+
+```json
+{
+    "id": "my_adventure",
+    "title": "...",
+    "author": "...",
+    "introduction": "...",
+    "accent_color": "#4a8ab5",
+    "genre_tag": "SPACE OPERA",
+    "theme_icon": "✦"
+}
+```
 
 ## Adventure JSON Schema
 
@@ -40,6 +62,9 @@ Each file in `adventures/` defines a complete adventure:
     "title": "...",
     "author": "...",
     "version": "1.0",
+    "accent_color": "#5c7d5c",
+    "genre_tag": "GOTHIC HORROR",
+    "theme_icon": "☠",
     "introduction": "...",
 
     "character": {
@@ -63,6 +88,18 @@ Each file in `adventures/` defines a complete adventure:
     "passages": { ... }
 }
 ```
+
+### Card Flourish Fields
+
+Three optional fields drive the visual style of the adventure's card on the select screen:
+
+| Field | Purpose | Example |
+|---|---|---|
+| `accent_color` | Left border colour + flourish tint | `"#4a8ab5"` |
+| `genre_tag` | Uppercase label shown in flourish row | `"SPACE OPERA"` |
+| `theme_icon` | Unicode character before the tag | `"✦"` |
+
+Adventures without these fields fall back to the default gold border and no flourish row.
 
 ### Passage Fields
 
@@ -146,7 +183,7 @@ gameState = {
 | `getEffectiveSkill()` | skill.current + best weapon skill_bonus |
 
 ### Three Screens
-1. **select** — adventure list fetched from `/api/adventures`
+1. **select** — adventure list fetched from `adventures/index.json`
 2. **create** — character rolling (animated), starting gear display
 3. **game** — passage panel (left) + stats/inventory sidebar (right)
 
@@ -164,9 +201,43 @@ gameState = {
 ## Adding a New Adventure
 
 1. Create `adventures/my_adventure.json` following the schema above
-2. Drop the file in — the server picks it up automatically on next request
+2. Add an entry to `adventures/index.json` (the static manifest)
 3. Start at passage `"1"` (engine always begins there)
 4. Must have at least one `"ending": true` passage
+5. Recommended: run the passage validator to check all gotos resolve and all passages are reachable
+
+```bash
+python3 -c "
+import json
+with open('adventures/my_adventure.json') as f:
+    d = json.load(f)
+passages = d['passages']
+errors = []
+visited = set()
+queue = ['1']
+while queue:
+    cur = queue.pop()
+    if cur in visited: continue
+    visited.add(cur)
+    pp = passages.get(cur, {})
+    for c in pp.get('choices', []):
+        if c['goto'] not in passages: errors.append(f'[{cur}] bad goto {c[\"goto\"]}')
+        else: queue.append(c['goto'])
+    for field in ['win_goto','flee_goto']:
+        t = pp.get('combat', {}).get(field)
+        if t:
+            if t not in passages: errors.append(f'[{cur}] bad {field} {t}')
+            else: queue.append(t)
+    for field in ['lucky_goto','unlucky_goto']:
+        t = pp.get('test_luck', {}).get(field)
+        if t:
+            if t not in passages: errors.append(f'[{cur}] bad {field} {t}')
+            else: queue.append(t)
+unreachable = set(passages.keys()) - visited
+if unreachable: errors.append(f'Unreachable: {sorted(unreachable)}')
+print('OK' if not errors else '\n'.join(errors))
+"
+```
 
 ## Theme / Style
 
@@ -179,3 +250,12 @@ Dark parchment aesthetic — CSS custom properties in `:root`:
 - `--blue-hi` — player/skill colour
 
 Fonts: **IM Fell English** (serif, passage text + headings), **Share Tech Mono** (UI elements).
+
+### Adventure Card Design
+
+Each card on the select screen has:
+- A **coloured left border** driven by `--card-accent` (set from `accent_color`), falling back to `--gold`
+- A **flourish row** above the title: `<icon>  <GENRE TAG>` in Share Tech Mono, tinted with the accent colour, with a thin border around the tag word
+- **1.75rem gap** between cards and **1.4rem 1.5rem** padding so each card reads as a distinct object
+
+Adventures without `accent_color`/`genre_tag`/`theme_icon` render with gold border and no flourish row — fully backwards compatible.
