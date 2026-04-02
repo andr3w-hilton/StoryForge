@@ -1104,6 +1104,7 @@ async function continueAdventure(id) {
         showScreen('game');
         updateSidebar();
         renderPassage(gameState.adventure.passages[save.passage]);
+        window.scrollTo({ top: 0, behavior: 'instant' });
     } catch (e) {
         alert('Failed to load adventure.');
     }
@@ -1243,6 +1244,7 @@ function navigateToPassage(id) {
     }
 
     renderPassage(passage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (passage.ending) clearSave();
     else saveProgress();
 }
