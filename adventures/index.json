@@ -16,5 +16,14 @@
     "genre_tag": "SPACE OPERA",
     "theme_icon": "✦",
     "introduction": "New Babylon Station hangs in the dark between stars, a vast ring of corroded steel and failing systems at the ragged edge of Imperial space. Once it was a trade hub \u2014 a crossroads where a dozen species bartered fuel, ore, and information. That was before the war. Before the Empire pulled its garrison and left the station to rot.\n\nNow it is a place for people who have nowhere else to go. Smugglers, refugees, deserters, opportunists. People like you.\n\nYou are a scavenger \u2014 a freelance wreck-rat who makes a living pulling salvage from the station's dead lower decks. Three days ago, a dying Qeth trader pressed a data chip into your hand containing coordinates for something called the Void Compass \u2014 a Precursor navigation device worth more than the station itself. But Inquisitor Malachar of the Imperial Bureau of Antiquities is two jumps out and closing. You have six hours.\n\nYour adventure begins in the Freeport Market on New Babylon's middle ring."
+  },
+  {
+    "id": "the_throne_of_the_hollow_king",
+    "title": "The Throne of the Hollow King",
+    "author": "Opus 4.6",
+    "accent_color": "#6b4c7a",
+    "genre_tag": "DARK FANTASY",
+    "theme_icon": "♛",
+    "introduction": "You were a knight once. That ended at Kelmarsh Bridge, where you chose mercy over orders and let the rebel lord's children flee. Your commander stripped your rank, your name, your lands. You have wandered since \u2014 hedge-knight, sellsword, nobody.\n\nNow you stand at the edge of Carragh's Foot, a village huddled in the shadow of Mount Aldric. The mountain is wrong. Its peak glows faintly violet against the evening sky, and the air tastes of iron and old grief. Within the ancient palace carved into the mountain's heart, a cult called the Witnesses of the Returning Crown seeks to raise the tyrant-sorcerer Aldric the Undying from death.\n\nThe village elder has offered you everything the village can spare: a sword, provisions, and the promise that if you stop the ritual, your name will be remembered. Not your old name. A new one.\n\nIt is not much. But it is more than anyone has offered you in a long time."
   }
 ]

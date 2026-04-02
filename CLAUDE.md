@@ -19,7 +19,9 @@ Dockerfile                                       # Python 3.11-slim, port 8080
 **Adventures:** Fully data-driven JSON. New adventures require no code changes — add JSON, update manifest.
 **Hosting:** Deployable as a fully static site (GitHub Pages). No server required in production.
 
-## Running
+## Running (local dev only)
+
+`server.py` is only needed for local development. In production the site is hosted statically on GitHub Pages — no server required.
 
 ```bash
 python3 server.py
