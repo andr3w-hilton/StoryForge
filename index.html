@@ -520,6 +520,37 @@
         .ending-title.victory { color: var(--gold-hi); }
         .ending-title.defeat  { color: var(--red-hi);  }
 
+        /* Game header row */
+        .game-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        /* Mobile-only quit button in header */
+        .btn-quit-header {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--ink-dim);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding: 0.45rem 0.7rem;
+            white-space: nowrap;
+            touch-action: manipulation;
+            transition: color 0.2s, border-color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .btn-quit-header:hover {
+            color: var(--ink);
+            border-color: var(--ink-dim);
+        }
+
         /* Sidebar */
         .sidebar {
             width: 260px;
@@ -531,6 +562,28 @@
             flex-direction: column;
             gap: 1.5rem;
             min-height: 100vh;
+        }
+
+        /* Desktop-only quit button at bottom of sidebar */
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn-save-quit-sidebar {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            font-size: 0.78rem;
+            color: var(--ink-dim);
+            border-color: var(--border);
+            text-align: center;
+            letter-spacing: 0.08em;
+        }
+
+        .btn-save-quit-sidebar:hover {
+            color: var(--ink);
+            border-color: var(--ink-dim);
         }
 
         .sidebar-section h3 {
@@ -716,6 +769,8 @@
                 border-top: 1px solid var(--border);
             }
             .passage-panel { padding: 1.25rem; }
+            .btn-quit-header { display: block; }
+            .sidebar-footer { display: none; }
         }
 
         @media (max-width: 480px) {
@@ -834,7 +889,10 @@
 
     <!-- Left: passage panel -->
     <div class="passage-panel">
-        <div class="adventure-title" id="game-title"></div>
+        <div class="game-header">
+            <div class="adventure-title" id="game-title"></div>
+            <button class="btn-quit-header" id="btn-save-quit-top">Save &amp; Quit</button>
+        </div>
 
         <div class="passage-box" id="passage-text"></div>
 
@@ -933,6 +991,10 @@
                 <span>Provisions: <strong id="provisions-count">0</strong></span>
                 <button class="btn btn-provisions" id="btn-provisions">Eat</button>
             </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <button class="btn btn-save-quit-sidebar" id="btn-save-quit-sidebar">Save &amp; Quit</button>
         </div>
     </div>
 </div>
@@ -1703,6 +1765,13 @@ document.getElementById('btn-provisions').addEventListener('click', useProvision
 
 document.getElementById('btn-play-again').addEventListener('click', () => showCreateScreen());
 document.getElementById('btn-try-again').addEventListener('click', tryAgain);
+
+function saveAndQuit() {
+    saveProgress();
+    showScreen('select');
+}
+document.getElementById('btn-save-quit-top').addEventListener('click', saveAndQuit);
+document.getElementById('btn-save-quit-sidebar').addEventListener('click', saveAndQuit);
 
 // ══════════════════════════════════════════════════════
 //  Init
