@@ -89,6 +89,12 @@
             max-width: 560px;
         }
 
+        #adventure-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
         .adventure-list h2 {
             font-family: 'IM Fell English', serif;
             color: var(--ink-dim);
@@ -102,6 +108,7 @@
             background: var(--parchment);
             border: 1px solid var(--border);
             border-left: 3px solid var(--card-accent, var(--gold));
+            border-radius: 6px;
             padding: 1.4rem 1.5rem;
             cursor: pointer;
             transition: border-color 0.2s, background 0.2s;
