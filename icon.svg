@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Dark background -->
+  <rect width="512" height="512" rx="80" ry="80" fill="#0e0c08"/>
+
+  <!-- Ornamental double-line border, outer -->
+  <rect x="18" y="18" width="476" height="476" rx="64" ry="64"
+        fill="none" stroke="#c8961e" stroke-width="2.5" opacity="0.9"/>
+  <!-- Ornamental double-line border, inner -->
+  <rect x="28" y="28" width="456" height="456" rx="56" ry="56"
+        fill="none" stroke="#c8961e" stroke-width="1.2" opacity="0.55"/>
+
+  <!-- Corner flourish diamonds at each corner -->
+  <g fill="#c8961e" opacity="0.65">
+    <!-- top-left -->
+    <polygon points="48,18 54,28 48,38 42,28"/>
+    <!-- top-right -->
+    <polygon points="464,18 470,28 464,38 458,28"/>
+    <!-- bottom-left -->
+    <polygon points="48,474 54,484 48,494 42,484"/>
+    <!-- bottom-right -->
+    <polygon points="464,474 470,484 464,494 458,484"/>
+  </g>
+
+  <!-- 4-pointed star ABOVE the book (center 256, 118, outer R=22, inner r=9) -->
+  <!-- Points at 0°,90°,180°,270° (top, right, bottom, left) with inner at 45° increments -->
+  <path d="
+    M 256,96
+    L 261.364,109.636
+    L 278,118
+    L 261.364,126.364
+    L 256,140
+    L 250.636,126.364
+    L 234,118
+    L 250.636,109.636
+    Z"
+    fill="#c8961e" opacity="0.95"/>
+
+  <!-- 4-pointed star BELOW the book (center 256, 394) -->
+  <path d="
+    M 256,372
+    L 261.364,385.636
+    L 278,394
+    L 261.364,402.364
+    L 256,416
+    L 250.636,402.364
+    L 234,394
+    L 250.636,385.636
+    Z"
+    fill="#c8961e" opacity="0.95"/>
+
+  <!-- ── OPEN BOOK ─────────────────────────────────────────── -->
+  <!-- Book sits roughly y=148 to y=364 -->
+
+  <!-- Left page panel (slight inward angle on outer edge) -->
+  <!-- Outer-left edge leans slightly inward at top -->
+  <path d="M 118,155 L 246,148 L 246,362 L 118,370 Z"
+        fill="#1a1510" stroke="#c8961e" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- Right page panel -->
+  <path d="M 266,148 L 394,155 L 394,370 L 266,362 Z"
+        fill="#1a1510" stroke="#c8961e" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- Spine (narrow centre strip) -->
+  <path d="M 246,148 L 266,148 L 266,362 L 246,362 Z"
+        fill="#0e0c08" stroke="#c8961e" stroke-width="1.8"/>
+  <!-- Spine highlight line -->
+  <line x1="256" y1="150" x2="256" y2="360" stroke="#c8961e" stroke-width="1" opacity="0.6"/>
+
+  <!-- Text lines — left page (6 lines, gold at low opacity) -->
+  <g stroke="#c8961e" stroke-width="1.8" opacity="0.38" stroke-linecap="round">
+    <line x1="136" y1="185" x2="234" y2="183"/>
+    <line x1="136" y1="205" x2="234" y2="203"/>
+    <line x1="136" y1="225" x2="234" y2="223"/>
+    <line x1="136" y1="245" x2="234" y2="243"/>
+    <line x1="136" y1="265" x2="234" y2="263"/>
+    <line x1="136" y1="285" x2="212" y2="283"/>
+    <!-- lower section -->
+    <line x1="136" y1="310" x2="234" y2="308"/>
+    <line x1="136" y1="330" x2="234" y2="328"/>
+    <line x1="136" y1="350" x2="212" y2="348"/>
+  </g>
+
+  <!-- Text lines — right page -->
+  <g stroke="#c8961e" stroke-width="1.8" opacity="0.38" stroke-linecap="round">
+    <line x1="278" y1="183" x2="376" y2="185"/>
+    <line x1="278" y1="203" x2="376" y2="205"/>
+    <line x1="278" y1="223" x2="376" y2="225"/>
+    <line x1="278" y1="243" x2="376" y2="245"/>
+    <line x1="278" y1="263" x2="376" y2="265"/>
+    <line x1="278" y1="283" x2="356" y2="285"/>
+    <!-- lower section -->
+    <line x1="278" y1="308" x2="376" y2="310"/>
+    <line x1="278" y1="328" x2="376" y2="330"/>
+    <line x1="278" y1="348" x2="356" y2="350"/>
+  </g>
+
+  <!-- Page curl hint at bottom-right corner of right page -->
+  <path d="M 376,355 Q 394,355 394,370 Q 376,365 376,355 Z"
+        fill="#0e0c08" opacity="0.7"/>
+  <path d="M 376,355 Q 394,355 394,370" fill="none" stroke="#c8961e" stroke-width="1.2" opacity="0.5"/>
+
+  <!-- Subtle glow around spine -->
+  <line x1="256" y1="148" x2="256" y2="362"
+        stroke="#e8b030" stroke-width="4" opacity="0.07"/>
+</svg>
