@@ -130,16 +130,16 @@
 
         .adventure-card .card-cover {
             width: 90px;
+            height: auto;
             flex-shrink: 0;
-            object-fit: cover;
-            object-position: top center;
+            align-self: flex-start;
             display: block;
-            border-right: 1px solid var(--border);
         }
 
         .adventure-card .card-body {
             flex: 1;
             padding: 1.1rem 1.25rem 1.4rem;
+            border-left: 1px solid var(--border);
         }
 
         .adventure-card .card-flourish {
@@ -786,6 +786,42 @@
             margin-top: 0.25rem;
         }
 
+        /* ── Cover lightbox ─────────────────────────── */
+        #cover-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+        }
+        #cover-lightbox.active { display: flex; }
+
+        #cover-lightbox img {
+            max-height: 90vh;
+            max-width: 90vw;
+            object-fit: contain;
+            display: block;
+        }
+
+        #cover-lightbox-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.5rem;
+            color: var(--ink-dim);
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.25rem 0.5rem;
+        }
+        #cover-lightbox-close:hover { color: var(--ink); }
+
+        .card-cover { cursor: zoom-in; }
+
         /* ── Dice roll animation ─────────────────────── */
         @keyframes diceFlicker {
             0%   { opacity: 0.3; }
@@ -1062,6 +1098,12 @@
     </div>
 </div>
 
+<!-- Cover art lightbox -->
+<div id="cover-lightbox">
+    <button id="cover-lightbox-close">✕</button>
+    <img id="cover-lightbox-img" src="" alt="">
+</div>
+
 <script>
 
 // ══════════════════════════════════════════════════════
@@ -1177,6 +1219,12 @@ async function loadAdventureList() {
             if (save) showSavePrompt(adv, save);
             else openAdventure(adv.id, adv.hero_image);
         });
+        if (adv.cover_image) {
+            card.querySelector('.card-cover').addEventListener('click', e => {
+                e.stopPropagation();
+                openCoverLightbox(adv.cover_image, adv.title);
+            });
+        }
         container.appendChild(card);
     }
 }
@@ -1785,6 +1833,16 @@ function timeAgo(ts) {
     return `${days} day${days !== 1 ? 's' : ''} ago`;
 }
 
+function openCoverLightbox(src, alt) {
+    document.getElementById('cover-lightbox-img').src = src;
+    document.getElementById('cover-lightbox-img').alt = alt;
+    document.getElementById('cover-lightbox').classList.add('active');
+}
+
+function closeCoverLightbox() {
+    document.getElementById('cover-lightbox').classList.remove('active');
+}
+
 function showSavePrompt(adv, save) {
     const card = document.querySelector('.save-prompt-card');
     card.style.setProperty('--card-accent', adv.accent_color || 'var(--gold)');
@@ -1821,6 +1879,14 @@ document.getElementById('btn-provisions').addEventListener('click', useProvision
 
 document.getElementById('btn-play-again').addEventListener('click', () => showCreateScreen());
 document.getElementById('btn-try-again').addEventListener('click', tryAgain);
+
+document.getElementById('cover-lightbox-close').addEventListener('click', closeCoverLightbox);
+document.getElementById('cover-lightbox').addEventListener('click', e => {
+    if (e.target === document.getElementById('cover-lightbox')) closeCoverLightbox();
+});
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeCoverLightbox();
+});
 
 function saveAndQuit() {
     saveProgress();
