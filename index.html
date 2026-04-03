@@ -115,15 +115,31 @@
             border: 1px solid var(--border);
             border-left: 3px solid var(--card-accent, var(--gold));
             border-radius: 6px;
-            padding: 1.4rem 1.5rem;
             cursor: pointer;
             transition: border-color 0.2s, background 0.2s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
         }
 
         .adventure-card:hover {
             background: var(--parchment-hi);
             border-left-color: var(--card-accent, var(--gold-hi));
             filter: brightness(1.08);
+        }
+
+        .adventure-card .card-cover {
+            width: 90px;
+            flex-shrink: 0;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            border-right: 1px solid var(--border);
+        }
+
+        .adventure-card .card-body {
+            flex: 1;
+            padding: 1.1rem 1.25rem 1.4rem;
         }
 
         .adventure-card .card-flourish {
@@ -161,7 +177,7 @@
             margin-top: 0.6rem;
             line-height: 1.5;
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -177,6 +193,25 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            padding: 0;
+            gap: 0;
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+            border-bottom: 2px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .create-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
             padding: 2rem;
             gap: 1.5rem;
         }
@@ -790,11 +825,15 @@
                 font-size: 0.78rem;
             }
 
-            .adventure-card {
-                padding: 1rem 1.1rem;
+            .adventure-card .card-body {
+                padding: 0.85rem 1rem;
             }
 
-            #screen-create {
+            .hero-banner {
+                height: 180px;
+            }
+
+            .create-content {
                 padding: 1.5rem 1rem;
                 gap: 1.1rem;
             }
@@ -848,40 +887,43 @@
 
 <!-- ══ CREATE SCREEN ══════════════════════════════════ -->
 <div id="screen-create" class="screen">
-    <h1 id="create-title"></h1>
+    <img class="hero-banner" id="create-hero" src="" alt="" style="display:none">
+    <div class="create-content">
+        <h1 id="create-title"></h1>
 
-    <div class="intro-box" id="create-intro"></div>
+        <div class="intro-box" id="create-intro"></div>
 
-    <div class="create-section">
-        <h2>Your Character</h2>
-        <div class="stat-rolls">
-            <div class="stat-roll-box">
-                <div class="stat-name">Skill</div>
-                <div class="stat-value skill-val" id="roll-skill">—</div>
-                <div class="stat-formula" id="formula-skill"></div>
-            </div>
-            <div class="stat-roll-box">
-                <div class="stat-name">Stamina</div>
-                <div class="stat-value stamina-val" id="roll-stamina">—</div>
-                <div class="stat-formula" id="formula-stamina"></div>
-            </div>
-            <div class="stat-roll-box">
-                <div class="stat-name">Luck</div>
-                <div class="stat-value luck-val" id="roll-luck">—</div>
-                <div class="stat-formula" id="formula-luck"></div>
+        <div class="create-section">
+            <h2>Your Character</h2>
+            <div class="stat-rolls">
+                <div class="stat-roll-box">
+                    <div class="stat-name">Skill</div>
+                    <div class="stat-value skill-val" id="roll-skill">—</div>
+                    <div class="stat-formula" id="formula-skill"></div>
+                </div>
+                <div class="stat-roll-box">
+                    <div class="stat-name">Stamina</div>
+                    <div class="stat-value stamina-val" id="roll-stamina">—</div>
+                    <div class="stat-formula" id="formula-stamina"></div>
+                </div>
+                <div class="stat-roll-box">
+                    <div class="stat-name">Luck</div>
+                    <div class="stat-value luck-val" id="roll-luck">—</div>
+                    <div class="stat-formula" id="formula-luck"></div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="create-section">
-        <h2>Starting Equipment</h2>
-        <div class="starting-items-list" id="starting-items"></div>
-    </div>
+        <div class="create-section">
+            <h2>Starting Equipment</h2>
+            <div class="starting-items-list" id="starting-items"></div>
+        </div>
 
-    <div class="btn-row">
-        <button class="btn btn-primary" id="btn-roll">Roll Character</button>
-        <button class="btn btn-primary" id="btn-begin" disabled>Begin Adventure</button>
-        <button class="btn" id="btn-back-select">Back</button>
+        <div class="btn-row">
+            <button class="btn btn-primary" id="btn-roll">Roll Character</button>
+            <button class="btn btn-primary" id="btn-begin" disabled>Begin Adventure</button>
+            <button class="btn" id="btn-back-select">Back</button>
+        </div>
     </div>
 </div>
 
@@ -1029,6 +1071,7 @@
 const gameState = {
     adventure:      null,   // loaded adventure JSON
     adventureId:    null,   // adventure file ID (e.g. "the_crypt_of_count_valdric")
+    heroImage:      null,   // hero image path from manifest
     currentPassage: "1",    // current passage ID
     skill:    { current: 0, max: 0 },
     stamina:  { current: 0, max: 0 },
@@ -1121,25 +1164,29 @@ async function loadAdventureList() {
                 ${adv.genre_tag  ? `<span class="card-genre-tag">${adv.genre_tag}</span>`   : ''}
             </div>` : '';
         card.innerHTML = `
-            ${flourish}
-            <div class="card-title">${adv.title}</div>
-            <div class="card-author">by ${adv.author}</div>
-            ${adv.introduction ? `<div class="card-intro">${adv.introduction}</div>` : ''}
+            ${adv.cover_image ? `<img class="card-cover" src="${adv.cover_image}" alt="">` : ''}
+            <div class="card-body">
+                ${flourish}
+                <div class="card-title">${adv.title}</div>
+                <div class="card-author">by ${adv.author}</div>
+                ${adv.introduction ? `<div class="card-intro">${adv.introduction}</div>` : ''}
+            </div>
         `;
         card.addEventListener('click', () => {
             const save = loadSave(adv.id);
             if (save) showSavePrompt(adv, save);
-            else openAdventure(adv.id);
+            else openAdventure(adv.id, adv.hero_image);
         });
         container.appendChild(card);
     }
 }
 
-async function openAdventure(id) {
+async function openAdventure(id, heroImage) {
     try {
         const res = await fetch(`adventures/${id}.json`);
         gameState.adventure = await res.json();
         gameState.adventureId = id;
+        gameState.heroImage = heroImage || null;
         showCreateScreen();
     } catch (e) {
         alert('Failed to load adventure.');
@@ -1181,6 +1228,14 @@ function showCreateScreen() {
     const adv = gameState.adventure;
     document.getElementById('create-title').textContent = adv.title;
     document.getElementById('create-intro').textContent = adv.introduction || '';
+
+    const heroEl = document.getElementById('create-hero');
+    if (gameState.heroImage) {
+        heroEl.src = gameState.heroImage;
+        heroEl.style.display = 'block';
+    } else {
+        heroEl.style.display = 'none';
+    }
 
     // Show formula hints
     const cfg = adv.character;
