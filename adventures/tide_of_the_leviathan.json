@@ -1,0 +1,1005 @@
+{
+  "title": "Tide of the Leviathan",
+  "author": "Andrew Hilton",
+  "version": "1.0",
+  "accent_color": "#2a7a8a",
+  "genre_tag": "HIGH SEAS",
+  "theme_icon": "⚓",
+  "introduction": "The storm took your ship three days ago. The Windborne went down in minutes — one moment you were fighting the sails, the next you were in black water, choking on brine, watching the mast disappear beneath the waves.\n\nYou washed ashore at Saltmere, a grey port town clinging to cliffs above the Sunken Reaches — a vast stretch of shallow reef and drowned ruins where the sea swallows ships whole. The locals pulled you from the surf, fed you, and told you something that turned your blood cold.\n\nThe storm was not natural. Beneath the Reaches, something ancient stirs — a being the fisherfolk call the Leviathan. A cult of zealots, the Drowned Priests, has been performing rituals to awaken it fully. When the tide comes in tonight, they will complete the final rite. If they succeed, every soul on this coast will be dragged beneath the waves.\n\nYour crew is missing. Your ship is gone. But you still have your cutlass and three days' worth of provisions. The harbourmaster says no captain in Saltmere will sail towards the Reaches — but there may be other ways to find a boat.\n\nYour adventure begins at the Saltmere harbour.",
+  "character": {
+    "skill_base": 6,
+    "skill_dice": 1,
+    "stamina_base": 14,
+    "stamina_dice": 2,
+    "luck_base": 6,
+    "luck_dice": 1,
+    "starting_items": [
+      "cutlass",
+      "provisions"
+    ],
+    "starting_provisions": 3
+  },
+  "items": {
+    "cutlass": {
+      "name": "Cutlass",
+      "type": "weapon",
+      "skill_bonus": 0,
+      "description": "A well-worn cutlass. Salt-pitted but reliable."
+    },
+    "flintlock_pistol": {
+      "name": "Flintlock Pistol",
+      "type": "weapon",
+      "skill_bonus": 1,
+      "damage_bonus": 1,
+      "description": "A single-shot flintlock. Loud, messy, devastating at close range. +1 SKILL and +1 DAMAGE."
+    },
+    "navigator_compass": {
+      "name": "Navigator's Compass",
+      "type": "quest",
+      "description": "A brass compass that spins wildly near the Sunken Reaches. It once belonged to your first mate."
+    },
+    "tide_chart": {
+      "name": "Tide Chart",
+      "type": "quest",
+      "description": "A waterproof chart showing the tidal patterns of the Sunken Reaches. The ritual site is marked."
+    },
+    "grappling_hook": {
+      "name": "Grappling Hook",
+      "type": "tool",
+      "description": "A heavy iron hook on thirty feet of rope. Useful for climbing, crossing gaps, or hauling things."
+    },
+    "drowned_key": {
+      "name": "Drowned Key",
+      "type": "quest",
+      "description": "A barnacle-encrusted iron key pulled from a drowned priest. It opens something below the waterline."
+    },
+    "rum": {
+      "name": "Saltmere Dark Rum",
+      "type": "consumable",
+      "stamina_restore": 3,
+      "description": "A flask of Saltmere dark rum. Burns going down. Restores 3 STAMINA."
+    },
+    "provisions": {
+      "name": "Provisions",
+      "type": "consumable",
+      "stamina_restore": 4,
+      "description": "Ship's biscuit and salted fish. Not pleasant, but sustaining. Restores 4 STAMINA."
+    },
+    "sea_glass_amulet": {
+      "name": "Sea-Glass Amulet",
+      "type": "quest",
+      "description": "A shard of green sea-glass worn smooth by decades of tides, strung on cord. The cult priestess wore it."
+    }
+  },
+  "enemies": {
+    "dock_thug": {
+      "name": "Dock Thug",
+      "skill": 6,
+      "stamina": 6
+    },
+    "drowned_cultist": {
+      "name": "Drowned Cultist",
+      "skill": 7,
+      "stamina": 7
+    },
+    "tide_wraith": {
+      "name": "Tide Wraith",
+      "skill": 8,
+      "stamina": 6
+    },
+    "reef_shark": {
+      "name": "Reef Shark",
+      "skill": 7,
+      "stamina": 8
+    },
+    "drowned_first_mate": {
+      "name": "Your Drowned First Mate",
+      "skill": 8,
+      "stamina": 10
+    },
+    "high_priest_morrow": {
+      "name": "High Priest Morrow",
+      "skill": 9,
+      "stamina": 12
+    },
+    "the_leviathan_aspect": {
+      "name": "The Leviathan (Aspect)",
+      "skill": 11,
+      "stamina": 16
+    }
+  },
+  "passages": {
+    "1": {
+      "text": "Saltmere harbour is a crescent of grey stone battered by wind and spray. Fishing boats bob in their moorings, hulls crusted with barnacles. The air tastes of salt and rotting kelp. Gulls wheel overhead, screaming.\n\nThe harbourmaster told you no one sails to the Reaches willingly. But you can see the desperation in the town — shuttered windows, folk making the sign against evil, nets hauled in half-empty. Something is very wrong here.\n\nThree things catch your eye. A weathered tavern called the Drowned Anchor sits at the harbour's edge, its door open. Down on the docks, a one-eyed woman is arguing with a group of rough-looking men over a skiff. And carved into the harbour wall, half-hidden by barnacles, is a symbol you recognise — the same spiralling wave-mark that was branded onto the flotsam from your wrecked ship.",
+      "choices": [
+        {
+          "text": "Enter the Drowned Anchor tavern",
+          "goto": "2"
+        },
+        {
+          "text": "Approach the one-eyed woman on the docks",
+          "goto": "3"
+        },
+        {
+          "text": "Examine the carved symbol on the harbour wall",
+          "goto": "4"
+        }
+      ]
+    },
+    "2": {
+      "text": "The Drowned Anchor is dark and low-ceilinged, heavy with pipe smoke and the smell of spilled ale. A handful of sailors sit at scarred tables, drinking in silence. The mood is grim.\n\nThe barkeep — a broad woman with tattooed forearms — eyes you as you enter. 'Shipwreck survivor, are you? We've been getting a few of those.' She slides you a drink unbidden. 'On the house. You look like death.'\n\nShe leans closer. 'If you're looking for answers, talk to Old Pell in the corner. He was a navigator before the drink took him. Knows these waters better than anyone alive. And if you need something stronger than ale...' She taps a flask of dark rum on the shelf behind her. 'Three coins.'",
+      "choices": [
+        {
+          "text": "Talk to Old Pell the navigator",
+          "goto": "2a"
+        },
+        {
+          "text": "Buy the rum",
+          "goto": "2b"
+        },
+        {
+          "text": "Leave and check the docks",
+          "goto": "3"
+        }
+      ]
+    },
+    "2a": {
+      "text": "Old Pell is a ruin of a man — hollow-cheeked, rheumy-eyed, hands shaking around his tankard. But when you mention the Sunken Reaches, something sharpens in his gaze.\n\n'The Reaches,' he mutters. 'Aye, I sailed them. Before.' He pulls a waterproof tube from inside his coat and unrolls a chart across the table. Tidal patterns, depth soundings, reef markers — and there, circled in faded red ink, a spot marked TEMPLE.\n\n'The Drowned Priests use the tides,' he says. 'The temple is only accessible at low tide. Come high water, it's twenty fathoms under. Their ritual needs to be completed before the tide turns — if it is, the Leviathan wakes fully.' He pushes the chart towards you. 'Take it. I'm done with the sea.'\n\nHe grips your wrist suddenly. 'Your ship. The Windborne. Your first mate — the one with the brass compass. I saw him.' His voice drops. 'Three nights ago, walking on the water. Dead-eyed. Drowned. They took him.'",
+      "add_items": [
+        "tide_chart"
+      ],
+      "set_flags": [
+        "knows_first_mate"
+      ],
+      "choices": [
+        {
+          "text": "Ask Pell about getting a boat to the Reaches",
+          "goto": "2c"
+        },
+        {
+          "text": "Buy the rum before you leave",
+          "goto": "2b"
+        },
+        {
+          "text": "Head down to the docks",
+          "goto": "3"
+        }
+      ]
+    },
+    "2b": {
+      "text": "You toss three coins on the bar. The barkeep nods and slides you a flask of Saltmere dark rum — the good stuff, thick and brown as tar. You tuck it into your coat.",
+      "add_items": [
+        "rum"
+      ],
+      "choices": [
+        {
+          "text": "Talk to Old Pell the navigator",
+          "goto": "2a",
+          "requires_no_flag": "has_tide_chart"
+        },
+        {
+          "text": "Leave the tavern and check the docks",
+          "goto": "3"
+        },
+        {
+          "text": "Head to the harbour wall to examine the symbol",
+          "goto": "4"
+        }
+      ]
+    },
+    "2c": {
+      "text": "Pell shakes his head. 'No captain in Saltmere will take you. Not with the Leviathan stirring.' He pauses, thinking. 'But there's a woman on the docks — Kael. Lost her eye to a reef shark ten years back. She's got a skiff and she's mad enough to sail it anywhere. Last I heard, some of Harlan's thugs were trying to take it from her. Harlan runs the dock gangs. If Kael's still got her boat, she's your best chance.'\n\nHe drains his tankard. 'One more thing. There's a chandlery at the end of the harbour — Brine & Rope. The old man there sells equipment. Grappling hooks, rope, that sort of thing. Might be worth a visit if you're heading to the Reaches.'",
+      "set_flags": [
+        "knows_kael"
+      ],
+      "choices": [
+        {
+          "text": "Head to the docks to find Kael",
+          "goto": "3"
+        },
+        {
+          "text": "Visit Brine & Rope chandlery first",
+          "goto": "5"
+        }
+      ]
+    },
+    "3": {
+      "text": "Down on the docks, the one-eyed woman — Kael, if Pell's information is right — stands with her back to a weathered skiff, squaring off against three dock thugs. The biggest of them has a cudgel. The other two have knives.\n\n'The boat stays,' Kael says flatly. She has a long gutting knife in her hand and the calm, coiled stance of someone who has been in fights before. 'Tell Harlan he can come take it himself if he wants it that badly.'\n\nThe big thug takes a step forward. This is about to get ugly.",
+      "choices": [
+        {
+          "text": "Step in and help Kael fight the thugs",
+          "goto": "3a"
+        },
+        {
+          "text": "Try to talk the thugs down",
+          "goto": "3b"
+        },
+        {
+          "text": "Watch from a distance and wait for it to play out",
+          "goto": "3c"
+        }
+      ]
+    },
+    "3a": {
+      "text": "You draw your cutlass and step up beside Kael. 'Three against one didn't seem fair,' you say. 'Two against three is better odds.'\n\nKael gives you a sharp, appraising look. The big thug snarls and swings his cudgel at your head.",
+      "combat": {
+        "enemy": "dock_thug",
+        "win_goto": "3d",
+        "flee_goto": "3c",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "3b": {
+      "text": "You step forward, hands raised. 'Easy, lads. Nobody needs to bleed today.' The big thug turns his piggy eyes on you. For a moment it could go either way.\n\nTest your luck!",
+      "test_luck": {
+        "lucky_text": "The thug hesitates. Maybe it's something in your voice, or maybe he just doesn't want to fight two people. He spits on the dock. 'Tell Harlan yourself,' he mutters, and the three of them slouch away. Kael sheathes her knife and looks at you with grudging respect.",
+        "lucky_goto": "3e",
+        "unlucky_text": "The thug laughs in your face. 'Another dead sailor with a big mouth.' He swings his cudgel at your skull. So much for diplomacy.",
+        "unlucky_goto": "3a"
+      }
+    },
+    "3c": {
+      "text": "You watch from behind a stack of crab pots. Kael fights well — she drops one thug with a kick to the knee and opens a gash on the big one's arm. But the third catches her across the temple with a belaying pin and she staggers. They grab the skiff's mooring line and start hauling it away.\n\nKael sits on the dock, blood running down her face, cursing steadily. She looks up as you approach. 'If you're here to rob me too, pick a number and wait your turn.'\n\nThe skiff is gone. You'll need to find another way to reach the Reaches — or find where Harlan's thugs took it.",
+      "set_flags": [
+        "skiff_stolen"
+      ],
+      "choices": [
+        {
+          "text": "Ask Kael if she knows where they'll take the boat",
+          "goto": "3f"
+        },
+        {
+          "text": "Head to the tavern to regroup",
+          "goto": "2",
+          "requires_no_flag": "has_tide_chart"
+        },
+        {
+          "text": "Visit Brine & Rope chandlery",
+          "goto": "5"
+        }
+      ]
+    },
+    "3d": {
+      "text": "The big thug drops to the dock planks, groaning. The other two take one look and bolt, vanishing between the warehouses. Kael kicks the fallen man's cudgel into the harbour.\n\n'Not bad,' she says, wiping her knife on her trousers. 'You fight like a sailor. Shipwreck?' You nod. She studies you with her one good eye.",
+      "set_flags": [
+        "helped_kael",
+        "kael_allied"
+      ],
+      "choices": [
+        {
+          "text": "Tell her you need a boat to the Sunken Reaches",
+          "goto": "3e"
+        }
+      ]
+    },
+    "3e": {
+      "text": "Kael listens as you explain — the shipwreck, the Drowned Priests, the ritual. Her expression doesn't change, but her knuckles whiten on her knife.\n\n'The Reaches,' she says quietly. 'I lost my eye there. Reef shark, in the shallows above the drowned ruins. I swore I'd never go back.' She's silent for a long moment, watching the grey sea.\n\n'But if what you're saying is true — if the Leviathan wakes — there won't be a Saltmere to come back to.' She jerks her head towards the skiff. 'I'll take you. But we go at dusk, when the first tide turns. That gives us a few hours. Get whatever you need and meet me here.'",
+      "set_flags": [
+        "kael_allied"
+      ],
+      "choices": [
+        {
+          "text": "Visit the tavern before departure",
+          "goto": "2",
+          "requires_no_flag": "has_tide_chart"
+        },
+        {
+          "text": "Visit Brine & Rope chandlery",
+          "goto": "5"
+        },
+        {
+          "text": "Examine the symbol on the harbour wall",
+          "goto": "4"
+        },
+        {
+          "text": "You're ready — set sail for the Reaches",
+          "goto": "7",
+          "requires_item": "tide_chart"
+        }
+      ]
+    },
+    "3f": {
+      "text": "Kael presses a rag to her bleeding temple. 'Harlan's warehouse. End of the north dock. That's where they stash everything they steal.' She stands, swaying slightly. 'I'd come with you but I can barely see straight. Get my boat back and I'll sail you wherever you need to go. Even the Reaches.'\n\nShe grabs your arm. 'Be careful. Harlan keeps guards. And he's got a flintlock pistol — one of the old naval ones. Don't let him draw on you.'",
+      "set_flags": [
+        "knows_warehouse"
+      ],
+      "choices": [
+        {
+          "text": "Head to Harlan's warehouse to recover the skiff",
+          "goto": "6"
+        },
+        {
+          "text": "Visit Brine & Rope chandlery first",
+          "goto": "5"
+        }
+      ]
+    },
+    "4": {
+      "text": "You scrape barnacles away from the harbour wall. The symbol is old — decades, maybe centuries. A spiral wave enclosing what looks like an open eye. The Leviathan's mark.\n\nAs you trace it with your finger, you feel a pulse of cold run through the stone. The water in the harbour darkens for just a moment, as if something vast passed beneath the surface. Then it's gone.\n\nA fisherwoman mending nets nearby watches you. 'Don't touch that,' she says sharply. 'The priests carved those all along the coast. Markers. Beacons.' She lowers her voice. 'My husband went out fishing a week past. Came back walking strange, talking in his sleep. Words that aren't words. He's gone now — left in the night. Walked into the sea.'\n\nShe turns away. 'Whatever you're planning, do it quick. The tide comes in tonight.'",
+      "set_flags": [
+        "saw_symbol"
+      ],
+      "choices": [
+        {
+          "text": "Head to the Drowned Anchor tavern",
+          "goto": "2"
+        },
+        {
+          "text": "Go down to the docks",
+          "goto": "3"
+        },
+        {
+          "text": "Visit Brine & Rope chandlery",
+          "goto": "5"
+        }
+      ]
+    },
+    "5": {
+      "text": "Brine & Rope is a cramped chandlery stinking of tar and hemp. An old man with gnarled hands sits behind a counter covered in coils of rope, rusted shackles, and hooks of every size.\n\n'Heading out to sea, are you?' he says, not looking up from the splice he's working. 'In this weather. With that thing stirring out there.' He shakes his head. 'Your funeral.'\n\nHe gestures at his stock. A heavy iron grappling hook catches your eye, and behind it, hanging on a peg, a flintlock pistol with a powder horn.",
+      "choices": [
+        {
+          "text": "Take the grappling hook",
+          "goto": "5a"
+        },
+        {
+          "text": "Take the flintlock pistol",
+          "goto": "5b"
+        },
+        {
+          "text": "Leave — you have what you need",
+          "goto": "5c"
+        }
+      ]
+    },
+    "5a": {
+      "text": "You heft the grappling hook. Good iron, solid construction, thirty feet of tarred rope. The old man names a fair price and you pay it. 'You'll want that where you're going,' he says. 'The Reaches are all cliffs and wrecks. No ladders.'",
+      "add_items": [
+        "grappling_hook"
+      ],
+      "choices": [
+        {
+          "text": "Also take the flintlock pistol",
+          "goto": "5b"
+        },
+        {
+          "text": "Leave the chandlery",
+          "goto": "5c"
+        }
+      ]
+    },
+    "5b": {
+      "text": "The flintlock is a naval-pattern pistol, heavy and well-oiled. One shot, but at close range it will put a ball through a ship's timber. The old man throws in the powder horn and a pouch of lead shot. 'Only get one chance with a thing like that,' he says. 'Make it count.'",
+      "add_items": [
+        "flintlock_pistol"
+      ],
+      "choices": [
+        {
+          "text": "Also take the grappling hook",
+          "goto": "5a",
+          "requires_no_flag": "has_grappling_hook"
+        },
+        {
+          "text": "Leave the chandlery",
+          "goto": "5c"
+        }
+      ]
+    },
+    "5c": {
+      "text": "You step out of Brine & Rope into the salt wind. The sky is darkening. You don't have much time left before dusk.",
+      "choices": [
+        {
+          "text": "Head to the docks to find a boat",
+          "goto": "3",
+          "requires_no_flag": "kael_allied"
+        },
+        {
+          "text": "Head to Harlan's warehouse",
+          "goto": "6",
+          "requires_flag": "skiff_stolen"
+        },
+        {
+          "text": "Return to Kael and set sail",
+          "goto": "7",
+          "requires_flag": "kael_allied"
+        },
+        {
+          "text": "Visit the tavern",
+          "goto": "2",
+          "requires_no_flag": "has_tide_chart"
+        }
+      ]
+    },
+    "6": {
+      "text": "Harlan's warehouse squats at the end of the north dock — a barnacle-covered hulk of salt-bleached timber. The door hangs open. Inside, you can see stolen cargo stacked high: crab pots, nets, barrels of salt fish, and there — Kael's skiff, dragged up onto a cradle.\n\nA single thug stands guard, picking his teeth with a knife. He hasn't seen you yet. Beyond him, deeper in the warehouse, you can hear voices — Harlan and at least one other.\n\nYou could try to sneak past the guard to the skiff, or you could deal with him directly.",
+      "choices": [
+        {
+          "text": "Try to sneak past the guard",
+          "goto": "6a"
+        },
+        {
+          "text": "Rush the guard before he can raise the alarm",
+          "goto": "6b"
+        }
+      ]
+    },
+    "6a": {
+      "text": "You edge along the wall between stacked crates, moving in the shadows. The guard yawns and turns away. You're almost past him when your boot catches a coil of chain on the floor. It clatters against the stone.\n\nTest your luck!",
+      "test_luck": {
+        "lucky_text": "The guard turns, squinting into the dark — but a gull shrieks outside at that exact moment and he mutters, turning back. You slip past unseen and reach the skiff.",
+        "lucky_goto": "6c",
+        "unlucky_text": "The guard spins, knife up. 'Oi! Who's there?' He spots you and lunges.",
+        "unlucky_goto": "6b"
+      }
+    },
+    "6b": {
+      "text": "The guard comes at you fast, but he's sloppy — a brawler, not a fighter. You draw your cutlass.",
+      "combat": {
+        "enemy": "dock_thug",
+        "win_goto": "6c",
+        "flee_goto": "5c",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "6c": {
+      "text": "You reach the skiff. It's a solid little vessel — single-masted, shallow draft, built for reef waters. You could drag it out through the warehouse's sea-door and be gone before Harlan knows what happened.\n\nAs you work the cradle loose, you spot something on a shelf above the workbench: a flintlock pistol in a leather holster. Harlan's, probably. There's also a flask of rum tucked behind a barrel.",
+      "set_flags": [
+        "has_skiff"
+      ],
+      "choices": [
+        {
+          "text": "Grab the pistol and go",
+          "goto": "6d",
+          "requires_no_flag": "has_pistol"
+        },
+        {
+          "text": "Grab the rum and go",
+          "goto": "6e"
+        },
+        {
+          "text": "Just take the skiff and get out",
+          "goto": "6f"
+        }
+      ]
+    },
+    "6d": {
+      "text": "You snatch the flintlock from its holster. Good weight, powder dry. Harlan will be furious, but you'll be long gone. You shove the skiff down the slipway and into the harbour.",
+      "add_items": [
+        "flintlock_pistol"
+      ],
+      "set_flags": [
+        "has_pistol"
+      ],
+      "choices": [
+        {
+          "text": "Sail to find Kael and head for the Reaches",
+          "goto": "7"
+        }
+      ]
+    },
+    "6e": {
+      "text": "You pocket the flask of rum. Waste not, want not. Then you shove the skiff down the slipway and into the dark harbour water.",
+      "add_items": [
+        "rum"
+      ],
+      "choices": [
+        {
+          "text": "Sail to find Kael and head for the Reaches",
+          "goto": "7"
+        }
+      ]
+    },
+    "6f": {
+      "text": "No time to loot. You shove the skiff down the slipway. It hits the water with a slap and you jump in, pushing off from the dock with an oar. Behind you, someone starts shouting, but you're already pulling into open water.",
+      "choices": [
+        {
+          "text": "Head for the Reaches",
+          "goto": "7"
+        }
+      ]
+    },
+    "7": {
+      "text": "The skiff cuts through grey water as Saltmere falls behind you. Kael handles the tiller with grim competence, her one eye fixed on the horizon where dark clouds are massing. The wind smells wrong — not salt, but something older. Something that has been dead a long time.\n\n'The Reaches start about two miles out,' Kael says. 'Shallow water over drowned ruins. Reefs that will gut a hull if you don't know the channels.' She glances at you. 'You have a chart?'",
+      "choices": [
+        {
+          "text": "Show her the tide chart",
+          "goto": "8",
+          "requires_item": "tide_chart"
+        },
+        {
+          "text": "You don't have a chart — navigate by instinct",
+          "goto": "7a"
+        }
+      ]
+    },
+    "7a": {
+      "text": "Kael stares at you. 'No chart. You want to sail the Sunken Reaches without a chart.' She swears creatively for several seconds. 'Fine. We'll follow the current and pray.'\n\nThe skiff enters the shallows. The water turns from grey to green to black. Reefs scrape the hull. Kael fights the tiller, cursing. Then the hull catches hard on a submerged ridge and you hear timber crack.\n\nWater floods in. The skiff is sinking. You have moments before you're in the water.",
+      "add_stamina": -3,
+      "choices": [
+        {
+          "text": "Swim for the nearest reef",
+          "goto": "9"
+        }
+      ]
+    },
+    "8": {
+      "text": "Kael studies the chart, tracing the channels with her finger. 'This is good. Very good. Whoever drew this knew the Reaches.' She adjusts the tiller and the skiff slides between two reefs that would have torn the hull open.\n\nThe water beneath you is glass-clear in places — you can see drowned buildings below, their roofs covered in waving kelp. Streets where fish swim instead of people. An entire town, swallowed by the sea.\n\n'There,' Kael says, pointing. Ahead, rising from the shallow water like rotten teeth, are the masts of a wrecked ship. Your heart clenches. You know that rigging. That's the Windborne. Your ship.",
+      "choices": [
+        {
+          "text": "Sail to the wreck of the Windborne",
+          "goto": "10"
+        },
+        {
+          "text": "Follow the chart directly to the ritual site",
+          "goto": "14"
+        }
+      ]
+    },
+    "9": {
+      "text": "You swim hard. The water is shockingly cold, the current pulling at your legs. Kael surfaces beside you, gasping. Ahead, a flat reef shelf breaks the surface — you drag yourself onto it, coughing saltwater.\n\nThe skiff is gone, settling into the deep. Kael wrings water from her hair and looks around. The reef stretches in both directions. To the north, you can see ship masts breaking the surface — a wreck. To the south, the water churns over what looks like a submerged structure.\n\n'We swim from here,' Kael says grimly. 'Pick a direction.'",
+      "choices": [
+        {
+          "text": "Head north to the wrecked ship",
+          "goto": "10"
+        },
+        {
+          "text": "Head south to the submerged structure",
+          "goto": "14"
+        },
+        {
+          "text": "Give up — the sea has beaten you",
+          "goto": "death_sea",
+          "style": "danger"
+        }
+      ]
+    },
+    "10": {
+      "text": "The Windborne lies on her side, half-submerged, her masts jutting from the water at a drunken angle. The hull is torn open where the reef caught her. Kelp hangs from the rigging like funeral cloth.\n\nThis was your home for three years. Now it's a carcass.\n\nAs you pull yourself aboard the exposed section of hull, you hear something below deck. A rhythmic thumping, like a heartbeat. Or like something moving through flooded compartments, bumping against bulkheads.",
+      "choices": [
+        {
+          "text": "Climb down into the wreck to investigate",
+          "goto": "11"
+        },
+        {
+          "text": "Search the exposed upper deck first",
+          "goto": "10a"
+        }
+      ]
+    },
+    "10a": {
+      "text": "You pick across the tilted deck, stepping carefully on slick timbers. The helm is smashed. The captain's cabin is half underwater. But in the wreckage of the fo'c'sle, you find a waterproof chest that has survived intact.\n\nInside: your first mate's brass compass. The needle spins wildly, then locks onto a bearing — south-southwest. Towards the ritual site. It remembers.\n\nYou also find a length of rope with a grappling hook still attached, tangled in the rigging.",
+      "add_items": [
+        "navigator_compass"
+      ],
+      "set_flags": [
+        "has_compass"
+      ],
+      "choices": [
+        {
+          "text": "Take the grappling hook too",
+          "goto": "10b",
+          "requires_no_flag": "has_grappling_hook"
+        },
+        {
+          "text": "Climb below to investigate the thumping sound",
+          "goto": "11"
+        },
+        {
+          "text": "Leave the wreck and head for the ritual site",
+          "goto": "14"
+        }
+      ]
+    },
+    "10b": {
+      "text": "You cut the grappling hook free from the rigging and coil the rope over your shoulder. Good iron, still solid despite the saltwater.",
+      "add_items": [
+        "grappling_hook"
+      ],
+      "set_flags": [
+        "has_grappling_hook"
+      ],
+      "choices": [
+        {
+          "text": "Climb below to investigate the thumping sound",
+          "goto": "11"
+        },
+        {
+          "text": "Leave the wreck and head for the ritual site",
+          "goto": "14"
+        }
+      ]
+    },
+    "11": {
+      "text": "You lower yourself through a hatch into the flooded lower deck. The water is waist-deep and black, swirling with debris. Your feet find the tilted deck beneath you. The thumping is louder here — coming from the cargo hold ahead.\n\nYou push through a half-open door and freeze.\n\nA figure stands in the hold, waist-deep in water. It wears the remains of a sailor's coat. Its skin is grey-blue, bloated, and its eyes are white as sea-foam. But you know that face. You sailed with that face for three years.\n\nYour first mate. Drowned. And yet here, standing, swaying with the motion of the water. Around its neck, the brass compass you gave it as a gift glints dully.\n\nIts mouth opens. Saltwater pours out. And it speaks, in a voice like waves over gravel: 'Captain... the tide... is coming...'",
+      "choices": [
+        {
+          "text": "Try to reach your first mate — there may be something left of them",
+          "goto": "11a"
+        },
+        {
+          "text": "Draw your weapon — that is not your friend anymore",
+          "goto": "12"
+        },
+        {
+          "text": "Back away slowly towards the hatch",
+          "goto": "11b",
+          "style": "danger"
+        }
+      ]
+    },
+    "11a": {
+      "text": "You step closer, hand outstretched. 'It's me,' you say softly. 'We can break you free of this.'\n\nFor a moment — just a moment — something flickers in those dead white eyes. Recognition. Grief. Your first mate's hand rises, reaching for yours.\n\nThen the light dies. The jaw unhinges impossibly wide and a sound comes out — not a scream, but a pressure, a wave of cold that hits you like a wall. The drowned thing that was your friend lunges, fingers hooked into claws.\n\nWhatever the Leviathan's power has done to your first mate, there is no reversing it. You must fight.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Fight your drowned first mate",
+          "goto": "12"
+        }
+      ]
+    },
+    "11b": {
+      "text": "You back towards the hatch, not taking your eyes off the swaying figure. Your first mate watches you go with those dead white eyes. As you reach the hatch, it speaks again: 'The key... below the waterline... the temple...'\n\nThen it turns away and resumes its rhythmic swaying, thumping against the bulkhead. Whatever intelligence animated it has faded. You climb out, shaken to your core.",
+      "set_flags": [
+        "spared_first_mate"
+      ],
+      "choices": [
+        {
+          "text": "Search the upper deck for the compass",
+          "goto": "10a",
+          "requires_no_flag": "has_compass"
+        },
+        {
+          "text": "Leave the wreck and head for the ritual site",
+          "goto": "14"
+        }
+      ]
+    },
+    "12": {
+      "text": "Your drowned first mate comes at you through the black water, moving with horrible, jerking speed. Its hands are cold as iron and strong as the tide. This is the hardest fight of your life — not because of the danger, but because of who it used to be.\n\nYou raise your weapon. Forgive me.",
+      "combat": {
+        "enemy": "drowned_first_mate",
+        "win_goto": "13",
+        "flee_goto": "11b",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "13": {
+      "text": "Your first mate falls. The white eyes dim. For one heartbeat, the face relaxes into something peaceful — the expression you remember from a thousand watches shared on quiet seas. Then the body slides beneath the dark water and is gone.\n\nYou stand in the flooded hold, breathing hard. The silence is absolute.\n\nAround the dead thing's neck, the brass compass broke free in the fight. You fish it from the water. The needle spins, then locks south-southwest. Towards whatever waits beneath the Reaches.\n\nThere is also a barnacle-encrusted key clutched in the dead hand that floats to the surface. You take it. Whatever it opens, you'll find out.",
+      "add_items": [
+        "navigator_compass",
+        "drowned_key"
+      ],
+      "set_flags": [
+        "defeated_first_mate",
+        "has_compass"
+      ],
+      "choices": [
+        {
+          "text": "Leave the wreck and head for the ritual site",
+          "goto": "14"
+        }
+      ]
+    },
+    "14": {
+      "text": "You make your way across the Reaches. The water is shallow enough to wade in places, deep enough to swim in others. The navigator's compass holds steady, guiding you south-southwest through channels between the reefs.\n\nThe sky is darkening fast. Not just the approaching night — the clouds have a sick green tinge, and the air pressure is dropping. The ritual tide is building.\n\nAhead, a rocky outcrop rises from the water — the only dry ground for hundreds of yards. And on it, you see movement. Two robed figures, grey as the stone, standing guard over what looks like a stairway carved into the rock. A stairway leading down, below the waterline.\n\nThe Drowned Priests.",
+      "choices": [
+        {
+          "text": "Approach openly and challenge them",
+          "goto": "15"
+        },
+        {
+          "text": "Try to circle around and find another way down",
+          "goto": "14a",
+          "requires_item": "grappling_hook"
+        },
+        {
+          "text": "Swim underwater to reach the stairway unseen",
+          "goto": "14b"
+        }
+      ]
+    },
+    "14a": {
+      "text": "You circle the outcrop, staying low in the water. On the far side, you find a crumbling section of cliff with rusted iron rings driven into the rock — an old mooring point. You swing the grappling hook and it catches on the ledge above.\n\nYou haul yourself up, bypassing the guards entirely. The stairway is just ahead, unguarded from this side. Below, you can hear chanting — low, guttural, rhythmic. The ritual has begun.",
+      "choices": [
+        {
+          "text": "Descend the stairway",
+          "goto": "16"
+        }
+      ]
+    },
+    "14b": {
+      "text": "You take a deep breath and slip beneath the surface. The water is clear enough to see by, but cold — numbingly cold. You swim towards the outcrop, staying close to the reef.\n\nSomething moves in the water below you. A grey shape, fast and sleek. Reef shark. It's circling, drawn by the vibration of your swimming.\n\nIt turns towards you, dead black eyes fixed on yours.",
+      "combat": {
+        "enemy": "reef_shark",
+        "win_goto": "14c",
+        "flee_goto": "14",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "14c": {
+      "text": "The shark rolls away, trailing blood into the green water. You kick hard for the outcrop and haul yourself onto the rocks, gasping. The guards heard the splashing — but they're looking the wrong way, scanning the water where the shark thrashed.\n\nYou slip past them and reach the stairway. Below, chanting echoes up from the dark.",
+      "choices": [
+        {
+          "text": "Descend the stairway",
+          "goto": "16"
+        }
+      ]
+    },
+    "15": {
+      "text": "You haul yourself onto the outcrop, seawater streaming from your clothes. The two Drowned Priests turn to face you. Their robes are heavy with water, their skin tinged grey-green. Barnacles grow on their hands. Their eyes have the same dead-white look as your first mate's.\n\n'The tide comes,' one of them intones. 'All will be reclaimed. You cannot stop what has already begun.'\n\nThe other draws a curved knife from its robes. They move towards you with the same jerking, tide-driven motion.",
+      "combat": {
+        "enemy": "drowned_cultist",
+        "win_goto": "15a",
+        "flee_goto": "14",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "15a": {
+      "text": "The cultist crumples. The other one turns and runs — not back up the rocks, but into the sea, vanishing beneath the waves without a ripple. Gone to warn the others, perhaps.\n\nYou search the fallen priest. Around its neck, on a cord of braided kelp, hangs a shard of green sea-glass worn smooth by the tides. An amulet of some kind. You take it.\n\nYou also find a barnacle-encrusted iron key in its robes. The stairway leading below the waterline is just ahead. The chanting from below grows louder.",
+      "add_items": [
+        "sea_glass_amulet",
+        "drowned_key"
+      ],
+      "choices": [
+        {
+          "text": "Descend the stairway",
+          "goto": "16"
+        }
+      ]
+    },
+    "16": {
+      "text": "The stairs are carved from living rock, worn smooth by centuries of tides. They descend steeply, and within a dozen steps the water closes over your head. But the stairway is enclosed — a tunnel, with air trapped at the ceiling. You walk in chest-deep water, breathing the stale air above.\n\nThe chanting is all around you now, thrumming through the stone. The tunnel opens into a wider passage. Bioluminescent algae coats the walls, casting everything in a sickly green glow.\n\nAhead, the passage splits. The left branch slopes down towards a heavy iron door, green with verdigris. The right branch curves away into darkness, and the chanting seems to come from that direction.",
+      "choices": [
+        {
+          "text": "Try the iron door on the left",
+          "goto": "17",
+          "requires_item": "drowned_key"
+        },
+        {
+          "text": "Follow the chanting to the right",
+          "goto": "18"
+        },
+        {
+          "text": "The iron door is locked — you don't have the key. Follow the chanting.",
+          "goto": "18",
+          "requires_no_flag": "has_drowned_key_dummy"
+        }
+      ]
+    },
+    "17": {
+      "text": "The drowned key fits the lock. The mechanism groans, shedding barnacles, and the iron door swings inward. Beyond is a small chamber — an armoury, ancient and half-flooded.\n\nMost of what was stored here has rusted to nothing. But in a sealed stone alcove, above the waterline, you find a cache: three clay flasks of something that smells like strong spirits, and a weapon rack holding a single item — a cutlass of far superior quality to your own, its blade etched with wave-patterns that seem to move in the green light.\n\nBut there's something else. On a pedestal at the back of the room, a sea-glass amulet identical to the ones the Drowned Priests wear. It pulses with a faint inner light.",
+      "choices": [
+        {
+          "text": "Take the sea-glass amulet",
+          "goto": "17a",
+          "requires_no_flag": "has_sea_glass_amulet"
+        },
+        {
+          "text": "Take the provisions and continue",
+          "goto": "17b"
+        }
+      ]
+    },
+    "17a": {
+      "text": "You lift the amulet from its pedestal. The green light flares briefly, then settles. It's warm to the touch, despite the cold water. Something about it feels protective — like a ward against the oppressive presence that permeates this place.",
+      "add_items": [
+        "sea_glass_amulet"
+      ],
+      "set_flags": [
+        "has_sea_glass_amulet"
+      ],
+      "choices": [
+        {
+          "text": "Take the provisions and head back to the passage",
+          "goto": "17b"
+        }
+      ]
+    },
+    "17b": {
+      "text": "You grab the clay flasks — rum, old but potent. You tuck them away and head back to the main passage. The chanting is growing more urgent. Time is running out.",
+      "add_stamina": 4,
+      "choices": [
+        {
+          "text": "Follow the chanting",
+          "goto": "18"
+        }
+      ]
+    },
+    "18": {
+      "text": "The passage curves and descends. The water rises to your chest, then your neck. The green glow intensifies. The chanting resolves into words you almost understand — almost, but not quite. They slip away from your mind like eels, leaving only a sensation of vast depth and terrible patience.\n\nThe passage opens into a natural cavern. And you see it.\n\nA cathedral of drowned stone, vast beyond reason. Pillars of coral and calcified bone rise from the flooded floor to a ceiling lost in shadow. At the centre, a stone altar stands on a raised platform — the only dry ground. Around it, a dozen robed Drowned Priests chant in unison, their voices merging into something that is not quite sound.\n\nAnd behind the altar, standing with arms raised, is a tall figure in robes of black kelp. High Priest Morrow. His eyes burn with green light. The ritual is nearly complete.\n\nBeyond Morrow, in the deepest part of the cavern, the water is dark. Impossibly dark. Something is down there. Something that is waking up.",
+      "choices": [
+        {
+          "text": "Charge the altar directly — stop the ritual by force",
+          "goto": "19"
+        },
+        {
+          "text": "Try to disrupt the ritual from a distance using the sea-glass amulet",
+          "goto": "20",
+          "requires_item": "sea_glass_amulet"
+        },
+        {
+          "text": "Look for a way to circle around behind Morrow",
+          "goto": "18a"
+        }
+      ]
+    },
+    "18a": {
+      "text": "You slip along the cavern wall, keeping to the shadows. The chanting priests don't look up — they're deep in their trance, eyes rolled back, bodies swaying. You work your way around the edge of the chamber.\n\nBut as you pass behind a coral pillar, a shape detaches from the darkness. A Tide Wraith — a translucent figure of a drowned sailor, seawater pouring endlessly from its mouth and eyes. It reaches for you with hands like frozen kelp.\n\nIt is between you and the altar. You must deal with it quickly, before the priests notice.",
+      "combat": {
+        "enemy": "tide_wraith",
+        "win_goto": "18b",
+        "flee_goto": "18",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "18b": {
+      "text": "The wraith dissolves into a puddle of saltwater that soaks into the stone. You are now behind the altar, within striking distance of Morrow. He hasn't seen you — his eyes are closed, his arms raised, his chanting reaching a fever pitch.\n\nYou could strike now, while his back is turned. Or you could try to destroy the altar itself — you can see cracks in the ancient stone where the right blow might shatter it.",
+      "choices": [
+        {
+          "text": "Strike Morrow from behind",
+          "goto": "21"
+        },
+        {
+          "text": "Smash the altar",
+          "goto": "22"
+        }
+      ]
+    },
+    "19": {
+      "text": "You charge. Water explodes around your legs as you wade towards the altar at full speed. The chanting falters — priests turn, white eyes widening. One moves to intercept you, drawing a curved blade.\n\nYou cut through the priest and keep going. But Morrow has seen you. His chanting stops. His burning green eyes fix on yours.\n\n'Too late, sailor,' he says, and his voice carries the weight of the deep ocean. 'The tide has already turned. But I will not have you disturbing my lord's awakening.'\n\nHe draws a trident of black coral from behind the altar and comes to meet you. The remaining priests close in around you, but it's Morrow you must defeat.",
+      "add_stamina": -2,
+      "combat": {
+        "enemy": "high_priest_morrow",
+        "win_goto": "23",
+        "flee_goto": "18",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "20": {
+      "text": "You raise the sea-glass amulet. You don't know exactly what you're doing, but you can feel it responding to the chanting — vibrating in your hand, growing warm. It is part of the same power the priests wield. Perhaps it can be turned against them.\n\nYou focus your will into the amulet and push.\n\nThe green light flares. A pulse of energy ripples outward from the shard, and the chanting shatters like glass. Priests stagger, clutching their heads. The ritual circle breaks. Several collapse into the water, their connection to the Leviathan severed.\n\nMorrow screams — a sound of fury and anguish. He spins to face you, the green fire in his eyes blazing. 'You DARE?' he roars. 'That amulet belongs to the Leviathan! You will return it — in death!'\n\nBut you can see it in his face: the disruption has weakened him. The ritual must be restarted. You have bought yourself time.",
+      "remove_items": [
+        "sea_glass_amulet"
+      ],
+      "add_luck": 2,
+      "combat": {
+        "enemy": "high_priest_morrow",
+        "win_goto": "23",
+        "flee_goto": "18",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "21": {
+      "text": "You lunge from the shadows. Your blade bites deep into Morrow's shoulder before he even knows you're there. He screams and spins, green blood — not red, green — spraying from the wound. The chanting falters as the priests sense their leader's pain.\n\nMorrow is wounded but far from finished. He tears the blade from his shoulder and bares teeth that have grown pointed, inhuman. 'The God's strength flows through me,' he hisses. 'I will drown you in his name.'\n\nHe draws his black coral trident. But the wound you dealt has weakened him. His movements are slower, his guard less certain.",
+      "add_stamina": -1,
+      "combat": {
+        "enemy": "high_priest_morrow",
+        "win_goto": "23",
+        "flee_goto": "18",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "22": {
+      "text": "You bring your weapon down on the altar with everything you have. The ancient stone cracks. You strike again. A fissure races across the surface and the altar splits in two with a sound like a cannon shot.\n\nThe effect is immediate. The green glow in the cavern flickers and dies. The chanting dissolves into screams. Priests collapse, convulsing, their connection to the Leviathan broken. The water in the cavern churns violently.\n\nMorrow staggers. For a moment, the green fire in his eyes gutters out and you see the man he was before the Leviathan claimed him — old, frightened, confused. Then the fire returns, dimmer but burning. 'You've delayed it,' he gasps. 'Not stopped it. The God stirs. The God WAKES.'\n\nThe water at the far end of the cavern begins to rise.",
+      "set_flags": [
+        "altar_destroyed"
+      ],
+      "choices": [
+        {
+          "text": "Finish Morrow while he's weakened",
+          "goto": "22a"
+        },
+        {
+          "text": "Ignore Morrow — focus on what's rising from the water",
+          "goto": "24"
+        }
+      ]
+    },
+    "22a": {
+      "text": "You close on Morrow. He raises his trident in a feeble guard, but the altar's destruction has broken something in him. He fights without conviction, a puppet with half its strings cut.",
+      "combat": {
+        "enemy": "high_priest_morrow",
+        "win_goto": "23",
+        "flee_goto": "24",
+        "flee_allowed": false
+      }
+    },
+    "23": {
+      "text": "Morrow falls. The trident clatters from his hands and dissolves into black sand. The green fire leaves his eyes and he stares up at you with something like gratitude. 'Thank you,' he whispers. 'I've been drowning for so long.'\n\nHis body sags into the water and is still.\n\nBut there is no time for mercy or mourning. The water at the far end of the cavern is RISING. Something enormous is surfacing — something that dwarfs the pillars, that displaces the water in great surging waves. The remaining priests have fled or died.\n\nThe Leviathan stirs.\n\nWhat surfaces is not a body, exactly. It is an impression of one — a vast shape made of black water and ancient coral, studded with the bones of ten thousand drowned sailors. Eyes like deep-sea trenches open in the dark. A mouth like a whirlpool gapes.\n\nThis is not the Leviathan entire. It is an aspect — a fragment, a tendril of something far greater reaching up from the abyss. But even this fragment radiates a power that buckles your knees and fills your lungs with the taste of the deep.",
+      "choices": [
+        {
+          "text": "Stand your ground and fight the aspect",
+          "goto": "24"
+        },
+        {
+          "text": "Use the navigator's compass to find a way out",
+          "goto": "25",
+          "requires_item": "navigator_compass"
+        },
+        {
+          "text": "Run for the stairway",
+          "goto": "death_drowned",
+          "style": "danger"
+        }
+      ]
+    },
+    "24": {
+      "text": "You stand before the aspect of the Leviathan. It towers above you, a colossus of black water and dead coral. Barnacled ribs jut from its surface. The faces of drowned sailors drift within its form, mouths open in silent screams.\n\nIt reaches for you with a hand the size of a longboat.\n\nThis is madness. This is suicide. But the alternative is letting it wake fully and drown the world.\n\nYou raise your weapon and scream defiance into the face of the deep.",
+      "combat": {
+        "enemy": "the_leviathan_aspect",
+        "win_goto": "26",
+        "flee_goto": "death_drowned",
+        "flee_allowed": true,
+        "flee_stamina_cost": 4
+      }
+    },
+    "25": {
+      "text": "The compass needle is spinning wildly, but not randomly — it's tracing a pattern. A spiral. The same spiral as the Leviathan's mark. You watch it, and understanding hits you like a wave.\n\nThe compass doesn't just point to the God. It points AWAY from it. The brass needle was forged to navigate these waters — to find the safe channels, the places the God's influence cannot reach. Your first mate knew. That's why the priests killed your crew.\n\nYou follow the compass bearing. It leads you around the edge of the cavern, through a gap in the coral wall that you would never have found without it. Behind you, the aspect of the Leviathan roars — a sound of crashing waves and grinding stone — but it cannot follow through the narrow passage.\n\nThe passage leads to a second chamber. Smaller. Older. At its centre stands a stone pillar carved with the spiral mark, but inverted — a binding seal. And set into the pillar, a socket the exact size and shape of the compass.\n\nYou understand what must be done.",
+      "choices": [
+        {
+          "text": "Place the compass in the binding seal",
+          "goto": "victory_seal"
+        },
+        {
+          "text": "Hesitate — the compass is all you have left of your first mate",
+          "goto": "25a"
+        }
+      ]
+    },
+    "25a": {
+      "text": "You hold the compass tight. It's warm in your hand. The last piece of your old life — your ship, your crew, your first mate. All of it gone. All of it drowned.\n\nBehind you, the God's aspect is tearing at the passage, widening it. Chunks of coral crash into the water. You have seconds.\n\nThe compass needle steadies. Points at the socket in the pillar. Almost gentle. As if your first mate is telling you, one last time, which way to go.",
+      "choices": [
+        {
+          "text": "Place the compass in the seal. Let go.",
+          "goto": "victory_seal"
+        },
+        {
+          "text": "Keep the compass and run for it",
+          "goto": "death_drowned",
+          "style": "danger"
+        }
+      ]
+    },
+    "26": {
+      "text": "You fight like nothing has ever been fought before. The aspect of the Leviathan is vast and terrible, but it is not fully formed — Morrow's ritual was interrupted, and the thing before you is incomplete. A fragment of a fragment.\n\nYour blade bites into coral and bone. The aspect shrieks — a sound that cracks the pillars and sends waves crashing against the cavern walls. It claws at you, smashes you with fists of black water, tries to drag you under. But you will not drown. Not today.\n\nWith a final, desperate blow, you strike at the core of the thing — a nexus of green light pulsing at its centre, the anchor binding the aspect to the mortal world. Your weapon pierces it.\n\nThe Leviathan screams. The scream goes on and on, deeper than sound, vibrating in your bones. Then the aspect collapses — black water crashing down in a torrent, coral shattering, bones scattering. The green light dies.\n\nThe cavern shakes. Water surges. The temple is collapsing around you.",
+      "choices": [
+        {
+          "text": "Swim for the stairway — get out before it all comes down",
+          "goto": "victory_fight"
+        }
+      ]
+    },
+    "victory_seal": {
+      "text": "You press the compass into the socket. It fits perfectly. The brass warms, then blazes with golden light — not the sick green of the Leviathan's power, but something older. A light like sunrise on calm water.\n\nThe binding seal activates. The inverted spiral flares. A wave of force rips through the cavern, and behind you, the Leviathan's aspect SCREAMS. The sound shakes the mountain. Then it stops.\n\nSilence. The oppressive presence that has saturated this place is gone — not destroyed, but driven back, sealed below the abyss where it belongs. The water in the cavern calms. The green glow fades to honest darkness.\n\nYou stand in the quiet, your hand still on the pillar. The compass is part of the seal now. You can feel it working — a steady pulse, like a heartbeat, holding the Leviathan in its sleep.\n\nYour first mate's compass. Still navigating. Still keeping you safe.\n\nYou climb the stairway as dawn breaks over the Sunken Reaches. The storm clouds are clearing. Kael is waiting on the outcrop, staring at the horizon with her one good eye. She looks at you and says nothing for a long time.\n\n'It's over,' you say.\n\n'For now,' she replies. But she's smiling.\n\nThe tide goes out. The sea is calm. And somewhere far below, a compass needle holds steady, pointing the way home.\n\nYOU ARE VICTORIOUS.",
+      "remove_items": [
+        "navigator_compass"
+      ],
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "victory_fight": {
+      "text": "You swim. The water surges around you as the temple collapses, stone grinding against stone, the deep shaking itself apart. You kick for the stairway, lungs burning, vision blurring.\n\nYou make it. Barely. The stairs are crumbling beneath your feet as you climb, water roaring at your heels. You burst out onto the outcrop as the entire structure implodes behind you, the sea rushing in to fill the void.\n\nKael grabs your arm and hauls you clear. 'What happened down there?' she shouts over the sound of the sea.\n\n'I killed a god,' you say. Or an aspect of one. Close enough.\n\nThe storm clouds are breaking apart. The sick green light on the horizon fades. The Leviathan's awakening has been stopped — its aspect destroyed, its temple collapsed, its priests scattered or dead. The ritual is broken.\n\nYou sit on the rocks as dawn breaks, battered, bleeding, exhausted. But alive. The sea stretches out before you, grey and vast and honest. Just the sea.\n\nYOU ARE VICTORIOUS.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "death_drowned": {
+      "text": "You run. But the tide has turned, and the sea does not let go of what it claims.\n\nThe water rises with impossible speed. It surges up the stairway, over the outcrop, across the Reaches. Cold and black and absolute. You fight it, but you might as well fight the ocean itself.\n\nThe last thing you see is the green glow of the deep, and within it, something vast and patient opening its eyes.\n\nThe Leviathan wakes. The tide comes in. And it does not go out again.\n\nYOUR ADVENTURE IS OVER.",
+      "ending": true,
+      "ending_type": "death"
+    },
+    "death_sea": {
+      "text": "The sea takes you. It has been taking things for longer than humanity has existed, and it is very, very good at it. The cold closes over your head, the salt fills your lungs, and the dark swallows you whole.\n\nSomewhere far below, something ancient stirs. It can wait. It has always been waiting.\n\nYOUR ADVENTURE IS OVER.",
+      "ending": true,
+      "ending_type": "death"
+    }
+  },
+  "cover_image": "cover_art/Leviathan Cover.jpeg",
+  "hero_image": "cover_art/Leviathan Hero.jpeg"
+}

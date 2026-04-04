@@ -55,6 +55,23 @@ Manually maintained manifest. **Must be updated when adding a new adventure.** E
 }
 ```
 
+## Item Fields
+
+| Field | Purpose |
+|---|---|
+| `skill_bonus` | Adds to attack roll in combat (highest in inventory wins, not stacked) |
+| `damage_bonus` | Adds to base damage per hit (base 2, highest in inventory wins). Luck modifiers scale with base: lucky = base+1, unlucky = base−1 (min 1) |
+| `stamina_restore` | Stamina restored when used as a consumable |
+
+### Choice `style` field
+
+Choices accept an optional `"style"` field that changes button appearance:
+
+| Value | Appearance | Use for |
+|---|---|---|
+| *(omitted)* | Default parchment | Normal choices |
+| `"danger"` | Dark red border, red hover | Flee, retreat, run choices |
+
 ## Adventure JSON Schema
 
 Each file in `adventures/` defines a complete adventure:
@@ -79,7 +96,7 @@ Each file in `adventures/` defines a complete adventure:
 
     "items": {
         "sword": { "name": "Sword", "type": "weapon", "skill_bonus": 0, "description": "..." },
-        "magic_sword": { "name": "Enchanted Sword", "type": "weapon", "skill_bonus": 2 },
+        "magic_sword": { "name": "Enchanted Sword", "type": "weapon", "skill_bonus": 2, "damage_bonus": 1 },
         "provisions": { "name": "Provisions", "type": "consumable", "stamina_restore": 4 }
     },
 
@@ -113,7 +130,8 @@ Adventures without these fields fall back to the default gold border and no flou
         { "text": "Button label", "goto": "2" },
         { "text": "Secret door (requires lantern)", "goto": "3", "requires_item": "lantern" },
         { "text": "If flag set",    "goto": "4", "requires_flag": "met_wizard" },
-        { "text": "If flag not set","goto": "5", "requires_no_flag": "door_locked" }
+        { "text": "If flag not set","goto": "5", "requires_no_flag": "door_locked" },
+        { "text": "Run for your life", "goto": "6", "style": "danger" }
     ],
 
     "combat": {

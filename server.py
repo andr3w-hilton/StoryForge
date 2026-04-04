@@ -25,7 +25,20 @@ class StoryForgeHandler(http.server.SimpleHTTPRequestHandler):
             adventure_id = self.path[len("/api/adventures/"):]
             self._serve_adventure(adventure_id)
         else:
-            self.send_error(404, "Not Found")
+            rel = self.path.lstrip("/").split("?")[0]
+            if rel and ".." not in rel:
+                ext = os.path.splitext(rel)[1].lower()
+                ct = {
+                    ".json":        "application/json",
+                    ".js":          "application/javascript",
+                    ".png":         "image/png",
+                    ".svg":         "image/svg+xml",
+                    ".webmanifest": "application/manifest+json",
+                    ".html":        "text/html",
+                }.get(ext, "application/octet-stream")
+                self._serve_file(rel, ct)
+            else:
+                self.send_error(404, "Not Found")
 
     def _serve_file(self, filename, content_type):
         filepath = os.path.join(os.path.dirname(__file__), filename)
