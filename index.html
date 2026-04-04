@@ -120,6 +120,26 @@
             overflow: hidden;
             display: flex;
             flex-direction: row;
+            position: relative;
+        }
+
+        .card-new-badge {
+            position: absolute;
+            top: 0.55rem;
+            right: 0.7rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.18em;
+            color: var(--green-hi);
+            border: 1px solid var(--green);
+            padding: 0.15rem 0.45rem;
+            background: var(--parchment);
+            animation: newBadgePulse 2s steps(2) infinite;
+        }
+
+        @keyframes newBadgePulse {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.45; }
         }
 
         .adventure-card:hover {
@@ -1270,6 +1290,7 @@ async function loadAdventureList() {
                 <div class="card-author">by ${adv.author}</div>
                 ${adv.introduction ? `<div class="card-intro">${adv.introduction}</div>` : ''}
             </div>
+            ${adv.is_new ? `<div class="card-new-badge">NEW</div>` : ''}
         `;
         card.addEventListener('click', () => {
             const save = loadSave(adv.id);

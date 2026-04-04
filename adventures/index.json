@@ -1,5 +1,17 @@
 [
   {
+    "id": "tide_of_the_leviathan",
+    "title": "Tide of the Leviathan",
+    "author": "Andrew Hilton",
+    "accent_color": "#2a7a8a",
+    "genre_tag": "HIGH SEAS",
+    "theme_icon": "⚓",
+    "introduction": "The storm took your ship three days ago. The Windborne went down in minutes — one moment you were fighting the sails, the next you were in black water, choking on brine, watching the mast disappear beneath the waves.\n\nYou washed ashore at Saltmere, a grey port town clinging to cliffs above the Sunken Reaches — a vast stretch of shallow reef and drowned ruins where the sea swallows ships whole. The locals pulled you from the surf, fed you, and told you something that turned your blood cold.\n\nThe storm was not natural. Beneath the Reaches, something ancient stirs — a being the fisherfolk call the Leviathan. A cult of zealots, the Drowned Priests, has been performing rituals to awaken it fully. When the tide comes in tonight, they will complete the final rite.\n\nYour crew is missing. Your ship is gone. But you still have your cutlass and three days' worth of provisions. Your adventure begins at the Saltmere harbour.",
+    "cover_image": "cover_art/Leviathan Cover.jpeg",
+    "hero_image": "cover_art/Leviathan Hero.jpeg",
+    "is_new": true
+  },
+  {
     "id": "the_crypt_of_count_valdric",
     "title": "The Crypt of Count Valdric",
     "author": "Andrew Hilton",
@@ -31,16 +43,5 @@
     "cover_image": "cover_art/Hollow Cover.jpeg",
     "hero_image": "cover_art/Hollow Hero.jpeg",
     "introduction": "You were a knight once. That ended at Kelmarsh Bridge, where you chose mercy over orders and let the rebel lord's children flee. Your commander stripped your rank, your name, your lands. You have wandered since — hedge-knight, sellsword, nobody.\n\nNow you stand at the edge of Carragh's Foot, a village huddled in the shadow of Mount Aldric. The mountain is wrong. Its peak glows faintly violet against the evening sky, and the air tastes of iron and old grief. Within the ancient palace carved into the mountain's heart, a cult called the Witnesses of the Returning Crown seeks to raise the tyrant-sorcerer Aldric the Undying from death.\n\nThe village elder has offered you everything the village can spare: a sword, provisions, and the promise that if you stop the ritual, your name will be remembered. Not your old name. A new one.\n\nIt is not much. But it is more than anyone has offered you in a long time."
-  },
-  {
-    "id": "tide_of_the_leviathan",
-    "title": "Tide of the Leviathan",
-    "author": "Andrew Hilton",
-    "accent_color": "#2a7a8a",
-    "genre_tag": "HIGH SEAS",
-    "theme_icon": "⚓",
-    "introduction": "The storm took your ship three days ago. The Windborne went down in minutes — one moment you were fighting the sails, the next you were in black water, choking on brine, watching the mast disappear beneath the waves.\n\nYou washed ashore at Saltmere, a grey port town clinging to cliffs above the Sunken Reaches — a vast stretch of shallow reef and drowned ruins where the sea swallows ships whole. The locals pulled you from the surf, fed you, and told you something that turned your blood cold.\n\nThe storm was not natural. Beneath the Reaches, something ancient stirs — a being the fisherfolk call the Leviathan. A cult of zealots, the Drowned Priests, has been performing rituals to awaken it fully. When the tide comes in tonight, they will complete the final rite.\n\nYour crew is missing. Your ship is gone. But you still have your cutlass and three days' worth of provisions. Your adventure begins at the Saltmere harbour.",
-    "cover_image": "cover_art/Leviathan Cover.jpeg",
-    "hero_image": "cover_art/Leviathan Hero.jpeg"
   }
 ]
