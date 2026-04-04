@@ -58,13 +58,27 @@ self.addEventListener('fetch', event => {
         return;
     }
 
-    // Everything else: cache-first
+    // index.html: network-first (always get fresh updates, cache as fallback)
+    if (url.pathname === '/' || url.pathname.endsWith('/index.html')) {
+        event.respondWith(
+            fetch(event.request)
+                .then(response => {
+                    if (response && response.status === 200) {
+                        const clone = response.clone();
+                        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+                    }
+                    return response;
+                })
+                .catch(() => caches.match(event.request))
+        );
+        return;
+    }
+
+    // Everything else (icons, manifest): cache-first
     event.respondWith(
         caches.match(event.request)
             .then(cached => {
-                if (cached) {
-                    return cached;
-                }
+                if (cached) return cached;
                 return fetch(event.request).then(response => {
                     if (response && response.status === 200) {
                         const clone = response.clone();
