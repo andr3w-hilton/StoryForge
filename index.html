@@ -664,7 +664,7 @@
 
         .stat-bar-fill {
             height: 100%;
-            transition: width 0.3s ease;
+            transition: width 0.4s steps(8);
         }
 
         .stat-bar-fill.skill-bar   { background: var(--skill-color); }
@@ -823,6 +823,29 @@
         #cover-lightbox-close:hover { color: var(--ink); }
 
         .card-cover { cursor: zoom-in; }
+
+        /* ── Bar flash animation ─────────────────────── */
+        @keyframes barFlash {
+            0%   { filter: brightness(3); }
+            50%  { filter: brightness(1.8); }
+            100% { filter: brightness(1); }
+        }
+        .bar-flash { animation: barFlash 0.4s steps(4) forwards; }
+
+        /* ── Button click animations ─────────────────── */
+        @keyframes btnGlow {
+            0%   { box-shadow: 0 0 0 2px var(--gold-hi); }
+            100% { box-shadow: none; }
+        }
+        @keyframes btnAttackGlow {
+            0%   { box-shadow: 0 0 0 2px var(--red-hi); }
+            100% { box-shadow: none; }
+        }
+        .btn-clicked             { animation: btnGlow       0.3s steps(3) forwards; }
+        .btn-attack.btn-clicked  { animation: btnAttackGlow 0.3s steps(3) forwards; }
+
+        .btn:active:not(:disabled)  { transform: translateY(1px); }
+        .choice-btn:active          { transform: translateY(1px); background: var(--parchment-hi); }
 
         /* ── Dice roll animation ─────────────────────── */
         @keyframes diceFlicker {
@@ -1177,6 +1200,16 @@ function getEffectiveSkill() {
     return gameState.skill.current + best;
 }
 
+function getEffectiveDamage() {
+    // Best weapon damage bonus in inventory (not stacked — use highest only)
+    let best = 0;
+    for (const id of gameState.items) {
+        const def = gameState.adventure.items[id];
+        if (def && def.damage_bonus && def.damage_bonus > best) best = def.damage_bonus;
+    }
+    return 2 + best;
+}
+
 // ══════════════════════════════════════════════════════
 //  Adventure loading
 // ══════════════════════════════════════════════════════
@@ -1458,6 +1491,7 @@ function renderChoices(choices) {
             btn.className = 'choice-btn';
             btn.textContent = choice.text;
             btn.addEventListener('click', () => navigateToPassage(choice.goto));
+            addClickFlash(btn);
             list.appendChild(btn);
         }
     }
@@ -1538,9 +1572,11 @@ function attackRound() {
 
     if (playerAttack > enemyAttack) {
         // Player wins round
+        const baseDmg = getEffectiveDamage();
         combat.lastHitPlayer = false;
-        combat.pendingDamage = 2;
-        addLogEntry(`You wound the ${combat.enemyDef.name} for 2 STAMINA!`, 'player-win');
+        combat.baseDamage    = baseDmg;
+        combat.pendingDamage = baseDmg;
+        addLogEntry(`You wound the ${combat.enemyDef.name} for ${baseDmg} STAMINA!`, 'player-win');
         document.getElementById('btn-combat-luck').style.display = 'inline-block';
         // Apply damage after luck decision window (or immediately via button re-enable)
         document.getElementById('btn-attack').dataset.pendingTarget = 'enemy';
@@ -1608,13 +1644,14 @@ function testLuckInCombat() {
     document.getElementById('btn-combat-luck').style.display = 'none';
 
     if (!combat.lastHitPlayer) {
-        // Player hit enemy: lucky = +1 extra (3 total), unlucky = -1 (1 total)
+        // Player hit enemy: lucky = base+1, unlucky = base-1 (min 1)
+        const base = combat.baseDamage || 2;
         if (lucky) {
-            combat.pendingDamage = 3;
-            addLogEntry(`Lucky! You deal an extra blow — 3 STAMINA damage!`, 'luck-good');
+            combat.pendingDamage = base + 1;
+            addLogEntry(`Lucky! You deal an extra blow — ${base + 1} STAMINA damage!`, 'luck-good');
         } else {
-            combat.pendingDamage = 1;
-            addLogEntry(`Unlucky! Your blow glances off — only 1 STAMINA damage.`, 'luck-bad');
+            combat.pendingDamage = Math.max(1, base - 1);
+            addLogEntry(`Unlucky! Your blow glances off — only ${Math.max(1, base - 1)} STAMINA damage.`, 'luck-bad');
         }
     } else {
         // Enemy hit player: lucky = -1 (1 total), unlucky = +1 extra (3 total)
@@ -1757,8 +1794,17 @@ function tryAgain() {
 //  Sidebar update
 // ══════════════════════════════════════════════════════
 
+function flashBar(id) {
+    const el = document.getElementById(id);
+    el.classList.remove('bar-flash');
+    void el.offsetWidth; // force reflow to restart animation
+    el.classList.add('bar-flash');
+}
+
 function updateSidebar() {
     const { skill, stamina, luck } = gameState;
+    const prevStamina = gameState._prevStamina ?? stamina.current;
+    const prevLuck    = gameState._prevLuck    ?? luck.current;
 
     document.getElementById('sb-skill').textContent   = skill.current;
     document.getElementById('sb-stamina').textContent = `${stamina.current} / ${stamina.max}`;
@@ -1767,6 +1813,11 @@ function updateSidebar() {
     document.getElementById('bar-skill').style.width   = `${(skill.current / skill.max) * 100}%`;
     document.getElementById('bar-stamina').style.width = `${(stamina.current / stamina.max) * 100}%`;
     document.getElementById('bar-luck').style.width    = `${(luck.current / luck.max) * 100}%`;
+
+    if (stamina.current < prevStamina) flashBar('bar-stamina');
+    if (luck.current    < prevLuck)    flashBar('bar-luck');
+    gameState._prevStamina = stamina.current;
+    gameState._prevLuck    = luck.current;
 
     // Inventory
     const invList = document.getElementById('inv-list');
@@ -1869,13 +1920,25 @@ function hideSavePrompt() {
 //  Event listeners
 // ══════════════════════════════════════════════════════
 
+function addClickFlash(el) {
+    el.addEventListener('click', () => {
+        if (el.disabled) return;
+        el.classList.remove('btn-clicked');
+        void el.offsetWidth;
+        el.classList.add('btn-clicked');
+        setTimeout(() => el.classList.remove('btn-clicked'), 350);
+    });
+}
+
 document.getElementById('btn-roll').addEventListener('click', rollCharacter);
 document.getElementById('btn-begin').addEventListener('click', beginAdventure);
 document.getElementById('btn-back-select').addEventListener('click', () => showScreen('select'));
+['btn-roll', 'btn-begin', 'btn-back-select'].forEach(id => addClickFlash(document.getElementById(id)));
 
 document.getElementById('btn-attack').addEventListener('click', attackRound);
 document.getElementById('btn-combat-luck').addEventListener('click', testLuckInCombat);
 document.getElementById('btn-flee').addEventListener('click', fleeCombat);
+['btn-attack', 'btn-combat-luck', 'btn-flee'].forEach(id => addClickFlash(document.getElementById(id)));
 
 document.getElementById('btn-provisions').addEventListener('click', useProvisions);
 

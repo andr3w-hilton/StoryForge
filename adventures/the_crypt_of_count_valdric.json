@@ -31,7 +31,8 @@
             "name": "Silver Dagger",
             "type": "weapon",
             "skill_bonus": 1,
-            "description": "A dagger of pure silver, deadly against the undead. +1 SKILL in combat."
+            "damage_bonus": 1,
+            "description": "A dagger of pure silver, deadly against the undead. +1 SKILL and +1 DAMAGE in combat."
         },
         "torch": {
             "name": "Torch",

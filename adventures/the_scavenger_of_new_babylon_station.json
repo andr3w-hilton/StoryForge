@@ -30,7 +30,8 @@
             "name": "Plasma Pistol",
             "type": "weapon",
             "skill_bonus": 1,
-            "description": "A compact sidearm that fires superheated gas. Devastating at close range. +1 SKILL in combat."
+            "damage_bonus": 1,
+            "description": "A compact sidearm that fires superheated gas. Devastating at close range. +1 SKILL and +1 DAMAGE in combat."
         },
         "void_compass": {
             "name": "Void Compass",

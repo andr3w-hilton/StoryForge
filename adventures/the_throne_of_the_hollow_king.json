@@ -52,7 +52,8 @@
             "name": "Wraithbane Blade",
             "type": "weapon",
             "skill_bonus": 3,
-            "description": "A sword of black steel that drinks the light around it. Ancient runes pulse along its edge. It whispers when you hold it. +3 SKILL in combat."
+            "damage_bonus": 1,
+            "description": "A sword of black steel that drinks the light around it. Ancient runes pulse along its edge. It whispers when you hold it. +3 SKILL and +1 DAMAGE in combat."
         },
         "aldrics_ring": {
             "name": "Aldric's Signet Ring",
