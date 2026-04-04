@@ -149,7 +149,8 @@
         "tide_chart"
       ],
       "set_flags": [
-        "knows_first_mate"
+        "knows_first_mate",
+        "has_tide_chart"
       ],
       "choices": [
         {
@@ -673,7 +674,8 @@
       ],
       "set_flags": [
         "defeated_first_mate",
-        "has_compass"
+        "has_compass",
+        "has_drowned_key"
       ],
       "choices": [
         {
@@ -749,6 +751,9 @@
           "text": "Descend the stairway",
           "goto": "16"
         }
+      ],
+      "set_flags": [
+        "has_drowned_key"
       ]
     },
     "16": {
@@ -766,7 +771,7 @@
         {
           "text": "The iron door is locked — you don't have the key. Follow the chanting.",
           "goto": "18",
-          "requires_no_flag": "has_drowned_key_dummy"
+          "requires_no_flag": "has_drowned_key"
         }
       ]
     },
