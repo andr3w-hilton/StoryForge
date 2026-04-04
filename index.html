@@ -88,10 +88,9 @@
             text-align: center;
             padding: 2rem 1rem 1.5rem;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.25rem;
+            gap: 0.6rem;
         }
 
         .ornament {
@@ -894,25 +893,19 @@
 
         .restore-link {
             background: none;
-            border: none;
+            border: 1px solid var(--border);
             cursor: pointer;
             font-family: 'Share Tech Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--ink-dim);
-            opacity: 0.6;
-            letter-spacing: 0.05em;
-            padding: 0;
-            text-decoration: underline;
-            text-underline-offset: 3px;
+            font-size: 0.85rem;
+            color: var(--gold);
+            opacity: 0.75;
+            letter-spacing: 0.08em;
+            padding: 0.45rem 1.1rem;
         }
 
-        .restore-link:hover { opacity: 1; }
+        .restore-link:hover { opacity: 1; color: var(--gold-hi); border-color: var(--gold); }
 
-        .footer-sep {
-            color: var(--ink-dim);
-            opacity: 0.35;
-            margin: 0 0.5rem;
-        }
+        .footer-sep { display: none; }
 
         /* ── Cover lightbox ─────────────────────────── */
         #cover-lightbox {
@@ -1101,8 +1094,7 @@
 
     <div class="select-footer">
         <button class="restore-link" id="btn-show-restore">Restore from save code</button>
-        <span class="footer-sep">·</span>
-        New stories and bug fixes pushed every Sunday evening.
+        <span>New stories and bug fixes pushed every Sunday evening.</span>
     </div>
 </div>
 
