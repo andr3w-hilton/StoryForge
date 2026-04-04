@@ -660,7 +660,8 @@
             "choices": [
                 {
                     "text": "Run for the exit — the way you came in",
-                    "goto": "16"
+                    "goto": "16",
+                    "style": "danger"
                 },
                 {
                     "text": "Look for another way out of the lab",
@@ -717,7 +718,8 @@
             "choices": [
                 {
                     "text": "Keep running toward the cargo bays",
-                    "goto": "17"
+                    "goto": "17",
+                    "style": "danger"
                 }
             ]
         },
@@ -729,7 +731,8 @@
             "choices": [
                 {
                     "text": "Run for the cargo bays",
-                    "goto": "17"
+                    "goto": "17",
+                    "style": "danger"
                 }
             ]
         },
@@ -761,7 +764,8 @@
                 },
                 {
                     "text": "Throw the Void Compass to distract him and run",
-                    "goto": "18b"
+                    "goto": "18b",
+                    "style": "danger"
                 }
             ]
         },

@@ -432,6 +432,16 @@
             color: var(--gold-hi);
         }
 
+        .choice-btn-danger {
+            border-left-color: var(--red);
+            color: var(--ink);
+        }
+        .choice-btn-danger:hover {
+            background: rgba(204, 68, 51, 0.1);
+            border-left-color: var(--red-hi);
+            color: var(--red-hi);
+        }
+
         /* Combat UI */
         .combat-area {
             display: flex;
@@ -841,11 +851,23 @@
             0%   { box-shadow: 0 0 0 2px var(--red-hi); }
             100% { box-shadow: none; }
         }
-        .btn-clicked             { animation: btnGlow       0.3s steps(3) forwards; }
-        .btn-attack.btn-clicked  { animation: btnAttackGlow 0.3s steps(3) forwards; }
+        .btn-clicked                    { animation: btnGlow        0.3s steps(3) forwards; }
+        .btn-attack.btn-clicked         { animation: btnAttackGlow  0.3s steps(3) forwards; }
+        .choice-btn.btn-clicked         { animation: choiceBtnFlash 0.25s steps(3) forwards; }
+        .choice-btn-danger.btn-clicked  { animation: choiceBtnDangerFlash 0.25s steps(3) forwards; }
+
+        @keyframes choiceBtnFlash {
+            0%   { background: var(--parchment-hi); border-left-color: var(--gold-hi); }
+            100% { background: var(--parchment);    border-left-color: var(--border); }
+        }
+        @keyframes choiceBtnDangerFlash {
+            0%   { background: rgba(204, 68, 51, 0.15); border-left-color: var(--red-hi); }
+            100% { background: var(--parchment);         border-left-color: var(--red); }
+        }
 
         .btn:active:not(:disabled)  { transform: translateY(1px); }
-        .choice-btn:active          { transform: translateY(1px); background: var(--parchment-hi); }
+        .choice-btn:active          { transform: translateY(2px); background: var(--parchment-hi); border-left-color: var(--gold); }
+        .choice-btn-danger:active   { border-left-color: var(--red-hi); }
 
         /* ── Dice roll animation ─────────────────────── */
         @keyframes diceFlicker {
@@ -1488,7 +1510,7 @@ function renderChoices(choices) {
     } else {
         for (const choice of available) {
             const btn = document.createElement('button');
-            btn.className = 'choice-btn';
+            btn.className = 'choice-btn' + (choice.style === 'danger' ? ' choice-btn-danger' : '');
             btn.textContent = choice.text;
             btn.addEventListener('click', () => navigateToPassage(choice.goto));
             addClickFlash(btn);

@@ -1042,7 +1042,8 @@
                 },
                 {
                     "text": "Run — the way you came",
-                    "goto": "35b"
+                    "goto": "35b",
+                    "style": "danger"
                 }
             ]
         },

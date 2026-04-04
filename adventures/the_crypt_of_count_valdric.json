@@ -147,7 +147,8 @@
                 },
                 {
                     "text": "Back away quietly and head for the crypt entrance",
-                    "goto": "3"
+                    "goto": "3",
+                    "style": "danger"
                 }
             ]
         },
@@ -626,7 +627,8 @@
                 },
                 {
                     "text": "Go back — you are not ready",
-                    "goto": "17"
+                    "goto": "17",
+                    "style": "danger"
                 }
             ]
         },
