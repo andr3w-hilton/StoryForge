@@ -87,6 +87,11 @@
             letter-spacing: 0.05em;
             text-align: center;
             padding: 2rem 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.25rem;
         }
 
         .ornament {
@@ -838,6 +843,77 @@
             margin-top: 0.25rem;
         }
 
+        /* ── Save code / restore overlays ──────────── */
+        #save-code-overlay,
+        #restore-code-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.82);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        #save-code-overlay.active,
+        #restore-code-overlay.active { display: flex; }
+
+        .save-code-value {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.6rem;
+            letter-spacing: 0.12em;
+            color: var(--gold-hi);
+            text-align: center;
+            padding: 0.75rem 0;
+            user-select: all;
+        }
+
+        .restore-code-input {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            background: var(--parchment-hi);
+            border: 1px solid var(--border);
+            color: var(--ink);
+            padding: 0.6rem 0.75rem;
+            width: 100%;
+            text-transform: uppercase;
+            outline: none;
+        }
+
+        .restore-code-input:focus {
+            border-color: var(--gold);
+        }
+
+        .restore-code-error {
+            font-size: 0.78rem;
+            color: var(--red-hi);
+            min-height: 1.1em;
+        }
+
+        .restore-link {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--ink-dim);
+            opacity: 0.6;
+            letter-spacing: 0.05em;
+            padding: 0;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .restore-link:hover { opacity: 1; }
+
+        .footer-sep {
+            color: var(--ink-dim);
+            opacity: 0.35;
+            margin: 0 0.5rem;
+        }
+
         /* ── Cover lightbox ─────────────────────────── */
         #cover-lightbox {
             display: none;
@@ -1023,7 +1099,11 @@
         </div>
     </div>
 
-    <div class="select-footer">New stories and bug fixes pushed every Sunday evening.</div>
+    <div class="select-footer">
+        <button class="restore-link" id="btn-show-restore">Restore from save code</button>
+        <span class="footer-sep">·</span>
+        New stories and bug fixes pushed every Sunday evening.
+    </div>
 </div>
 
 <!-- ══ CREATE SCREEN ══════════════════════════════════ -->
@@ -1190,6 +1270,33 @@
     <h2>You have died.</h2>
     <p id="death-message">Your adventure ends here. Perhaps next time fortune will smile upon you.</p>
     <button class="btn btn-primary" id="btn-try-again">Try Again</button>
+</div>
+
+<!-- Save code overlay -->
+<div id="save-code-overlay">
+    <div class="save-prompt-card">
+        <div class="save-prompt-eyebrow">Save Code</div>
+        <div class="save-prompt-title" id="save-code-adventure"></div>
+        <div class="save-code-value" id="save-code-value"></div>
+        <div class="save-prompt-meta">Write this down to continue on any device — phone, tablet, or browser.</div>
+        <div class="save-prompt-buttons">
+            <button class="btn btn-primary" id="btn-copy-code">Copy Code</button>
+            <button class="btn"             id="btn-dismiss-code">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Restore code overlay -->
+<div id="restore-code-overlay">
+    <div class="save-prompt-card">
+        <div class="save-prompt-eyebrow">Restore from Save Code</div>
+        <input class="restore-code-input" id="restore-code-input" type="text" placeholder="XXXXX-XXXXX-XXXX" maxlength="20" autocomplete="off" autocorrect="off" spellcheck="false">
+        <div class="restore-code-error" id="restore-code-error"></div>
+        <div class="save-prompt-buttons">
+            <button class="btn btn-primary" id="btn-restore-submit">Restore</button>
+            <button class="btn"             id="btn-restore-cancel">Cancel</button>
+        </div>
+    </div>
 </div>
 
 <div id="save-prompt">
@@ -1968,6 +2075,147 @@ function updateSidebar() {
 }
 
 // ══════════════════════════════════════════════════════
+//  Save code encode / decode
+// ══════════════════════════════════════════════════════
+
+const SAVE_CODE_ALPHA = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; // 32 chars — no 0/O/1/I/L
+const SAVE_CODE_ADVENTURES = [
+    'the_crypt_of_count_valdric',
+    'the_scavenger_of_new_babylon_station',
+    'the_throne_of_the_hollow_king',
+    'tide_of_the_leviathan'
+];
+
+function buildCodeIndex(adventure) {
+    const passages = Object.keys(adventure.passages).sort();
+    const items    = Object.keys(adventure.items || {}).sort();
+    const flagSet  = new Set();
+    for (const p of Object.values(adventure.passages)) {
+        for (const f of (p.set_flags   || [])) flagSet.add(f);
+        for (const f of (p.clear_flags || [])) flagSet.add(f);
+    }
+    return { passages, items, flags: [...flagSet].sort() };
+}
+
+function pushBits(arr, value, count) {
+    for (let i = count - 1; i >= 0; i--) arr.push((value >> i) & 1);
+}
+
+function readBits(bits, offset, count) {
+    let val = 0;
+    for (let i = 0; i < count; i++) val = (val << 1) | (bits[offset + i] || 0);
+    return [val, offset + count];
+}
+
+function generateSaveCode(gs) {
+    const advIdx = SAVE_CODE_ADVENTURES.indexOf(gs.adventureId);
+    if (advIdx === -1) return null;
+    const idx      = buildCodeIndex(gs.adventure);
+    const passIdx  = idx.passages.indexOf(gs.currentPassage);
+    if (passIdx === -1) return null;
+    const passBits = Math.ceil(Math.log2(idx.passages.length + 1));
+
+    const bits = [];
+    pushBits(bits, advIdx,               2);
+    pushBits(bits, passIdx,              passBits);
+    pushBits(bits, gs.skill.current,     4);
+    pushBits(bits, gs.skill.max,         4);
+    pushBits(bits, gs.stamina.current,   5);
+    pushBits(bits, gs.stamina.max,       5);
+    pushBits(bits, gs.luck.current,      4);
+    pushBits(bits, gs.luck.max,          4);
+    pushBits(bits, gs.provisions,        4);
+    for (const id   of idx.items) bits.push(gs.items.includes(id) ? 1 : 0);
+    for (const flag of idx.flags) bits.push(gs.flags.has(flag)    ? 1 : 0);
+
+    while (bits.length % 5 !== 0) bits.push(0);
+
+    let code = '';
+    for (let i = 0; i < bits.length; i += 5) {
+        const v = (bits[i]<<4)|(bits[i+1]<<3)|(bits[i+2]<<2)|(bits[i+3]<<1)|bits[i+4];
+        code += SAVE_CODE_ALPHA[v];
+    }
+    while (code.length < 14) code += SAVE_CODE_ALPHA[0];
+    return `${code.slice(0,5)}-${code.slice(5,10)}-${code.slice(10,14)}`;
+}
+
+async function restoreFromSaveCode(raw) {
+    const code = raw.replace(/[\s\-]/g, '').toUpperCase();
+    if (code.length < 12 || code.length > 14) return { error: 'Code should be 12–14 characters.' };
+
+    const bits = [];
+    for (const ch of code) {
+        const v = SAVE_CODE_ALPHA.indexOf(ch);
+        if (v === -1) return { error: `Invalid character: ${ch}` };
+        pushBits(bits, v, 5);
+    }
+
+    let o = 0, val;
+    [val, o] = readBits(bits, o, 2);
+    const adventureId = SAVE_CODE_ADVENTURES[val];
+    if (!adventureId) return { error: 'Unknown adventure in code.' };
+
+    let adventure;
+    try {
+        adventure = await fetch(`adventures/${adventureId}.json`).then(r => r.json());
+    } catch (e) {
+        return { error: 'Could not load adventure data.' };
+    }
+
+    const idx      = buildCodeIndex(adventure);
+    const passBits = Math.ceil(Math.log2(idx.passages.length + 1));
+
+    let passIdx, skillCur, skillMax, stamCur, stamMax, luckCur, luckMax, provisions;
+    [passIdx,   o] = readBits(bits, o, passBits);
+    [skillCur,  o] = readBits(bits, o, 4);
+    [skillMax,  o] = readBits(bits, o, 4);
+    [stamCur,   o] = readBits(bits, o, 5);
+    [stamMax,   o] = readBits(bits, o, 5);
+    [luckCur,   o] = readBits(bits, o, 4);
+    [luckMax,   o] = readBits(bits, o, 4);
+    [provisions,o] = readBits(bits, o, 4);
+
+    const passId = idx.passages[passIdx];
+    if (!passId || !adventure.passages[passId]) return { error: 'Invalid save code.' };
+
+    const items = [];
+    for (const id of idx.items) { if (bits[o++]) items.push(id); }
+    const flags = new Set();
+    for (const flag of idx.flags) { if (bits[o++]) flags.add(flag); }
+
+    return {
+        adventure, adventureId, passage: passId,
+        skill:   { current: skillCur, max: skillMax },
+        stamina: { current: stamCur,  max: stamMax  },
+        luck:    { current: luckCur,  max: luckMax  },
+        provisions, items, flags
+    };
+}
+
+function showSaveCodeOverlay() {
+    const code = generateSaveCode(gameState);
+    if (!code) return;
+    document.getElementById('save-code-adventure').textContent = gameState.adventure.title;
+    document.getElementById('save-code-value').textContent = code;
+    document.getElementById('save-code-overlay').classList.add('active');
+}
+
+function hideSaveCodeOverlay() {
+    document.getElementById('save-code-overlay').classList.remove('active');
+}
+
+function showRestoreOverlay() {
+    document.getElementById('restore-code-input').value = '';
+    document.getElementById('restore-code-error').textContent = '';
+    document.getElementById('restore-code-overlay').classList.add('active');
+    setTimeout(() => document.getElementById('restore-code-input').focus(), 50);
+}
+
+function hideRestoreOverlay() {
+    document.getElementById('restore-code-overlay').classList.remove('active');
+}
+
+// ══════════════════════════════════════════════════════
 //  Save / restore
 // ══════════════════════════════════════════════════════
 
@@ -2083,10 +2331,54 @@ document.addEventListener('keydown', e => {
 
 function saveAndQuit() {
     saveProgress();
-    showScreen('select');
+    showSaveCodeOverlay();
 }
 document.getElementById('btn-save-quit-top').addEventListener('click', saveAndQuit);
 document.getElementById('btn-save-quit-sidebar').addEventListener('click', saveAndQuit);
+
+// Save code overlay
+document.getElementById('btn-copy-code').addEventListener('click', () => {
+    const code = document.getElementById('save-code-value').textContent;
+    navigator.clipboard?.writeText(code).catch(() => {});
+    document.getElementById('btn-copy-code').textContent = 'Copied!';
+    setTimeout(() => document.getElementById('btn-copy-code').textContent = 'Copy Code', 1800);
+});
+document.getElementById('btn-dismiss-code').addEventListener('click', () => {
+    hideSaveCodeOverlay();
+    showScreen('select');
+});
+
+// Restore code overlay
+document.getElementById('btn-show-restore').addEventListener('click', showRestoreOverlay);
+document.getElementById('btn-restore-cancel').addEventListener('click', hideRestoreOverlay);
+document.getElementById('btn-restore-submit').addEventListener('click', async () => {
+    const raw = document.getElementById('restore-code-input').value;
+    const errEl = document.getElementById('restore-code-error');
+    errEl.textContent = '';
+    document.getElementById('btn-restore-submit').textContent = 'Restoring…';
+    const result = await restoreFromSaveCode(raw);
+    document.getElementById('btn-restore-submit').textContent = 'Restore';
+    if (result.error) { errEl.textContent = result.error; return; }
+
+    gameState.adventure      = result.adventure;
+    gameState.adventureId    = result.adventureId;
+    gameState.heroImage      = null;
+    gameState.currentPassage = result.passage;
+    gameState.skill          = result.skill;
+    gameState.stamina        = result.stamina;
+    gameState.luck           = result.luck;
+    gameState.provisions     = result.provisions;
+    gameState.items          = result.items;
+    gameState.flags          = result.flags;
+    gameState.combat         = null;
+    gameState.inCombat       = false;
+
+    hideRestoreOverlay();
+    document.getElementById('game-title').textContent = result.adventure.title;
+    showScreen('game');
+    renderPassage(result.adventure.passages[result.passage]);
+    updateSidebar();
+});
 
 // ══════════════════════════════════════════════════════
 //  Init
