@@ -1423,7 +1423,9 @@ function showCreateScreen() {
     const btnRoll = document.getElementById('btn-roll');
     btnRoll.disabled = false;
     btnRoll.textContent = 'Roll Character';
-    document.getElementById('roll-counter').textContent = '3 rolls remaining';
+    const counterEl = document.getElementById('roll-counter');
+    counterEl.textContent = '3 rolls remaining';
+    counterEl.style.color = 'var(--green-hi)';
 
     // Starting items
     const container = document.getElementById('starting-items');
@@ -1464,11 +1466,14 @@ function rollCharacter() {
 
     if (gameState.rollsRemaining === 0) {
         counterEl.textContent = 'Final roll — this is your fate.';
+        counterEl.style.color = 'var(--red-hi)';
         btnRoll.disabled = true;
     } else if (gameState.rollsRemaining === 1) {
         counterEl.textContent = '1 roll remaining — choose wisely.';
+        counterEl.style.color = '#c87941';
     } else {
         counterEl.textContent = `${gameState.rollsRemaining} rolls remaining`;
+        counterEl.style.color = 'var(--green-hi)';
     }
 
     setTimeout(() => {
