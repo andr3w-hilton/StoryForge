@@ -69,6 +69,12 @@
       "name": "Sea-Glass Amulet",
       "type": "quest",
       "description": "A shard of green sea-glass worn smooth by decades of tides, strung on cord. The cult priestess wore it."
+    },
+    "wave_cutlass": {
+      "name": "Wave-Etched Cutlass",
+      "type": "weapon",
+      "skill_bonus": 1,
+      "description": "A finely-crafted cutlass with wave-patterns etched into the blade. Lighter and better balanced than a salt-pitted standard issue. +1 SKILL."
     }
   },
   "enemies": {
@@ -144,10 +150,11 @@
       ]
     },
     "2a": {
-      "text": "Old Pell is a ruin of a man — hollow-cheeked, rheumy-eyed, hands shaking around his tankard. But when you mention the Sunken Reaches, something sharpens in his gaze.\n\n'The Reaches,' he mutters. 'Aye, I sailed them. Before.' He pulls a waterproof tube from inside his coat and unrolls a chart across the table. Tidal patterns, depth soundings, reef markers — and there, circled in faded red ink, a spot marked TEMPLE.\n\n'The Drowned Priests use the tides,' he says. 'The temple is only accessible at low tide. Come high water, it's twenty fathoms under. Their ritual needs to be completed before the tide turns — if it is, the Leviathan wakes fully.' He pushes the chart towards you. 'Take it. I'm done with the sea.'\n\nHe grips your wrist suddenly. 'Your ship. The Windborne. Your first mate — the one with the brass compass. I saw him.' His voice drops. 'Three nights ago, walking on the water. Dead-eyed. Drowned. They took him.'",
+      "text": "Old Pell is a ruin of a man — hollow-cheeked, rheumy-eyed, hands shaking around his tankard. But when you mention the Sunken Reaches, something sharpens in his gaze.\n\n'The Reaches,' he mutters. 'Aye, I sailed them. Before.' He pulls a waterproof tube from inside his coat and unrolls a chart across the table. Tidal patterns, depth soundings, reef markers — and there, circled in faded red ink, a spot marked TEMPLE.\n\n'The Drowned Priests use the tides,' he says. 'The temple is only accessible at low tide. Come high water, it's twenty fathoms under. Their ritual needs to be completed before the tide turns — if it is, the Leviathan wakes fully.' He pushes the chart towards you. 'Take it. I'm done with the sea.'\n\nHe grips your wrist suddenly. 'Your ship. The Windborne. Your first mate — the one with the brass compass. I saw him.' His voice drops. 'Three nights ago, walking on the water. Dead-eyed. Drowned. They took him.'\n\nBefore you go, Pell spends another few minutes describing the Reaches in grim detail — the tidal currents, the submerged ruins, how to move and fight in chest-deep water without losing your footing. His hard-won knowledge sharpens your instincts.",
       "add_items": [
         "tide_chart"
       ],
+      "add_skill": 1,
       "set_flags": [
         "knows_first_mate",
         "has_tide_chart"
@@ -667,7 +674,8 @@
       }
     },
     "13": {
-      "text": "Your first mate falls. The white eyes dim. For one heartbeat, the face relaxes into something peaceful — the expression you remember from a thousand watches shared on quiet seas. Then the body slides beneath the dark water and is gone.\n\nYou stand in the flooded hold, breathing hard. The silence is absolute.\n\nAround the dead thing's neck, the brass compass broke free in the fight. You fish it from the water. The needle spins, then locks south-southwest. Towards whatever waits beneath the Reaches.\n\nThere is also a barnacle-encrusted key clutched in the dead hand that floats to the surface. You take it. Whatever it opens, you'll find out.",
+      "text": "Your first mate falls. The white eyes dim. For one heartbeat, the face relaxes into something peaceful — the expression you remember from a thousand watches shared on quiet seas. Then the body slides beneath the dark water and is gone.\n\nYou stand in the flooded hold, breathing hard. The silence is absolute.\n\nAround the dead thing's neck, the brass compass broke free in the fight. You fish it from the water. The needle spins, then locks south-southwest. Towards whatever waits beneath the Reaches.\n\nThere is also a barnacle-encrusted key clutched in the dead hand that floats to the surface. You take it. Whatever it opens, you'll find out.\n\nYou faced the worst thing the sea could offer — grief made flesh — and you are still standing. Something has hardened in you.",
+      "add_skill": 1,
       "add_items": [
         "navigator_compass",
         "drowned_key"
@@ -779,12 +787,36 @@
       "text": "The drowned key fits the lock. The mechanism groans, shedding barnacles, and the iron door swings inward. Beyond is a small chamber — an armoury, ancient and half-flooded.\n\nMost of what was stored here has rusted to nothing. But in a sealed stone alcove, above the waterline, you find a cache: three clay flasks of something that smells like strong spirits, and a weapon rack holding a single item — a cutlass of far superior quality to your own, its blade etched with wave-patterns that seem to move in the green light.\n\nBut there's something else. On a pedestal at the back of the room, a sea-glass amulet identical to the ones the Drowned Priests wear. It pulses with a faint inner light.",
       "choices": [
         {
+          "text": "Take the wave-etched cutlass",
+          "goto": "17c"
+        },
+        {
           "text": "Take the sea-glass amulet",
           "goto": "17a",
           "requires_no_flag": "has_sea_glass_amulet"
         },
         {
           "text": "Take the provisions and continue",
+          "goto": "17b"
+        }
+      ]
+    },
+    "17c": {
+      "text": "You swap your salt-pitted cutlass for the etched blade. It's lighter, better balanced, the edge still keen after years in its sealed alcove. The wave-patterns along the flat of the blade seem to shift as you move it — a trick of the bioluminescent light, probably.",
+      "add_items": [
+        "wave_cutlass"
+      ],
+      "remove_items": [
+        "cutlass"
+      ],
+      "choices": [
+        {
+          "text": "Take the sea-glass amulet too",
+          "goto": "17a",
+          "requires_no_flag": "has_sea_glass_amulet"
+        },
+        {
+          "text": "Take the provisions and head back to the passage",
           "goto": "17b"
         }
       ]
@@ -816,6 +848,7 @@
     },
     "18": {
       "text": "The passage curves and descends. The water rises to your chest, then your neck. The green glow intensifies. The chanting resolves into words you almost understand — almost, but not quite. They slip away from your mind like eels, leaving only a sensation of vast depth and terrible patience.\n\nThe passage opens into a natural cavern. And you see it.\n\nA cathedral of drowned stone, vast beyond reason. Pillars of coral and calcified bone rise from the flooded floor to a ceiling lost in shadow. At the centre, a stone altar stands on a raised platform — the only dry ground. Around it, a dozen robed Drowned Priests chant in unison, their voices merging into something that is not quite sound.\n\nAnd behind the altar, standing with arms raised, is a tall figure in robes of black kelp. High Priest Morrow. His eyes burn with green light. The ritual is nearly complete.\n\nBeyond Morrow, in the deepest part of the cavern, the water is dark. Impossibly dark. Something is down there. Something that is waking up.",
+      "add_skill": -1,
       "choices": [
         {
           "text": "Charge the altar directly — stop the ritual by force",

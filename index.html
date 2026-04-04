@@ -370,6 +370,15 @@
             background: rgba(200, 150, 30, 0.1);
         }
 
+        .roll-counter {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--ink-dim);
+            letter-spacing: 0.05em;
+            min-height: 1.2em;
+            margin-bottom: 0.5rem;
+        }
+
         .btn-row {
             display: flex;
             gap: 1rem;
@@ -675,6 +684,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
+            position: relative;
         }
 
         .stat-label-row {
@@ -862,6 +872,22 @@
         }
         .bar-flash { animation: barFlash 0.4s steps(4) forwards; }
 
+        @keyframes statDelta {
+            0%   { opacity: 1; transform: translateY(0); }
+            30%  { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-1.4rem); }
+        }
+        .stat-delta {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: bold;
+            pointer-events: none;
+            animation: statDelta 1.4s ease-out forwards;
+        }
+
         /* ── Button click animations ─────────────────── */
         @keyframes btnGlow {
             0%   { box-shadow: 0 0 0 2px var(--gold-hi); }
@@ -1021,6 +1047,8 @@
             <h2>Starting Equipment</h2>
             <div class="starting-items-list" id="starting-items"></div>
         </div>
+
+        <div class="roll-counter" id="roll-counter"></div>
 
         <div class="btn-row">
             <button class="btn btn-primary" id="btn-roll">Roll Character</button>
@@ -1378,6 +1406,13 @@ function showCreateScreen() {
     });
     document.getElementById('btn-begin').disabled = true;
 
+    // Reset roll counter
+    gameState.rollsRemaining = 3;
+    const btnRoll = document.getElementById('btn-roll');
+    btnRoll.disabled = false;
+    btnRoll.textContent = 'Roll Character';
+    document.getElementById('roll-counter').textContent = '3 rolls remaining';
+
     // Starting items
     const container = document.getElementById('starting-items');
     container.innerHTML = '';
@@ -1399,6 +1434,10 @@ function showCreateScreen() {
 }
 
 function rollCharacter() {
+    if (gameState.rollsRemaining <= 0) return;
+
+    gameState.rollsRemaining--;
+
     const cfg = gameState.adventure.character;
     const skill   = cfg.skill_base   + rollDice(cfg.skill_dice);
     const stamina = cfg.stamina_base + rollDice(cfg.stamina_dice);
@@ -1407,6 +1446,18 @@ function rollCharacter() {
     animateStat('roll-skill',   skill,   500);
     animateStat('roll-stamina', stamina, 650);
     animateStat('roll-luck',    luck,    800);
+
+    const counterEl = document.getElementById('roll-counter');
+    const btnRoll   = document.getElementById('btn-roll');
+
+    if (gameState.rollsRemaining === 0) {
+        counterEl.textContent = 'Final roll — this is your fate.';
+        btnRoll.disabled = true;
+    } else if (gameState.rollsRemaining === 1) {
+        counterEl.textContent = '1 roll remaining — choose wisely.';
+    } else {
+        counterEl.textContent = `${gameState.rollsRemaining} rolls remaining`;
+    }
 
     setTimeout(() => {
         // Store rolled stats
@@ -1844,8 +1895,22 @@ function flashBar(id) {
     el.classList.add('bar-flash');
 }
 
+function showStatDelta(barId, delta) {
+    const bar = document.getElementById(barId);
+    if (!bar) return;
+    const item = bar.closest('.stat-item');
+    if (!item) return;
+    const el = document.createElement('span');
+    el.className = 'stat-delta';
+    el.textContent = delta > 0 ? `+${delta}` : `${delta}`;
+    el.style.color = delta > 0 ? 'var(--green-hi)' : 'var(--red-hi)';
+    item.appendChild(el);
+    el.addEventListener('animationend', () => el.remove());
+}
+
 function updateSidebar() {
     const { skill, stamina, luck } = gameState;
+    const prevSkill   = gameState._prevSkill   ?? skill.current;
     const prevStamina = gameState._prevStamina ?? stamina.current;
     const prevLuck    = gameState._prevLuck    ?? luck.current;
 
@@ -1857,8 +1922,11 @@ function updateSidebar() {
     document.getElementById('bar-stamina').style.width = `${(stamina.current / stamina.max) * 100}%`;
     document.getElementById('bar-luck').style.width    = `${(luck.current / luck.max) * 100}%`;
 
-    if (stamina.current < prevStamina) flashBar('bar-stamina');
-    if (luck.current    < prevLuck)    flashBar('bar-luck');
+    if (skill.current   !== prevSkill)   { showStatDelta('bar-skill',   skill.current   - prevSkill);   }
+    if (stamina.current !== prevStamina) { showStatDelta('bar-stamina', stamina.current - prevStamina); if (stamina.current < prevStamina) flashBar('bar-stamina'); }
+    if (luck.current    !== prevLuck)    { showStatDelta('bar-luck',    luck.current    - prevLuck);    if (luck.current    < prevLuck)    flashBar('bar-luck');    }
+
+    gameState._prevSkill   = skill.current;
     gameState._prevStamina = stamina.current;
     gameState._prevLuck    = luck.current;
 

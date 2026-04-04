@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api:*)",
+      "Bash(gh search:*)",
+      "WebFetch(domain:nextui.loveretro.games)",
+      "Bash(base64 -d echo \"---\" gh api \"repos/LoveRetro/NextUI/contents/skeleton/EXTRAS/Tools/tg5040/Game Tracker.pak/launch.sh\" --jq '.content')",
+      "Bash(base64 -d echo \"---\" gh api \"repos/LoveRetro/NextUI/contents/skeleton/EXTRAS/Tools/tg5040/LedControl.pak/launch.sh\" --jq '.content')",
+      "Bash(grep -E \"\\\\.c$|\\\\.h$\")",
+      "Bash(head -50 echo \"---\" gh api repos/boorch/dronage-terminal-pak/git/trees/HEAD?recursive=1 --jq '.tree[].path')",
+      "Bash(base64 -d echo \"---\")"
+    ]
+  }
+}

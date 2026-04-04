@@ -199,10 +199,11 @@
             ]
         },
         "7": {
-            "text": "The side chapel is small and surprisingly intact. Dust covers everything, but the stonework is unbroken. An altar stands against the far wall, carved with the image of a woman holding a shield above a kneeling figure — Saint Elara the Unyielding, patron of those who resist corruption.\n\nAround the altar's base, someone has carved words in an older script. You kneel to read them:\n\n'THE CROWN FEEDS ON SURRENDER. IT CANNOT BE WORN BY ONE WHO REFUSES IT. TO DESTROY IT, STRIKE WHILE THE WEARER DOUBTS.'\n\nHanging from a hook behind the altar, you find a bronze medallion bearing Saint Elara's face. It is strangely warm.",
+            "text": "The side chapel is small and surprisingly intact. Dust covers everything, but the stonework is unbroken. An altar stands against the far wall, carved with the image of a woman holding a shield above a kneeling figure — Saint Elara the Unyielding, patron of those who resist corruption.\n\nAround the altar's base, someone has carved words in an older script. You kneel to read them:\n\n'THE CROWN FEEDS ON SURRENDER. IT CANNOT BE WORN BY ONE WHO REFUSES IT. TO DESTROY IT, STRIKE WHILE THE WEARER DOUBTS.'\n\nHanging from a hook behind the altar, you find a bronze medallion bearing Saint Elara's face. It is strangely warm.\n\nYou sit with it for a moment. Knowing what you face — truly knowing — steadies something in you.",
             "add_items": [
                 "saints_medallion"
             ],
+            "add_skill": 1,
             "set_flags": [
                 "knows_crown_weakness",
                 "explored_chapel"
@@ -225,8 +226,9 @@
             }
         },
         "8a": {
-            "text": "You stumble back up the stairs, the spider's mandibles snapping at your heels. Venom spatters your arm — a burning line of pain. You slam your shoulder into the chapel doorway and the spider skitters back into its crack, unwilling to follow into the light.\n\nThe venom throbs in your arm. You will need to deal with the spider to descend.",
+            "text": "You stumble back up the stairs, the spider's mandibles snapping at your heels. Venom spatters your arm — a burning line of pain. You slam your shoulder into the chapel doorway and the spider skitters back into its crack, unwilling to follow into the light.\n\nThe venom throbs in your arm. Your movements feel sluggish, your grip uncertain. You will need to deal with the spider to descend.",
             "add_stamina": -2,
+            "add_skill": -1,
             "choices": [
                 {
                     "text": "Use the antitoxin to neutralise the venom",
@@ -761,7 +763,8 @@
             }
         },
         "30b": {
-            "text": "The shadow stares at you. Its sword wavers.\n\n'Mercy is weakness,' it says. But its voice is uncertain now.\n\n'Mercy is what separates me from what waits at the bottom of this mountain,' you reply. 'I chose it once and I lost everything. And I would choose it again. Because the alternative is becoming something like Aldric.'\n\nThe shadow is silent for a long moment. Then it smiles — a thin, sad smile.\n\n'Then you are already lost,' it says. 'Or already saved. I cannot tell which.'\n\nIt lowers its sword and steps aside. As you pass, it dissolves into mist. But the words linger.\n\nYou wonder if it was right.",
+            "text": "The shadow stares at you. Its sword wavers.\n\n'Mercy is weakness,' it says. But its voice is uncertain now.\n\n'Mercy is what separates me from what waits at the bottom of this mountain,' you reply. 'I chose it once and I lost everything. And I would choose it again. Because the alternative is becoming something like Aldric.'\n\nThe shadow is silent for a long moment. Then it smiles — a thin, sad smile.\n\n'Then you are already lost,' it says. 'Or already saved. I cannot tell which.'\n\nIt lowers its sword and steps aside. As you pass, it dissolves into mist. But the words linger.\n\nYou wonder if it was right. But the doubt is gone from your hands. You grip your blade steadily for the first time since entering this mountain.",
+            "add_skill": 1,
             "set_flags": [
                 "honour_broken"
             ],
@@ -773,7 +776,8 @@
             ]
         },
         "30c": {
-            "text": "You raise the medallion. Saint Elara's bronze face catches the violet light and throws it back, transformed — warm gold instead of bruised purple. The shadow recoils.\n\n'That is not yours,' it hisses. 'You are not worthy of—'\n\n'Perhaps not,' you say. 'But I carry it anyway.'\n\nThe medallion's warmth flares. The shadow screams — a sound like tearing cloth — and flies apart into threads of darkness that dissolve in the golden light. The bridge is clear.\n\nThe warmth fades. You lower the medallion. Your hand is shaking.",
+            "text": "You raise the medallion. Saint Elara's bronze face catches the violet light and throws it back, transformed — warm gold instead of bruised purple. The shadow recoils.\n\n'That is not yours,' it hisses. 'You are not worthy of—'\n\n'Perhaps not,' you say. 'But I carry it anyway.'\n\nThe medallion's warmth flares. The shadow screams — a sound like tearing cloth — and flies apart into threads of darkness that dissolve in the golden light. The bridge is clear.\n\nThe warmth fades. You lower the medallion. Your hand is shaking. But something has passed through you — a steadiness, like a sword tempered in fire.",
+            "add_skill": 1,
             "choices": [
                 {
                     "text": "Cross the bridge",

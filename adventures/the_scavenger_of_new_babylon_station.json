@@ -158,7 +158,8 @@
       ]
     },
     "3": {
-      "text": "Zara is ancient — nobody knows how old — and she sits behind her tea stall like a spider in a web. She pours you a cup of something dark and bitter without asking.\n\n'You have the Qeth's chip,' she says. It is not a question. 'I know what it leads to. And I know who is coming for it.' She sips her tea. 'Malachar. Eighteen hours ago he was two jumps out. Which means he docks in five hours, maybe four. His advance team may already be on the station.'\n\nShe leans forward. 'I can tell you two things. First: there is an Imperial deserter on the station. A soldier named Voss. He was part of Malachar's personal guard until he developed a conscience. He is hiding in the maintenance corridors near shaft seven. If you find him, he may help you — he knows Malachar's methods.'\n\nShe holds up a gnarled finger. 'Second: the lower decks are sealed with Station Authority bulkheads. You need a security keycard to get through them. I know where one is — the old security office on sub-level two, near the cargo elevator. It has not been looted because Harko's crew controls that section.'\n\nShe finishes her tea. 'That is all I will say for free.'",
+      "text": "Zara is ancient — nobody knows how old — and she sits behind her tea stall like a spider in a web. She pours you a cup of something dark and bitter without asking.\n\n'You have the Qeth's chip,' she says. It is not a question. 'I know what it leads to. And I know who is coming for it.' She sips her tea. 'Malachar. Eighteen hours ago he was two jumps out. Which means he docks in five hours, maybe four. His advance team may already be on the station.'\n\nShe leans forward. 'I can tell you two things. First: there is an Imperial deserter on the station. A soldier named Voss. He was part of Malachar's personal guard until he developed a conscience. He is hiding in the maintenance corridors near shaft seven. If you find him, he may help you — he knows Malachar's methods.'\n\nShe holds up a gnarled finger. 'Second: the lower decks are sealed with Station Authority bulkheads. You need a security keycard to get through them. I know where one is — the old security office on sub-level two, near the cargo elevator. It has not been looted because Harko's crew controls that section.'\n\nShe finishes her tea. 'That is all I will say for free.'\n\nYou drink your own cup in silence, turning everything over. By the time you stand up, you have a route in your head and a read on the enemy. That is more than you usually go in with.",
+      "add_skill": 1,
       "set_flags": [
         "zara_info"
       ],
@@ -434,7 +435,8 @@
       }
     },
     "10b": {
-      "text": "You check the torn containers cautiously. Most are empty — whatever cargo they held was consumed or destroyed long ago. But in one, wedged behind a collapsed shelf unit, you find a repair kit in a sealed case and, wedged beside it, a military stim-pack — stimulant and analgesic, enough to keep a wounded soldier fighting. Both still sealed.\n\nYou also find bones. Human bones, cracked and gnawed. Whatever tore these containers open, it has been feeding. You pocket the repair kit and move on quickly.",
+      "text": "You check the torn containers cautiously. Most are empty — whatever cargo they held was consumed or destroyed long ago. But in one, wedged behind a collapsed shelf unit, you find a repair kit in a sealed case and, wedged beside it, a military stim-pack — stimulant and analgesic, enough to keep a wounded soldier fighting. Both still sealed.\n\nYou also find bones. Human bones, cracked and gnawed. Whatever tore these containers open, it has been feeding. You pocket the repair kit and move on quickly — but the find settles something in you. You know this kind of dark. You know how to work it.",
+      "add_skill": 1,
       "add_items": [
         "repair_kit",
         "stim_pack"
@@ -478,7 +480,8 @@
       ]
     },
     "12a": {
-      "text": "The lower decks are different. Quieter. The constant background hum of the station's systems is muted here, replaced by an intermittent ticking — thermal expansion in the hull plates, where the station's skin meets the vacuum.\n\nYour data chip projects a holographic waypoint arrow, guiding you deeper. The corridors here are wider than the maintenance shafts above, designed for cargo transport. But they are dark, and the walls are rimed with frost where the heating has failed.\n\nAfter ten minutes of walking, the corridor forks. The waypoint arrow points left, toward what the station map labels 'Research Lab 7.' But from the right, you hear something unexpected — a voice. Human. Speaking in clipped, authoritative tones.\n\nImperial comms chatter. Malachar's advance team is already here.",
+      "text": "The lower decks are different. Quieter. The constant background hum of the station's systems is muted here, replaced by an intermittent ticking — thermal expansion in the hull plates, where the station's skin meets the vacuum.\n\nYour data chip projects a holographic waypoint arrow, guiding you deeper. The corridors here are wider than the maintenance shafts above, designed for cargo transport. But they are dark, and the walls are rimed with frost where the heating has failed.\n\nAfter ten minutes of walking, the corridor forks. The waypoint arrow points left, toward what the station map labels 'Research Lab 7.' But from the right, you hear something unexpected — a voice. Human. Speaking in clipped, authoritative tones.\n\nImperial comms chatter. Malachar's advance team is already here.\n\nThe dark presses in. Down here, everything you know about fighting feels a little further away.",
+      "add_skill": -1,
       "choices": [
         {
           "text": "Follow the waypoint toward Research Lab 7",
@@ -635,7 +638,8 @@
       ]
     },
     "14b": {
-      "text": "You kneel beside the pedestal and work carefully with the micro-tools from your repair kit. The Precursor mechanism is unlike anything you have seen — no circuits, no wiring, just smooth channels cut into the stone that seem to carry light instead of electricity.\n\nBut engineering is engineering, regardless of who built it. You find the trigger point and bridge it with a length of conductive sealant. The pressure plate clicks softly and goes inert.\n\nYou lift the Void Compass from the pedestal. It is warm in your hand, and the silver veins pulse brighter at your touch. Something stirs in the crystal — not intelligence exactly, but awareness. It knows it has been found.\n\nNo alarms. No traps. Clean.",
+      "text": "You kneel beside the pedestal and work carefully with the micro-tools from your repair kit. The Precursor mechanism is unlike anything you have seen — no circuits, no wiring, just smooth channels cut into the stone that seem to carry light instead of electricity.\n\nBut engineering is engineering, regardless of who built it. You find the trigger point and bridge it with a length of conductive sealant. The pressure plate clicks softly and goes inert.\n\nYou lift the Void Compass from the pedestal. It is warm in your hand, and the silver veins pulse brighter at your touch. Something stirs in the crystal — not intelligence exactly, but awareness. It knows it has been found.\n\nNo alarms. No traps. Clean.\n\nYou exhale slowly. This is what you do. The confidence of it sharpens you.",
+      "add_skill": 1,
       "add_items": [
         "void_compass"
       ],

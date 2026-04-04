@@ -239,7 +239,8 @@
             }
         },
         "5a": {
-            "text": "The spider curls in on itself and goes still. You hack through the remaining web and continue down the corridor. Beyond the web, the passage opens into a small octagonal chamber — a dead end.\n\nBut the chamber is not empty. A skeleton in mouldering robes sits propped against the far wall. In its bony hand it clutches a dagger that gleams even in the dim light — silver, unmarked by tarnish. Beside the skeleton, scratched into the stone floor, are words:\n\n'THE IRON DOOR REQUIRES THE IRON KEY. THE KEY LIES WITH THE CHAPLAIN. THE CANDLE LIES BEYOND.'\n\nYou take the silver dagger. It feels good in your hand — balanced and keen.",
+            "text": "The spider curls in on itself and goes still. You hack through the remaining web and continue down the corridor. Beyond the web, the passage opens into a small octagonal chamber — a dead end.\n\nBut the chamber is not empty. A skeleton in mouldering robes sits propped against the far wall. In its bony hand it clutches a dagger that gleams even in the dim light — silver, unmarked by tarnish. Beside the skeleton, scratched into the stone floor, are words:\n\n'THE IRON DOOR REQUIRES THE IRON KEY. THE KEY LIES WITH THE CHAPLAIN. THE CANDLE LIES BEYOND.'\n\nYou take the silver dagger. It feels good in your hand — balanced and keen. The inscription answers a question too — you know where the key is, where the candle is, and what the iron door needs. You descend with a clearer picture than most who came before you.",
+            "add_skill": 1,
             "add_items": [
                 "silver_dagger"
             ],
@@ -366,7 +367,8 @@
             ]
         },
         "11a": {
-            "text": "'Valdric was brilliant and terrible,' Aldric says, his ghostly form flickering. 'In life he bent death itself to his will. In death, he is worse — undeath has stripped away what little humanity he had. He cannot be defeated by strength of arms alone. You must weaken him first.'\n\nThe ghost leans closer, and you feel a chill wash through you. 'The blessed candles — they were made for the original sealing. One was kept in the chapel above. If you light it in his presence, it will diminish his power. Without it...' Aldric shakes his head. 'Without it, you will join me here. Forever.'\n\nHe pauses. 'There is something else. The ring is not in the tomb itself. Valdric cast it from him when he rose — it lies in the antechamber before his burial vault. He cannot touch it, but he guards the approach.'",
+            "text": "'Valdric was brilliant and terrible,' Aldric says, his ghostly form flickering. 'In life he bent death itself to his will. In death, he is worse — undeath has stripped away what little humanity he had. He cannot be defeated by strength of arms alone. You must weaken him first.'\n\nThe ghost leans closer, and you feel a chill wash through you. 'The blessed candles — they were made for the original sealing. One was kept in the chapel above. If you light it in his presence, it will diminish his power. Without it...' Aldric shakes his head. 'Without it, you will join me here. Forever.'\n\nHe pauses. 'There is something else. The ring is not in the tomb itself. Valdric cast it from him when he rose — it lies in the antechamber before his burial vault. He cannot touch it, but he guards the approach.'\n\nYou commit everything he has said to memory. Knowing what you face — truly knowing — is worth more than any weapon.",
+            "add_skill": 1,
             "set_flags": [
                 "aldric_warned_candle"
             ],
@@ -436,7 +438,7 @@
             ]
         },
         "13": {
-            "text": "The staircase spirals downward into colder, darker air. The stone walls here are slick with moisture and something else — a thin black residue that stinks of corruption. You are entering the lower crypt.\n\nAt the bottom of the stairs, the passage splits three ways. To the left, a wide corridor stretches into darkness — you can hear the faint clink of armour from that direction. Ahead, a narrow passage is lined with alcoves; you can see the shrouded shapes of mummified bodies standing in niches along the walls. To the right, a heavy stone door is carved with a riddle:\n\n'I HAVE CITIES BUT NO HOUSES, FORESTS BUT NO TREES, WATER BUT NO FISH. WHAT AM I?'\n\nBeneath the riddle are three stone buttons, each engraved with a word: DREAM, MAP, MIRROR.",
+            "text": "The staircase spirals downward into colder, darker air. The stone walls here are slick with moisture and something else — a thin black residue that stinks of corruption. You are entering the lower crypt.\n\nThe cold settles into your joints. Down here, your instincts feel muffled — as though the weight of the dead above you presses down on the living part of your mind.\n\nAt the bottom of the stairs, the passage splits three ways. To the left, a wide corridor stretches into darkness — you can hear the faint clink of armour from that direction. Ahead, a narrow passage is lined with alcoves; you can see the shrouded shapes of mummified bodies standing in niches along the walls. To the right, a heavy stone door is carved with a riddle:\n\n'I HAVE CITIES BUT NO HOUSES, FORESTS BUT NO TREES, WATER BUT NO FISH. WHAT AM I?'\n\nBeneath the riddle are three stone buttons, each engraved with a word: DREAM, MAP, MIRROR.",
             "choices": [
                 {
                     "text": "Take the wide corridor to the left",
@@ -552,7 +554,8 @@
             ]
         },
         "18": {
-            "text": "You push open the serpent-marked door. The room beyond is small and bare except for a stone pedestal in its centre. On the pedestal rests a silver bowl filled with dark liquid. The surface of the liquid is perfectly still.\n\nAs you approach, the liquid begins to swirl of its own accord. An image forms — you see yourself, lying dead on a stone floor, a dark figure standing over you. The image shifts: now you see yourself holding a ring aloft, and the dark figure recoiling. The liquid goes still again.\n\nA vision — but is it prophecy or warning? The bowl has nothing else to offer. The room is a dead end.",
+            "text": "You push open the serpent-marked door. The room beyond is small and bare except for a stone pedestal in its centre. On the pedestal rests a silver bowl filled with dark liquid. The surface of the liquid is perfectly still.\n\nAs you approach, the liquid begins to swirl of its own accord. An image forms — you see yourself, lying dead on a stone floor, a dark figure standing over you. The image shifts: now you see yourself holding a ring aloft, and the dark figure recoiling. The liquid goes still again.\n\nA vision — but is it prophecy or warning? You stare at the still surface for a long moment. Then you straighten. You have seen the path to victory. Whether it comes to pass depends on you.",
+            "add_skill": 1,
             "set_flags": [
                 "saw_vision"
             ],
