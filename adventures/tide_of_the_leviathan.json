@@ -375,7 +375,8 @@
         {
           "text": "Head to Harlan's warehouse",
           "goto": "s_6",
-          "requires_flag": "skiff_stolen"
+          "requires_flag": "skiff_stolen",
+          "requires_no_flag": "has_skiff"
         },
         {
           "text": "Talk to Old Pell again",
@@ -658,7 +659,8 @@
         {
           "text": "Head to Harlan's warehouse",
           "goto": "s_6",
-          "requires_flag": "skiff_stolen"
+          "requires_flag": "skiff_stolen",
+          "requires_no_flag": "has_skiff"
         },
         {
           "text": "Return to Kael and prepare to depart",
@@ -723,7 +725,8 @@
         {
           "text": "Head to Harlan's warehouse",
           "goto": "s_6",
-          "requires_flag": "skiff_stolen"
+          "requires_flag": "skiff_stolen",
+          "requires_no_flag": "has_skiff"
         },
         {
           "text": "Visit the tavern",
@@ -966,7 +969,8 @@
         {
           "text": "Head to Harlan's warehouse",
           "goto": "s_6",
-          "requires_flag": "skiff_stolen"
+          "requires_flag": "skiff_stolen",
+          "requires_no_flag": "has_skiff"
         }
       ]
     },
