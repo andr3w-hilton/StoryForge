@@ -1,709 +1,1146 @@
 {
-    "title": "The Crypt of Count Valdric",
-    "author": "Andrew Hilton",
-    "version": "1.0",
-    "accent_color": "#5c7d5c",
-    "genre_tag": "GOTHIC HORROR",
-    "theme_icon": "☠",
-    "introduction": "The village of Ashford is dying. For three months its crops have withered in the fields and its people have sickened with a wasting fever that no healer can cure. The village elder, Maren — a sharp-eyed woman who remembers the old stories — knows the cause.\n\nA century ago, the necromancer Count Valdric ruled these lands from the fortress now known as Valdric Keep. When the people finally rose against him, they sealed his corpse in the crypt beneath the ruins with a signet ring of binding. But the ring has been lost — stolen, perhaps, or shaken loose by the tremors that struck last autumn — and without it, Valdric's death-curse bleeds freely into the land.\n\nMaren has hired you to descend into the crypt, recover the Signet Ring, and reseal the tomb before Ashford withers entirely. She presses a vial of holy water into your hand as you leave. 'You will need this,' she says. 'The dead do not rest easily beneath Valdric Keep.'\n\nYour adventure begins on the road to the ruins.",
-    "character": {
-        "skill_base": 6,
-        "skill_dice": 1,
-        "stamina_base": 12,
-        "stamina_dice": 2,
-        "luck_base": 6,
-        "luck_dice": 1,
-        "starting_items": [
-            "sword",
-            "torch",
-            "holy_water"
-        ],
-        "starting_provisions": 3
+  "title": "The Crypt of Count Valdric",
+  "author": "Andrew Hilton",
+  "version": "2.0",
+  "accent_color": "#5c7d5c",
+  "genre_tag": "GOTHIC HORROR",
+  "theme_icon": "☠",
+  "introduction": "The village of Ashford is dying. For three months its crops have withered in the fields and its people have sickened with a wasting fever that no healer can cure. The village elder, Maren — a sharp-eyed woman who remembers the old stories — knows the cause.\n\nA century ago, the necromancer Count Valdric ruled these lands from the fortress now known as Valdric Keep. When the people finally rose against him, they sealed his corpse in the crypt beneath the ruins with a signet ring of binding. But the ring has been lost — stolen, perhaps, or shaken loose by the tremors that struck last autumn — and without it, Valdric's death-curse bleeds freely into the land.\n\nMaren has hired you to descend into the crypt, recover the Signet Ring, and reseal the tomb before Ashford withers entirely. She presses a vial of holy water into your hand as you leave. 'You will need this,' she says. 'The dead do not rest easily beneath Valdric Keep.'\n\nYour adventure begins on the road to the ruins.",
+  "character": {
+    "skill_base": 6,
+    "skill_dice": 1,
+    "stamina_base": 12,
+    "stamina_dice": 2,
+    "luck_base": 6,
+    "luck_dice": 1,
+    "starting_items": [
+      "sword",
+      "torch",
+      "holy_water"
+    ],
+    "starting_provisions": 3
+  },
+  "items": {
+    "sword": {
+      "name": "Sword",
+      "type": "weapon",
+      "skill_bonus": 0,
+      "description": "A plain but well-maintained iron sword."
     },
-    "items": {
-        "sword": {
-            "name": "Sword",
-            "type": "weapon",
-            "skill_bonus": 0,
-            "description": "A plain but well-maintained iron sword."
-        },
-        "silver_dagger": {
-            "name": "Silver Dagger",
-            "type": "weapon",
-            "skill_bonus": 1,
-            "damage_bonus": 1,
-            "description": "A dagger of pure silver, deadly against the undead. +1 SKILL and +1 DAMAGE in combat."
-        },
-        "torch": {
-            "name": "Torch",
-            "type": "tool",
-            "description": "A pitch-soaked torch that burns with a steady flame."
-        },
-        "holy_water": {
-            "name": "Holy Water",
-            "type": "quest",
-            "description": "A vial of consecrated water, given to you by Elder Maren."
-        },
-        "blessed_candle": {
-            "name": "Blessed Candle",
-            "type": "quest",
-            "description": "A thick black candle inscribed with prayers of banishment. Its flame burns cold and blue."
-        },
-        "iron_key": {
-            "name": "Iron Key",
-            "type": "quest",
-            "description": "A heavy iron key, cold to the touch. It must open something in the lower crypt."
-        },
-        "signet_ring": {
-            "name": "Signet Ring of Valdric",
-            "type": "quest",
-            "description": "A heavy gold ring bearing the Valdric seal — a coiled serpent devouring its own tail. It pulses with binding magic."
-        },
-        "provisions": {
-            "name": "Provisions",
-            "type": "consumable",
-            "stamina_restore": 4,
-            "description": "Dried meat, hard bread, and a waterskin. Restores 4 STAMINA."
-        },
-        "healing_herbs": {
-            "name": "Healing Herbs",
-            "type": "consumable",
-            "stamina_restore": 3,
-            "description": "A pouch of dried herbs that can be chewed to dull pain and speed healing. Restores 3 STAMINA."
-        }
+    "silver_dagger": {
+      "name": "Silver Dagger",
+      "type": "weapon",
+      "skill_bonus": 1,
+      "damage_bonus": 1,
+      "description": "A dagger of pure silver, deadly against the undead. +1 SKILL and +1 DAMAGE in combat."
     },
-    "enemies": {
-        "skeleton_warrior": {
-            "name": "Skeleton Warrior",
-            "skill": 6,
-            "stamina": 6
-        },
-        "crypt_ghoul": {
-            "name": "Crypt Ghoul",
-            "skill": 7,
-            "stamina": 8
-        },
-        "tomb_spider": {
-            "name": "Tomb Spider",
-            "skill": 5,
-            "stamina": 4
-        },
-        "wraith": {
-            "name": "Wraith",
-            "skill": 8,
-            "stamina": 6
-        },
-        "count_valdric_weakened": {
-            "name": "Count Valdric (Weakened)",
-            "skill": 7,
-            "stamina": 10
-        },
-        "count_valdric": {
-            "name": "Count Valdric",
-            "skill": 10,
-            "stamina": 14
-        }
+    "torch": {
+      "name": "Torch",
+      "type": "tool",
+      "description": "A pitch-soaked torch that burns with a steady flame."
     },
-    "passages": {
-        "1": {
-            "text": "The road to Valdric Keep climbs through dead forest. The trees here shed their leaves months ago and have not regrown — their branches claw at the grey sky like skeletal fingers. The air smells of rot and cold stone.\n\nAfter an hour's walk, the forest thins and you see the ruins ahead: a shattered curtain wall, a collapsed tower, and beyond them the dark mouth of the crypt entrance, half-hidden by fallen masonry.\n\nBut the ruins are not deserted. A thin column of smoke rises from behind a section of intact wall. Someone has made camp here.",
-            "choices": [
-                {
-                    "text": "Approach the campfire openly",
-                    "goto": "2"
-                },
-                {
-                    "text": "Skirt the camp and head directly for the crypt entrance",
-                    "goto": "3"
-                },
-                {
-                    "text": "Creep closer to observe the camp first",
-                    "goto": "2a"
-                }
-            ]
-        },
-        "2": {
-            "text": "You walk towards the smoke with your hands visible. Behind the wall you find a lean woman in travelling leathers, warming her hands over a small fire. A crossbow rests across her knees. She looks up without surprise.\n\n'Another one,' she says flatly. 'I'm Sera. Bounty hunter out of Kingsport. The merchant's guild sent me to recover something from the crypt — they didn't say what, exactly, just that it was valuable.' She studies your face. 'You're here for the ring, aren't you? The village job.'\n\nShe stands and kicks dirt over the fire. 'I've already scouted the entrance. There's a guardroom just inside with two passages leading deeper. The left one stinks of death. The right one had... clicking sounds.' She pauses. 'I was about to head in. We could work together, or we could stay out of each other's way. Your call.'",
-            "set_flags": [
-                "met_sera"
-            ],
-            "choices": [
-                {
-                    "text": "Agree to work together — at least until you find the ring",
-                    "goto": "3a"
-                },
-                {
-                    "text": "Decline politely and head for the crypt entrance alone",
-                    "goto": "3"
-                }
-            ]
-        },
-        "2a": {
-            "text": "You creep along the ruined wall and peer through a gap in the stonework. A lean woman sits beside a small fire, checking the mechanism of a crossbow. She wears travelling leathers and has the hard, practical look of someone who fights for a living. A bounty hunter, most likely.\n\nShe suddenly looks directly at the gap where you are hiding. 'I can see you,' she calls out. 'Come out, or the next sound you hear will be my crossbow.'",
-            "choices": [
-                {
-                    "text": "Step out and introduce yourself",
-                    "goto": "2"
-                },
-                {
-                    "text": "Back away quietly and head for the crypt entrance",
-                    "goto": "3",
-                    "style": "danger"
-                }
-            ]
-        },
-        "3": {
-            "text": "You pick your way through the rubble to the crypt entrance — a wide stone archway carved with warning glyphs that have been half-effaced by time. Steps descend into darkness.\n\nYou light your torch and go down. The steps are worn smooth by centuries of use and slick with moisture. Twenty steps down, you reach a square guardroom. The ceiling is low, the walls lined with empty weapon racks. Two corridors lead deeper into the crypt.\n\nThe left corridor is wide and its walls bear faded murals of funeral processions. A foul stench wafts from its depths. The right corridor is narrower, and from somewhere within it you hear a dry, rhythmic clicking — like bones scraping against stone.",
-            "choices": [
-                {
-                    "text": "Take the left corridor (wide, stinking)",
-                    "goto": "4"
-                },
-                {
-                    "text": "Take the right corridor (narrow, clicking)",
-                    "goto": "5"
-                },
-                {
-                    "text": "Search the guardroom more carefully before proceeding",
-                    "goto": "3b"
-                }
-            ]
-        },
-        "3a": {
-            "text": "'Smart choice,' Sera says, slinging the crossbow over her shoulder. 'I'll watch your back.'\n\nYou descend into the crypt together. Sera moves quietly and keeps her crossbow ready. At the bottom of the steps you reach a square guardroom with two corridors leading deeper.\n\n'Left one stinks,' Sera mutters. 'Right one has those clicking sounds I mentioned. Your call — you're the one who knows what we're looking for.'",
-            "set_flags": [
-                "sera_allied"
-            ],
-            "choices": [
-                {
-                    "text": "Take the left corridor",
-                    "goto": "4"
-                },
-                {
-                    "text": "Take the right corridor",
-                    "goto": "5"
-                },
-                {
-                    "text": "Search the guardroom first",
-                    "goto": "3b"
-                }
-            ]
-        },
-        "3b": {
-            "text": "You run your hands along the weapon racks and tap the flagstones with your boot. In the far corner, beneath a loose stone, you find a leather pouch containing dried herbs — still fragrant despite their age. A healer must have cached them here long ago.",
-            "add_items": [
-                "healing_herbs"
-            ],
-            "choices": [
-                {
-                    "text": "Take the left corridor",
-                    "goto": "4"
-                },
-                {
-                    "text": "Take the right corridor",
-                    "goto": "5"
-                }
-            ]
-        },
-        "4": {
-            "text": "The left corridor opens into a long burial hall. Stone sarcophagi line both walls, their lids carved with the likenesses of armoured knights. Most are still sealed, but three at the far end have been forced open. The stench is overwhelming — the sweetish reek of old death.\n\nAs you pass the broken sarcophagi, something moves in the shadows. A hunched figure rises from behind one of the stone coffins, its skin grey and taut, its eyes burning with mindless hunger. A CRYPT GHOUL. It opens its mouth and a sound comes out — not a scream, but a wet, rattling hiss.\n\nIt lunges at you.",
-            "combat": {
-                "enemy": "crypt_ghoul",
-                "win_goto": "6",
-                "flee_goto": "3",
-                "flee_allowed": true,
-                "flee_stamina_cost": 2
-            }
-        },
-        "6": {
-            "text": "The ghoul crumples to the floor and does not move again. You wipe your blade clean and look around the burial hall. The open sarcophagi are empty — whatever was inside them has long since decayed or been taken.\n\nAt the far end of the hall, you see two things of interest: a heavy wooden door banded with iron, and a narrow side-passage partially concealed behind a fallen pillar.",
-            "choices": [
-                {
-                    "text": "Try the heavy wooden door",
-                    "goto": "7"
-                },
-                {
-                    "text": "Investigate the narrow side-passage",
-                    "goto": "8"
-                }
-            ]
-        },
-        "5": {
-            "text": "The right corridor twists and descends. The clicking grows louder. You round a bend and your torchlight falls across a web — not a thin cobweb, but a thick curtain of grey silk stretching wall to wall. And crouched at its centre, a spider the size of a hunting dog, its fangs working rhythmically. That was the clicking sound.\n\nThe TOMB SPIDER sees you and rears up, forelegs spread wide.",
-            "combat": {
-                "enemy": "tomb_spider",
-                "win_goto": "5a",
-                "flee_goto": "3",
-                "flee_allowed": true,
-                "flee_stamina_cost": 1
-            }
-        },
-        "5a": {
-            "text": "The spider curls in on itself and goes still. You hack through the remaining web and continue down the corridor. Beyond the web, the passage opens into a small octagonal chamber — a dead end.\n\nBut the chamber is not empty. A skeleton in mouldering robes sits propped against the far wall. In its bony hand it clutches a dagger that gleams even in the dim light — silver, unmarked by tarnish. Beside the skeleton, scratched into the stone floor, are words:\n\n'THE IRON DOOR REQUIRES THE IRON KEY. THE KEY LIES WITH THE CHAPLAIN. THE CANDLE LIES BEYOND.'\n\nYou take the silver dagger. It feels good in your hand — balanced and keen. The inscription answers a question too — you know where the key is, where the candle is, and what the iron door needs. You descend with a clearer picture than most who came before you.",
-            "add_skill": 1,
-            "add_items": [
-                "silver_dagger"
-            ],
-            "choices": [
-                {
-                    "text": "Return to the guardroom and take the left corridor",
-                    "goto": "4"
-                },
-                {
-                    "text": "Head back to the guardroom",
-                    "goto": "3"
-                }
-            ]
-        },
-        "7": {
-            "text": "You push against the heavy door. It does not budge. Looking more closely, you see an iron lock set into the wood — old but solid. There is no way to force this open without the right key.\n\nThe door is cold to the touch. Whatever lies beyond it, the air on the other side is frigid.",
-            "choices": [
-                {
-                    "text": "Use the iron key",
-                    "goto": "14",
-                    "requires_item": "iron_key"
-                },
-                {
-                    "text": "Investigate the narrow side-passage instead",
-                    "goto": "8"
-                },
-                {
-                    "text": "Go back to the guardroom",
-                    "goto": "3"
-                }
-            ]
-        },
-        "8": {
-            "text": "You squeeze through the gap behind the fallen pillar into a narrow passage that curves to the right. After twenty paces, it opens into a small chapel. Pews of rotting wood face a stone altar. Behind the altar, a mosaic on the wall depicts a robed figure holding a candle aloft against a tide of darkness.\n\nA body lies across the altar — not a skeleton, but a more recent corpse. A man in priest's vestments, dead perhaps a few weeks. His face is frozen in an expression of absolute terror. In his clenched fist you can see the glint of metal.",
-            "choices": [
-                {
-                    "text": "Examine the body on the altar",
-                    "goto": "9"
-                },
-                {
-                    "text": "Search the chapel pews",
-                    "goto": "8a"
-                },
-                {
-                    "text": "Leave the chapel and go back",
-                    "goto": "6"
-                }
-            ]
-        },
-        "8a": {
-            "text": "You search between the rotting pews. Most crumble at your touch, but wedged beneath one near the back you find a thick black candle inscribed with tiny, precise letters — prayers of banishment, written in the old tongue. The wax is cold but the wick is intact.\n\nThis must be one of the blessed candles used in the original sealing ritual. You take it carefully.",
-            "add_items": [
-                "blessed_candle"
-            ],
-            "choices": [
-                {
-                    "text": "Now examine the body on the altar",
-                    "goto": "9"
-                },
-                {
-                    "text": "Leave the chapel",
-                    "goto": "6"
-                }
-            ],
-            "set_flags": [
-                "has_candle_already"
-            ]
-        },
-        "9": {
-            "text": "You prise open the dead priest's fingers. He is clutching a heavy iron key — and something else. A scrap of parchment, the ink still legible:\n\n'I came to reseal the tomb but I was too late. He is awake. The candle — I dropped it somewhere in the chapel. God forgive me, I could not face him. I locked the lower door and I will die here with the key rather than let anything else come up from below.'\n\nYou take the iron key. The dead man's expression does not change. Whatever he saw in the lower crypt, it followed him here in the end.",
-            "add_items": [
-                "iron_key"
-            ],
-            "set_flags": [
-                "read_priest_note"
-            ],
-            "choices": [
-                {
-                    "text": "Search the chapel pews",
-                    "goto": "8a",
-                    "requires_no_flag": "has_candle_already"
-                },
-                {
-                    "text": "Return to the iron door",
-                    "goto": "7"
-                },
-                {
-                    "text": "Leave the chapel",
-                    "goto": "6"
-                }
-            ]
-        },
-        "10": {
-            "text": "You are in a long corridor of the upper crypt. The walls here are carved with repeated images of serpents — the Valdric family crest. The air is noticeably colder.\n\nA side chamber opens to your left. Inside, you can see the faint glow of something phosphorescent. Ahead, the corridor continues toward a descending staircase.",
-            "choices": [
-                {
-                    "text": "Investigate the side chamber",
-                    "goto": "11"
-                },
-                {
-                    "text": "Continue to the descending staircase",
-                    "goto": "13"
-                }
-            ]
-        },
-        "11": {
-            "text": "The glow comes from patches of luminous fungus growing on the walls of a small crypt. In the centre of the chamber stands a single sarcophagus, its lid slightly ajar. The fungal light gives everything a sickly green cast.\n\nAs you enter, a voice speaks — not aloud, but directly inside your mind. It is thin, weary, and very old.\n\n'Another living soul. How long has it been?' A translucent figure shimmers into existence above the sarcophagus — the ghost of a man in scholarly robes, his face gaunt but not unkind. 'I am Aldric, court historian to Count Valdric — in life, at least. In death, I am merely... trapped. The Count's curse binds all souls within this crypt.'\n\nThe ghost studies you. 'You seek the ring. I can see it in your purpose. I will tell you what I know, if you wish to hear it.'",
-            "set_flags": [
-                "met_aldric"
-            ],
-            "choices": [
-                {
-                    "text": "Ask Aldric about Count Valdric",
-                    "goto": "11a"
-                },
-                {
-                    "text": "Ask Aldric about the lower crypt",
-                    "goto": "11b"
-                },
-                {
-                    "text": "Leave the chamber and continue down the corridor",
-                    "goto": "13"
-                }
-            ]
-        },
-        "11a": {
-            "text": "'Valdric was brilliant and terrible,' Aldric says, his ghostly form flickering. 'In life he bent death itself to his will. In death, he is worse — undeath has stripped away what little humanity he had. He cannot be defeated by strength of arms alone. You must weaken him first.'\n\nThe ghost leans closer, and you feel a chill wash through you. 'The blessed candles — they were made for the original sealing. One was kept in the chapel above. If you light it in his presence, it will diminish his power. Without it...' Aldric shakes his head. 'Without it, you will join me here. Forever.'\n\nHe pauses. 'There is something else. The ring is not in the tomb itself. Valdric cast it from him when he rose — it lies in the antechamber before his burial vault. He cannot touch it, but he guards the approach.'\n\nYou commit everything he has said to memory. Knowing what you face — truly knowing — is worth more than any weapon.",
-            "add_skill": 1,
-            "set_flags": [
-                "aldric_warned_candle"
-            ],
-            "choices": [
-                {
-                    "text": "Ask about the lower crypt",
-                    "goto": "11b"
-                },
-                {
-                    "text": "Thank him and leave",
-                    "goto": "13"
-                }
-            ]
-        },
-        "11b": {
-            "text": "'The lower crypt is where Valdric's tomb lies,' Aldric says. 'But between you and it, there are... guardians. The Count's personal bodyguard was interred with him — a skeleton warrior, enchanted to fight for eternity. And there is a wraith that patrols the inner halls. A terrible thing — no mortal blade can harm it. You would need silver, or something consecrated.'\n\nHe fixes you with hollow eyes. 'Be careful with your resources. The crypt takes more than it gives.'\n\nThe ghost begins to fade. 'I grow weary. Find the ring. End this curse. Set us all free.'",
-            "set_flags": [
-                "aldric_warned_wraith"
-            ],
-            "choices": [
-                {
-                    "text": "Ask about Count Valdric",
-                    "goto": "11a",
-                    "requires_no_flag": "aldric_warned_candle"
-                },
-                {
-                    "text": "Thank him and continue down the corridor",
-                    "goto": "13"
-                }
-            ]
-        },
-        "12": {
-            "text": "You enter a narrow chamber lined with alcoves, each containing a mummified body wrapped in stained linen. The air is thick with dust. At the far end, a pressure plate is clearly visible on the floor — someone has scratched a warning arrow into the wall beside it.\n\nBeyond the pressure plate, you can see a doorway leading onward.",
-            "choices": [
-                {
-                    "text": "Step carefully over the pressure plate",
-                    "goto": "12a"
-                },
-                {
-                    "text": "Deliberately trigger the pressure plate from a safe distance",
-                    "goto": "12b"
-                },
-                {
-                    "text": "Go back and find another route",
-                    "goto": "10"
-                }
-            ]
-        },
-        "12a": {
-            "text": "You place your foot carefully beyond the pressure plate — but the flagstone you land on shifts. A second plate, hidden beneath a thin layer of dust. There is a grinding sound from the ceiling.\n\nTest your luck!",
-            "test_luck": {
-                "lucky_text": "You throw yourself forward as a stone block crashes down from the ceiling, missing you by inches. You land hard on the far side, shaken but alive. The block seals the passage behind you — there is no going back.",
-                "lucky_goto": "15",
-                "unlucky_text": "The stone block catches your shoulder as it falls, slamming you to the ground. Pain explodes through your body. You drag yourself forward as more dust rains from the ceiling, but the passage behind you is now sealed.",
-                "unlucky_goto": "15",
-                "lucky_stamina_cost": 0,
-                "unlucky_stamina_cost": 4
-            }
-        },
-        "12b": {
-            "text": "You pick up a loose stone and hurl it onto the pressure plate. With a grinding roar, a massive stone block drops from the ceiling — it would have crushed anyone standing there. Dust billows through the chamber.\n\nWhen it settles, you can see that the block has also revealed a second pressure plate just beyond the first. This place was designed to catch the cautious as well as the careless. You step carefully around both plates and pass through the doorway.",
-            "choices": [
-                {
-                    "text": "Continue onward",
-                    "goto": "15"
-                }
-            ]
-        },
-        "13": {
-            "text": "The staircase spirals downward into colder, darker air. The stone walls here are slick with moisture and something else — a thin black residue that stinks of corruption. You are entering the lower crypt.\n\nThe cold settles into your joints. Down here, your instincts feel muffled — as though the weight of the dead above you presses down on the living part of your mind.\n\nAt the bottom of the stairs, the passage splits three ways. To the left, a wide corridor stretches into darkness — you can hear the faint clink of armour from that direction. Ahead, a narrow passage is lined with alcoves; you can see the shrouded shapes of mummified bodies standing in niches along the walls. To the right, a heavy stone door is carved with a riddle:\n\n'I HAVE CITIES BUT NO HOUSES, FORESTS BUT NO TREES, WATER BUT NO FISH. WHAT AM I?'\n\nBeneath the riddle are three stone buttons, each engraved with a word: DREAM, MAP, MIRROR.",
-            "choices": [
-                {
-                    "text": "Take the wide corridor to the left",
-                    "goto": "16"
-                },
-                {
-                    "text": "Take the narrow alcove passage",
-                    "goto": "12"
-                },
-                {
-                    "text": "Press the button marked DREAM",
-                    "goto": "death_riddle"
-                },
-                {
-                    "text": "Press the button marked MAP",
-                    "goto": "15"
-                },
-                {
-                    "text": "Press the button marked MIRROR",
-                    "goto": "death_riddle"
-                }
-            ]
-        },
-        "14": {
-            "text": "The iron key turns in the lock with a heavy clunk. You push the door open and a wave of freezing air hits you. Beyond is a descending passage — a shortcut into the lower crypt, bypassing the upper corridors.\n\nThe walls here are covered in frost despite being underground. Your breath clouds in front of you. After thirty paces, the passage opens into a wider area.",
-            "choices": [
-                {
-                    "text": "Continue into the lower crypt",
-                    "goto": "10"
-                }
-            ]
-        },
-        "15": {
-            "text": "The stone door grinds open — you chose correctly. Beyond it lies a vaulted chamber that might once have been a treasury. The shelves are bare now, looted long ago, but the room is not entirely empty.\n\nIn the far corner, a woman in travelling leathers sits against the wall, clutching a wound in her side. Blood seeps between her fingers. Her crossbow lies broken beside her. 'Sera,' she says when she sees you — by way of introduction, or re-introduction if you crossed paths at the campfire above. 'Skeleton caught me from behind. I put a bolt through its skull but there’s another one patrolling the corridor ahead.' She looks up at you. 'The tomb is close. I can feel it — the air gets worse the further you go.'",
-            "choices": [
-                {
-                    "text": "Give Sera your healing herbs",
-                    "goto": "15a",
-                    "requires_item": "healing_herbs"
-                },
-                {
-                    "text": "Share your provisions with her",
-                    "goto": "15b"
-                },
-                {
-                    "text": "Tell her to stay here and press on alone",
-                    "goto": "15c"
-                }
-            ]
-        },
-        "15a": {
-            "text": "You kneel beside Sera and press the healing herbs into her hand. 'Chew these. They'll slow the bleeding.'\n\nShe does, grimacing at the bitter taste. After a moment, some colour returns to her face. 'Not bad,' she says. 'I owe you one.' She gets to her feet, wincing. 'I can't fight, but I can watch this corridor. If anything comes up behind you, I'll slow it down.'\n\nShe meets your eyes. 'Be careful in there. Whatever's at the end of this place — it's old, and it's angry.'",
-            "remove_items": [
-                "healing_herbs"
-            ],
-            "set_flags": [
-                "helped_sera"
-            ],
-            "choices": [
-                {
-                    "text": "Continue deeper into the lower crypt",
-                    "goto": "16"
-                }
-            ]
-        },
-        "15b": {
-            "text": "You share some of your provisions with Sera. She eats slowly, and the food seems to steady her. 'Thanks,' she says. 'I'll hold this room. If anything follows you down here, I'll do what I can.' She pulls a knife from her boot — it is not much, but it is something.\n\n'Good luck down there.'",
-            "set_flags": [
-                "helped_sera"
-            ],
-            "add_stamina": -2,
-            "choices": [
-                {
-                    "text": "Continue deeper into the lower crypt",
-                    "goto": "16"
-                }
-            ]
-        },
-        "15c": {
-            "text": "Sera nods. 'I'd do the same,' she says, without bitterness. 'Go. Finish this.'\n\nYou leave her in the treasury and continue deeper into the lower crypt. The air grows colder with every step.",
-            "choices": [
-                {
-                    "text": "Continue deeper into the lower crypt",
-                    "goto": "16"
-                }
-            ]
-        },
-        "16": {
-            "text": "A wide corridor stretches before you, lined with stone pillars carved into the shapes of hooded figures. The silence here is absolute — no dripping water, no distant echoes. Just cold, dead stillness.\n\nThen you hear it: the metallic scrape of something moving in armour. From between two pillars ahead, a figure steps into the torchlight. A SKELETON WARRIOR — bones yellowed with age, but the sword in its hand gleams as though freshly oiled. Empty eye sockets fix on you with malevolent purpose.\n\nIt raises its blade and advances.",
-            "combat": {
-                "enemy": "skeleton_warrior",
-                "win_goto": "17",
-                "flee_goto": "15",
-                "flee_allowed": true,
-                "flee_stamina_cost": 2
-            }
-        },
-        "17": {
-            "text": "The skeleton collapses into a heap of disconnected bones. The enchantment that held it together is broken.\n\nBeyond the pillared corridor, you reach a circular chamber with a domed ceiling. The walls are painted with scenes of Valdric's conquests — armies of the dead marching across blighted landscapes. The paint is still vivid, preserved by whatever dark magic saturates this place.\n\nThree passages lead out of the chamber. The left passage is sealed with a door marked with a serpent crest. The centre passage is open but utterly dark — your torch flame shrinks and gutters as you look into it. The right passage slopes downward and a faint, unnatural green light pulses from within it.",
-            "choices": [
-                {
-                    "text": "Take the left passage (serpent door)",
-                    "goto": "18"
-                },
-                {
-                    "text": "Take the centre passage into the darkness",
-                    "goto": "19"
-                },
-                {
-                    "text": "Take the right passage toward the green light",
-                    "goto": "20"
-                }
-            ]
-        },
-        "18": {
-            "text": "You push open the serpent-marked door. The room beyond is small and bare except for a stone pedestal in its centre. On the pedestal rests a silver bowl filled with dark liquid. The surface of the liquid is perfectly still.\n\nAs you approach, the liquid begins to swirl of its own accord. An image forms — you see yourself, lying dead on a stone floor, a dark figure standing over you. The image shifts: now you see yourself holding a ring aloft, and the dark figure recoiling. The liquid goes still again.\n\nA vision — but is it prophecy or warning? You stare at the still surface for a long moment. Then you straighten. You have seen the path to victory. Whether it comes to pass depends on you.",
-            "add_skill": 1,
-            "set_flags": [
-                "saw_vision"
-            ],
-            "choices": [
-                {
-                    "text": "Return to the circular chamber",
-                    "goto": "17"
-                }
-            ]
-        },
-        "19": {
-            "text": "You hold your torch high and step into the centre passage. The darkness presses in like a living thing — your torch burns low, barely illuminating a few feet ahead. The temperature drops savagely.\n\nThen you feel it: a presence. Not ahead of you, but all around you. A shape coalesces from the darkness — a WRAITH, its form a tattered shroud of shadow, its face a void of howling emptiness. The cold intensifies until your bones ache.\n\nThe wraith reaches for you with fingers of black mist.",
-            "choices": [
-                {
-                    "text": "Fight the wraith with your silver dagger",
-                    "goto": "19a",
-                    "requires_item": "silver_dagger"
-                },
-                {
-                    "text": "Throw the holy water at the wraith",
-                    "goto": "19b",
-                    "requires_item": "holy_water"
-                },
-                {
-                    "text": "Fight the wraith with your sword",
-                    "goto": "death_wraith"
-                }
-            ]
-        },
-        "19a": {
-            "text": "You draw the silver dagger. The wraith hisses — a sound like tearing silk — and recoils from the gleaming blade. Silver. The bane of the undead. It can be hurt.\n\nThe wraith attacks with renewed fury, but now you can fight back.",
-            "combat": {
-                "enemy": "wraith",
-                "win_goto": "21",
-                "flee_goto": "17",
-                "flee_allowed": true,
-                "flee_stamina_cost": 3
-            }
-        },
-        "19b": {
-            "text": "You hurl the vial of holy water at the wraith. It shatters against the creature's form and the wraith SCREAMS — a sound that drives needles into your skull. Its body convulses, smoking where the consecrated water touched it. The wraith thrashes and diminishes, its form tearing apart like mist in a gale.\n\nWith a final wail, it dissipates entirely. The corridor warms slightly. The darkness recedes to normal shadows.\n\nThe holy water is spent, but the wraith is destroyed.",
-            "remove_items": [
-                "holy_water"
-            ],
-            "set_flags": [
-                "wraith_destroyed"
-            ],
-            "choices": [
-                {
-                    "text": "Continue through the passage",
-                    "goto": "21"
-                }
-            ]
-        },
-        "20": {
-            "text": "The right passage slopes down into a low-ceilinged tunnel. The green light pulses from patches of the same phosphorescent fungus you saw in Aldric's chamber — but here it covers the walls thickly, and the air has a cloying, spore-laden quality.\n\nYou begin to feel lightheaded. The fungus — it must be toxic. Your vision swims and the walls seem to breathe.\n\nTest your luck!",
-            "test_luck": {
-                "lucky_text": "You hold your breath and push through the fungal corridor quickly. Your head clears as you reach fresh air on the other side. A narrow passage leads onward.",
-                "lucky_goto": "21",
-                "unlucky_text": "You breathe in the spores and your vision blurs. You stagger through the corridor, bouncing off walls, feeling the toxin burn in your lungs. By the time you reach the other side, you are weakened and shaking.",
-                "unlucky_goto": "21",
-                "lucky_stamina_cost": 0,
-                "unlucky_stamina_cost": 3
-            }
-        },
-        "21": {
-            "text": "All paths converge here: a long, straight corridor ending at a massive set of double doors. The doors are carved from black stone and inscribed with the Valdric serpent crest — the same coiled serpent devouring its own tail. The carving seems to move in the torchlight.\n\nThis is it. The entrance to Count Valdric's burial vault.\n\nThe doors are not locked. They stand very slightly ajar, and from the gap between them comes a cold blue light and the faint sound of someone — or something — breathing.\n\nYou feel a deep, primal urge to turn back. Every instinct you have tells you that what lies beyond these doors is death.",
-            "choices": [
-                {
-                    "text": "Push open the doors and enter the tomb",
-                    "goto": "22"
-                },
-                {
-                    "text": "Go back — you are not ready",
-                    "goto": "17",
-                    "style": "danger"
-                }
-            ]
-        },
-        "22": {
-            "text": "You push open the black stone doors. They swing inward with terrible ease, as though something on the other side has been waiting for you.\n\nThe burial vault of Count Valdric is vast — far larger than any chamber you have seen in the crypt. Pillars of black marble support a vaulted ceiling lost in shadow. At the far end, on a raised dais, stands a stone sarcophagus with its lid thrown aside.\n\nAnd before it, wreathed in cold blue light, stands Count Valdric himself.\n\nHe is tall and gaunt, dressed in the rotting finery of a century-dead nobleman. His skin is grey parchment stretched over sharp bones. His eyes burn with a cold, intelligent malice that is far worse than the mindless hunger of the ghoul or the hollow rage of the wraith. This is a creature that thinks. That plans. That hates.\n\n'How kind,' he says, his voice the sound of a coffin lid sliding shut. 'A visitor. It has been so long since anyone came to pay their respects.'\n\nHe raises one hand, and the blue light intensifies.",
-            "choices": [
-                {
-                    "text": "Light the blessed candle and speak the words of banishment",
-                    "goto": "23",
-                    "requires_item": "blessed_candle"
-                },
-                {
-                    "text": "Advance on Valdric without preparation",
-                    "goto": "24"
-                }
-            ]
-        },
-        "23": {
-            "text": "You pull the blessed candle from your pack and strike your flint. The candle catches — but its flame burns not orange, but a deep, cold blue. The words inscribed on the wax seem to rise from the surface and hover in the air, glowing.\n\nValdric recoils. 'No,' he hisses. 'No — those words are DEAD. That magic is SPENT.'\n\nBut it is not spent. The blue flame intensifies and the prayers of banishment fill the chamber with a sound like distant cathedral bells. Valdric staggers, his form flickering. The cold blue light around him dims and gutters.\n\n'You will still die here,' he snarls, but his voice is weaker now. The candle has done its work — Valdric is diminished. Not destroyed, but diminished.\n\nHe draws a black-bladed sword from the air itself and advances on you. Even weakened, he is a formidable enemy.",
-            "remove_items": [
-                "blessed_candle"
-            ],
-            "set_flags": [
-                "candle_used"
-            ],
-            "combat": {
-                "enemy": "count_valdric_weakened",
-                "win_goto": "25",
-                "flee_goto": "death_flee_valdric",
-                "flee_allowed": false
-            }
-        },
-        "24": {
-            "text": "You draw your weapon and charge. Valdric smiles — a terrible expression on that dead face — and raises his hand. A wave of freezing cold hits you like a wall, slowing your limbs and clouding your mind.\n\n'Brave,' he says. 'Stupid, but brave.'\n\nHe draws a black-bladed sword from the air and comes to meet you. At his full power, Count Valdric is a horror beyond reckoning — a century of undeath has only sharpened his skill, and dark magic reinforces every blow.",
-            "combat": {
-                "enemy": "count_valdric",
-                "win_goto": "25",
-                "flee_goto": "death_flee_valdric",
-                "flee_allowed": false
-            }
-        },
-        "25": {
-            "text": "Valdric falls. His body hits the stone floor and the blue light explodes outward in a silent shockwave that passes through you like a gale of ice. Then — stillness. The Count's corpse lies crumpled before his own sarcophagus, and the malice drains from the air like water from a cracked vessel.\n\nThe vault is quiet. Truly quiet, for the first time in a century.\n\nYou look around. There — in an alcove beside the dais, half-hidden by shadow. A golden ring, pulsing with faint light. The Signet Ring of Valdric, bearing the serpent-devouring-itself seal. It must have been cast aside when Valdric rose.\n\nYou pick it up. It is warm in your hand — warm with binding magic.",
-            "add_items": [
-                "signet_ring"
-            ],
-            "choices": [
-                {
-                    "text": "Place the ring on the sarcophagus and reseal the tomb",
-                    "goto": "26"
-                }
-            ]
-        },
-        "26": {
-            "text": "You place the Signet Ring on the rim of the stone sarcophagus. The serpent seal glows white-hot for an instant, and ancient glyphs flare to life along the edges of the coffin lid. With a grinding sound, the lid slides back into place — sealed, as it was meant to be.\n\nValdric's body crumbles to dust. The cold blue light fades. The temperature in the vault begins to rise.\n\nYou hear a voice — Aldric, the ghost-historian, speaking in your mind one last time. 'It is done. The binding holds. We are free.' His voice is lighter now, unburdened. 'Thank you.'\n\nYou make your way back through the crypt. The corruption is already fading — the black residue on the walls dries and flakes away. The cold recedes. In the treasury, you find the spot where Sera was sitting, but she is gone — only a bloodstain and a scrawled note: 'GONE TO GET STITCHED UP. DRINKS ON ME IN KINGSPORT. — S'\n\nYou climb the stairs into daylight. The sky above Valdric Keep is blue for the first time in months.\n\nElder Maren meets you at the edge of Ashford. She sees the ring in your hand and her eyes fill with tears. 'It is done?' she asks.\n\n'It is done.'\n\nThat night, the crops begin to grow again.",
-            "ending": true,
-            "ending_type": "victory"
-        },
-        "death_riddle": {
-            "text": "You press the button. For a moment, nothing happens. Then the floor beneath your feet gives way.\n\nYou plunge into darkness, falling for what seems like forever before you hit cold water. The current is swift and impossibly strong — it drags you under and through a narrow stone channel, tumbling you in total blackness. You cannot breathe. You cannot fight.\n\nThe crypt has claimed another victim. Your body will never be found.\n\nThe village of Ashford continues to wither.",
-            "ending": true,
-            "ending_type": "death"
-        },
-        "death_wraith": {
-            "text": "You swing your sword at the wraith — but the blade passes through its form like cutting smoke. The wraith does not even flinch.\n\nIts freezing fingers close around your throat. The cold is indescribable — it reaches into you, past skin and muscle and bone, and grips your very soul. Your vision goes white. Then black.\n\nYour last thought, as the wraith pulls the life from your body, is that you should have come better prepared.\n\nYour body is found weeks later by a search party from Ashford, frozen solid in a corridor of the lower crypt, an expression of unspeakable terror on your face.",
-            "ending": true,
-            "ending_type": "death"
-        },
-        "death_flee_valdric": {
-            "text": "You turn to run, but the black stone doors slam shut of their own accord. There is no escape from Count Valdric's burial vault. The Count's laughter echoes off the marble pillars as he advances.\n\nYou fight, but it is hopeless. Valdric's blade finds your heart.\n\nThe last thing you see is the Count's dead smile as the cold blue light swallows everything.\n\nThe Signet Ring remains lost. The village of Ashford withers and dies. In time, Valdric's curse spreads beyond the valley, and the dead begin to walk the land once more.",
-            "ending": true,
-            "ending_type": "death"
-        }
+    "holy_water": {
+      "name": "Holy Water",
+      "type": "quest",
+      "description": "A vial of consecrated water, given to you by Elder Maren."
+    },
+    "blessed_candle": {
+      "name": "Blessed Candle",
+      "type": "quest",
+      "description": "A thick black candle inscribed with prayers of banishment. Its flame burns cold and blue."
+    },
+    "iron_key": {
+      "name": "Iron Key",
+      "type": "quest",
+      "description": "A heavy iron key, cold to the touch. It must open something in the lower crypt."
+    },
+    "signet_ring": {
+      "name": "Signet Ring of Valdric",
+      "type": "quest",
+      "description": "A heavy gold ring bearing the Valdric seal — a coiled serpent devouring its own tail. It pulses with binding magic."
+    },
+    "provisions": {
+      "name": "Provisions",
+      "type": "consumable",
+      "stamina_restore": 4,
+      "description": "Dried meat, hard bread, and a waterskin. Restores 4 STAMINA."
+    },
+    "healing_herbs": {
+      "name": "Healing Herbs",
+      "type": "consumable",
+      "stamina_restore": 3,
+      "description": "A pouch of dried herbs that can be chewed to dull pain and speed healing. Restores 3 STAMINA."
     }
+  },
+  "enemies": {
+    "skeleton_warrior": {
+      "name": "Skeleton Warrior",
+      "skill": 6,
+      "stamina": 6
+    },
+    "crypt_ghoul": {
+      "name": "Crypt Ghoul",
+      "skill": 7,
+      "stamina": 8
+    },
+    "tomb_spider": {
+      "name": "Tomb Spider",
+      "skill": 5,
+      "stamina": 4
+    },
+    "wraith": {
+      "name": "Wraith",
+      "skill": 8,
+      "stamina": 6
+    },
+    "count_valdric_weakened": {
+      "name": "Count Valdric (Weakened)",
+      "skill": 7,
+      "stamina": 10
+    },
+    "count_valdric": {
+      "name": "Count Valdric",
+      "skill": 10,
+      "stamina": 14
+    }
+  },
+  "passages": {
+    "v_1": {
+      "text": "The road to Valdric Keep climbs through dead forest. The trees here shed their leaves months ago and have not regrown — their branches claw at the grey sky like skeletal fingers. The air smells of rot and cold stone.\n\nAfter an hour's walk, the forest thins and you see the ruins ahead: a shattered curtain wall, a collapsed tower, and beyond them the dark mouth of the crypt entrance, half-hidden by fallen masonry.\n\nBut the ruins are not deserted. A thin column of smoke rises from behind a section of intact wall. Someone has made camp here.",
+      "choices": [
+        {
+          "text": "Approach the campfire openly",
+          "goto": "v_2"
+        },
+        {
+          "text": "Skirt the camp and head directly for the crypt entrance",
+          "goto": "v_3"
+        },
+        {
+          "text": "Creep closer to observe the camp first",
+          "goto": "v_2a"
+        }
+      ]
+    },
+    "v_2": {
+      "text": "You walk towards the smoke with your hands visible. Behind the wall you find a lean woman in travelling leathers, warming her hands over a small fire. A crossbow rests across her knees. She looks up without surprise.\n\n'Another one,' she says flatly. 'I'm Sera. Bounty hunter out of Kingsport. The merchant's guild sent me to recover something from the crypt — they didn't say what, exactly, just that it was valuable.' She studies your face. 'You're here for the ring, aren't you? The village job.'\n\nShe stands and kicks dirt over the fire. 'I've already scouted the entrance. There's a guardroom just inside with two passages leading deeper. The left one stinks of death. The right one had... clicking sounds.' She pauses. 'I was about to head in. We could work together, or we could stay out of each other's way. Your call.'",
+      "set_flags": [
+        "met_sera"
+      ],
+      "choices": [
+        {
+          "text": "Agree to work together — at least until you find the ring",
+          "goto": "v_3a"
+        },
+        {
+          "text": "Decline politely and head for the crypt entrance alone",
+          "goto": "v_3"
+        }
+      ]
+    },
+    "v_2a": {
+      "text": "You creep along the ruined wall and peer through a gap in the stonework. A lean woman sits beside a small fire, checking the mechanism of a crossbow. She wears travelling leathers and has the hard, practical look of someone who fights for a living. A bounty hunter, most likely.\n\nShe suddenly looks directly at the gap where you are hiding. 'I can see you,' she calls out. 'Come out, or the next sound you hear will be my crossbow.'",
+      "choices": [
+        {
+          "text": "Step out and introduce yourself",
+          "goto": "v_2"
+        },
+        {
+          "text": "Back away quietly and head for the crypt entrance",
+          "goto": "v_3",
+          "style": "danger"
+        }
+      ]
+    },
+    "v_3": {
+      "text": "You pick your way through the rubble to the crypt entrance — a wide stone archway carved with warning glyphs that have been half-effaced by time. Steps descend into darkness.\n\nYou light your torch and go down. The steps are worn smooth by centuries of use and slick with moisture. Twenty steps down, you reach a square guardroom. The ceiling is low, the walls lined with empty weapon racks. Two corridors lead deeper into the crypt.\n\nThe left corridor is wide and its walls bear faded murals of funeral processions. A foul stench wafts from its depths. The right corridor is narrower, and from somewhere within it you hear a dry, rhythmic clicking — like bones scraping against stone.",
+      "choices": [
+        {
+          "text": "Take the left corridor (wide, stinking)",
+          "goto": "v_4"
+        },
+        {
+          "text": "Take the right corridor (narrow, clicking)",
+          "goto": "v_5"
+        },
+        {
+          "text": "Search the guardroom more carefully before proceeding",
+          "goto": "v_3b"
+        }
+      ]
+    },
+    "v_3a": {
+      "text": "'Smart choice,' Sera says, slinging the crossbow over her shoulder. 'I'll watch your back.'\n\nYou descend into the crypt together. Sera moves quietly and keeps her crossbow ready. At the bottom of the steps you reach a square guardroom with two corridors leading deeper.\n\n'Left one stinks,' Sera mutters. 'Right one has those clicking sounds I mentioned. Your call — you're the one who knows what we're looking for.'",
+      "set_flags": [
+        "sera_allied"
+      ],
+      "choices": [
+        {
+          "text": "Take the left corridor",
+          "goto": "v_4"
+        },
+        {
+          "text": "Take the right corridor",
+          "goto": "v_5"
+        },
+        {
+          "text": "Search the guardroom first",
+          "goto": "v_3b"
+        }
+      ]
+    },
+    "v_3b": {
+      "text": "You run your hands along the weapon racks and tap the flagstones with your boot. In the far corner, beneath a loose stone, you find a leather pouch containing dried herbs — still fragrant despite their age. A healer must have cached them here long ago.",
+      "add_items": [
+        "healing_herbs"
+      ],
+      "choices": [
+        {
+          "text": "Take the left corridor",
+          "goto": "v_4"
+        },
+        {
+          "text": "Take the right corridor",
+          "goto": "v_5"
+        }
+      ]
+    },
+    "v_4": {
+      "text": "The left corridor opens into a long burial hall. Stone sarcophagi line both walls, their lids carved with the likenesses of armoured knights. Most are still sealed, but three at the far end have been forced open. The stench is overwhelming — the sweetish reek of old death.\n\nAs you pass the broken sarcophagi, something moves in the shadows. A hunched figure rises from behind one of the stone coffins, its skin grey and taut, its eyes burning with mindless hunger. A CRYPT GHOUL. It opens its mouth and a sound comes out — not a scream, but a wet, rattling hiss.\n\nIt lunges at you.",
+      "combat": {
+        "enemy": "crypt_ghoul",
+        "win_goto": "v_6",
+        "flee_goto": "v_3",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "v_6": {
+      "text": "The ghoul crumples to the floor and does not move again. You wipe your blade clean and look around the burial hall. The open sarcophagi are empty — whatever was inside them has long since decayed or been taken.\n\nAt the far end of the hall, you see two things of interest: a heavy wooden door banded with iron, and a narrow side-passage partially concealed behind a fallen pillar.",
+      "choices": [
+        {
+          "text": "Try the heavy wooden door",
+          "goto": "v_7"
+        },
+        {
+          "text": "Investigate the narrow side-passage",
+          "goto": "v_8"
+        }
+      ]
+    },
+    "v_5": {
+      "text": "The right corridor twists and descends. The clicking grows louder. You round a bend and your torchlight falls across a web — not a thin cobweb, but a thick curtain of grey silk stretching wall to wall. And crouched at its centre, a spider the size of a hunting dog, its fangs working rhythmically. That was the clicking sound.\n\nThe TOMB SPIDER sees you and rears up, forelegs spread wide.",
+      "combat": {
+        "enemy": "tomb_spider",
+        "win_goto": "v_5a",
+        "flee_goto": "v_3",
+        "flee_allowed": true,
+        "flee_stamina_cost": 1
+      }
+    },
+    "v_5a": {
+      "text": "The spider curls in on itself and goes still. You hack through the remaining web and continue down the corridor. Beyond the web, the passage opens into a small octagonal chamber — a dead end.\n\nBut the chamber is not empty. A skeleton in mouldering robes sits propped against the far wall. In its bony hand it clutches a dagger that gleams even in the dim light — silver, unmarked by tarnish. Beside the skeleton, scratched into the stone floor, are words:\n\n'THE IRON DOOR REQUIRES THE IRON KEY. THE KEY LIES WITH THE CHAPLAIN. THE CANDLE LIES BEYOND.'\n\nYou take the silver dagger. It feels good in your hand — balanced and keen. The inscription answers a question too — you know where the key is, where the candle is, and what the iron door needs. You descend with a clearer picture than most who came before you.",
+      "add_skill": 1,
+      "add_items": [
+        "silver_dagger"
+      ],
+      "choices": [
+        {
+          "text": "Return to the guardroom and take the left corridor",
+          "goto": "v_4"
+        },
+        {
+          "text": "Head back to the guardroom",
+          "goto": "v_3"
+        }
+      ]
+    },
+    "v_7": {
+      "text": "You push against the heavy door. It does not budge. Looking more closely, you see an iron lock set into the wood — old but solid. There is no way to force this open without the right key.\n\nThe door is cold to the touch. Whatever lies beyond it, the air on the other side is frigid.",
+      "choices": [
+        {
+          "text": "Use the iron key",
+          "goto": "v_14",
+          "requires_item": "iron_key"
+        },
+        {
+          "text": "Investigate the narrow side-passage instead",
+          "goto": "v_8"
+        },
+        {
+          "text": "Go back to the guardroom",
+          "goto": "v_3"
+        }
+      ]
+    },
+    "v_8": {
+      "text": "You squeeze through the gap behind the fallen pillar into a narrow passage that curves to the right. After twenty paces, it opens into a small chapel. Pews of rotting wood face a stone altar. Behind the altar, a mosaic on the wall depicts a robed figure holding a candle aloft against a tide of darkness.\n\nA body lies across the altar — not a skeleton, but a more recent corpse. A man in priest's vestments, dead perhaps a few weeks. His face is frozen in an expression of absolute terror. In his clenched fist you can see the glint of metal.",
+      "choices": [
+        {
+          "text": "Examine the body on the altar",
+          "goto": "v_9"
+        },
+        {
+          "text": "Search the chapel pews",
+          "goto": "v_8a"
+        },
+        {
+          "text": "Leave the chapel and go back",
+          "goto": "v_6"
+        }
+      ]
+    },
+    "v_8a": {
+      "text": "You search between the rotting pews. Most crumble at your touch, but wedged beneath one near the back you find a thick black candle inscribed with tiny, precise letters — prayers of banishment, written in the old tongue. The wax is cold but the wick is intact.\n\nThis must be one of the blessed candles used in the original sealing ritual. You take it carefully.",
+      "add_items": [
+        "blessed_candle"
+      ],
+      "choices": [
+        {
+          "text": "Now examine the body on the altar",
+          "goto": "v_9"
+        },
+        {
+          "text": "Leave the chapel",
+          "goto": "v_6"
+        }
+      ],
+      "set_flags": [
+        "has_candle_already"
+      ]
+    },
+    "v_9": {
+      "text": "You prise open the dead priest's fingers. He is clutching a heavy iron key — and something else. A scrap of parchment, the ink still legible:\n\n'I came to reseal the tomb but I was too late. He is awake. The candle — I dropped it somewhere in the chapel. God forgive me, I could not face him. I locked the lower door and I will die here with the key rather than let anything else come up from below.'\n\nYou take the iron key. The dead man's expression does not change. Whatever he saw in the lower crypt, it followed him here in the end.",
+      "add_items": [
+        "iron_key"
+      ],
+      "set_flags": [
+        "read_priest_note"
+      ],
+      "choices": [
+        {
+          "text": "Search the chapel pews",
+          "goto": "v_8a",
+          "requires_no_flag": "has_candle_already"
+        },
+        {
+          "text": "Return to the iron door",
+          "goto": "v_7"
+        },
+        {
+          "text": "Leave the chapel",
+          "goto": "v_6"
+        }
+      ]
+    },
+    "v_10": {
+      "text": "You are in a long corridor of the upper crypt. The walls here are carved with repeated images of serpents — the Valdric family crest. The air is noticeably colder.\n\nA side chamber opens to your left. Inside, you can see the faint glow of something phosphorescent. Ahead, the corridor continues toward a descending staircase.",
+      "choices": [
+        {
+          "text": "Investigate the side chamber",
+          "goto": "v_11"
+        },
+        {
+          "text": "Continue to the descending staircase",
+          "goto": "v_13"
+        }
+      ]
+    },
+    "v_11": {
+      "text": "The glow comes from patches of luminous fungus growing on the walls of a small crypt. In the centre of the chamber stands a single sarcophagus, its lid slightly ajar. The fungal light gives everything a sickly green cast.\n\nAs you enter, a voice speaks — not aloud, but directly inside your mind. It is thin, weary, and very old.\n\n'Another living soul. How long has it been?' A translucent figure shimmers into existence above the sarcophagus — the ghost of a man in scholarly robes, his face gaunt but not unkind. 'I am Aldric, court historian to Count Valdric — in life, at least. In death, I am merely... trapped. The Count's curse binds all souls within this crypt.'\n\nThe ghost studies you. 'You seek the ring. I can see it in your purpose. I will tell you what I know, if you wish to hear it.'",
+      "set_flags": [
+        "met_aldric"
+      ],
+      "choices": [
+        {
+          "text": "Ask Aldric about Count Valdric",
+          "goto": "v_11a"
+        },
+        {
+          "text": "Ask Aldric about the lower crypt",
+          "goto": "v_11b"
+        },
+        {
+          "text": "Leave the chamber and continue down the corridor",
+          "goto": "v_13"
+        }
+      ]
+    },
+    "v_11a": {
+      "text": "'Valdric was brilliant and terrible,' Aldric says, his ghostly form flickering. 'In life he bent death itself to his will. In death, he is worse — undeath has stripped away what little humanity he had. He cannot be defeated by strength of arms alone. You must weaken him first.'\n\nThe ghost leans closer, and you feel a chill wash through you. 'The blessed candles — they were made for the original sealing. One was kept in the chapel above. If you light it in his presence, it will diminish his power. Without it...' Aldric shakes his head. 'Without it, you will join me here. Forever.'\n\nHe pauses. 'There is something else. The ring is not in the tomb itself. Valdric cast it from him when he rose — it lies in the antechamber before his burial vault. He cannot touch it, but he guards the approach.'\n\nYou commit everything he has said to memory. Knowing what you face — truly knowing — is worth more than any weapon.",
+      "add_skill": 1,
+      "set_flags": [
+        "aldric_warned_candle"
+      ],
+      "choices": [
+        {
+          "text": "Ask about the lower crypt",
+          "goto": "v_11b"
+        },
+        {
+          "text": "Thank him and leave",
+          "goto": "v_13"
+        }
+      ]
+    },
+    "v_11b": {
+      "text": "'The lower crypt is where Valdric's tomb lies,' Aldric says. 'But between you and it, there are... guardians. The Count's personal bodyguard was interred with him — a skeleton warrior, enchanted to fight for eternity. And there is a wraith that patrols the inner halls. A terrible thing — no mortal blade can harm it. You would need silver, or something consecrated.'\n\nHe fixes you with hollow eyes. 'Be careful with your resources. The crypt takes more than it gives.'\n\nThe ghost begins to fade. 'I grow weary. Find the ring. End this curse. Set us all free.'",
+      "set_flags": [
+        "aldric_warned_wraith"
+      ],
+      "choices": [
+        {
+          "text": "Ask about Count Valdric",
+          "goto": "v_11a",
+          "requires_no_flag": "aldric_warned_candle"
+        },
+        {
+          "text": "Thank him and continue down the corridor",
+          "goto": "v_13"
+        }
+      ]
+    },
+    "v_12": {
+      "text": "You enter a narrow chamber lined with alcoves, each containing a mummified body wrapped in stained linen. The air is thick with dust. At the far end, a pressure plate is clearly visible on the floor — someone has scratched a warning arrow into the wall beside it.\n\nBeyond the pressure plate, you can see a doorway leading onward.",
+      "choices": [
+        {
+          "text": "Step carefully over the pressure plate",
+          "goto": "v_12a"
+        },
+        {
+          "text": "Deliberately trigger the pressure plate from a safe distance",
+          "goto": "v_12b"
+        },
+        {
+          "text": "Go back and find another route",
+          "goto": "v_10"
+        }
+      ]
+    },
+    "v_12a": {
+      "text": "You place your foot carefully beyond the pressure plate — but the flagstone you land on shifts. A second plate, hidden beneath a thin layer of dust. There is a grinding sound from the ceiling.\n\nTest your luck!",
+      "test_luck": {
+        "lucky_text": "You throw yourself forward as a stone block crashes down from the ceiling, missing you by inches. You land hard on the far side, shaken but alive. The block seals the passage behind you — there is no going back.",
+        "lucky_goto": "c_1",
+        "unlucky_text": "The stone block catches your shoulder as it falls, slamming you to the ground. Pain explodes through your body. You drag yourself forward as more dust rains from the ceiling, but the passage behind you is now sealed.",
+        "unlucky_goto": "c_1",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 4
+      }
+    },
+    "v_12b": {
+      "text": "You pick up a loose stone and hurl it onto the pressure plate. With a grinding roar, a massive stone block drops from the ceiling — it would have crushed anyone standing there. Dust billows through the chamber.\n\nWhen it settles, you can see that the block has also revealed a second pressure plate just beyond the first. This place was designed to catch the cautious as well as the careless. You step carefully around both plates and pass through the doorway.",
+      "choices": [
+        {
+          "text": "Continue onward",
+          "goto": "c_1"
+        }
+      ]
+    },
+    "v_13": {
+      "text": "The staircase spirals downward into colder, darker air. The stone walls here are slick with moisture and something else — a thin black residue that stinks of corruption. You are entering the lower crypt.\n\nThe cold settles into your joints. Down here, your instincts feel muffled — as though the weight of the dead above you presses down on the living part of your mind.\n\nAt the bottom of the stairs, the passage splits three ways. To the left, a wide corridor stretches into darkness — you can hear the faint clink of armour from that direction. Ahead, a narrow passage is lined with alcoves; you can see the shrouded shapes of mummified bodies standing in niches along the walls. To the right, a heavy stone door is carved with a riddle:\n\n'I HAVE CITIES BUT NO HOUSES, FORESTS BUT NO TREES, WATER BUT NO FISH. WHAT AM I?'\n\nBeneath the riddle are three stone buttons, each engraved with a word: DREAM, MAP, MIRROR.",
+      "choices": [
+        {
+          "text": "Take the wide corridor to the left",
+          "goto": "c_2"
+        },
+        {
+          "text": "Take the narrow alcove passage",
+          "goto": "v_12"
+        },
+        {
+          "text": "Press the button marked DREAM",
+          "goto": "death_riddle"
+        },
+        {
+          "text": "Press the button marked MAP",
+          "goto": "c_1"
+        },
+        {
+          "text": "Press the button marked MIRROR",
+          "goto": "death_riddle"
+        }
+      ]
+    },
+    "v_14": {
+      "text": "The iron key turns in the lock with a heavy clunk. You push the door open and a wave of freezing air hits you. Beyond is a descending passage — a shortcut into the lower crypt, bypassing the upper corridors.\n\nThe walls here are covered in frost despite being underground. Your breath clouds in front of you. After thirty paces, the passage opens into a wider area.",
+      "choices": [
+        {
+          "text": "Continue into the lower crypt",
+          "goto": "v_10"
+        }
+      ]
+    },
+    "c_1": {
+      "text": "The stone door grinds open — you chose correctly. Beyond it lies a vaulted chamber that might once have been a treasury. The shelves are bare now, looted long ago, but the room is not entirely empty.\n\nIn the far corner, a woman in travelling leathers sits against the wall, clutching a wound in her side. Blood seeps between her fingers. Her crossbow lies broken beside her. 'Sera,' she says when she sees you — by way of introduction, or re-introduction if you crossed paths at the campfire above. 'Skeleton caught me from behind. I put a bolt through its skull but there’s another one patrolling the corridor ahead.' She looks up at you. 'The tomb is close. I can feel it — the air gets worse the further you go.'",
+      "choices": [
+        {
+          "text": "Give Sera your healing herbs",
+          "goto": "c_1a",
+          "requires_item": "healing_herbs"
+        },
+        {
+          "text": "Share your provisions with her",
+          "goto": "c_1b"
+        },
+        {
+          "text": "Tell her to stay here and press on alone",
+          "goto": "c_1c"
+        }
+      ]
+    },
+    "c_1a": {
+      "text": "You kneel beside Sera and press the healing herbs into her hand. 'Chew these. They'll slow the bleeding.'\n\nShe does, grimacing at the bitter taste. After a moment, some colour returns to her face. 'Not bad,' she says. 'I owe you one.' She gets to her feet, wincing. 'I can't fight, but I can watch this corridor. If anything comes up behind you, I'll slow it down.'\n\nShe meets your eyes. 'Be careful in there. Whatever's at the end of this place — it's old, and it's angry.'",
+      "remove_items": [
+        "healing_herbs"
+      ],
+      "set_flags": [
+        "helped_sera"
+      ],
+      "choices": [
+        {
+          "text": "Continue deeper into the lower crypt",
+          "goto": "c_2"
+        }
+      ]
+    },
+    "c_1b": {
+      "text": "You share some of your provisions with Sera. She eats slowly, and the food seems to steady her. 'Thanks,' she says. 'I'll hold this room. If anything follows you down here, I'll do what I can.' She pulls a knife from her boot — it is not much, but it is something.\n\n'Good luck down there.'",
+      "set_flags": [
+        "helped_sera"
+      ],
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Continue deeper into the lower crypt",
+          "goto": "c_2"
+        }
+      ]
+    },
+    "c_1c": {
+      "text": "Sera nods. 'I'd do the same,' she says, without bitterness. 'Go. Finish this.'\n\nYou leave her in the treasury and continue deeper into the lower crypt. The air grows colder with every step.",
+      "choices": [
+        {
+          "text": "Continue deeper into the lower crypt",
+          "goto": "c_2"
+        }
+      ]
+    },
+    "c_2": {
+      "text": "A wide corridor stretches before you, lined with stone pillars carved into the shapes of hooded figures. The silence here is absolute — no dripping water, no distant echoes. Just cold, dead stillness.\n\nThen you hear it: the metallic scrape of something moving in armour. From between two pillars ahead, a figure steps into the torchlight. A SKELETON WARRIOR — bones yellowed with age, but the sword in its hand gleams as though freshly oiled. Empty eye sockets fix on you with malevolent purpose.\n\nIt raises its blade and advances.",
+      "combat": {
+        "enemy": "skeleton_warrior",
+        "win_goto": "c_3",
+        "flee_goto": "c_1",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "c_3": {
+      "text": "The skeleton collapses into a heap of disconnected bones. The enchantment that held it together is broken.\n\nBeyond the pillared corridor, you reach a circular chamber with a domed ceiling. The walls are painted with scenes of Valdric's conquests — armies of the dead marching across blighted landscapes. The paint is still vivid, preserved by whatever dark magic saturates this place.\n\nThree passages lead out of the chamber. The left passage is sealed with a door marked with a serpent crest. The centre passage is open but utterly dark — your torch flame shrinks and gutters as you look into it. The right passage slopes downward and a faint, unnatural green light pulses from within it.",
+      "choices": [
+        {
+          "text": "Take the left passage (serpent door)",
+          "goto": "c_4"
+        },
+        {
+          "text": "Take the centre passage into the darkness",
+          "goto": "c_5"
+        },
+        {
+          "text": "Take the right passage toward the green light",
+          "goto": "c_6"
+        },
+        {
+          "text": "Explore the north archway",
+          "goto": "c_20"
+        }
+      ]
+    },
+    "c_4": {
+      "text": "You push open the serpent-marked door. The room beyond is small and bare except for a stone pedestal in its centre. On the pedestal rests a silver bowl filled with dark liquid. The surface of the liquid is perfectly still.\n\nAs you approach, the liquid begins to swirl of its own accord. An image forms — you see yourself, lying dead on a stone floor, a dark figure standing over you. The image shifts: now you see yourself holding a ring aloft, and the dark figure recoiling. The liquid goes still again.\n\nA vision — but is it prophecy or warning? You stare at the still surface for a long moment. Then you straighten. You have seen the path to victory. Whether it comes to pass depends on you.",
+      "add_skill": 1,
+      "set_flags": [
+        "saw_vision"
+      ],
+      "choices": [
+        {
+          "text": "Return to the circular chamber",
+          "goto": "c_3"
+        }
+      ]
+    },
+    "c_5": {
+      "text": "You hold your torch high and step into the centre passage. The darkness presses in like a living thing — your torch burns low, barely illuminating a few feet ahead. The temperature drops savagely.\n\nThen you feel it: a presence. Not ahead of you, but all around you. A shape coalesces from the darkness — a WRAITH, its form a tattered shroud of shadow, its face a void of howling emptiness. The cold intensifies until your bones ache.\n\nThe wraith reaches for you with fingers of black mist.",
+      "choices": [
+        {
+          "text": "Fight the wraith with your silver dagger",
+          "goto": "c_5a",
+          "requires_item": "silver_dagger"
+        },
+        {
+          "text": "Throw the holy water at the wraith",
+          "goto": "c_5b",
+          "requires_item": "holy_water"
+        },
+        {
+          "text": "Fight the wraith with your sword",
+          "goto": "death_wraith"
+        }
+      ]
+    },
+    "c_5a": {
+      "text": "You draw the silver dagger. The wraith hisses — a sound like tearing silk — and recoils from the gleaming blade. Silver. The bane of the undead. It can be hurt.\n\nThe wraith attacks with renewed fury, but now you can fight back.",
+      "combat": {
+        "enemy": "wraith",
+        "win_goto": "c_7",
+        "flee_goto": "c_3",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "c_5b": {
+      "text": "You hurl the vial of holy water at the wraith. It shatters against the creature's form and the wraith SCREAMS — a sound that drives needles into your skull. Its body convulses, smoking where the consecrated water touched it. The wraith thrashes and diminishes, its form tearing apart like mist in a gale.\n\nWith a final wail, it dissipates entirely. The corridor warms slightly. The darkness recedes to normal shadows.\n\nThe holy water is spent, but the wraith is destroyed.",
+      "remove_items": [
+        "holy_water"
+      ],
+      "set_flags": [
+        "wraith_destroyed"
+      ],
+      "choices": [
+        {
+          "text": "Continue through the passage",
+          "goto": "c_7"
+        }
+      ]
+    },
+    "c_6": {
+      "text": "The right passage slopes down into a low-ceilinged tunnel. The green light pulses from patches of the same phosphorescent fungus you saw in Aldric's chamber — but here it covers the walls thickly, and the air has a cloying, spore-laden quality.\n\nYou begin to feel lightheaded. The fungus — it must be toxic. Your vision swims and the walls seem to breathe.\n\nTest your luck!",
+      "test_luck": {
+        "lucky_text": "You hold your breath and push through the fungal corridor quickly. Your head clears as you reach fresh air on the other side. A narrow passage leads onward.",
+        "lucky_goto": "c_7",
+        "unlucky_text": "You breathe in the spores and your vision blurs. You stagger through the corridor, bouncing off walls, feeling the toxin burn in your lungs. By the time you reach the other side, you are weakened and shaking.",
+        "unlucky_goto": "c_7",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 3
+      }
+    },
+    "c_7": {
+      "text": "All paths converge here: a long, straight corridor ending at a massive set of double doors. The doors are carved from black stone and inscribed with the Valdric serpent crest — the same coiled serpent devouring its own tail. The carving seems to move in the torchlight.\n\nThis is it. The entrance to Count Valdric's burial vault.\n\nThe doors are not locked. They stand very slightly ajar, and from the gap between them comes a cold blue light and the faint sound of someone — or something — breathing.\n\nYou feel a deep, primal urge to turn back. Every instinct you have tells you that what lies beyond these doors is death.",
+      "choices": [
+        {
+          "text": "Push open the doors and enter the tomb",
+          "goto": "c_8"
+        },
+        {
+          "text": "Check the passage to the west",
+          "goto": "c_30"
+        },
+        {
+          "text": "Wait — you hear footsteps behind you",
+          "goto": "c_35",
+          "requires_flag": "sera_allied"
+        },
+        {
+          "text": "Wait — you hear footsteps behind you",
+          "goto": "c_35",
+          "requires_flag": "met_sera",
+          "requires_no_flag": "sera_allied"
+        }
+      ]
+    },
+    "c_8": {
+      "text": "You push open the black stone doors. They swing inward with terrible ease, as though something on the other side has been waiting for you.\n\nThe burial vault of Count Valdric is vast — far larger than any chamber you have seen in the crypt. Pillars of black marble support a vaulted ceiling lost in shadow. At the far end, on a raised dais, stands a stone sarcophagus with its lid thrown aside.\n\nAnd before it, wreathed in cold blue light, stands Count Valdric himself.\n\nHe is tall and gaunt, dressed in the rotting finery of a century-dead nobleman. His skin is grey parchment stretched over sharp bones. His eyes burn with a cold, intelligent malice that is far worse than the mindless hunger of the ghoul or the hollow rage of the wraith. This is a creature that thinks. That plans. That hates.\n\n'How kind,' he says, his voice the sound of a coffin lid sliding shut. 'A visitor. It has been so long since anyone came to pay their respects.'\n\nHe raises one hand, and the blue light intensifies.",
+      "choices": [
+        {
+          "text": "Light the blessed candle and speak the words of banishment",
+          "goto": "c_9",
+          "requires_item": "blessed_candle"
+        },
+        {
+          "text": "Advance on Valdric without preparation",
+          "goto": "c_10"
+        }
+      ]
+    },
+    "c_9": {
+      "text": "You pull the blessed candle from your pack and strike your flint. The candle catches — but its flame burns not orange, but a deep, cold blue. The words inscribed on the wax seem to rise from the surface and hover in the air, glowing.\n\nValdric recoils. 'No,' he hisses. 'No — those words are DEAD. That magic is SPENT.'\n\nBut it is not spent. The blue flame intensifies and the prayers of banishment fill the chamber with a sound like distant cathedral bells. Valdric staggers, his form flickering. The cold blue light around him dims and gutters.\n\n'You will still die here,' he snarls, but his voice is weaker now. The candle has done its work — Valdric is diminished. Not destroyed, but diminished.\n\nHe draws a black-bladed sword from the air itself and advances on you. Even weakened, he is a formidable enemy.",
+      "remove_items": [
+        "blessed_candle"
+      ],
+      "set_flags": [
+        "candle_used"
+      ],
+      "combat": {
+        "enemy": "count_valdric_weakened",
+        "win_goto": "c_11",
+        "flee_goto": "death_flee_valdric",
+        "flee_allowed": false
+      }
+    },
+    "c_10": {
+      "text": "You draw your weapon and charge. Valdric smiles — a terrible expression on that dead face — and raises his hand. A wave of freezing cold hits you like a wall, slowing your limbs and clouding your mind.\n\n'Brave,' he says. 'Stupid, but brave.'\n\nHe draws a black-bladed sword from the air and comes to meet you. At his full power, Count Valdric is a horror beyond reckoning — a century of undeath has only sharpened his skill, and dark magic reinforces every blow.",
+      "combat": {
+        "enemy": "count_valdric",
+        "win_goto": "c_11",
+        "flee_goto": "death_flee_valdric",
+        "flee_allowed": false
+      }
+    },
+    "c_11": {
+      "text": "Valdric falls. His body hits the stone floor and the blue light explodes outward in a silent shockwave that passes through you like a gale of ice. Then — stillness. The Count's corpse lies crumpled before his own sarcophagus, and the malice drains from the air like water from a cracked vessel.\n\nThe vault is quiet. Truly quiet, for the first time in a century.\n\nYou look around. There — in an alcove beside the dais, half-hidden by shadow. A golden ring, pulsing with faint light. The Signet Ring of Valdric, bearing the serpent-devouring-itself seal. It must have been cast aside when Valdric rose.\n\nYou pick it up. It is warm in your hand — warm with binding magic.",
+      "add_items": [
+        "signet_ring"
+      ],
+      "choices": [
+        {
+          "text": "Place the ring on the sarcophagus and reseal the tomb",
+          "goto": "k_1"
+        }
+      ]
+    },
+    "end_sealed": {
+      "text": "The seal holds. The ring is in the stone — whether on the sarcophagus above or in the altar below — and the binding glyphs burn with a steady, impersonal light. The curse lifts from Ashford like a fever breaking.\n\nYou climb back through the crypt. The corruption is already fading — the black residue on the walls dries and flakes away, the unnatural cold recedes. In the corridors where the dead walked, there is only silence and settling dust.\n\nYou pass the spot where Sera rested. She is gone. Only a bloodstain on the stone and a scrawled note in charcoal: GONE TO GET STITCHED UP. DRINKS ON ME IN KINGSPORT. — S\n\nYou climb the stairs into daylight. The sky above Valdric Keep is pale and clear.\n\nElder Maren meets you at the edge of Ashford. 'It is done?' she asks.\n\n'It is done. For now.'\n\nShe hears the qualification. Her eyes search your face. 'For now?'\n\n'The seal will hold,' you say. 'For a long time. But something is still down there. Something older than Valdric. If the seal erodes again — in a century, or two, or three — someone will need to come back.'\n\nMaren nods slowly. She is old enough to understand that some problems are managed, not solved.\n\nThat night, the crops begin to grow. The fever breaks in the sickhouses. Children laugh in the streets for the first time in months.\n\nIt is enough. It has to be enough.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "death_riddle": {
+      "text": "You press the button. For a moment, nothing happens. Then the floor beneath your feet gives way.\n\nYou plunge into darkness, falling for what seems like forever before you hit cold water. The current is swift and impossibly strong — it drags you under and through a narrow stone channel, tumbling you in total blackness. You cannot breathe. You cannot fight.\n\nThe crypt has claimed another victim. Your body will never be found.\n\nThe village of Ashford continues to wither.",
+      "ending": true,
+      "ending_type": "death"
+    },
+    "death_wraith": {
+      "text": "You swing your sword at the wraith — but the blade passes through its form like cutting smoke. The wraith does not even flinch.\n\nIts freezing fingers close around your throat. The cold is indescribable — it reaches into you, past skin and muscle and bone, and grips your very soul. Your vision goes white. Then black.\n\nYour last thought, as the wraith pulls the life from your body, is that you should have come better prepared.\n\nYour body is found weeks later by a search party from Ashford, frozen solid in a corridor of the lower crypt, an expression of unspeakable terror on your face.",
+      "ending": true,
+      "ending_type": "death"
+    },
+    "death_flee_valdric": {
+      "text": "You turn to run, but the black stone doors slam shut of their own accord. There is no escape from Count Valdric's burial vault. The Count's laughter echoes off the marble pillars as he advances.\n\nYou fight, but it is hopeless. Valdric's blade finds your heart.\n\nThe last thing you see is the Count's dead smile as the cold blue light swallows everything.\n\nThe Signet Ring remains lost. The village of Ashford withers and dies. In time, Valdric's curse spreads beyond the valley, and the dead begin to walk the land once more.",
+      "ending": true,
+      "ending_type": "death"
+    },
+    "c_20": {
+      "text": "The north archway is narrower than the other exits — built for function, not ceremony. Your torch pushes the darkness back far enough to reveal an inscription carved into the keystone above: BENEATH THE SEAL LIES THE WORD THAT MADE IT. The letters are precise, cut by a mason who understood they would be read rarely and remembered long.\n\nBeyond the archway, a flight of steps descends into a corridor that curves out of sight. The air is several degrees colder here. The stone underfoot is worn smooth by feet that walked this way centuries ago.",
+      "choices": [
+        {
+          "text": "Pass through the archway",
+          "goto": "c_21"
+        },
+        {
+          "text": "Return to the circular chamber",
+          "goto": "c_3"
+        }
+      ]
+    },
+    "c_21": {
+      "text": "The corridor opens into a high-vaulted chamber. The ceiling is lost in shadow above your torchlight. Two things draw your attention.\n\nAgainst the far wall stands a stone lectern, and on it rests a sealed iron casket — small, the size of a breadbox, its surface black with age. The latch is simple and unrusted.\n\nTo your left, set into an alcove, is a stone sarcophagus. The carved lid reads: ALDRIC, COURT HISTORIAN TO THE HOUSE OF VALDRIC. FAITHFUL IN LIFE. FAITHFUL IN DEATH. You recognise the name — this is the lower face of the same burial you saw above, accessed now from beneath.",
+      "choices": [
+        {
+          "text": "Speak to the ghost",
+          "goto": "c_22",
+          "requires_flag": "met_aldric"
+        },
+        {
+          "text": "Examine the iron casket",
+          "goto": "c_40"
+        },
+        {
+          "text": "Return through the archway",
+          "goto": "c_20"
+        }
+      ]
+    },
+    "c_22": {
+      "text": "The air beside the sarcophagus thickens. Aldric materialises slowly — not the faint shimmer you saw before, but something more solid, more deliberate. His scholar's robes are visible now, ink-stained at the cuffs. His eyes hold a steady, exhausted light.\n\n'You came down,' he says. 'I had hoped you would. I have been composing what to tell you for a very long time, and I will not waste your patience with preamble.'\n\nHe folds his translucent hands.\n\n'Valdric did not become what he was through talent alone. He made a pact — a formal covenant with an entity called the Lady of Bones. She granted him dominion over the dead within his lands. In return, he would serve as her warden between life and death. A shepherd at the threshold.'\n\nAldric pauses, as if the next part costs him something.\n\n'When the people sealed him, they broke the pact. They prevented his service. The Lady responded with a closed loop: Valdric cannot die a second death while the signet ring exists. The ring cannot be destroyed while he endures. The original sealing only paused the cycle. It will erode. It always does.'\n\nHe looks at you directly. 'You need to understand what this means for what you do next.'",
+      "set_flags": [
+        "knows_the_pact"
+      ],
+      "choices": [
+        {
+          "text": "Ask about the sealing ritual",
+          "goto": "c_25"
+        },
+        {
+          "text": "Ask about the Lady of Bones",
+          "goto": "c_24"
+        },
+        {
+          "text": "Ask about Brother Cavel",
+          "goto": "c_23",
+          "requires_flag": "read_priest_note"
+        },
+        {
+          "text": "Head for the vault",
+          "goto": "c_45"
+        }
+      ]
+    },
+    "c_23": {
+      "text": "Aldric's expression shifts — something between recognition and regret.\n\n'Brother Cavel. Yes. He came fifty years after the sealing. A careful man. Methodical. He re-examined the binding wards and found what I already knew — the pact, the loop, the inevitability of it all. He wrote his findings in a journal. The note you found in the chapel was a fragment, torn from the final pages.'\n\nAldric is quiet for a moment.\n\n'He understood what needed to be done. The ritual. The candle. All of it. But understanding and acting are different things. He stood where you are standing and he could not make himself go deeper. He fled the crypt with the iron key and died on the surface. Alone. Knowing.'\n\nThe ghost's voice is very level.\n\n'He died with the answer and the inability to use it. Do not make his choice.'",
+      "choices": [
+        {
+          "text": "Ask about the sealing ritual",
+          "goto": "c_25"
+        },
+        {
+          "text": "Ask about the Lady of Bones",
+          "goto": "c_24"
+        },
+        {
+          "text": "Head for the vault",
+          "goto": "c_45"
+        }
+      ]
+    },
+    "c_24": {
+      "text": "Aldric considers the question carefully, as if choosing each word from a very large collection.\n\n'The Lady of Bones is not what you imagine when you hear the name. She is not cruel. She is not kind. She is the fact of ending — the full stop at the end of every sentence. She allowed the sealing because it interested her. A man who bargained for power over death, sealed by the very people he claimed to protect. She found it... instructive.'\n\nHe gestures vaguely at the crypt around you.\n\n'She has been waiting. Patiently. She will not interfere with a correct ritual. She has no stake in Valdric's survival — he failed her terms long ago. What she wants is for the loop to close properly. An ending. That is, after all, her nature.'",
+      "choices": [
+        {
+          "text": "Ask about the sealing ritual",
+          "goto": "c_25"
+        },
+        {
+          "text": "Head for the vault",
+          "goto": "c_45"
+        }
+      ]
+    },
+    "c_25": {
+      "text": "Aldric speaks with the precision of a man who has rehearsed this explanation for decades.\n\n'Beneath the vault — beneath the dais where Valdric's sarcophagus stands — there is a sealing chamber. A trapdoor leads down. You will find a sealing stone there, with a depression cut into its surface. The depression is exactly the shape of the signet ring.'\n\nHe holds up a hand, forestalling your next question.\n\n'Simply placing the ring will reseal the tomb. It will hold for another century, perhaps longer. But the pact remains. The loop remains. Eventually, the seal erodes again and someone else stands where you stand now.'\n\nHis form flickers, thinner than before.\n\n'To break the pact — to end it permanently — the candle must have been used against Valdric. Not as a weapon, though it serves as one. As a witness. The blessed candle, lit in his presence, records his second death. That testimony, carried to the sealing chamber while it is still fresh, is what breaks the loop. The ring seals the tomb. The candle's witness breaks the covenant.'\n\nHe is fading now. The edges of his robes dissolve into the cold air.\n\n'Whatever you choose in that chamber — I am grateful you came. We have been waiting a very long time.'",
+      "choices": [
+        {
+          "text": "Head for the vault",
+          "goto": "c_45"
+        }
+      ]
+    },
+    "c_30": {
+      "text": "A narrow passage branches west from the vault approach corridor, half-hidden behind a crumbled pillar. The stonework here is older than the rest of the crypt — rougher, less precisely fitted. This section was not built by the same hands.\n\nThe passage extends perhaps thirty paces before ending at a low doorway. The air is heavy and still.",
+      "choices": [
+        {
+          "text": "Continue to the reliquary",
+          "goto": "c_31",
+          "requires_flag": "wraith_destroyed"
+        },
+        {
+          "text": "Move carefully — you remember Aldric's warning",
+          "goto": "c_30c",
+          "requires_flag": "aldric_warned_wraith",
+          "requires_no_flag": "wraith_destroyed"
+        },
+        {
+          "text": "Push through the cold",
+          "goto": "c_30b",
+          "requires_no_flag": "wraith_destroyed"
+        },
+        {
+          "text": "Return to the vault corridor",
+          "goto": "c_7"
+        }
+      ]
+    },
+    "c_30b": {
+      "text": "You step into the passage and the cold hits you like a wall. It is not the ordinary cold of underground stone — it is the deep, boneshaking cold of something that should not be here. The wraith that patrols the inner halls has left its residue in these stones. Your breath comes in ragged clouds and your muscles seize with each step.\n\nBy the time you reach the far doorway, your hands are shaking and your vision swims. The cold has cost you.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Enter the reliquary",
+          "goto": "c_31"
+        }
+      ]
+    },
+    "c_31": {
+      "text": "The doorway opens into a small, square room — a reliquary, built to house sacred objects. Three stone niches are set into the far wall. Two are empty, their contents long since taken or crumbled to dust. The third holds a leather-bound journal, its cover cracked but intact.\n\nYou open it carefully. The handwriting is small and methodical — a priest's hand. Brother Cavel's journal. Not the torn fragment from the chapel altar, but the full record of his investigation.\n\nThe key passages are clear despite the aged ink: Valdric's pact with the Lady of Bones. The closed loop — the ring that cannot be destroyed while Valdric endures, the count who cannot die a second death while the ring exists. And the way to break it: the blessed candle used as witness in Valdric's presence, its testimony carried to the sealing chamber beneath the vault.\n\nWhether this confirms what you already knew or reveals it for the first time, the weight of the knowledge settles into you. You understand now what must be done. The certainty steadies your nerve.",
+      "set_flags": [
+        "knows_the_pact"
+      ],
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Return to the vault corridor",
+          "goto": "c_7"
+        }
+      ]
+    },
+    "c_35": {
+      "text": "You hear it before you see it — quiet footsteps behind you, deliberate and careful. Not the dragging gait of the dead. You turn, hand on your weapon.\n\nSera steps out of the shadows. She is pale, moving with the careful economy of someone managing pain. One hand is pressed to her side where the wound is. But she is upright. She is armed.\n\n'I'm not dying in a treasury,' she says flatly. 'Tell me what we're walking into.'",
+      "choices": [
+        {
+          "text": "Tell her what you know about the pact",
+          "goto": "c_36",
+          "requires_flag": "knows_the_pact"
+        },
+        {
+          "text": "Tell her what lies ahead",
+          "goto": "c_36",
+          "requires_no_flag": "knows_the_pact"
+        },
+        {
+          "text": "Tell her to wait here and rest",
+          "goto": "c_7"
+        }
+      ]
+    },
+    "c_36": {
+      "text": "You tell Sera everything — the vault ahead, the count, the ring that must be recovered. She listens without interrupting, her eyes steady on yours.\n\nWhen you finish, she is quiet for a long moment. Then she speaks.\n\n'A pact with a death goddess. Right.' She adjusts the crossbow on her shoulder. 'The guild that hired me — they knew. They didn't want just the ring. They wanted evidence of the pact. Proof that Valdric bargained with divine forces. That kind of proof is worth more than any jewel to the right collector.'\n\nShe looks at you. Her expression is unreadable.\n\n'I'm not taking it to them. Not after this. Not after what I've seen down here.' She flexes the hand that isn't pressed to her wound. 'So. What's the plan?'",
+      "choices": [
+        {
+          "text": "Come with me",
+          "goto": "c_37"
+        },
+        {
+          "text": "This isn't your fight",
+          "goto": "c_7",
+          "style": "danger"
+        }
+      ]
+    },
+    "c_37": {
+      "text": "Sera nods once, as if she expected the answer.\n\n'I can't swing a sword well enough to be useful in a real fight. Not with this.' She gestures at her side. 'But I can watch a door. I can hold a corridor. And I can make sure nothing follows you in.'\n\nShe falls into step beside you, moving quietly despite the wound.\n\n'Whatever happens in there — you did well to come this far. Most people wouldn't have made it past the chapel.'",
+      "set_flags": [
+        "sera_knows_truth"
+      ],
+      "choices": [
+        {
+          "text": "Head for the vault together",
+          "goto": "c_7"
+        }
+      ]
+    },
+    "c_40": {
+      "text": "The iron casket sits on the stone lectern, undisturbed for what must be centuries. The latch is simple — no lock, no ward. It opens with a dry click.\n\nInside, resting on a bed of faded velvet, is a single folded document. The parchment is yellowed but intact. You unfold it carefully.\n\nTwo signatures mark the bottom of the page. The first is a serpent seal — Valdric's mark, pressed in dark wax. The second is something else entirely: a thumb-smear in grey ash that seems to drink the torchlight. Looking at it directly makes your eyes water.\n\nThe text above the signatures is written in a formal hand, but the words resist comprehension. They slide away from your understanding like water off stone. You blink, steady yourself, and try again.",
+      "test_luck": {
+        "lucky_text": "The words snap into focus. Your mind holds them — a formal covenant between Valdric and an entity named only as the Lady of Bones. The terms are precise and terrible.",
+        "lucky_goto": "c_41",
+        "unlucky_text": "The words blur and reform, fighting your comprehension. A headache builds behind your eyes and the torchlight seems to dim. But you catch the key details — enough to understand what this document represents, even if the precise language escapes you.",
+        "unlucky_goto": "c_41",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 2
+      }
+    },
+    "c_41": {
+      "text": "The document is a pact. A formal covenant between Count Valdric and the Lady of Bones — the personification of death itself. The terms are laid out with the cold precision of a legal contract.\n\nValdric receives: dominion over the dead within his lands. Command over those who have passed within his borders.\n\nThe Lady receives: Valdric's eternal service as a warden between life and death. A shepherd at the threshold, maintaining the boundary she embodies.\n\nA note is scrawled in the margin, in a different hand — shakier, more recent. It reads: When they sealed him they broke the terms. She responded with a closed loop. He cannot die while the ring exists. The ring cannot be destroyed while he endures. The sealing only paused it. It will erode.\n\nYou fold the document and place it back in the casket. The knowledge sits heavy in your chest, but it is knowledge you needed.",
+      "set_flags": [
+        "knows_the_pact"
+      ],
+      "choices": [
+        {
+          "text": "Return to the circular chamber",
+          "goto": "c_3"
+        }
+      ]
+    },
+    "c_45": {
+      "text": "A short stone corridor leads away from the inner antechamber, curving back towards the main approach to the vault. The air here is fractionally warmer — or perhaps you have simply grown accustomed to the cold. Your torch gutters briefly in a draught from ahead, then steadies.\n\nThe corridor ends at a familiar junction. You recognise the stonework of the vault approach corridor. Whatever you learned in the chambers behind you, the way forward is the same: the vault, and Valdric.",
+      "choices": [
+        {
+          "text": "Head for the vault",
+          "goto": "c_7"
+        }
+      ]
+    },
+    "c_30c": {
+      "text": "Aldric warned you. You know what left this cold in the stone. You press yourself against the wall, moving in careful inches, keeping your breathing slow and controlled. The cold still bites, but you do not fight it — you endure it, step by measured step.\n\nIt still costs you, but less than charging through blind.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Enter the reliquary",
+          "goto": "c_31"
+        }
+      ]
+    },
+    "k_1": {
+      "text": "The vault is still. Valdric's dust settles on the stone floor in a fine grey film, and the cold blue light that sustained him is gone. The Signet Ring pulses in your hand — warm, insistent, like a second heartbeat.\n\nYou turn to survey the chamber. Behind the dais, half-concealed by the bulk of the sarcophagus, a trapdoor is set into the floor. Its iron ring is black with corrosion but solid. You had not noticed it before — Valdric's presence filled this room so completely that nothing else registered.\n\nAs you step towards the trapdoor, the ring pulses harder. Not a warning. A recognition. It knows where it wants to go.\n\nThere is something below this vault. Something older than the crypt above.",
+      "choices": [
+        {
+          "text": "Open the trapdoor and descend",
+          "goto": "k_2",
+          "requires_no_flag": "saw_vision"
+        },
+        {
+          "text": "Open the trapdoor and descend — this is what the vision showed you",
+          "goto": "k_2",
+          "requires_flag": "saw_vision"
+        },
+        {
+          "text": "Place the ring on the sarcophagus here and seal the tomb",
+          "goto": "k_skip",
+          "style": "danger"
+        }
+      ]
+    },
+    "k_skip": {
+      "text": "You press the Signet Ring into the rim of the sarcophagus. The serpent seal flares white, and the ancient glyphs blaze along the coffin's edge. The lid grinds shut.\n\nIt is done. The seal holds.\n\nBut the ring's warmth does not fade entirely. Something in the stone beneath your feet still hums — a frequency you feel in your teeth rather than hear. The trapdoor behind the dais seems to watch you like an eye.\n\nYou chose not to look. Perhaps that was wise. Perhaps it was not.\n\nYou turn your back on the vault and begin the long climb to daylight.",
+      "choices": [
+        {
+          "text": "Leave the crypt",
+          "goto": "end_sealed"
+        }
+      ]
+    },
+    "k_2": {
+      "text": "The trapdoor opens with a groan of protesting iron. Below, a flight of stairs descends into darkness — carved from a single piece of stone, each step worn smooth by centuries of use. These stairs are older than the crypt above. They belong to a different building entirely, something that was here before Valdric, before the keep, before Ashford.\n\nThe air rising from below is cold, but it is a different cold from the malice that filled the vault. This is the temperature of stone that has never known sunlight. Final. Patient. Without opinion.\n\nYou descend. The ring's pulse steadies with each step, as though it is coming home.\n\nAt the bottom, a circular room opens before you. Twenty feet across. The ceiling is low — you could touch it if you raised your hand. A faint blue light pulses from the walls.",
+      "choices": [
+        {
+          "text": "Enter the sealing chamber",
+          "goto": "k_3"
+        }
+      ]
+    },
+    "k_3": {
+      "text": "The sealing chamber is perfectly round. The walls are carved floor to ceiling with binding glyphs — the same script you have seen throughout the crypt, but here the glyphs are complete and undamaged. They pulse with a faint blue light that responds to the ring in your hand, brightening as you step closer.\n\nIn the centre of the room stands a stone altar, plain and unadorned. On its surface, a shallow depression has been carved — a circle within a circle, exactly the shape and size of the Signet Ring.\n\nThis is where the binding was first made. This is where it must be renewed — or unmade.\n\nThe ring is very warm now. The depression in the altar seems to pull at it.",
+      "choices": [
+        {
+          "text": "Place the ring and speak the words of dissolution",
+          "goto": "k_4",
+          "requires_flag": "knows_the_pact"
+        },
+        {
+          "text": "Place the ring on the altar",
+          "goto": "k_10",
+          "requires_no_flag": "knows_the_pact"
+        },
+        {
+          "text": "Examine the wall inscriptions before proceeding",
+          "goto": "k_7"
+        }
+      ]
+    },
+    "k_7": {
+      "text": "You step closer to the walls. The binding glyphs are carved deep into the stone — each one the width of your thumb, filled with a faintly luminous residue that gives them their blue glow. The script is old. Far older than Valdric.\n\nYou trace the carvings with your fingertips. Most are incomprehensible, but fragments emerge — words you half-recognise from old prayers, from the dead priest's chapel above, from half-remembered stories told by firelight.\n\nOne phrase repeats around the full circumference of the room, a continuous band at eye height: the same words, over and over, in a hand that grew steadier with each repetition. You cannot translate it fully, but the meaning is clear enough from context and cadence. It is an instruction.\n\nSEAL WITH TESTIMONY. SEAL WITH WITNESS. THE FIRE THAT SAW THE DEATH MUST SPEAK TO THE STONE.\n\nYou step back from the wall. The ring pulses in your hand. The altar waits.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Return to the altar",
+          "goto": "k_3"
+        }
+      ]
+    },
+    "k_4": {
+      "text": "You know the pact. You know what Valdric traded and what was owed. You know the loop — he cannot die while the ring exists, the ring cannot be destroyed while he lives — and you know the only thing that can break it.\n\nYou place the Signet Ring in the depression on the altar. It fits perfectly. The serpent-devouring-itself seal faces upward, and the glyphs on the walls respond — not the violent flare of a simple seal, but a measured recognition. A system acknowledging valid input.\n\nThe room waits. The glyphs hold their light, steady and expectant. The ring is in place. But the ritual is not complete. Something else is needed.\n\nThe fire that saw the death must speak to the stone.",
+      "choices": [
+        {
+          "text": "Invoke the candle's testimony",
+          "goto": "k_5",
+          "requires_flag": "candle_used"
+        },
+        {
+          "text": "Seal the tomb",
+          "goto": "k_6",
+          "requires_no_flag": "candle_used"
+        }
+      ]
+    },
+    "k_5": {
+      "text": "You extend your hand over the ring and speak. You do not know what words you use — they come from somewhere below language, from the place where the glyphs were first carved and the pact was first written.\n\nThe blessed candle is gone. It burned out in the vault above, its wax spent in the act of witnessing Valdric's second death. But what it saw is not gone. The testimony is in the air of the crypt — in the stone, in the cold, in the silence that followed Valdric's fall. Consecrated flame does not forget.\n\nThe ring hears it. The glyphs hear it. The altar stone beneath your fingers grows warm — then hot — then cold again in a way that feels like resolution.\n\nThe serpent seal on the ring begins to uncoil. Slowly. Deliberately. The serpent releases its own tail.\n\nThe pact is being read. The account is being closed.",
+      "choices": [
+        {
+          "text": "The ritual deepens",
+          "goto": "k_5a",
+          "requires_flag": "helped_sera"
+        },
+        {
+          "text": "The ritual deepens",
+          "goto": "end_freed",
+          "requires_no_flag": "helped_sera"
+        }
+      ]
+    },
+    "k_5a": {
+      "text": "The resonance intensifies. Every choice you made in these halls — every ally found, every preparation taken — feeds into the ritual like tributaries into a river. The glyphs cycle through their full sequence, reading the crypt's recent history as testimony.\n\nThe sealing chamber knows what happened above. It knows what was destroyed, what was spared, what was witnessed. The ritual reaches for completion.",
+      "choices": [
+        {
+          "text": "The ritual reaches its completion",
+          "goto": "end_pact_broken",
+          "requires_flag": "wraith_destroyed"
+        },
+        {
+          "text": "The ritual reaches its completion",
+          "goto": "k_5b",
+          "requires_no_flag": "wraith_destroyed"
+        }
+      ]
+    },
+    "k_5b": {
+      "text": "The resonance holds — strong, but not absolute. Somewhere above, in the corridors of the lower crypt, a presence lingers. The wraith was never destroyed. Its interference echoes in the stone like static, blurring the edges of the ritual.\n\nThe pact will still break. But the dissolution is imperfect — a line through the account rather than a clean erasure.",
+      "choices": [
+        {
+          "text": "The pact breaks",
+          "goto": "end_sera_stays",
+          "requires_flag": "sera_knows_truth"
+        },
+        {
+          "text": "The pact breaks",
+          "goto": "end_freed",
+          "requires_no_flag": "sera_knows_truth"
+        }
+      ]
+    },
+    "k_6": {
+      "text": "You press your hand to the ring and will the seal to close. You know the pact — you understand what Valdric traded, what the Lady of Bones is owed, why the loop exists. But understanding is not the same as testimony. The fire that saw the death must speak to the stone, and the fire was never lit.\n\nThe glyphs respond to your intent. They recognise that you know the terms. But without the candle's witness — without consecrated flame recording Valdric's second death — the loop has no formal dissolution. The system cannot close an account with knowledge alone. It needs evidence.\n\nThe ring seals. The serpent holds its tail. The glyphs flare white and the binding locks into place — strong, stable, informed by your understanding of the pact's architecture. It will hold for longer than a century. Perhaps two. Perhaps three.\n\nBut the pact remains. Dormant. Patient. Written into the stone in a language older than Ashford, older than the keep, older than the people who built either.\n\nYou have done the best you could without the candle. It is a good seal. It is not a dissolution.",
+      "choices": [
+        {
+          "text": "Leave the sealing chamber",
+          "goto": "end_cursed"
+        }
+      ]
+    },
+    "k_10": {
+      "text": "You place the Signet Ring in the depression on the altar. It fits. The glyphs on the walls respond — a cold, impersonal recognition, like a lock accepting a key without caring who turns it.\n\nThe serpent seal faces upward. The ring settles into the stone with a faint click.\n\nNothing else happens. The room waits. You have the uneasy sense that something more is expected — that placing the ring was the first step in a process you do not understand. But you do not know what comes next.\n\nThe glyphs pulse. Once. Twice. Then they begin to flare — brighter than before, cycling through their sequence with increasing speed. The ritual is proceeding on its own terms, interpreting your intent as best it can.\n\nYou grip the edge of the altar and hold on.",
+      "test_luck": {
+        "lucky_text": "The glyphs stabilise. The cycling slows, settles, locks into a steady pulse. The ring seals into the stone with a flash of white light — clean and final. The serpent holds its tail.\n\nYou do not understand what you have done. But the binding feels solid. The cold in the chamber lifts by a degree. The ancient machinery has accepted your offering and made the best seal it can from incomplete input.\n\nIt will hold. For a time.",
+        "lucky_goto": "end_sealed",
+        "unlucky_text": "The glyphs do not stabilise. The cycling accelerates — faster, brighter, hotter. The ring begins to vibrate in its depression, and the serpent seal glows a deep, angry red.\n\nYou have started something you cannot finish. The ritual is looking for testimony, for witness, for the formal dissolution that the pact requires. It finds nothing. And in the absence of what it needs, it reaches for the nearest living presence.\n\nYou feel it take hold — a pressure behind your eyes, a coldness in your chest.",
+        "unlucky_goto": "k_11",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "k_11": {
+      "text": "The pressure intensifies. The ring's red glow fills the chamber, and the glyphs on the walls reverse — running backward through their sequence like a prayer being unsaid. The binding is trying to anchor itself, and you are the only anchor available.\n\nYour hand moves towards the ring. You did not tell it to move.",
+      "choices": [
+        {
+          "text": "Fight the compulsion",
+          "goto": "death_valdric_surges",
+          "requires_flag": "met_aldric"
+        },
+        {
+          "text": "Fight the compulsion",
+          "goto": "death_ring_claim",
+          "requires_no_flag": "met_aldric"
+        }
+      ]
+    },
+    "end_freed": {
+      "text": "The pact dissolves. The serpent seal uncoils fully — the serpent releases its own tail and the ring cracks cleanly in two on the altar stone. The binding glyphs flare once, brilliant and white, and then go dark. Not the darkness of failure. The darkness of completion.\n\nEvery soul Valdric held in the loop between life and death flares bright in the chamber — brief, silent shapes of light that rise through the stone ceiling and are gone. Freed. Finally and irrevocably freed.\n\nAldric appears one final time. He stands at the edge of the chamber, fully present — his scholar's robes crisp and dark, his eyes clear. He looks like a man who has set down something very heavy.\n\n'Free,' he says.\n\nThat is all. Then he is not there. The sealing chamber is just stone. Cold, quiet stone, with no intention in it.\n\nYou climb back through the crypt. The corruption does not merely fade — it vanishes. The walls are clean stone. The air is just air. The dead have stopped being a presence and become what the dead are supposed to be: absent.\n\nAshford is already recovering when you emerge. The crops are responding — you can see it in the fields, a faint green haze over soil that was black and dead this morning.\n\nElder Maren meets you at the edge of the village. She starts crying before you are close enough to speak. She cries until you reach her. Then she laughs.\n\n'It is done,' you tell her. 'Not sealed. Done. The pact is broken. He will not come back.'\n\nShe grips your hands so hard her knuckles go white. 'Thank you,' she says. 'Thank you. Thank you.'\n\nYou do not tell her how close it was. You do not tell her about the loop, or the Lady of Bones, or the hundred years of souls trapped between life and death. Some things are better left in the stone.\n\nThe sun sets over Ashford, and for the first time in months, the night is just the night.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_pact_broken": {
+      "text": "Five things align.\n\nThe wraith's destruction cleared the interference that blurred the crypt's deep memory. Sera's commitment carried the testimony of the living into the ritual alongside the testimony of the dead. The blessed candle witnessed Valdric's second death in consecrated flame. You knew the pact's terms — every clause, every condition, every debt. And the Signet Ring goes into the stone.\n\nThe glyphs do not flare. They sing. Not a sound but a rightness — the feeling of an account that has been open for a century, finally and completely closed. The serpent seal uncoils. The serpent releases its tail. The ring splits cleanly on the altar, and the two halves crumble to gold dust that scatters in a wind you cannot feel.\n\nThe pact document — if you carried it — turns to ash in your pack. You feel it go. A weight you did not know you were carrying lifts from your shoulders.\n\nEvery trapped soul in the crypt blazes bright and rises. The chamber fills with silent light — dozens of presences, held for a century in the space between death and dissolution, finally released. They do not linger. They do not look back.\n\nAldric is the last. He stands at the threshold of the chamber, fully present for one final moment. His scholar's robes are clean. His eyes are clear. He nods to you — once — and then he is gone. Not fading. Gone. Completed.\n\nSera is here. She is leaning against the wall of the staircase, arms folded, watching you with an expression you cannot quite read. She is shaking slightly — not from fear. Relief, perhaps. Or the realisation of what she just helped do.\n\n'That's it, then,' she says. 'The whole thing. Done.'\n\n'Done.'\n\nShe pushes off the wall. 'Drinks in Kingsport. You're buying. No arguments.'\n\nYou climb out together.\n\nThe dead forest on the road puts out new leaves before you reach the treeline. Not gradually — suddenly, as though they had been waiting for permission. Sera stops walking and stares at the canopy for a long moment. She does not say anything. Neither do you.\n\nMaren sees you coming from the edge of the village. She starts to cry before you are close enough to speak. She cries until you reach her. Then she laughs. She laughs until she has to sit down on the low stone wall by the road, and then she laughs some more.\n\nThe sun sets over Ashford. The fields are already green.\n\nThe dead rest. The living go on. The pact is broken, and the Lady of Bones has received what she was owed — not service, but completion. A closed account. A finished story.\n\nIt is over.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_sera_stays": {
+      "text": "The pact breaks. The serpent uncoils, the ring splits, the trapped souls rise and vanish. The dissolution is imperfect — the wraith's lingering presence left static in the stone — but the core of the pact is gone. Valdric will not return.\n\nYou turn from the altar to find Sera standing in the doorway of the sealing chamber. Her hand has dropped from her wounded side. She is looking at the room — the dark walls, the quiet altar, the empty depression where the ring was — with an expression you cannot read.\n\n'Someone should watch this,' she says.\n\nYou tell her there is nothing left to guard. The pact is broken.\n\n'Maybe.' She runs her fingers along the carved glyphs by the door. 'But the guild will send another collector when I don't report back. And the next person who comes down here might not know what they're walking into.' She looks at you. 'I've been in the business of recovering things for other people for fifteen years. Artefacts, debts, people who didn't want to be found. Always for someone else's ledger.'\n\nShe steps into the chamber. Not tentatively. Deliberately.\n\n'Might be time to do something for myself.'\n\nShe is not trapped. She is not cursed. She is choosing a guardianship that no one asked her to take, because she understands what this place is and she has decided it matters.\n\nYou climb out alone. The corruption fades as you ascend — the crypt becoming just stone, just silence, just the smell of old dust.\n\nMaren meets you at the edge of Ashford. 'It is done?'\n\n'It is done. The pact is broken.'\n\n'And the woman? The bounty hunter?'\n\n'She is still in there. By choice.'\n\nMaren is quiet for a long moment. She looks toward the ruins of Valdric Keep, barely visible on the ridge above the dead forest — though the forest is not dead anymore. Green is creeping back along the branches even as you watch.\n\nThen she nods, as if she understands something she did not expect to.\n\n'We will bring her supplies,' Maren says. 'Every week. For as long as she stays.'\n\nThe sun sets. The fields recover. Somewhere beneath the ruins, in a circular room carved with ancient glyphs, Sera sits with her back against the altar and sharpens her knife. She is not waiting for anything. She is simply there.\n\nSome things are worth guarding, even when the danger has passed.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_cursed": {
+      "text": "You feel the moment the seal completes — a cold click somewhere behind your sternum, like a door closing in a room you did not know you were standing in.\n\nThe curse lifts from Ashford. You can feel that too — a distant easing, like a held breath finally released. The crops will grow. The fever will break. The dead will rest.\n\nYou climb out of the crypt and into daylight. Maren meets you at the edge of the village. She presses your hands and thanks you in the names of four generations. You smile and say the right things.\n\nYou do not tell her about the click.\n\nYou do not tell her that the ring has stopped being an object in your pack and started being a weight behind your ribs that shifts when you breathe. That when you sleep now, you dream of the crypt — not as a nightmare, but as a memory, as though you have always known those corridors. That the binding glyphs in the sealing chamber are visible when you close your eyes, and you can read them now, every word, in a language you never learned.\n\nYou do not tell her that when you pass the churchyard on the road out of Ashford, the silence on the far side of the wall is different from the silence on your side. That the dead are not resting. They are waiting. And they know your name.\n\nThe Lady of Bones is patient. The loop had no testimony, no formal dissolution, so it found the nearest living anchor. The pact required a warden between life and death. Valdric's term is over.\n\nYours has begun.\n\nYou walk south towards Kingsport. The sun is warm on your face. The ring behind your sternum pulses in time with your heartbeat.\n\nYou have a century. Perhaps less.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "death_ring_claim": {
+      "text": "Your hand closes around the ring. You meant to pull away. Your hand does not open.\n\nThe glyphs cycle — red, white, red — and the cold in the chamber drops past anything you have felt before. Past winter. Past the crypt's malice. Past the wraith's touch. This is the cold of the space between life and death, the cold of the loop itself, and it is pulling you in.\n\nYou cannot move. You cannot speak. The ring is very warm in your hand and everything else is very cold and the distance between the two is narrowing.\n\nThe last thing you feel is the serpent seal pressing into your palm — not the ring against your skin, but through it, into the flesh, into the bone. Becoming part of you. Or you becoming part of it.\n\nThe sealing chamber is quiet.\n\nIn a century, the people of Ashford will send someone down to investigate when the curse returns. They will find the crypt sealed and cold. They will find the vault empty, the sarcophagus closed, the binding glyphs dark.\n\nIn the sealing chamber, they will find a second sarcophagus they do not recognise. Newer-seeming. Bearing a name they cannot identify.\n\nThe pact found its warden.",
+      "ending": true,
+      "ending_type": "death"
+    },
+    "death_valdric_surges": {
+      "text": "You fight the compulsion. Your hand trembles over the ring, and for a moment — one terrible, lucid moment — you understand what is happening. Aldric's voice echoes in your memory: the pact, the loop, the Lady of Bones. You knew something was wrong. You knew the candle mattered. You chose not to use it, or could not find it, and now the ritual has no testimony to anchor to.\n\nIt is reaching for you instead.\n\nYou wrench your hand back from the ring. The glyphs flare the wrong colour — not blue, not white, but a deep and furious red. The temperature in the chamber drops so fast that frost forms on the altar stone.\n\nThen the sound from above. The vault doors — sealed when you came through — opening.\n\nSomething is descending the stairs. Patient. Deliberate. The scrape of dead feet on old stone. A sound you have heard before, in the vault above, when the sarcophagus opened.\n\nValdric is not defeated. He was resting. The ring's failed ritual has called him back — not as the diminished revenant you fought, but as something else. Something the pact has reshaped in the minutes since his body fell.\n\nThe blue light returns to the chamber. Colder than before. Colder than anything.\n\nYou draw your weapon. There is nowhere to run.\n\nThe last thing you see is the Count's face in the stairwell — smiling, as the dead smile, with patience and with certainty.\n\nThe crypt has noted your choices. All of them.",
+      "ending": true,
+      "ending_type": "death"
+    }
+  },
+  "start_passage": "v_1"
 }
