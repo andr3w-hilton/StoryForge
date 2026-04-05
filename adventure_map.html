@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adventure Map — StoryForge</title>
+  <script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Share Tech Mono', 'Courier New', monospace;
+      background: #1a1610;
+      color: #c8b98a;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 16px;
+      background: #111009;
+      border-bottom: 1px solid #3a3020;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1rem;
+      color: #d4a843;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    select, button {
+      background: #2a2418;
+      color: #c8b98a;
+      border: 1px solid #4a3f28;
+      padding: 4px 10px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    select:focus, button:hover {
+      border-color: #d4a843;
+      outline: none;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .filter-group label {
+      font-size: 0.75rem;
+      color: #8a7a5a;
+    }
+
+    .legend {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      color: #8a7a5a;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    #graph-container {
+      flex: 1;
+      position: relative;
+      background: #1a1610;
+    }
+
+    #graph {
+      width: 100%;
+      height: 100%;
+    }
+
+    #sidebar {
+      width: 300px;
+      flex-shrink: 0;
+      border-left: 1px solid #3a3020;
+      overflow-y: auto;
+      background: #111009;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-section {
+      padding: 12px;
+      border-bottom: 1px solid #2a2418;
+    }
+
+    .sidebar-section h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #d4a843;
+      margin-bottom: 8px;
+    }
+
+    #passage-detail {
+      padding: 12px;
+    }
+
+    #passage-detail h3 {
+      font-size: 0.85rem;
+      color: #d4a843;
+      margin-bottom: 6px;
+    }
+
+    #passage-detail .passage-text {
+      font-size: 0.75rem;
+      line-height: 1.6;
+      color: #a89870;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 8px;
+      padding-right: 4px;
+    }
+
+    #passage-detail .passage-meta {
+      font-size: 0.72rem;
+      color: #6a5a3a;
+    }
+
+    #passage-detail .passage-meta span {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    #passage-detail .tag {
+      display: inline-block;
+      background: #2a2418;
+      border: 1px solid #4a3f28;
+      padding: 1px 6px;
+      font-size: 0.68rem;
+      border-radius: 2px;
+      margin: 2px 2px 2px 0;
+    }
+
+    #passage-detail .tag.flag-set { border-color: #9b59b6; color: #c39bd3; }
+    #passage-detail .tag.flag-req { border-color: #6c3483; color: #9b59b6; }
+    #passage-detail .tag.item-add { border-color: #d4a843; color: #f0c060; }
+    #passage-detail .tag.item-req { border-color: #e67e22; color: #f39c12; }
+    #passage-detail .tag.stat { border-color: #2980b9; color: #5dade2; }
+
+    .analysis-item {
+      font-size: 0.72rem;
+      padding: 3px 0;
+      border-bottom: 1px solid #1e1c14;
+      color: #8a7a5a;
+    }
+
+    .analysis-item.warn { color: #e67e22; }
+    .analysis-item.error { color: #e74c3c; }
+    .analysis-item.ok { color: #27ae60; }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .stat-box {
+      background: #2a2418;
+      padding: 6px 8px;
+      border-radius: 2px;
+      text-align: center;
+    }
+
+    .stat-box .val {
+      font-size: 1.2rem;
+      color: #d4a843;
+      display: block;
+    }
+
+    .stat-box .lbl {
+      font-size: 0.65rem;
+      color: #6a5a3a;
+      text-transform: uppercase;
+    }
+
+    #loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a1610;
+      font-size: 0.85rem;
+      color: #8a7a5a;
+      z-index: 10;
+    }
+
+    .act-badge {
+      display: inline-block;
+      padding: 1px 6px;
+      font-size: 0.65rem;
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .act-s { background: #1a3050; color: #5dade2; }
+    .act-r { background: #1a3a20; color: #58d68d; }
+    .act-t { background: #3a1a1a; color: #e74c3c; }
+    .act-l { background: #3a2a10; color: #f39c12; }
+    .act-end { background: #2a3a20; color: #2ecc71; }
+    .act-death { background: #2a1a1a; color: #922b21; }
+    .act-legacy { background: #2a2a2a; color: #888; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Adventure Map</h1>
+
+  <div class="filter-group">
+    <label>Adventure:</label>
+    <select id="adventure-select">
+      <option value="adventures/tide_of_the_leviathan.json">Tide of the Leviathan</option>
+      <option value="adventures/the_crypt_of_count_valdric.json">The Crypt of Count Valdric</option>
+      <option value="adventures/the_scavenger_of_new_babylon_station.json">The Scavenger of New Babylon Station</option>
+      <option value="adventures/the_throne_of_the_hollow_king.json">The Throne of the Hollow King</option>
+    </select>
+    <button id="reload-btn">Reload</button>
+  </div>
+
+  <div class="filter-group">
+    <label>Layout:</label>
+    <select id="layout-select">
+      <option value="force">Force-directed</option>
+      <option value="hierarchical">Hierarchical (L→R)</option>
+      <option value="hierarchical-ud">Hierarchical (T→B)</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label>Show edges:</label>
+    <select id="edge-filter">
+      <option value="all">All</option>
+      <option value="required">Flag/item gated only</option>
+    </select>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#3d7ab5"></div>Choices</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#c0392b"></div>Combat</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#d4a020"></div>Luck test</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#27ae60"></div>Victory</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#5d6d7e"></div>Death</div>
+  </div>
+</header>
+
+<div class="main">
+  <div id="graph-container">
+    <div id="loading">Loading adventure data…</div>
+    <div id="graph"></div>
+  </div>
+
+  <div id="sidebar">
+    <div class="sidebar-section">
+      <h2>Statistics</h2>
+      <div class="stat-grid" id="stats"></div>
+    </div>
+
+    <div class="sidebar-section">
+      <h2>Analysis</h2>
+      <div id="analysis-list"></div>
+    </div>
+
+    <div class="sidebar-section" id="passage-detail">
+      <h2>Passage Detail</h2>
+      <div style="color:#6a5a3a; font-size:0.75rem;">Click a node to inspect it.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+let network = null;
+let adventureData = null;
+let nodesDS = null;
+let edgesDS = null;
+
+const NODE_COLORS = {
+  choices:  { bg: '#1e3a5f', border: '#3d7ab5', hover: '#2a4f7a', text: '#7ab5e0' },
+  combat:   { bg: '#5a1a1a', border: '#c0392b', hover: '#7a2020', text: '#e07a7a' },
+  luck:     { bg: '#5a4010', border: '#d4a020', hover: '#7a5a18', text: '#e0c060' },
+  victory:  { bg: '#1a4a2a', border: '#27ae60', hover: '#1e6035', text: '#70e0a0' },
+  death:    { bg: '#2a2a2a', border: '#5d6d7e', hover: '#3a3a3a', text: '#8a9aaa' },
+};
+
+const ACT_COLORS = {
+  s_:    '#3d7ab5',
+  r_:    '#27ae60',
+  t_:    '#e74c3c',
+  l_:    '#f39c12',
+  end_:  '#2ecc71',
+  death_:'#922b21',
+};
+
+function getActPrefix(id) {
+  for (const prefix of ['end_', 'death_', 's_', 'r_', 't_', 'l_']) {
+    if (id.startsWith(prefix)) return prefix;
+  }
+  // Legacy numeric IDs
+  return 'legacy_';
+}
+
+function getActLabel(prefix) {
+  const map = {
+    's_': 'Act 1: Saltmere',
+    'r_': 'Act 2: The Reaches',
+    't_': 'Act 3: The Temple',
+    'l_': 'Act 4: The Leviathan',
+    'end_': 'Endings',
+    'death_': 'Deaths',
+    'legacy_': 'Legacy IDs',
+  };
+  return map[prefix] || prefix;
+}
+
+function getPassageType(passage) {
+  if (passage.ending) return passage.ending_type === 'victory' ? 'victory' : 'death';
+  if (passage.combat) return 'combat';
+  if (passage.test_luck) return 'luck';
+  return 'choices';
+}
+
+function buildGraph(adventure, edgeFilter) {
+  const passages = adventure.passages;
+  const nodes = [];
+  const edges = [];
+  const edgeSet = new Set();
+
+  // Track all valid passage IDs
+  const validIds = new Set(Object.keys(passages));
+
+  // Track which passages are reached
+  const reachable = new Set();
+  const queue = ['1', 's_1']; // support both old and new ID schemes
+  // Find the actual start
+  for (const id of Object.keys(passages)) {
+    if (id === '1' || id === 's_1') { reachable.add(id); }
+  }
+
+  // BFS for reachability
+  const startIds = Object.keys(passages).filter(id => id === '1' || id === 's_1');
+  const bfsQueue = [...startIds];
+  while (bfsQueue.length > 0) {
+    const cur = bfsQueue.shift();
+    const p = passages[cur];
+    if (!p) continue;
+    const nexts = getNextIds(p);
+    for (const nxt of nexts) {
+      if (validIds.has(nxt) && !reachable.has(nxt)) {
+        reachable.add(nxt);
+        bfsQueue.push(nxt);
+      }
+    }
+  }
+
+  // Build nodes
+  for (const [id, passage] of Object.entries(passages)) {
+    const type = getPassageType(passage);
+    const colors = NODE_COLORS[type];
+    const prefix = getActPrefix(id);
+    const isOrphan = !reachable.has(id);
+    const actColor = ACT_COLORS[prefix] || '#888';
+
+    const label = id.length > 12 ? id.substring(0, 12) + '…' : id;
+
+    nodes.push({
+      id,
+      label,
+      title: buildTooltip(id, passage),
+      color: {
+        background: isOrphan ? '#1a0a0a' : colors.bg,
+        border: isOrphan ? '#5a1010' : colors.border,
+        hover: { background: colors.hover, border: colors.border },
+        highlight: { background: colors.hover, border: '#ffffff' },
+      },
+      font: {
+        color: isOrphan ? '#5a3030' : colors.text,
+        size: 11,
+        face: 'Courier New',
+      },
+      borderWidth: isOrphan ? 1 : 2,
+      borderDashes: isOrphan ? [4, 4] : false,
+      shape: type === 'luck' ? 'diamond' : (type === 'victory' || type === 'death') ? 'star' : 'box',
+      size: type === 'victory' ? 20 : type === 'death' ? 18 : 14,
+      _passage: passage,
+      _type: type,
+      _orphan: isOrphan,
+      _act: prefix,
+    });
+  }
+
+  // Build edges
+  function addEdge(from, to, opts = {}) {
+    const key = `${from}→${to}→${opts.label || ''}`;
+    if (edgeSet.has(key)) return;
+    if (!validIds.has(to)) return; // broken goto
+
+    const isGated = opts.flagReq || opts.itemReq;
+    if (edgeFilter === 'required' && !isGated) return;
+
+    edgeSet.add(key);
+    edges.push({
+      from, to,
+      label: opts.label || '',
+      color: { color: opts.color || '#4a4030', hover: '#d4a843', highlight: '#ffffff' },
+      dashes: opts.dashes || false,
+      arrows: { to: { enabled: true, scaleFactor: 0.5 } },
+      font: { size: 9, color: '#6a5a3a', face: 'Courier New', strokeWidth: 0 },
+      width: opts.width || 1,
+      _type: opts.edgeType || 'choice',
+    });
+  }
+
+  for (const [id, passage] of Object.entries(passages)) {
+    // Choices
+    for (const choice of (passage.choices || [])) {
+      const hasFlag = choice.requires_flag || choice.requires_no_flag;
+      const hasItem = choice.requires_item;
+      const label = hasFlag ? `⚑ ${choice.requires_flag || '¬' + choice.requires_no_flag}` :
+                   hasItem ? `◆ ${choice.requires_item}` : '';
+      addEdge(id, choice.goto, {
+        label,
+        color: hasItem ? '#d4840a' : hasFlag ? '#7d3c98' : '#4a4030',
+        dashes: (hasFlag || hasItem) ? [4, 3] : false,
+        flagReq: !!hasFlag,
+        itemReq: !!hasItem,
+        edgeType: hasItem ? 'item' : hasFlag ? 'flag' : 'choice',
+      });
+    }
+
+    // Combat
+    if (passage.combat) {
+      addEdge(id, passage.combat.win_goto, {
+        label: '✓ win',
+        color: '#27ae60',
+        width: 2,
+        edgeType: 'combat-win',
+      });
+      if (passage.combat.flee_goto) {
+        addEdge(id, passage.combat.flee_goto, {
+          label: '↩ flee',
+          color: '#e74c3c',
+          dashes: [3, 3],
+          edgeType: 'combat-flee',
+        });
+      }
+    }
+
+    // Luck test
+    if (passage.test_luck) {
+      addEdge(id, passage.test_luck.lucky_goto, {
+        label: '★ lucky',
+        color: '#d4a020',
+        width: 2,
+        edgeType: 'luck-good',
+      });
+      addEdge(id, passage.test_luck.unlucky_goto, {
+        label: '✗ unlucky',
+        color: '#c0392b',
+        dashes: [3, 3],
+        edgeType: 'luck-bad',
+      });
+    }
+  }
+
+  return { nodes, edges, reachable, validIds };
+}
+
+function getNextIds(passage) {
+  const ids = [];
+  for (const c of (passage.choices || [])) { if (c.goto) ids.push(c.goto); }
+  if (passage.combat) {
+    if (passage.combat.win_goto) ids.push(passage.combat.win_goto);
+    if (passage.combat.flee_goto) ids.push(passage.combat.flee_goto);
+  }
+  if (passage.test_luck) {
+    if (passage.test_luck.lucky_goto) ids.push(passage.test_luck.lucky_goto);
+    if (passage.test_luck.unlucky_goto) ids.push(passage.test_luck.unlucky_goto);
+  }
+  return ids;
+}
+
+function buildTooltip(id, passage) {
+  const type = getPassageType(passage);
+  let tip = `<div style="font-family:monospace;font-size:12px;max-width:280px;background:#111;padding:8px;border:1px solid #4a3f28;color:#c8b98a">`;
+  tip += `<b style="color:#d4a843">[${id}]</b> <span style="color:#888">${type}</span><br><br>`;
+  const text = passage.text || '';
+  tip += `<span style="color:#a89870">${text.substring(0, 200)}${text.length > 200 ? '…' : ''}</span>`;
+  if (passage.set_flags?.length) tip += `<br><br><span style="color:#c39bd3">sets: ${passage.set_flags.join(', ')}</span>`;
+  if (passage.add_items?.length) tip += `<br><span style="color:#f0c060">adds: ${passage.add_items.join(', ')}</span>`;
+  tip += '</div>';
+  return tip;
+}
+
+function runAnalysis(adventure, reachable, validIds) {
+  const passages = adventure.passages;
+  const issues = [];
+
+  // Orphaned passages
+  const orphans = Object.keys(passages).filter(id => !reachable.has(id));
+  if (orphans.length > 0) {
+    issues.push({ type: 'error', msg: `${orphans.length} unreachable passage(s): ${orphans.join(', ')}` });
+  } else {
+    issues.push({ type: 'ok', msg: 'All passages are reachable' });
+  }
+
+  // Broken gotos
+  const broken = [];
+  for (const [id, passage] of Object.entries(passages)) {
+    for (const nextId of getNextIds(passage)) {
+      if (!validIds.has(nextId)) broken.push(`[${id}] → ${nextId}`);
+    }
+  }
+  if (broken.length > 0) {
+    for (const b of broken) issues.push({ type: 'error', msg: `Broken goto: ${b}` });
+  } else {
+    issues.push({ type: 'ok', msg: 'No broken gotos' });
+  }
+
+  // Flags: set vs checked
+  const flagsSet = new Set();
+  const flagsChecked = new Set();
+  for (const passage of Object.values(passages)) {
+    for (const f of (passage.set_flags || [])) flagsSet.add(f);
+    for (const f of (passage.clear_flags || [])) flagsSet.add(f);
+    for (const c of (passage.choices || [])) {
+      if (c.requires_flag) flagsChecked.add(c.requires_flag);
+      if (c.requires_no_flag) flagsChecked.add(c.requires_no_flag);
+    }
+  }
+  const neverChecked = [...flagsSet].filter(f => !flagsChecked.has(f));
+  const neverSet = [...flagsChecked].filter(f => !flagsSet.has(f));
+
+  if (neverChecked.length > 0) {
+    issues.push({ type: 'warn', msg: `Flags set but never checked: ${neverChecked.join(', ')}` });
+  } else {
+    issues.push({ type: 'ok', msg: 'All flags set are also checked' });
+  }
+  if (neverSet.length > 0) {
+    issues.push({ type: 'warn', msg: `Flags checked but never set: ${neverSet.join(', ')}` });
+  }
+
+  // Items: added vs required
+  const itemsAdded = new Set();
+  const itemsRequired = new Set();
+  for (const passage of Object.values(passages)) {
+    for (const item of (passage.add_items || [])) itemsAdded.add(item);
+    for (const c of (passage.choices || [])) {
+      if (c.requires_item) itemsRequired.add(c.requires_item);
+    }
+  }
+  // Also starting items
+  if (adventure.character?.starting_items) {
+    for (const item of adventure.character.starting_items) itemsAdded.add(item);
+  }
+  const itemsNeverRequired = [...itemsAdded].filter(i => !itemsRequired.has(i) && i !== 'provisions');
+  if (itemsNeverRequired.length > 0) {
+    issues.push({ type: 'warn', msg: `Items added but never gated on: ${itemsNeverRequired.join(', ')}` });
+  }
+
+  // Endings
+  const endings = Object.entries(passages).filter(([,p]) => p.ending);
+  const victories = endings.filter(([,p]) => p.ending_type === 'victory');
+  const deaths = endings.filter(([,p]) => p.ending_type !== 'victory');
+  issues.push({ type: 'ok', msg: `${endings.length} endings: ${victories.length} victory, ${deaths.length} death` });
+
+  return issues;
+}
+
+function renderAnalysis(issues) {
+  const el = document.getElementById('analysis-list');
+  el.innerHTML = issues.map(i =>
+    `<div class="analysis-item ${i.type}">${i.type === 'error' ? '✗' : i.type === 'warn' ? '⚠' : '✓'} ${i.msg}</div>`
+  ).join('');
+}
+
+function renderStats(adventure, reachable) {
+  const passages = adventure.passages;
+  const types = { choices: 0, combat: 0, luck: 0, victory: 0, death: 0 };
+  for (const p of Object.values(passages)) {
+    types[getPassageType(p)]++;
+  }
+
+  const actCounts = {};
+  for (const id of Object.keys(passages)) {
+    const prefix = getActPrefix(id);
+    actCounts[prefix] = (actCounts[prefix] || 0) + 1;
+  }
+
+  const el = document.getElementById('stats');
+  el.innerHTML = `
+    <div class="stat-box"><span class="val">${Object.keys(passages).length}</span><span class="lbl">Total</span></div>
+    <div class="stat-box"><span class="val">${reachable.size}</span><span class="lbl">Reachable</span></div>
+    <div class="stat-box"><span class="val">${types.combat}</span><span class="lbl">Combat</span></div>
+    <div class="stat-box"><span class="val">${types.luck}</span><span class="lbl">Luck Test</span></div>
+    <div class="stat-box"><span class="val">${types.victory}</span><span class="lbl">Victory</span></div>
+    <div class="stat-box"><span class="val">${types.death}</span><span class="lbl">Death</span></div>
+    ${Object.entries(actCounts).map(([p, n]) =>
+      `<div class="stat-box"><span class="val">${n}</span><span class="lbl">${p.replace('_','')}</span></div>`
+    ).join('')}
+  `;
+}
+
+function showPassageDetail(id, passage) {
+  const el = document.getElementById('passage-detail');
+  const type = getPassageType(passage);
+  const prefix = getActPrefix(id);
+
+  const actBadgeClass = prefix === 'legacy_' ? 'act-legacy' :
+    prefix === 'end_' ? 'act-end' :
+    prefix === 'death_' ? 'act-death' :
+    `act-${prefix.replace('_','')}`;
+
+  let html = `<h2>Passage Detail</h2>`;
+  html += `<h3>[${id}] <span class="act-badge ${actBadgeClass}">${getActLabel(prefix)}</span></h3>`;
+
+  // Type badge
+  const typeColors = { choices:'#3d7ab5', combat:'#c0392b', luck:'#d4a020', victory:'#27ae60', death:'#5d6d7e' };
+  html += `<span style="font-size:0.72rem;color:${typeColors[type]}">${type.toUpperCase()}</span><br><br>`;
+
+  // Text preview
+  const text = (passage.text || '').replace(/\\n/g, '\n');
+  html += `<div class="passage-text">${text}</div>`;
+
+  // Metadata tags
+  const tags = [];
+  for (const f of (passage.set_flags || [])) tags.push(`<span class="tag flag-set">⚑ ${f}</span>`);
+  for (const f of (passage.clear_flags || [])) tags.push(`<span class="tag flag-set">⚑̶ ${f}</span>`);
+  for (const item of (passage.add_items || [])) tags.push(`<span class="tag item-add">+ ${item}</span>`);
+  for (const item of (passage.remove_items || [])) tags.push(`<span class="tag item-add">− ${item}</span>`);
+  if (passage.add_stamina) tags.push(`<span class="tag stat">${passage.add_stamina > 0 ? '+' : ''}${passage.add_stamina} STAMINA</span>`);
+  if (passage.add_skill) tags.push(`<span class="tag stat">${passage.add_skill > 0 ? '+' : ''}${passage.add_skill} SKILL</span>`);
+  if (passage.add_luck) tags.push(`<span class="tag stat">${passage.add_luck > 0 ? '+' : ''}${passage.add_luck} LUCK</span>`);
+
+  if (tags.length) html += `<div style="margin-bottom:8px">${tags.join('')}</div>`;
+
+  // Choices
+  if (passage.choices?.length) {
+    html += `<div class="passage-meta">`;
+    for (const c of passage.choices) {
+      const reqs = [];
+      if (c.requires_flag) reqs.push(`<span class="tag flag-req">⚑ ${c.requires_flag}</span>`);
+      if (c.requires_no_flag) reqs.push(`<span class="tag flag-req">¬ ${c.requires_no_flag}</span>`);
+      if (c.requires_item) reqs.push(`<span class="tag item-req">◆ ${c.requires_item}</span>`);
+      html += `<div style="margin-bottom:4px">
+        <span style="color:#8a7a5a">→ ${c.goto}</span> ${reqs.join('')}<br>
+        <span style="font-size:0.7rem;color:#6a5a3a">${c.text}</span>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
+  // Combat
+  if (passage.combat) {
+    html += `<div class="passage-meta">
+      <span>Enemy: <span style="color:#e07a7a">${passage.combat.enemy}</span></span>
+      <span>Win → <span style="color:#70e0a0">${passage.combat.win_goto}</span></span>
+      ${passage.combat.flee_goto ? `<span>Flee → <span style="color:#e07a7a">${passage.combat.flee_goto}</span></span>` : ''}
+    </div>`;
+  }
+
+  // Luck test
+  if (passage.test_luck) {
+    html += `<div class="passage-meta">
+      <span>Lucky → <span style="color:#e0c060">${passage.test_luck.lucky_goto}</span></span>
+      <span>Unlucky → <span style="color:#e07a7a">${passage.test_luck.unlucky_goto}</span></span>
+    </div>`;
+  }
+
+  el.innerHTML = html;
+}
+
+function getLayoutOptions(layoutType) {
+  if (layoutType === 'force') {
+    return {
+      layout: { hierarchical: false },
+      physics: {
+        enabled: true,
+        solver: 'forceAtlas2Based',
+        forceAtlas2Based: {
+          gravitationalConstant: -40,
+          centralGravity: 0.005,
+          springLength: 100,
+          springConstant: 0.08,
+          damping: 0.4,
+        },
+        stabilization: { iterations: 200 },
+      },
+    };
+  } else if (layoutType === 'hierarchical') {
+    return {
+      layout: {
+        hierarchical: {
+          enabled: true,
+          direction: 'LR',
+          sortMethod: 'directed',
+          nodeSpacing: 80,
+          levelSeparation: 160,
+        },
+      },
+      physics: { enabled: false },
+    };
+  } else {
+    return {
+      layout: {
+        hierarchical: {
+          enabled: true,
+          direction: 'UD',
+          sortMethod: 'directed',
+          nodeSpacing: 60,
+          levelSeparation: 120,
+        },
+      },
+      physics: { enabled: false },
+    };
+  }
+}
+
+async function loadAdventure(path) {
+  document.getElementById('loading').style.display = 'flex';
+  try {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } finally {
+    document.getElementById('loading').style.display = 'none';
+  }
+}
+
+async function renderAdventure() {
+  const path = document.getElementById('adventure-select').value;
+  const layoutType = document.getElementById('layout-select').value;
+  const edgeFilter = document.getElementById('edge-filter').value;
+
+  adventureData = await loadAdventure(path);
+
+  // Update title
+  document.querySelector('header h1').textContent =
+    `Adventure Map — ${adventureData.title || path}`;
+
+  const { nodes, edges, reachable, validIds } = buildGraph(adventureData, edgeFilter);
+
+  nodesDS = new vis.DataSet(nodes);
+  edgesDS = new vis.DataSet(edges);
+
+  const container = document.getElementById('graph');
+
+  const options = {
+    ...getLayoutOptions(layoutType),
+    nodes: {
+      borderWidth: 2,
+      borderWidthSelected: 3,
+      shadow: { enabled: true, size: 4, color: 'rgba(0,0,0,0.5)' },
+    },
+    edges: {
+      smooth: { type: 'continuous', roundness: 0.3 },
+      shadow: false,
+      selectionWidth: 2,
+    },
+    interaction: {
+      hover: true,
+      tooltipDelay: 200,
+      zoomView: true,
+      navigationButtons: false,
+    },
+    groups: {},
+  };
+
+  if (network) {
+    network.setData({ nodes: nodesDS, edges: edgesDS });
+    network.setOptions(options);
+  } else {
+    network = new vis.Network(container, { nodes: nodesDS, edges: edgesDS }, options);
+
+    network.on('click', function(params) {
+      if (params.nodes.length > 0) {
+        const id = params.nodes[0];
+        const node = nodesDS.get(id);
+        if (node && node._passage) {
+          showPassageDetail(id, node._passage);
+        }
+      }
+    });
+  }
+
+  renderStats(adventureData, reachable);
+  renderAnalysis(runAnalysis(adventureData, reachable, validIds));
+}
+
+// Event listeners
+document.getElementById('adventure-select').addEventListener('change', renderAdventure);
+document.getElementById('reload-btn').addEventListener('click', renderAdventure);
+document.getElementById('layout-select').addEventListener('change', renderAdventure);
+document.getElementById('edge-filter').addEventListener('change', renderAdventure);
+
+// Initial load
+renderAdventure();
+</script>
+</body>
+</html>
