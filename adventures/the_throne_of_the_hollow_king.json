@@ -1,1070 +1,1166 @@
 {
-    "title": "The Throne of the Hollow King",
-    "author": "Andrew Hilton",
-    "version": "1.0",
-    "accent_color": "#6b4c7a",
-    "genre_tag": "DARK FANTASY",
-    "theme_icon": "♛",
-    "introduction": "You were a knight once. That ended at Kelmarsh Bridge, where you chose mercy over orders and let the rebel lord's children flee. Your commander stripped your rank, your name, your lands. You have wandered since — hedge-knight, sellsword, nobody.\n\nNow you stand at the edge of Carragh's Foot, a village huddled in the shadow of Mount Aldric. The mountain is wrong. Its peak glows faintly violet against the evening sky, and the air tastes of iron and old grief. The villagers speak of an eclipse approaching — three days, perhaps less — and of a cult called the Witnesses of the Returning Crown, who have occupied the ancient palace carved into the mountain's heart.\n\nWithin that palace, they say, lies the Throne of the Hollow King — seat of Aldric the Undying, a tyrant-sorcerer who bound his soul to a crown of black iron a thousand years ago. The cult seeks to complete a ritual that will raise him from death. If they succeed, darkness will swallow the valley and spread outward like a stain.\n\nThe village elder has offered you everything the village can spare: a sword, provisions, and the promise that if you stop the ritual, your name will be remembered. Not your old name. A new one.\n\nIt is not much. But it is more than anyone has offered you in a long time.",
-    "character": {
-        "skill_base": 6,
-        "skill_dice": 1,
-        "stamina_base": 12,
-        "stamina_dice": 2,
-        "luck_base": 6,
-        "luck_dice": 1,
-        "starting_items": [
-            "borrowed_sword",
-            "provisions"
-        ],
-        "starting_provisions": 4
+  "title": "The Throne of the Hollow King",
+  "author": "Andrew Hilton",
+  "version": "1.0",
+  "accent_color": "#6b4c7a",
+  "genre_tag": "DARK FANTASY",
+  "theme_icon": "♛",
+  "introduction": "You were a knight once. That ended at Kelmarsh Bridge, where you chose mercy over orders and let the rebel lord's children flee. Your commander stripped your rank, your name, your lands. You have wandered since — hedge-knight, sellsword, nobody.\n\nNow you stand at the edge of Carragh's Foot, a village huddled in the shadow of Mount Aldric. The mountain is wrong. Its peak glows faintly violet against the evening sky, and the air tastes of iron and old grief. The villagers speak of an eclipse approaching — three days, perhaps less — and of a cult called the Witnesses of the Returning Crown, who have occupied the ancient palace carved into the mountain's heart.\n\nWithin that palace, they say, lies the Throne of the Hollow King — seat of Aldric the Undying, a tyrant-sorcerer who bound his soul to a crown of black iron a thousand years ago. The cult seeks to complete a ritual that will raise him from death. If they succeed, darkness will swallow the valley and spread outward like a stain.\n\nThe village elder has offered you everything the village can spare: a sword, provisions, and the promise that if you stop the ritual, your name will be remembered. Not your old name. A new one.\n\nIt is not much. But it is more than anyone has offered you in a long time.",
+  "character": {
+    "skill_base": 6,
+    "skill_dice": 1,
+    "stamina_base": 12,
+    "stamina_dice": 2,
+    "luck_base": 6,
+    "luck_dice": 1,
+    "starting_items": [
+      "borrowed_sword",
+      "provisions"
+    ],
+    "starting_provisions": 4
+  },
+  "items": {
+    "borrowed_sword": {
+      "name": "Borrowed Sword",
+      "type": "weapon",
+      "skill_bonus": 0,
+      "description": "A notched blade pressed into your hand by the village blacksmith. It has seen better days. So have you."
     },
-    "items": {
-        "borrowed_sword": {
-            "name": "Borrowed Sword",
-            "type": "weapon",
-            "skill_bonus": 0,
-            "description": "A notched blade pressed into your hand by the village blacksmith. It has seen better days. So have you."
-        },
-        "provisions": {
-            "name": "Provisions",
-            "type": "consumable",
-            "stamina_restore": 4,
-            "description": "Hard bread, dried mutton, a skin of water. Enough to keep you moving. Restores 4 STAMINA."
-        },
-        "cult_robe": {
-            "name": "Cultist's Robe",
-            "type": "quest",
-            "description": "A dark violet robe stitched with silver thread in patterns that hurt the eye. It reeks of incense and something worse."
-        },
-        "saints_medallion": {
-            "name": "Saint's Medallion",
-            "type": "quest",
-            "description": "A bronze disc bearing the face of Saint Elara the Unyielding, patron of those who resist corruption. It is warm to the touch."
-        },
-        "silver_dagger": {
-            "name": "Silver Dagger",
-            "type": "weapon",
-            "skill_bonus": 1,
-            "description": "A slender blade of consecrated silver. It hums faintly in the presence of the undead. +1 SKILL in combat."
-        },
-        "wraithbane_blade": {
-            "name": "Wraithbane Blade",
-            "type": "weapon",
-            "skill_bonus": 3,
-            "damage_bonus": 1,
-            "description": "A sword of black steel that drinks the light around it. Ancient runes pulse along its edge. It whispers when you hold it. +3 SKILL and +1 DAMAGE in combat."
-        },
-        "aldrics_ring": {
-            "name": "Aldric's Signet Ring",
-            "type": "quest",
-            "description": "A heavy ring of tarnished silver, set with a stone the colour of a bruise. The seal depicts a crown above an open grave."
-        },
-        "holy_water": {
-            "name": "Holy Water",
-            "type": "quest",
-            "description": "A clay vial sealed with wax, blessed by the village priest with the last of his faith. The liquid inside glows faintly."
-        },
-        "candle_of_dead_speak": {
-            "name": "Candle of Dead-Speak",
-            "type": "quest",
-            "description": "A black tallow candle inscribed with prayers for the restless dead. Its flame burns without heat and sheds a light only spirits can see."
-        },
-        "vial_of_antitoxin": {
-            "name": "Vial of Antitoxin",
-            "type": "consumable",
-            "stamina_restore": 2,
-            "description": "A murky green liquid brewed from mountain herbs. Neutralises common venoms. Restores 2 STAMINA."
-        }
+    "provisions": {
+      "name": "Provisions",
+      "type": "consumable",
+      "stamina_restore": 4,
+      "description": "Hard bread, dried mutton, a skin of water. Enough to keep you moving. Restores 4 STAMINA."
     },
-    "enemies": {
-        "cult_sentinel": {
-            "name": "Cult Sentinel",
-            "skill": 7,
-            "stamina": 6
-        },
-        "tomb_spider": {
-            "name": "Tomb Spider",
-            "skill": 6,
-            "stamina": 5
-        },
-        "vashka": {
-            "name": "Vashka, High Priestess",
-            "skill": 9,
-            "stamina": 8
-        },
-        "shadow_self": {
-            "name": "Shadow of Your Former Self",
-            "skill": 8,
-            "stamina": 8
-        },
-        "bone_warden": {
-            "name": "Bone Warden",
-            "skill": 8,
-            "stamina": 7
-        },
-        "aldrics_revenant": {
-            "name": "Aldric's Revenant",
-            "skill": 9,
-            "stamina": 12
-        },
-        "aldrics_revenant_weakened": {
-            "name": "Aldric's Revenant (Weakened)",
-            "skill": 9,
-            "stamina": 8
-        },
-        "aldrics_revenant_vulnerable": {
-            "name": "Aldric's Revenant (Vulnerable)",
-            "skill": 7,
-            "stamina": 8
-        },
-        "ghost_courtier": {
-            "name": "Ghost Courtier",
-            "skill": 8,
-            "stamina": 6
-        },
-        "aldric_full": {
-            "name": "Aldric the Fully Risen",
-            "skill": 11,
-            "stamina": 18
-        }
+    "cult_robe": {
+      "name": "Cultist's Robe",
+      "type": "quest",
+      "description": "A dark violet robe stitched with silver thread in patterns that hurt the eye. It reeks of incense and something worse."
     },
-    "passages": {
-        "1": {
-            "text": "The village of Carragh's Foot is barely a village at all. A dozen stone cottages pressed against the mountain's base, their windows shuttered against a wind that carries the smell of turned earth and cold metal. The sky to the east is bruised violet where the eclipse approaches.\n\nThe elder, a weathered woman named Brida, meets you at the village square. Her eyes are steady but her hands shake.\n\n'The Witnesses entered the mountain three days ago,' she says. 'We hear chanting at night. The ground trembles. Whatever they are doing in there, it is almost finished.' She presses a bundle into your arms — sword, food, a waterskin. 'The Pilgrim's Gate is the only way in. It is guarded.'\n\nShe hesitates, then adds: 'There is a dead cultist in the alley behind the chapel. He came down the mountain yesterday, raving, and died before we could question him. And the chapel itself — Father Morcant left something on the altar before he fled. He said it might help against what lives in that mountain.'\n\nThe violet glow on the peak pulses. You do not have much time.",
-            "choices": [
-                {
-                    "text": "Search the village before heading to the mountain",
-                    "goto": "2"
-                },
-                {
-                    "text": "Head straight for the Pilgrim's Gate",
-                    "goto": "4"
-                }
-            ]
-        },
-        "2": {
-            "text": "You move quickly through the village. Time presses, but preparation has saved your life before.\n\nBehind the chapel, you find the dead cultist slumped against the wall. His face is frozen in an expression of ecstatic terror. He wears a violet robe stitched with silver sigils — still intact, though stained with blood. You strip it from the corpse. It might serve as a disguise.\n\nInside the chapel, the air is cool and still. On the altar lies a clay vial sealed with wax. A note in a trembling hand reads: 'Blessed water. Last of it. God forgive me for running.' Beside it, wrapped in cloth, you find a silver dagger with a faintly luminous edge.\n\nYou take what you can carry. The mountain waits.",
-            "add_items": [
-                "cult_robe",
-                "holy_water",
-                "silver_dagger"
-            ],
-            "choices": [
-                {
-                    "text": "Head for the Pilgrim's Gate",
-                    "goto": "4"
-                }
-            ]
-        },
-        "4": {
-            "text": "You climb the goat-track that winds up the mountain's flank. The air grows colder with each step. The trees here are dead — not bare, but dead, their bark split and weeping black sap. The violet glow is brighter now, pulsing in a slow rhythm like a heartbeat.\n\nAfter an hour's climb, the track ends at a ledge overlooking a wide stone gateway carved into the mountainside. The Pilgrim's Gate. Three figures in violet robes stand before it, their faces hidden beneath deep hoods. Sentinels of the Witnesses.\n\nBeyond them, the gate yawns open into darkness. You can hear chanting from within — low, rhythmic, reverberating through the stone itself.",
-            "choices": [
-                {
-                    "text": "Attack the sentinels head-on",
-                    "goto": "5"
-                },
-                {
-                    "text": "Wear the cultist's robe and bluff your way past",
-                    "goto": "10",
-                    "requires_item": "cult_robe"
-                },
-                {
-                    "text": "Look for another way in",
-                    "goto": "11"
-                }
-            ]
-        },
-        "5": {
-            "text": "You draw your blade and charge. The nearest sentinel turns, reaching for a curved dagger at his belt. His companions scatter — one runs inside, the other fumbles with something beneath his robes. But this one stands his ground.\n\nHe is faster than he looks.",
-            "combat": {
-                "enemy": "cult_sentinel",
-                "win_goto": "6",
-                "flee_goto": "11",
-                "flee_allowed": true,
-                "flee_stamina_cost": 2
-            }
-        },
-        "6": {
-            "text": "The sentinel crumples. The other two have fled deeper into the mountain. No matter — you are inside.\n\nThe Hall of Supplicants opens before you. It was a pilgrim's receiving hall once, centuries ago, when people came to the mountain to honour their dead kings. The ceiling vaults high above, lost in shadow. Tattered banners hang from iron brackets, their heraldry rotted beyond recognition. The floor is tiled in black and white marble, cracked and uneven.\n\nThe chanting is louder here. It echoes from below, rising through the stone like heat. Two passages lead onward: wide stairs descending straight ahead toward the source of the sound, and a narrow archway to your left that opens into what appears to be a side chapel.",
-            "choices": [
-                {
-                    "text": "Descend the main stairs toward the chanting",
-                    "goto": "8"
-                },
-                {
-                    "text": "Explore the side chapel first",
-                    "goto": "7"
-                }
-            ]
-        },
-        "7": {
-            "text": "The side chapel is small and surprisingly intact. Dust covers everything, but the stonework is unbroken. An altar stands against the far wall, carved with the image of a woman holding a shield above a kneeling figure — Saint Elara the Unyielding, patron of those who resist corruption.\n\nAround the altar's base, someone has carved words in an older script. You kneel to read them:\n\n'THE CROWN FEEDS ON SURRENDER. IT CANNOT BE WORN BY ONE WHO REFUSES IT. TO DESTROY IT, STRIKE WHILE THE WEARER DOUBTS.'\n\nHanging from a hook behind the altar, you find a bronze medallion bearing Saint Elara's face. It is strangely warm.\n\nYou sit with it for a moment. Knowing what you face — truly knowing — steadies something in you.",
-            "add_items": [
-                "saints_medallion"
-            ],
-            "add_skill": 1,
-            "set_flags": [
-                "knows_crown_weakness",
-                "explored_chapel"
-            ],
-            "choices": [
-                {
-                    "text": "Return to the hall and descend the main stairs",
-                    "goto": "8"
-                }
-            ]
-        },
-        "8": {
-            "text": "The stairs spiral downward into the mountain. The air is damp and tastes of mineral and something sweeter — incense, perhaps, or decay. Your footsteps echo.\n\nYou are halfway down when the wall to your left splits open. A shape erupts from the crack — pale, many-legged, fast. A tomb spider, its body the size of a hunting dog, mandibles dripping with venom. It drops onto the stairs between you and the way down.\n\nThere is no room to go around it.",
-            "combat": {
-                "enemy": "tomb_spider",
-                "win_goto": "9",
-                "flee_goto": "8a",
-                "flee_allowed": true,
-                "flee_stamina_cost": 3
-            }
-        },
-        "8a": {
-            "text": "You stumble back up the stairs, the spider's mandibles snapping at your heels. Venom spatters your arm — a burning line of pain. You slam your shoulder into the chapel doorway and the spider skitters back into its crack, unwilling to follow into the light.\n\nThe venom throbs in your arm. Your movements feel sluggish, your grip uncertain. You will need to deal with the spider to descend.",
-            "add_stamina": -2,
-            "add_skill": -1,
-            "choices": [
-                {
-                    "text": "Use the antitoxin to neutralise the venom",
-                    "goto": "8b",
-                    "requires_item": "vial_of_antitoxin"
-                },
-                {
-                    "text": "Steel yourself and face the spider again",
-                    "goto": "8"
-                }
-            ]
-        },
-        "8b": {
-            "text": "You uncork the vial and drink. The antitoxin is foul but effective — the burning in your arm fades to a dull ache within moments.",
-            "remove_items": [
-                "vial_of_antitoxin"
-            ],
-            "add_stamina": 2,
-            "choices": [
-                {
-                    "text": "Face the spider again",
-                    "goto": "8"
-                }
-            ]
-        },
-        "9": {
-            "text": "The spider twitches and curls in on itself, legs folding inward. You wipe your blade and continue down.\n\nThe stairs end at a vast space. The air here is colder, and the chanting — which had been a constant drone — has shifted. It is faster now. More urgent. The violet glow seeps through cracks in the walls, painting everything in bruised light.\n\nYou stand at the threshold of the Court of Echoes — the ceremonial heart of the ancient palace. Whatever happens next, you are committed. There is no easy way back up those stairs.",
-            "choices": [
-                {
-                    "text": "Enter the Court of Echoes",
-                    "goto": "13"
-                }
-            ]
-        },
-        "10": {
-            "text": "You pull the dead cultist's robe over your armour, tucking your blade beneath its folds. The fabric is heavier than it looks, and the silver sigils seem to writhe at the edges of your vision.\n\nYou walk toward the sentinels. Your heart hammers. One of them raises a hand.\n\n'Late,' he says. His voice is flat, devoid of personality. 'The Second Invocation has already begun. Hurry.'\n\nHe steps aside. You pass through the Pilgrim's Gate without a blade drawn.",
-            "choices": [
-                {
-                    "text": "Enter the Hall of Supplicants",
-                    "goto": "6"
-                }
-            ]
-        },
-        "11": {
-            "text": "You circle the gateway, keeping low. The mountainside is rough and broken — centuries of frost have cracked the stone. Fifty paces to the right of the gate, you spot a section of wall where the rock has crumbled away, leaving a gap just wide enough for a person to squeeze through.\n\nThe gap is narrow and dark. Loose stones shift beneath your hands as you climb toward it.",
-            "test_luck": {
-                "lucky_text": "You slide through the gap cleanly. The stones hold. You emerge in a dusty corridor behind the Hall of Supplicants, cobwebs breaking across your face. You brush them away and orient yourself.",
-                "lucky_goto": "6",
-                "unlucky_text": "Halfway through, the stones shift. A slab grinds against your ribs and you feel something crack. You bite down on a cry of pain and force yourself through, tumbling into a dusty corridor. You lie still for a moment, breathing hard, then rise.",
-                "unlucky_goto": "6",
-                "lucky_stamina_cost": 0,
-                "unlucky_stamina_cost": 3,
-                "lucky_add_items": [],
-                "unlucky_add_items": []
-            }
-        },
-        "13": {
-            "text": "The Court of Echoes is vast. The ceiling is lost in darkness. Massive pillars carved to resemble robed figures line the hall, their stone faces worn smooth by time. Between them, the violet light pulses.\n\nThree passages branch from the court. Ahead, through a grand archway, you glimpse an enormous hall — a long table, the glint of tarnished silver, shapes moving in the gloom. The Feast Hall.\n\nTo the left, a narrower corridor slopes downward. You catch the gleam of metal — weapons, perhaps armour. The Treasury wing.\n\nTo the right, a sealed door of black iron stands in the wall. A circular indentation marks its centre — the shape of a signet ring. Beyond it, you sense depth. The deeper chambers.\n\nThe chanting pulses through the floor beneath your feet, faster than before.",
-            "choices": [
-                {
-                    "text": "Enter the Feast Hall ahead",
-                    "goto": "14"
-                },
-                {
-                    "text": "Explore the Treasury corridor to the left",
-                    "goto": "18"
-                },
-                {
-                    "text": "Examine the sealed door to the right",
-                    "goto": "24"
-                }
-            ]
-        },
-        "14": {
-            "text": "The Feast Hall stretches before you like a wound in the mountain. A banquet table runs its entire length, set with plates of corroded silver, goblets crusted with age, and candelabras whose candles have burned down to pools of ancient wax. The food on the plates has not rotted. It has calcified — turned to grey stone, preserving every detail of a feast served a thousand years ago.\n\nAnd the dead are eating.\n\nThey sit in the chairs — dozens of them, translucent figures in fine clothes, going through the motions of a celebration that ended ten centuries ago. They lift empty goblets, tear at stone bread, turn to companions and mouth silent words. They do not seem to notice you.\n\nThe air is cold enough that your breath steams. You feel a pull, a gentle suggestion, to sit down and join them.",
-            "choices": [
-                {
-                    "text": "Sit down at the table",
-                    "goto": "15",
-                    "requires_no_flag": "explored_chapel"
-                },
-                {
-                    "text": "Sit down at the table",
-                    "goto": "15_late",
-                    "requires_flag": "explored_chapel"
-                },
-                {
-                    "text": "Light the Candle of Dead-Speak and sit down",
-                    "goto": "16",
-                    "requires_item": "candle_of_dead_speak"
-                },
-                {
-                    "text": "Walk past the banquet without stopping",
-                    "goto": "17"
-                }
-            ]
-        },
-        "15": {
-            "text": "You pull out a chair and sit. The wood creaks. The ghosts turn to look at you — slowly, one by one, their hollow eyes focusing.\n\nFor a moment, nothing happens. Then the nearest ghost leans toward you. Its mouth moves. You cannot hear it, but you feel something — a pressure behind your eyes, a sensation like remembering a dream.",
-            "set_flags": [
-                "sat_banquet"
-            ],
-            "test_luck": {
-                "lucky_text": "The ghost smiles. You feel warmth — sudden and unexpected in this frozen hall. Images flood your mind: the palace in its glory, the throne room ablaze with torchlight, and the Crown — you see it clearly, black iron wrought in the shape of thorns. The ghost shows you a memory: the king placing the Crown upon his head, and how his eyes changed. The Crown does not serve its wearer. The wearer serves the Crown.\n\nThe ghost releases you. The vision fades, but the knowledge remains.",
-                "lucky_goto": "17",
-                "unlucky_text": "The ghost's expression twists. The temperature drops further. Every ghost at the table turns to face you. Their mouths open in silent screams and the pressure behind your eyes becomes pain — blinding, searing. You shove back from the table and draw your blade.\n\nOne of the courtiers rises from its chair. It is more solid than the others. Older. Angrier.",
-                "unlucky_goto": "15a",
-                "lucky_stamina_cost": 0,
-                "unlucky_stamina_cost": 0,
-                "lucky_add_items": [],
-                "unlucky_add_items": []
-            }
-        },
-        "15a": {
-            "text": "The ghost courtier drifts toward you, its translucent hands curled into claws. The other ghosts watch from their seats, unmoving.",
-            "combat": {
-                "enemy": "ghost_courtier",
-                "win_goto": "17",
-                "flee_goto": "17",
-                "flee_allowed": true,
-                "flee_stamina_cost": 2
-            }
-        },
-        "16": {
-            "text": "You set the Candle of Dead-Speak on the table and light it. The flame catches — blue-white, heatless. The ghosts stir. Their hollow eyes fix on the candle's light, and for the first time in a thousand years, their mouths produce sound.\n\nWhispers fill the hall. A cacophony of dead voices, overlapping, pleading, rambling. Then one voice rises above the rest — clear and calm.\n\n'You carry the candle. You can hear us.' The ghost across from you resolves into sharper focus. A woman in court dress, her face gaunt, her eyes like dark water. 'I was Morwen. I was the king's astronomer. I watched him take the Crown.'\n\nShe leans forward. 'The Crown is not a thing of power. It is a parasite. It feeds on the wearer's will. Every act of dominion strengthens it, and weakens the one who wears it. But it cannot abide doubt. It cannot survive a wearer who questions. Strike when the wearer doubts, and the Crown will crack.'\n\nShe looks at you steadily. 'Aldric doubted once. At the end. I saw it. He looked at what he had become and for one moment, he was afraid. The cult has spent a thousand years burying that doubt. You must resurrect it.'\n\nThe candle gutters and the ghosts fade to silence.",
-            "set_flags": [
-                "knows_crown_weakness",
-                "sat_banquet"
-            ],
-            "choices": [
-                {
-                    "text": "Continue through the Feast Hall",
-                    "goto": "17"
-                }
-            ]
-        },
-        "17": {
-            "text": "You pass through the far end of the Feast Hall. A low corridor leads onward, the walls narrowing. The violet light is stronger here — it seeps from the joints between stones, from cracks in the floor. Somewhere below, the chanting continues, faster now. You can feel it in your teeth.\n\nThe corridor opens into the Treasury wing. Steps lead down.",
-            "choices": [
-                {
-                    "text": "Descend to the Treasury",
-                    "goto": "18"
-                },
-                {
-                    "text": "Return to the Court of Echoes and take a different path",
-                    "goto": "13"
-                }
-            ]
-        },
-        "18": {
-            "text": "The Treasury is a series of vaulted alcoves branching from a central corridor. Most have been stripped bare — looted centuries ago, or emptied by the cult. But in the deepest alcove, resting on a stone pedestal, you find a signet ring. Heavy. Tarnished silver. The seal depicts a crown above an open grave.\n\nAldric's ring. The key to the sealed door in the Court of Echoes.\n\nThe chanting swells, then drops to a whisper. The rhythm is changing. Whatever the cult is doing, it is entering a new phase. You should move quickly.\n\nA side passage leads to the Armoury.",
-            "add_items": [
-                "aldrics_ring"
-            ],
-            "choices": [
-                {
-                    "text": "Continue to the Armoury",
-                    "goto": "19"
-                },
-                {
-                    "text": "Return to the Court of Echoes and use the ring on the sealed door",
-                    "goto": "24"
-                }
-            ]
-        },
-        "19": {
-            "text": "The Armoury of the Damned.\n\nThe name is carved above the entrance in letters that still gleam after a thousand years. Inside, weapon racks line the walls — mostly empty, the blades long since crumbled to rust. But one weapon remains.\n\nA sword hangs alone on the far wall, suspended between two iron brackets. Its blade is black steel, darker than shadow, and runes pulse along its edge in a rhythm that matches the chanting below. The air around it shimmers. It is beautiful in the way that a viper is beautiful.\n\nYou sense power in it. And something else. Something hungry.\n\nBeside it, on a shelf, you notice a small black candle inscribed with spiralling prayers.",
-            "choices": [
-                {
-                    "text": "Take the black sword",
-                    "goto": "19a"
-                },
-                {
-                    "text": "Take only the candle and leave the sword",
-                    "goto": "20"
-                },
-                {
-                    "text": "Take both",
-                    "goto": "19b"
-                },
-                {
-                    "text": "Leave the Armoury without taking anything",
-                    "goto": "20a"
-                }
-            ]
-        },
-        "19a": {
-            "text": "You lift the sword from its brackets. The moment your fingers close around the grip, cold races up your arm and settles in your chest like a stone. The runes flare. The blade is lighter than it should be — it moves like an extension of your will.\n\nBut something whispers at the back of your mind. Not words. A feeling. Possessiveness. Hunger.\n\nYou slide your borrowed sword into the weapon rack and hang the black blade at your hip. It feels right there. It feels like it has always been there.\n\nThat should worry you more than it does.",
-            "add_items": [
-                "wraithbane_blade"
-            ],
-            "remove_items": [
-                "borrowed_sword"
-            ],
-            "set_flags": [
-                "cursed_blade"
-            ],
-            "choices": [
-                {
-                    "text": "Continue onward",
-                    "goto": "20a"
-                }
-            ]
-        },
-        "19b": {
-            "text": "You lift the sword from its brackets. Cold races up your arm and settles in your chest. The runes flare. The blade whispers at the back of your mind — not words, but a feeling of hunger, of rightness.\n\nYou slide your borrowed sword into the rack and take the candle from the shelf. The candle is cold and waxy, its inscriptions too fine to read in this light.\n\nThe black blade hangs at your hip like it has always been there.",
-            "add_items": [
-                "wraithbane_blade",
-                "candle_of_dead_speak"
-            ],
-            "remove_items": [
-                "borrowed_sword"
-            ],
-            "set_flags": [
-                "cursed_blade"
-            ],
-            "choices": [
-                {
-                    "text": "Continue onward",
-                    "goto": "20a"
-                }
-            ]
-        },
-        "20": {
-            "text": "You leave the black sword where it hangs. Something about it feels wrong — not the blade itself, but the eagerness with which your hand reached for it.\n\nYou take the candle. It is heavier than it looks, cool and smooth, its surface covered in spiralling script too fine to read in this light. A candle for speaking with the dead.",
-            "add_items": [
-                "candle_of_dead_speak"
-            ],
-            "choices": [
-                {
-                    "text": "Continue onward",
-                    "goto": "20a"
-                }
-            ]
-        },
-        "20a": {
-            "text": "You leave the Armoury and retrace your steps. The Treasury corridor is empty. The chanting has not stopped, but its character has changed — there is a raw edge to it now, a desperation. As if the chanters themselves are frightened of what they are calling.\n\nYou need to reach the deeper chambers. The sealed door in the Court of Echoes requires Aldric's signet ring.",
-            "choices": [
-                {
-                    "text": "Go to the sealed door in the Court of Echoes",
-                    "goto": "24",
-                    "requires_item": "aldrics_ring"
-                },
-                {
-                    "text": "Search for another way deeper",
-                    "goto": "25",
-                    "requires_no_flag": "has_ring"
-                },
-                {
-                    "text": "Return to the Court of Echoes",
-                    "goto": "13"
-                }
-            ]
-        },
-        "21": {
-            "text": "The corridor beyond the sealed door descends steeply. The walls change — the dressed stone gives way to rough-hewn rock, then to something else. Something organic. The surfaces are ridged and curved, like the inside of a ribcage. The violet light pulses from within the stone itself.\n\nYou round a corner and stop.\n\nA woman stands in the corridor. She wears the violet robes of the Witnesses, but hers are finer — threaded with gold, clasped at the throat with a brooch shaped like a screaming mouth. Her head is shaved, her eyes dark and bright. She is beautiful in the way that a blade is beautiful.\n\n'So,' she says. 'The village sent someone after all.' She tilts her head, studying you. 'I am Vashka. I lead the Witnesses. And you are too late to stop what is coming.' She smiles. 'But I admire the attempt.'\n\nThe chanting swells behind her. She does not flinch.",
-            "choices": [
-                {
-                    "text": "Draw your weapon and attack",
-                    "goto": "22"
-                },
-                {
-                    "text": "Tell her you know the Crown's weakness",
-                    "goto": "21a",
-                    "requires_flag": "knows_crown_weakness"
-                },
-                {
-                    "text": "Try to reason with her",
-                    "goto": "21b"
-                }
-            ]
-        },
-        "21a": {
-            "text": "'The Crown is a parasite,' you say. 'It does not grant power. It feeds on the wearer. Aldric was its slave, not its master.'\n\nVashka's smile falters. For an instant — just an instant — you see doubt in her eyes. She has dedicated her life to this cause. She has killed for it. The possibility that it is built on a lie flickers across her face like a shadow.\n\nThen she masters herself. 'You know nothing,' she says. But her voice is not as steady as before. 'The Crown chose Aldric. It will choose again. And those who serve the Crown will be rewarded.'\n\nShe turns and walks deeper into the mountain. She does not attack you. She does not look back.\n\nBut you saw the doubt. It was real.",
-            "set_flags": [
-                "vashka_shaken"
-            ],
-            "choices": [
-                {
-                    "text": "Follow her deeper",
-                    "goto": "23"
-                }
-            ]
-        },
-        "21b": {
-            "text": "'This ritual will destroy you along with everyone else,' you say. 'Aldric was a tyrant. The Crown is a curse. Why would you bring that back?'\n\nVashka laughs. It is not a cruel laugh. It is the laugh of someone who has heard this argument before and found it wanting.\n\n'Because the world is ruled by those who take,' she says. 'And the Crown is the purest form of taking. Aldric was not a tyrant — he was a revelation. And when he rises, those who served him will stand at his right hand.'\n\nHer hand drops to a dagger at her belt. 'You can leave. Or you can die here. Choose quickly — I have a ritual to complete.'",
-            "choices": [
-                {
-                    "text": "Attack her",
-                    "goto": "22"
-                },
-                {
-                    "text": "Let her go and follow at a distance",
-                    "goto": "23"
-                }
-            ]
-        },
-        "22": {
-            "text": "You draw your blade. Vashka's dagger appears in her hand with practised speed. She is faster than you expected — faster than any priestess should be. The corridor is narrow. There is no room for subtlety.",
-            "combat": {
-                "enemy": "vashka",
-                "win_goto": "22a",
-                "flee_goto": "23",
-                "flee_allowed": true,
-                "flee_stamina_cost": 2
-            }
-        },
-        "22a": {
-            "text": "Vashka staggers back, blood running from a wound in her side. She looks at you with something that might be respect, or might be hatred.\n\n'It does not matter,' she gasps. 'The ritual is almost complete. Kill me and another will finish it.' She presses her hand to the wound and retreats deeper into the corridor, moving faster than a wounded person should.\n\nYou let her go. She will not fight you again soon — but she spoke the truth. The ritual continues without her.",
-            "set_flags": [
-                "vashka_wounded"
-            ],
-            "choices": [
-                {
-                    "text": "Press deeper into the mountain",
-                    "goto": "23"
-                }
-            ]
-        },
-        "23": {
-            "text": "The corridor descends. The walls pulse. The air smells of ozone and old blood. You pass chambers where cultists kneel in prayer, oblivious to your passage — their eyes rolled back, their lips moving in unison. The chanting is no longer something you hear. It is something you feel, a vibration in your bones.\n\nA side chamber opens to your left. It is small and appears to have been a storeroom, now used by the cult. You glimpse supplies, ritual implements, and what might be useful items.",
-            "choices": [
-                {
-                    "text": "Search the storeroom quickly",
-                    "goto": "25"
-                },
-                {
-                    "text": "Ignore it and press onward",
-                    "goto": "27"
-                }
-            ]
-        },
-        "24": {
-            "text": "The sealed door stands in the wall of the Court of Echoes. Up close, you can see it is not iron but something darker — a metal that seems to absorb the torchlight. The circular indentation at its centre is the exact shape of a signet ring.",
-            "choices": [
-                {
-                    "text": "Press Aldric's ring into the indentation",
-                    "goto": "24a",
-                    "requires_item": "aldrics_ring"
-                },
-                {
-                    "text": "Try to force the door open",
-                    "goto": "24b"
-                },
-                {
-                    "text": "Return to the Court of Echoes and try another path",
-                    "goto": "13"
-                }
-            ]
-        },
-        "24a": {
-            "text": "You press the ring into the indentation. It fits perfectly. The metal warms beneath your hand. A deep grinding sound reverberates through the wall, and the door splits down the centre, the two halves sliding apart with glacial slowness.\n\nBeyond it, a corridor descends into violet-tinged darkness. The air that rushes out is cold and carries the smell of a tomb — dust, dry bone, the memory of incense.\n\nThe chanting is loud now. Very loud. And it has quickened again.",
-            "choices": [
-                {
-                    "text": "Descend into the depths",
-                    "goto": "21"
-                }
-            ]
-        },
-        "24b": {
-            "text": "You throw your weight against the door. It does not move. You strike it with your blade — sparks fly but the metal is unmarked. You try the edges, the hinges, the stone around the frame. Nothing gives.\n\nThe door requires the ring. There is no forcing it.",
-            "test_luck": {
-                "lucky_text": "As you step back, frustrated, you notice a crack in the wall to the right of the door — barely visible, hidden behind a fallen pillar. It is narrow, and the stone beyond it is rough and jagged, but you can see faint violet light on the other side. You might be able to squeeze through.",
-                "lucky_goto": "24c",
-                "unlucky_text": "You search the walls, the floor, the pillars nearby. There is no other way through. You will need to find the ring that fits this door.",
-                "unlucky_goto": "13",
-                "lucky_stamina_cost": 0,
-                "unlucky_stamina_cost": 0,
-                "lucky_add_items": [],
-                "unlucky_add_items": []
-            }
-        },
-        "24c": {
-            "text": "You squeeze through the crack. The stone tears at your clothing and skin. It is a tight, claustrophobic passage, and for a terrible moment you are stuck — wedged between two slabs of rock with the mountain pressing on you from all sides.\n\nThen you push through, tumbling out into the corridor beyond the sealed door.",
-            "add_stamina": -2,
-            "choices": [
-                {
-                    "text": "Continue deeper",
-                    "goto": "21"
-                }
-            ]
-        },
-        "25": {
-            "text": "The storeroom is cluttered with the detritus of the cult's occupation — bedrolls, empty bottles, ritual diagrams scratched on slate. Among the clutter, you find useful things.\n\nA small glass vial of greenish liquid, labelled in a careful hand: 'Antitoxin — for spider-bite.' And tucked behind a crate, overlooked by the cultists, a black tallow candle covered in fine inscriptions.",
-            "choices": [
-                {
-                    "text": "Take the antitoxin",
-                    "goto": "25a",
-                    "requires_no_flag": "has_antitoxin"
-                },
-                {
-                    "text": "Take the candle",
-                    "goto": "25b",
-                    "requires_no_flag": "has_candle"
-                },
-                {
-                    "text": "Take everything useful and move on",
-                    "goto": "25c"
-                },
-                {
-                    "text": "Leave and continue deeper",
-                    "goto": "27"
-                }
-            ]
-        },
-        "25a": {
-            "text": "You pocket the vial. It might save your life.",
-            "add_items": [
-                "vial_of_antitoxin"
-            ],
-            "set_flags": [
-                "has_antitoxin"
-            ],
-            "choices": [
-                {
-                    "text": "Take the candle too",
-                    "goto": "25b",
-                    "requires_no_flag": "has_candle"
-                },
-                {
-                    "text": "Move on",
-                    "goto": "27"
-                }
-            ]
-        },
-        "25b": {
-            "text": "You pick up the candle. It is cool and waxy, covered in prayers for the dead.",
-            "add_items": [
-                "candle_of_dead_speak"
-            ],
-            "set_flags": [
-                "has_candle"
-            ],
-            "choices": [
-                {
-                    "text": "Take the antitoxin too",
-                    "goto": "25a",
-                    "requires_no_flag": "has_antitoxin"
-                },
-                {
-                    "text": "Move on",
-                    "goto": "27"
-                }
-            ]
-        },
-        "25c": {
-            "text": "You sweep the useful items into your pack. No sense leaving them for the cult.",
-            "add_items": [
-                "vial_of_antitoxin",
-                "candle_of_dead_speak"
-            ],
-            "set_flags": [
-                "has_antitoxin",
-                "has_candle"
-            ],
-            "choices": [
-                {
-                    "text": "Continue deeper into the mountain",
-                    "goto": "27"
-                }
-            ]
-        },
-        "26": {
-            "text": "Your vision darkens. The stone is cold against your back. The chanting fills the world, fills everything, and then it fades, and there is only silence.\n\nYou came to stop the darkness. Instead, you become part of it — another body in the mountain's collection, another failure the village will mourn.\n\nThe ritual continues without you.",
-            "ending": true,
-            "ending_type": "defeat"
-        },
-        "27": {
-            "text": "The King's Marrow.\n\nThe corridor is no longer stone. The walls are ridged and curved, faintly translucent, pulsing with violet light in a slow, organic rhythm. You are inside the mountain the way a splinter is inside flesh.\n\nThe chanting has stopped.\n\nThe silence is worse than the chanting. It has a texture — thick, expectant. You feel it in your teeth.",
-            "choices": [
-                {
-                    "text": "Press deeper into the Marrow",
-                    "goto": "27b",
-                    "requires_no_flag": "too_late"
-                },
-                {
-                    "text": "Press deeper into the Marrow",
-                    "goto": "35",
-                    "requires_flag": "too_late"
-                }
-            ]
-        },
-        "28": {
-            "text": "A second Bone Warden rises from the floor ahead of you. This one is larger than the first — its bones are older, darker, fused together with something that gleams like black resin. The sword at your hip pulses. The Warden's skull turns toward you.\n\nIt has been waiting.",
-            "combat": {
-                "enemy": "bone_warden",
-                "win_goto": "30",
-                "flee_goto": "26",
-                "flee_allowed": false
-            }
-        },
-        "29": {
-            "text": "The Bone Warden collapses into a heap of loose bones. You step over them. The corridor continues, narrowing, the walls pressing closer. The pulse of violet light quickens.",
-            "choices": [
-                {
-                    "text": "Continue forward",
-                    "goto": "30",
-                    "requires_no_flag": "cursed_blade"
-                },
-                {
-                    "text": "Continue forward",
-                    "goto": "28",
-                    "requires_flag": "cursed_blade"
-                }
-            ]
-        },
-        "30": {
-            "text": "The Bridge of Reflections.\n\nThe corridor opens onto a chasm. It is not wide — perhaps thirty paces — but it is deep. The bottom is lost in darkness that even the violet light cannot penetrate. A narrow bridge of white stone spans the gap, barely wide enough for one person.\n\nYou step onto the bridge. Halfway across, the air changes. A figure materialises on the far side, blocking your path.\n\nIt is you.\n\nNot a copy. Not an illusion. It is you as you were — before Kelmarsh Bridge, before the disgrace. It wears the armour you surrendered, bears the sword you were stripped of. Its eyes are clear and certain in a way yours have not been for years.\n\n'You showed mercy,' it says, in your voice. 'And it cost you everything. You know that. You have always known that.'\n\nIt draws its sword — your sword, the real one, the one you earned.\n\n'You should not have come here. You are not strong enough for what waits below. You were not strong enough then. You are not strong enough now.'",
-            "choices": [
-                {
-                    "text": "Fight your shadow",
-                    "goto": "30a"
-                },
-                {
-                    "text": "Hold up the Saint's Medallion",
-                    "goto": "30c",
-                    "requires_item": "saints_medallion"
-                },
-                {
-                    "text": "\"You're right. I showed mercy. I would do it again.\"",
-                    "goto": "30b"
-                }
-            ]
-        },
-        "30a": {
-            "text": "You raise your blade. The shadow raises its. It fights the way you used to fight — precise, disciplined, relentless. It knows every move you will make before you make it.\n\nBut it does not know what you have become since your fall. It does not know what desperation has taught you.",
-            "combat": {
-                "enemy": "shadow_self",
-                "win_goto": "31",
-                "flee_goto": "26",
-                "flee_allowed": false
-            }
-        },
-        "30b": {
-            "text": "The shadow stares at you. Its sword wavers.\n\n'Mercy is weakness,' it says. But its voice is uncertain now.\n\n'Mercy is what separates me from what waits at the bottom of this mountain,' you reply. 'I chose it once and I lost everything. And I would choose it again. Because the alternative is becoming something like Aldric.'\n\nThe shadow is silent for a long moment. Then it smiles — a thin, sad smile.\n\n'Then you are already lost,' it says. 'Or already saved. I cannot tell which.'\n\nIt lowers its sword and steps aside. As you pass, it dissolves into mist. But the words linger.\n\nYou wonder if it was right. But the doubt is gone from your hands. You grip your blade steadily for the first time since entering this mountain.",
-            "add_skill": 1,
-            "set_flags": [
-                "honour_broken"
-            ],
-            "choices": [
-                {
-                    "text": "Cross the bridge",
-                    "goto": "31"
-                }
-            ]
-        },
-        "30c": {
-            "text": "You raise the medallion. Saint Elara's bronze face catches the violet light and throws it back, transformed — warm gold instead of bruised purple. The shadow recoils.\n\n'That is not yours,' it hisses. 'You are not worthy of—'\n\n'Perhaps not,' you say. 'But I carry it anyway.'\n\nThe medallion's warmth flares. The shadow screams — a sound like tearing cloth — and flies apart into threads of darkness that dissolve in the golden light. The bridge is clear.\n\nThe warmth fades. You lower the medallion. Your hand is shaking. But something has passed through you — a steadiness, like a sword tempered in fire.",
-            "add_skill": 1,
-            "choices": [
-                {
-                    "text": "Cross the bridge",
-                    "goto": "31"
-                }
-            ]
-        },
-        "31": {
-            "text": "Beyond the bridge, the corridor descends one final time. The walls are translucent now — you can see shapes moving beyond them, shadows of things that might be memories or might be alive. The violet light is constant, no longer pulsing. It has settled into a steady glow, like the light before dawn. Or the light before an eclipse.\n\nYou can smell the throne room ahead. It smells of cold iron and centuries of undisturbed dust.\n\nYou are close. Very close.",
-            "choices": [
-                {
-                    "text": "Pour the holy water on your blade before entering",
-                    "goto": "32",
-                    "requires_item": "holy_water"
-                },
-                {
-                    "text": "Enter the throne room",
-                    "goto": "33"
-                }
-            ]
-        },
-        "32": {
-            "text": "You uncork the vial. The blessed water glows faintly as you pour it over your blade. It runs down the steel and vanishes, absorbed into the metal. For a moment, the edge gleams with a pale light.\n\nYou do not know exactly what effect it will have. But the village priest blessed this water with the last of his faith. You trust that it will matter.",
-            "remove_items": [
-                "holy_water"
-            ],
-            "set_flags": [
-                "holy_water_used"
-            ],
-            "choices": [
-                {
-                    "text": "Enter the throne room",
-                    "goto": "33"
-                }
-            ]
-        },
-        "33": {
-            "text": "The Throne of Bone.\n\nThe chamber is vast — a natural cavern at the mountain's heart, shaped by ancient hands into a cathedral of darkness. The ceiling arches impossibly high, stalactites hanging like stone teeth. The walls are studded with bones — skulls, ribcages, entire skeletons pressed into the rock, their empty eyes watching.\n\nAt the centre, on a dais of fused bone, stands the Throne. It is carved from a single massive femur — the bone of something that was never human. And on the Throne, Aldric sits. Not yet risen. Not yet alive. But no longer entirely dead. His body is mummified, clad in rotted finery. On his brow sits the Crown — black iron wrought in the shape of thorns. It pulses with violet light.\n\nVashka kneels before the Throne. Her hands are raised. Her voice is the last thread of the chanting — she is completing the ritual alone.",
-            "choices": [
-                {
-                    "text": "Rush forward and attack Vashka before she finishes",
-                    "goto": "34",
-                    "requires_no_flag": "vashka_wounded"
-                },
-                {
-                    "text": "Try to persuade Vashka to stop",
-                    "goto": "33a",
-                    "requires_flag": "vashka_shaken"
-                },
-                {
-                    "text": "Ignore Vashka and go straight for the Crown",
-                    "goto": "36"
-                },
-                {
-                    "text": "Call out to Vashka",
-                    "goto": "33b",
-                    "requires_flag": "vashka_wounded"
-                }
-            ]
-        },
-        "33a": {
-            "text": "You step forward and speak. Not a shout. Not a command. You speak to the woman who hesitated in the corridor. The woman who, for one instant, doubted.\n\n'You know what I told you is true. The Crown does not grant power. It devours it. Aldric was not its master — he was its meal. And when it is done with him, it will need another. Is that what you want, Vashka? To be consumed?'\n\nHer chanting falters. Her hands tremble.",
-            "test_luck": {
-                "lucky_text": "Vashka's voice breaks. She lowers her hands. The violet light flickers, gutters, steadies — but weaker now. The ritual is incomplete.\n\n'I have given everything for this,' she whispers. 'Everything.' She looks at you with eyes that are suddenly, terribly human. 'But you are right. I felt it when I wore the ritual vestments. The hunger. It was not power. It was appetite.'\n\nShe stands. She steps away from the Throne. 'Finish it,' she says. 'Destroy the Crown. Before I change my mind.'",
-                "lucky_goto": "36",
-                "unlucky_text": "Vashka's chanting falters — but only for a moment. Then her jaw sets and her voice rises again, stronger than before.\n\n'No,' she says. 'I have come too far. Given too much.' Her eyes harden. 'You had your chance to make me doubt. It will not work twice.'\n\nShe draws her dagger without breaking the chant. You will have to fight her.",
-                "unlucky_goto": "34",
-                "lucky_stamina_cost": 0,
-                "unlucky_stamina_cost": 0,
-                "lucky_add_items": [],
-                "unlucky_add_items": []
-            }
-        },
-        "33b": {
-            "text": "Vashka turns. She is pale, her robes dark with blood from the wound you gave her. She has been completing the ritual through sheer will, her voice ragged, her hands shaking.\n\n'You again,' she says. She tries to smile but it becomes a grimace of pain. 'You are persistent. I will grant you that.'\n\nShe cannot fight you. Not in this state. She knows it. You know it.\n\n'Finish the ritual or stop me,' you say. 'You cannot do both.'\n\nShe looks at the Throne. At Aldric's still form. At the Crown. Then she looks at you.\n\n'He had better be worth it,' she whispers. She steps aside. The chanting dies.\n\nThe ritual is incomplete. But Aldric stirs anyway. It may be enough.",
-            "set_flags": [
-                "vashka_convinced"
-            ],
-            "choices": [
-                {
-                    "text": "Approach the Throne",
-                    "goto": "36"
-                }
-            ]
-        },
-        "34": {
-            "text": "You charge across the chamber. Vashka rises to meet you, her dagger flashing. Behind her, the Crown pulses. The ritual continues even without her voice — it has its own momentum now.",
-            "combat": {
-                "enemy": "vashka",
-                "win_goto": "34a",
-                "flee_goto": "26",
-                "flee_allowed": false
-            }
-        },
-        "34a": {
-            "text": "Vashka falls. She does not die — she crawls away from you, leaving a trail of blood on the bone-white floor. 'Too late,' she whispers. 'Too late.'\n\nBehind her, the Crown's light intensifies. Aldric's fingers twitch. His mouth opens.\n\nThe ritual may be incomplete. But something is waking.",
-            "choices": [
-                {
-                    "text": "Approach the Throne before he fully rises",
-                    "goto": "36"
-                }
-            ]
-        },
-        "36": {
-            "text": "You stand before the Throne of Bone.\n\nAldric opens his eyes. They are violet — the same colour as the light that fills the mountain. He does not move. He does not need to. The Crown does the moving. The air thickens. Shadows pool around the Throne like dark water. The temperature drops until your breath comes in white clouds.\n\nHis mouth opens. When he speaks, it is not with one voice but with many — a chorus of every soul the Crown has ever consumed.\n\n'Kneel,' he says.\n\nThe word hits you like a physical force. Your knees buckle. The shadows press.\n\nBut you do not kneel. Not this time.",
-            "choices": [
-                {
-                    "text": "Attack Aldric now",
-                    "goto": "37",
-                    "requires_no_flag": "holy_water_used"
-                },
-                {
-                    "text": "Attack Aldric now (blade blessed with holy water)",
-                    "goto": "38",
-                    "requires_flag": "holy_water_used"
-                },
-                {
-                    "text": "Listen to what he has to say",
-                    "goto": "40"
-                }
-            ]
-        },
-        "37": {
-            "text": "You charge the Throne. Aldric rises — slowly, terribly, his mummified body moving with a grace that belongs to the Crown, not to the corpse it inhabits. He draws a sword from the air itself — a blade of condensed shadow that hums with the same violet light as the Crown.\n\nHis skill with a blade is a thousand years old. He has fought armies. He has broken kingdoms.\n\nBut he has not fought anyone in a very long time. And you have been fighting every day of your disgraced life.",
-            "choices": [
-                {
-                    "text": "Strike at the Crown while he doubts",
-                    "goto": "39",
-                    "requires_flag": "knows_crown_weakness"
-                },
-                {
-                    "text": "Fight him with everything you have",
-                    "goto": "37a"
-                }
-            ]
-        },
-        "37a": {
-            "text": "The Revenant King rises from his throne, shadow-blade raised. The Crown burns on his brow. This is the full power of Aldric the Undying, barely diminished by the incomplete ritual. The chamber shakes with each step he takes.\n\nYou raise your blade and meet him.",
-            "combat": {
-                "enemy": "aldrics_revenant",
-                "win_goto": "41",
-                "flee_goto": "26",
-                "flee_allowed": false
-            }
-        },
-        "38": {
-            "text": "You charge the Throne. The holy water on your blade flares — white-gold against the violet dark. Aldric recoils. The Crown screams — a sound beyond hearing, felt in the marrow of your bones. The blessed water burns the death-magic in his flesh, and for a moment, the Revenant King is diminished.\n\nHe rises, but slower. The violet light in his eyes flickers. The shadows around him are thinner.",
-            "choices": [
-                {
-                    "text": "Strike at the Crown while he doubts",
-                    "goto": "39",
-                    "requires_flag": "knows_crown_weakness"
-                },
-                {
-                    "text": "Fight him while he is weakened",
-                    "goto": "38a"
-                }
-            ]
-        },
-        "38a": {
-            "text": "The holy water has weakened him. His movements are slower, the shadow-blade less certain. But he is still Aldric the Undying, and the Crown still sits upon his brow. You must finish this.",
-            "combat": {
-                "enemy": "aldrics_revenant_weakened",
-                "win_goto": "41",
-                "flee_goto": "26",
-                "flee_allowed": false
-            }
-        },
-        "39": {
-            "text": "'The Crown is a parasite,' you shout. 'It fed on you. You were never its master — you were its host. You doubted once, Aldric. At the end. You saw what you had become and you were afraid.'\n\nThe Revenant flinches. The Crown flares. For one instant, the violet light in Aldric's eyes dims and you see something human behind it — ancient, exhausted, afraid.\n\nThe Crown cannot abide doubt. Strike now — while the wearer questions.",
-            "combat": {
-                "enemy": "aldrics_revenant_vulnerable",
-                "win_goto": "41",
-                "flee_goto": "26",
-                "flee_allowed": false
-            }
-        },
-        "40": {
-            "text": "You lower your weapon. You do not kneel. But you listen.\n\nAldric studies you. The chorus-voice softens to something almost intimate.\n\n'I know what you are,' he says. 'Disgraced. Nameless. Wandering. You showed mercy once, and they took everything from you for it. Your rank. Your honour. Your name.' His voice is almost gentle. 'I know how that feels. I was a second son. Overlooked. Dismissed. The Crown gave me what the world would not — a throne, a kingdom, a legacy that outlasted death itself.'\n\nThe shadows shift. You see images in them — a throne room gleaming with torchlight, crowds kneeling, a kingdom bending to a single will. It is intoxicating.\n\n'I offer you the same,' Aldric says. 'Take the Crown. Not as my servant — as my successor. The ritual raised me, but I am... tired. So tired. A thousand years is long enough. Take the Crown, and I will rest at last. And you will have everything you were denied.'",
-            "choices": [
-                {
-                    "text": "Refuse and attack him",
-                    "goto": "37",
-                    "requires_no_flag": "holy_water_used"
-                },
-                {
-                    "text": "Refuse and attack him (blade blessed with holy water)",
-                    "goto": "38",
-                    "requires_flag": "holy_water_used"
-                },
-                {
-                    "text": "Take the Crown",
-                    "goto": "44"
-                }
-            ]
-        },
-        "41": {
-            "text": "Aldric falls. His body crumples, the ancient joints failing, the death-magic that held him together unravelling like burning thread. The shadow-blade dissolves. The violet light gutters.\n\nThe Crown sits on his brow, still intact. Still pulsing. Weaker, but alive.\n\nYou reach down and seize it. The metal is cold — colder than ice, colder than anything you have ever touched. It whispers to you. It promises. It begs.\n\nYou raise the Crown above your head. For one terrible moment, you consider putting it on.\n\nThen you bring it down against the edge of the Throne with every ounce of strength you possess.",
-            "choices": [
-                {
-                    "text": "Shatter the Crown",
-                    "goto": "42"
-                }
-            ]
-        },
-        "42": {
-            "text": "The Crown cracks.\n\nThe sound is enormous — a detonation that echoes through every chamber of the palace, every corridor, every bone-lined hall. The violet light dies. The shadows shriek and fly apart. The walls of the King's Marrow shudder, and dust falls from the ceiling in sheets.\n\nThe Crown splits into three pieces in your hands. The whisper dies mid-syllable. The cold recedes.\n\nAnd then the mountain begins to shake.\n\nThe floor tilts. Stones fall. The Throne of Bone cracks down the middle. You hear a sound like the earth itself groaning, and you understand: the Crown was holding the palace together. Without it, the mountain is reclaiming its own.\n\nYou run.",
-            "test_luck": {
-                "lucky_text": "You sprint through the collapsing corridors. Stone falls behind you — always behind you, never on you. The bridge holds as you cross it. The stairs hold as you climb them. The Hall of Supplicants collapses at your back as you burst through the Pilgrim's Gate into cold, clean air.\n\nDawn. The eclipse has passed. The sky is pale and clear and ordinary. The violet light is gone.\n\nYou stand on the mountainside, covered in dust and blood, holding the broken fragments of the Crown. Below you, the village of Carragh's Foot is waking. Smoke rises from chimneys. Someone is ringing a bell.\n\nYou let the Crown fragments fall from your hands. They hit the ground and crumble to rust in seconds, as if a thousand years of decay have finally caught up.\n\nYou were a knight once. Then you were no one. Now — you are not sure what you are. But the sun is rising, and you are alive, and the darkness is gone.\n\nIt will do.",
-                "lucky_goto": "43",
-                "unlucky_text": "You sprint through the collapsing corridors. You cross the bridge as it cracks beneath your feet. You climb the stairs three at a time as they crumble behind you.\n\nYou almost make it.\n\nThe ceiling of the Hall of Supplicants gives way twenty paces from the gate. Stone buries you — not all at once, but in pieces, pinning your legs, your arms, your chest. You lie in the rubble and feel the mountain settling around you.\n\nBut the Crown is destroyed. The violet light is gone. Through a crack in the debris above you, you can see the sky — pale, clear, ordinary. Dawn. The eclipse has passed.\n\nYou cannot move. You can barely breathe. But you can see the sky.\n\nIt is enough.",
-                "unlucky_goto": "45",
-                "lucky_stamina_cost": 0,
-                "unlucky_stamina_cost": 0,
-                "lucky_add_items": [],
-                "unlucky_add_items": []
-            }
-        },
-        "43": {
-            "text": "You descend the mountain as the sun climbs. The dead trees are still dead, but the air smells different — cleaner. The iron taste is gone.\n\nBrida meets you at the edge of the village. She looks at your face and knows. She does not ask what happened in the mountain. She does not need to.\n\n'You did it,' she says.\n\n'The Crown is destroyed,' you reply.\n\nShe nods. 'Then you will need a new name. For the stories.' She looks at you with those steady eyes. 'What shall we call you?'\n\nYou think about it. You think about the knight you were, and the nothing you became, and the person who walked into a mountain full of darkness and walked out again.\n\n'Call me whatever you like,' you say. 'I am done choosing names.'\n\nBrida smiles. It is the first smile you have seen in this village.\n\nYou sit down on the steps of the chapel, in the morning sun, and you rest. For the first time in years, you rest.\n\nYOUR ADVENTURE IS OVER. YOU HAVE TRIUMPHED.",
-            "ending": true,
-            "ending_type": "victory"
-        },
-        "44": {
-            "text": "You reach out and take the Crown from Aldric's brow.\n\nHe sighs. A thousand years of weariness in that single sound. His eyes close. His body crumbles to dust, and the dust settles, and he is gone.\n\nThe Crown is lighter than you expected. The black iron is warm. The thorns do not cut you. You turn it in your hands and see your reflection in its surface — battered, bloodied, nameless. A person nobody wanted. A knight without a title, a soldier without a war, a wanderer who has been searching for something to belong to for so long that the search became the only thing left.\n\nYou place the Crown upon your head.\n\nThe cold does not come. Instead, there is warmth — a vast, encompassing warmth, like stepping into sunlight after years of rain. The mountain exhales. The violet light steadies, brightens, becomes almost golden. The bones in the walls seem to straighten, as if the dead are standing at attention. The Throne of Bone gleams.\n\nYou see the kingdom as it was. Not the ruin — the glory. The great halls lit with a thousand candles. The courts full of music and laughter. The roads safe, the harvests rich, the borders secure. Aldric built this. Before the madness, before the hunger — he built something beautiful. And the Crown shows you how to build it again.\n\nYou sit on the Throne. It fits you perfectly. It has always been waiting for you — you understand that now. Every disgrace, every loss, every cold night on the road was leading here. The Crown does not take from you. The Crown completes you.\n\nThe cultists enter the chamber. Vashka is among them, her wound bound. She looks at you on the Throne and her face transforms — awe, relief, vindication. She kneels. They all kneel.\n\n'Your Majesty,' she says.\n\nThe words settle into you like stones into still water. Your Majesty. You have never been called that. You have never been called anything that mattered. But this — this matters. This is real.\n\nThe mountain seals behind you. The Pilgrim's Gate closes. The corridor fills with stone. The village below will wonder what happened. In time, they will forget. In time, everyone will forget.\n\nBut inside the mountain, in the kingdom of the dead, the new Hollow King sits upon the Throne of Bone, and the Crown whispers, and the whisper sounds like everything you ever wanted.\n\nYou were a knight once. Then you were nothing. Now you are a king.\n\nAnd if the Crown is a cage, it is the most beautiful cage ever built. And if the whisper is a lie, it is the most perfect lie ever told. And if you are lost, you are lost in a palace of your own making, surrounded by subjects who adore you, ruling a kingdom that will never end.\n\nThe thorns do not hurt. They never hurt. That is the worst part.\n\nThat is the best part.\n\nYOUR ADVENTURE IS OVER.",
-            "ending": true,
-            "ending_type": "defeat"
-        },
-        "45": {
-            "text": "The mountain settles. Dust fills the air. Through the crack above you, the dawn light is golden and warm.\n\nYou cannot feel your legs. The weight on your chest makes each breath a labour. But the Crown is destroyed — you can feel its absence, a silence where the whisper used to be. The violet light is gone from the world.\n\nYou close your eyes. You think about Kelmarsh Bridge. The rebel lord's children, running. The choice you made. The mercy that cost you everything.\n\nIt was the right choice. You know that now. You have always known it.\n\nSomewhere above, you hear voices. The villagers, coming to see what happened. They will find the rubble. They may find you. It does not matter.\n\nThe Crown is broken. The darkness is gone. The sun is rising.\n\nYou rest.\n\nYOUR ADVENTURE IS OVER. THE CROWN IS DESTROYED, AND THE DARKNESS WITH IT.",
-            "ending": true,
-            "ending_type": "victory"
-        },
-        "15_late": {
-            "text": "You pull out a chair and sit. The chapel took longer than you intended. The hour presses against you like a physical thing.\n\nThe ghosts turn to look at you — slowly, one by one. The nearest leans forward and mouths something urgent. Its hands move in a gesture you read as warning, not welcome.\n\nThen the mountain shudders. A deep harmonic resonance rolls up through the floor — felt in the chest rather than heard. The ritual. It is progressing faster than you thought.\n\nOne of the courtiers rises from its seat, reaching for you. The moment has already cost too much.",
-            "set_flags": [
-                "sat_banquet",
-                "too_late"
-            ],
-            "test_luck": {
-                "lucky_text": "You shove back from the table before the ghost can seize you, overturning your chair. The vision comes anyway — fragmented, fast, the Crown on Aldric's brow and how his eyes changed. Enough. You know enough. You run.",
-                "lucky_goto": "17",
-                "unlucky_text": "The ghost's hands close on your arm. Cold races through you — not pain, but absence. You tear free and stagger, losing precious moments. The chanting below shifts pitch. They are close to done.",
-                "unlucky_goto": "15a",
-                "lucky_stamina_cost": 0,
-                "unlucky_stamina_cost": 2,
-                "lucky_add_items": [],
-                "unlucky_add_items": []
-            }
-        },
-        "27b": {
-            "text": "Ahead, the corridor widens. A shape blocks the path — massive, angular, assembled from the bones of a hundred dead. A Bone Warden. It turns its hollow skull toward you and raises arms made of lashed-together femurs.\n\nThere is no way around it.",
-            "combat": {
-                "enemy": "bone_warden",
-                "win_goto": "29",
-                "flee_goto": "26",
-                "flee_allowed": false
-            }
-        },
-        "35": {
-            "text": "The Throne of Bone.\n\nBut you are too late.\n\nVashka stands at the centre of the chamber, her arms raised, her face alight with something between rapture and terror. The Crown glows on the throne — white-hot, the iron no longer black but blazing. As you watch, it rises from the throne.\n\nIt settles onto a head that has just lifted from the chest.\n\nAldric the Unbroken opens his eyes. They are not violet, like the light of his palace. They are perfectly, utterly black.\n\nVashka lowers her arms. She turns to see you. There is no triumph in her face. Only the slow, dawning horror of someone who has just understood what she has done.\n\nAldric does not look at her. He looks at you. His voice, when it comes, is not a voice. It is the palace speaking — every chamber, every corridor, every stone.\n\n'Another supplicant,' it says. 'Good. I am hungry.'\n\nThe Bone Wardens begin to rise.",
-            "choices": [
-                {
-                    "text": "Stand your ground and fight",
-                    "goto": "35a"
-                },
-                {
-                    "text": "Run — the way you came",
-                    "goto": "35b",
-                    "style": "danger"
-                }
-            ]
-        },
-        "35a": {
-            "text": "You charge. It is a good death — better than the one you might have had rotting in a ditch somewhere, disgraced and forgotten. The Hollow King's blade rises to meet yours.",
-            "combat": {
-                "enemy": "aldric_full",
-                "win_goto": "43",
-                "flee_goto": "35b",
-                "flee_allowed": true,
-                "flee_stamina_cost": 3
-            }
-        },
-        "35b": {
-            "text": "You run. The mountain shakes around you. Behind you, Aldric's voice fills every passage, every chamber — not angry, not triumphant, simply vast and patient.\n\n'Run,' it says. 'Tell them I am coming.'\n\nYou burst out of the Pilgrim's Gate as the sun clears the eastern ridge. In Carragh's Foot, the villagers are watching the mountain. They see you emerge. They see your face.\n\nThey do not need to ask.\n\nThe eclipse is past. The ritual is done. What walks in the mountain now will not stop at the valley. You have failed — not because you were weak, but because the hour ran out while you were still searching.\n\nThis time, at least, you know the difference.",
-            "ending": true,
-            "ending_type": "defeat"
-        }
+    "saints_medallion": {
+      "name": "Saint's Medallion",
+      "type": "quest",
+      "description": "A bronze disc bearing the face of Saint Elara the Unyielding, patron of those who resist corruption. It is warm to the touch."
+    },
+    "silver_dagger": {
+      "name": "Silver Dagger",
+      "type": "weapon",
+      "skill_bonus": 1,
+      "description": "A slender blade of consecrated silver. It hums faintly in the presence of the undead. +1 SKILL in combat."
+    },
+    "wraithbane_blade": {
+      "name": "Wraithbane Blade",
+      "type": "weapon",
+      "skill_bonus": 3,
+      "damage_bonus": 1,
+      "description": "A sword of black steel that drinks the light around it. Ancient runes pulse along its edge. It whispers when you hold it. +3 SKILL and +1 DAMAGE in combat."
+    },
+    "aldrics_ring": {
+      "name": "Aldric's Signet Ring",
+      "type": "quest",
+      "description": "A heavy ring of tarnished silver, set with a stone the colour of a bruise. The seal depicts a crown above an open grave."
+    },
+    "holy_water": {
+      "name": "Holy Water",
+      "type": "quest",
+      "description": "A clay vial sealed with wax, blessed by the village priest with the last of his faith. The liquid inside glows faintly."
+    },
+    "candle_of_dead_speak": {
+      "name": "Candle of Dead-Speak",
+      "type": "quest",
+      "description": "A black tallow candle inscribed with prayers for the restless dead. Its flame burns without heat and sheds a light only spirits can see."
+    },
+    "vial_of_antitoxin": {
+      "name": "Vial of Antitoxin",
+      "type": "consumable",
+      "stamina_restore": 2,
+      "description": "A murky green liquid brewed from mountain herbs. Neutralises common venoms. Restores 2 STAMINA."
     }
+  },
+  "enemies": {
+    "cult_sentinel": {
+      "name": "Cult Sentinel",
+      "skill": 7,
+      "stamina": 6
+    },
+    "tomb_spider": {
+      "name": "Tomb Spider",
+      "skill": 6,
+      "stamina": 5
+    },
+    "vashka": {
+      "name": "Vashka, High Priestess",
+      "skill": 9,
+      "stamina": 8
+    },
+    "shadow_self": {
+      "name": "Shadow of Your Former Self",
+      "skill": 8,
+      "stamina": 8
+    },
+    "bone_warden": {
+      "name": "Bone Warden",
+      "skill": 8,
+      "stamina": 7
+    },
+    "aldrics_revenant": {
+      "name": "Aldric's Revenant",
+      "skill": 9,
+      "stamina": 12
+    },
+    "aldrics_revenant_weakened": {
+      "name": "Aldric's Revenant (Weakened)",
+      "skill": 9,
+      "stamina": 8
+    },
+    "aldrics_revenant_vulnerable": {
+      "name": "Aldric's Revenant (Vulnerable)",
+      "skill": 7,
+      "stamina": 8
+    },
+    "ghost_courtier": {
+      "name": "Ghost Courtier",
+      "skill": 8,
+      "stamina": 6
+    },
+    "aldric_full": {
+      "name": "Aldric the Fully Risen",
+      "skill": 11,
+      "stamina": 18
+    }
+  },
+  "passages": {
+    "1": {
+      "text": "The village of Carragh's Foot is barely a village at all. A dozen stone cottages pressed against the mountain's base, their windows shuttered against a wind that carries the smell of turned earth and cold metal. The sky to the east is bruised violet where the eclipse approaches.\n\nThe elder, a weathered woman named Brida, meets you at the village square. Her eyes are steady but her hands shake.\n\n'The Witnesses entered the mountain three days ago,' she says. 'We hear chanting at night. The ground trembles. Whatever they are doing in there, it is almost finished.' She presses a bundle into your arms — sword, food, a waterskin. 'The Pilgrim's Gate is the only way in. It is guarded.'\n\nShe hesitates, then adds: 'There is a dead cultist in the alley behind the chapel. He came down the mountain yesterday, raving, and died before we could question him. And the chapel itself — Father Morcant left something on the altar before he fled. He said it might help against what lives in that mountain.'\n\nThe violet glow on the peak pulses. You do not have much time.",
+      "choices": [
+        {
+          "text": "Search the village before heading to the mountain",
+          "goto": "2"
+        },
+        {
+          "text": "Head straight for the Pilgrim's Gate",
+          "goto": "4"
+        }
+      ]
+    },
+    "2": {
+      "text": "You move quickly through the village. Time presses, but preparation has saved your life before.\n\nBehind the chapel, you find the dead cultist slumped against the wall. His face is frozen in an expression of ecstatic terror. He wears a violet robe stitched with silver sigils — still intact, though stained with blood. You strip it from the corpse. It might serve as a disguise.\n\nInside the chapel, the air is cool and still. On the altar lies a clay vial sealed with wax. A note in a trembling hand reads: 'Blessed water. Last of it. God forgive me for running.' Beside it, wrapped in cloth, you find a silver dagger with a faintly luminous edge.\n\nYou take what you can carry. The mountain waits.",
+      "add_items": [
+        "cult_robe",
+        "holy_water",
+        "silver_dagger"
+      ],
+      "choices": [
+        {
+          "text": "Head for the Pilgrim's Gate",
+          "goto": "4"
+        }
+      ]
+    },
+    "4": {
+      "text": "You climb the goat-track that winds up the mountain's flank. The air grows colder with each step. The trees here are dead — not bare, but dead, their bark split and weeping black sap. The violet glow is brighter now, pulsing in a slow rhythm like a heartbeat.\n\nAfter an hour's climb, the track ends at a ledge overlooking a wide stone gateway carved into the mountainside. The Pilgrim's Gate. Three figures in violet robes stand before it, their faces hidden beneath deep hoods. Sentinels of the Witnesses.\n\nBeyond them, the gate yawns open into darkness. You can hear chanting from within — low, rhythmic, reverberating through the stone itself.",
+      "choices": [
+        {
+          "text": "Attack the sentinels head-on",
+          "goto": "5"
+        },
+        {
+          "text": "Wear the cultist's robe and bluff your way past",
+          "goto": "10",
+          "requires_item": "cult_robe"
+        },
+        {
+          "text": "Look for another way in",
+          "goto": "11"
+        }
+      ]
+    },
+    "5": {
+      "text": "You draw your blade and charge. The nearest sentinel turns, reaching for a curved dagger at his belt. His companions scatter — one runs inside, the other fumbles with something beneath his robes. But this one stands his ground.\n\nHe is faster than he looks.",
+      "combat": {
+        "enemy": "cult_sentinel",
+        "win_goto": "6",
+        "flee_goto": "11",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "6": {
+      "text": "The sentinel crumples. The other two have fled deeper into the mountain. No matter — you are inside.\n\nThe Hall of Supplicants opens before you. It was a pilgrim's receiving hall once, centuries ago, when people came to the mountain to honour their dead kings. The ceiling vaults high above, lost in shadow. Tattered banners hang from iron brackets, their heraldry rotted beyond recognition. The floor is tiled in black and white marble, cracked and uneven.\n\nThe chanting is louder here. It echoes from below, rising through the stone like heat. Two passages lead onward: wide stairs descending straight ahead toward the source of the sound, and a narrow archway to your left that opens into what appears to be a side chapel.",
+      "choices": [
+        {
+          "text": "Descend the main stairs toward the chanting",
+          "goto": "8"
+        },
+        {
+          "text": "Explore the side chapel first",
+          "goto": "7"
+        }
+      ]
+    },
+    "7": {
+      "text": "The side chapel is small and surprisingly intact. Dust covers everything, but the stonework is unbroken. An altar stands against the far wall, carved with the image of a woman holding a shield above a kneeling figure — Saint Elara the Unyielding, patron of those who resist corruption.\n\nAround the altar's base, someone has carved words in an older script. You kneel to read them:\n\n'THE CROWN FEEDS ON SURRENDER. IT CANNOT BE WORN BY ONE WHO REFUSES IT. TO DESTROY IT, STRIKE WHILE THE WEARER DOUBTS.'\n\nHanging from a hook behind the altar, you find a bronze medallion bearing Saint Elara's face. It is strangely warm.\n\nYou sit with it for a moment. Knowing what you face — truly knowing — steadies something in you.",
+      "add_items": [
+        "saints_medallion"
+      ],
+      "add_skill": 1,
+      "set_flags": [
+        "knows_crown_weakness",
+        "explored_chapel"
+      ],
+      "choices": [
+        {
+          "text": "Return to the hall and descend the main stairs",
+          "goto": "8"
+        }
+      ]
+    },
+    "8": {
+      "text": "The stairs spiral downward into the mountain. The air is damp and tastes of mineral and something sweeter — incense, perhaps, or decay. Your footsteps echo.\n\nYou are halfway down when the wall to your left splits open. A shape erupts from the crack — pale, many-legged, fast. A tomb spider, its body the size of a hunting dog, mandibles dripping with venom. It drops onto the stairs between you and the way down.\n\nThere is no room to go around it.",
+      "combat": {
+        "enemy": "tomb_spider",
+        "win_goto": "9",
+        "flee_goto": "8a",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "8a": {
+      "text": "You stumble back up the stairs, the spider's mandibles snapping at your heels. Venom spatters your arm — a burning line of pain. You slam your shoulder into the chapel doorway and the spider skitters back into its crack, unwilling to follow into the light.\n\nThe venom throbs in your arm. Your movements feel sluggish, your grip uncertain. You will need to deal with the spider to descend.",
+      "add_stamina": -2,
+      "add_skill": -1,
+      "choices": [
+        {
+          "text": "Use the antitoxin to neutralise the venom",
+          "goto": "8b",
+          "requires_item": "vial_of_antitoxin"
+        },
+        {
+          "text": "Steel yourself and face the spider again",
+          "goto": "8"
+        }
+      ]
+    },
+    "8b": {
+      "text": "You uncork the vial and drink. The antitoxin is foul but effective — the burning in your arm fades to a dull ache within moments.",
+      "remove_items": [
+        "vial_of_antitoxin"
+      ],
+      "add_stamina": 2,
+      "choices": [
+        {
+          "text": "Face the spider again",
+          "goto": "8"
+        }
+      ]
+    },
+    "9": {
+      "text": "The spider twitches and curls in on itself, legs folding inward. You wipe your blade and continue down.\n\nThe stairs end at a vast space. The air here is colder, and the chanting — which had been a constant drone — has shifted. It is faster now. More urgent. The violet glow seeps through cracks in the walls, painting everything in bruised light.\n\nYou stand at the threshold of the Court of Echoes — the ceremonial heart of the ancient palace. Whatever happens next, you are committed. There is no easy way back up those stairs.",
+      "choices": [
+        {
+          "text": "Enter the Court of Echoes",
+          "goto": "13"
+        }
+      ]
+    },
+    "10": {
+      "text": "You pull the dead cultist's robe over your armour, tucking your blade beneath its folds. The fabric is heavier than it looks, and the silver sigils seem to writhe at the edges of your vision.\n\nYou walk toward the sentinels. Your heart hammers. One of them raises a hand.\n\n'Late,' he says. His voice is flat, devoid of personality. 'The Second Invocation has already begun. Hurry.'\n\nHe steps aside. You pass through the Pilgrim's Gate without a blade drawn.",
+      "choices": [
+        {
+          "text": "Enter the Hall of Supplicants",
+          "goto": "6"
+        }
+      ]
+    },
+    "11": {
+      "text": "You circle the gateway, keeping low. The mountainside is rough and broken — centuries of frost have cracked the stone. Fifty paces to the right of the gate, you spot a section of wall where the rock has crumbled away, leaving a gap just wide enough for a person to squeeze through.\n\nThe gap is narrow and dark. Loose stones shift beneath your hands as you climb toward it.",
+      "test_luck": {
+        "lucky_text": "You slide through the gap cleanly. The stones hold. You emerge in a dusty corridor behind the Hall of Supplicants, cobwebs breaking across your face. You brush them away and orient yourself.",
+        "lucky_goto": "6",
+        "unlucky_text": "Halfway through, the stones shift. A slab grinds against your ribs and you feel something crack. You bite down on a cry of pain and force yourself through, tumbling into a dusty corridor. You lie still for a moment, breathing hard, then rise.",
+        "unlucky_goto": "6",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 3,
+        "lucky_add_items": [],
+        "unlucky_add_items": []
+      }
+    },
+    "13": {
+      "text": "The Court of Echoes is vast. The ceiling is lost in darkness. Massive pillars carved to resemble robed figures line the hall, their stone faces worn smooth by time. Between them, the violet light pulses.\n\nThree passages branch from the court. Ahead, through a grand archway, you glimpse an enormous hall — a long table, the glint of tarnished silver, shapes moving in the gloom. The Feast Hall.\n\nTo the left, a narrower corridor slopes downward. You catch the gleam of metal — weapons, perhaps armour. The Treasury wing.\n\nTo the right, a sealed door of black iron stands in the wall. A circular indentation marks its centre — the shape of a signet ring. Beyond it, you sense depth. The deeper chambers.\n\nThe chanting pulses through the floor beneath your feet, faster than before.",
+      "choices": [
+        {
+          "text": "Enter the Feast Hall ahead",
+          "goto": "14"
+        },
+        {
+          "text": "Explore the Treasury corridor to the left",
+          "goto": "18"
+        },
+        {
+          "text": "Examine the sealed door to the right",
+          "goto": "24"
+        }
+      ]
+    },
+    "14": {
+      "text": "The Feast Hall stretches before you like a wound in the mountain. A banquet table runs its entire length, set with plates of corroded silver, goblets crusted with age, and candelabras whose candles have burned down to pools of ancient wax. The food on the plates has not rotted. It has calcified — turned to grey stone, preserving every detail of a feast served a thousand years ago.\n\nAnd the dead are eating.\n\nThey sit in the chairs — dozens of them, translucent figures in fine clothes, going through the motions of a celebration that ended ten centuries ago. They lift empty goblets, tear at stone bread, turn to companions and mouth silent words. They do not seem to notice you.\n\nThe air is cold enough that your breath steams. You feel a pull, a gentle suggestion, to sit down and join them.",
+      "choices": [
+        {
+          "text": "Sit down at the table",
+          "goto": "15",
+          "requires_no_flag": "explored_chapel"
+        },
+        {
+          "text": "Sit down at the table",
+          "goto": "15_late",
+          "requires_flag": "explored_chapel"
+        },
+        {
+          "text": "Light the Candle of Dead-Speak and sit down",
+          "goto": "16",
+          "requires_item": "candle_of_dead_speak"
+        },
+        {
+          "text": "Walk past the banquet without stopping",
+          "goto": "17"
+        }
+      ]
+    },
+    "15": {
+      "text": "You pull out a chair and sit. The wood creaks. The ghosts turn to look at you — slowly, one by one, their hollow eyes focusing.\n\nFor a moment, nothing happens. Then the nearest ghost leans toward you. Its mouth moves. You cannot hear it, but you feel something — a pressure behind your eyes, a sensation like remembering a dream.",
+      "set_flags": [
+        "sat_banquet"
+      ],
+      "test_luck": {
+        "lucky_text": "The ghost smiles. You feel warmth — sudden and unexpected in this frozen hall. Images flood your mind: the palace in its glory, the throne room ablaze with torchlight, and the Crown — you see it clearly, black iron wrought in the shape of thorns. The ghost shows you a memory: the king placing the Crown upon his head, and how his eyes changed. The Crown does not serve its wearer. The wearer serves the Crown.\n\nThe ghost releases you. The vision fades, but the knowledge remains.",
+        "lucky_goto": "17",
+        "unlucky_text": "The ghost's expression twists. The temperature drops further. Every ghost at the table turns to face you. Their mouths open in silent screams and the pressure behind your eyes becomes pain — blinding, searing. You shove back from the table and draw your blade.\n\nOne of the courtiers rises from its chair. It is more solid than the others. Older. Angrier.",
+        "unlucky_goto": "15a",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0,
+        "lucky_add_items": [],
+        "unlucky_add_items": []
+      }
+    },
+    "15a": {
+      "text": "The ghost courtier drifts toward you, its translucent hands curled into claws. The other ghosts watch from their seats, unmoving.",
+      "combat": {
+        "enemy": "ghost_courtier",
+        "win_goto": "17",
+        "flee_goto": "17",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "16": {
+      "text": "You set the Candle of Dead-Speak on the table and light it. The flame catches — blue-white, heatless. The ghosts stir. Their hollow eyes fix on the candle's light, and for the first time in a thousand years, their mouths produce sound.\n\nWhispers fill the hall. A cacophony of dead voices, overlapping, pleading, rambling. Then one voice rises above the rest — clear and calm.\n\n'You carry the candle. You can hear us.' The ghost across from you resolves into sharper focus. A woman in court dress, her face gaunt, her eyes like dark water. 'I was Morwen. I was the king's astronomer. I watched him take the Crown.'\n\nShe leans forward. 'The Crown is not a thing of power. It is a parasite. It feeds on the wearer's will. Every act of dominion strengthens it, and weakens the one who wears it. But it cannot abide doubt. It cannot survive a wearer who questions. Strike when the wearer doubts, and the Crown will crack.'\n\nShe looks at you steadily. 'Aldric doubted once. At the end. I saw it. He looked at what he had become and for one moment, he was afraid. The cult has spent a thousand years burying that doubt. You must resurrect it.'\n\nThe candle gutters and the ghosts fade to silence.",
+      "set_flags": [
+        "knows_crown_weakness",
+        "sat_banquet"
+      ],
+      "choices": [
+        {
+          "text": "Continue through the Feast Hall",
+          "goto": "17"
+        }
+      ]
+    },
+    "17": {
+      "text": "You pass through the far end of the Feast Hall. A low corridor leads onward, the walls narrowing. The violet light is stronger here — it seeps from the joints between stones, from cracks in the floor. Somewhere below, the chanting continues, faster now. You can feel it in your teeth.\n\nThe corridor opens into the Treasury wing. Steps lead down.",
+      "choices": [
+        {
+          "text": "Descend to the Treasury",
+          "goto": "18"
+        },
+        {
+          "text": "Return to the Court of Echoes and take a different path",
+          "goto": "13"
+        }
+      ]
+    },
+    "18": {
+      "text": "The Treasury is a series of vaulted alcoves branching from a central corridor. Most have been stripped bare — looted centuries ago, or emptied by the cult. But in the deepest alcove, resting on a stone pedestal, you find a signet ring. Heavy. Tarnished silver. The seal depicts a crown above an open grave.\n\nAldric's ring. The key to the sealed door in the Court of Echoes.\n\nThe chanting swells, then drops to a whisper. The rhythm is changing. Whatever the cult is doing, it is entering a new phase. You should move quickly.\n\nA side passage leads to the Armoury.",
+      "add_items": [
+        "aldrics_ring"
+      ],
+      "choices": [
+        {
+          "text": "Continue to the Armoury",
+          "goto": "19"
+        },
+        {
+          "text": "Return to the Court of Echoes and use the ring on the sealed door",
+          "goto": "24"
+        }
+      ],
+      "set_flags": [
+        "has_ring"
+      ]
+    },
+    "19": {
+      "text": "The Armoury of the Damned.\n\nThe name is carved above the entrance in letters that still gleam after a thousand years. Inside, weapon racks line the walls — mostly empty, the blades long since crumbled to rust. But one weapon remains.\n\nA sword hangs alone on the far wall, suspended between two iron brackets. Its blade is black steel, darker than shadow, and runes pulse along its edge in a rhythm that matches the chanting below. The air around it shimmers. It is beautiful in the way that a viper is beautiful.\n\nYou sense power in it. And something else. Something hungry.\n\nBeside it, on a shelf, you notice a small black candle inscribed with spiralling prayers.",
+      "choices": [
+        {
+          "text": "Take the black sword",
+          "goto": "19a"
+        },
+        {
+          "text": "Take only the candle and leave the sword",
+          "goto": "20"
+        },
+        {
+          "text": "Take both",
+          "goto": "19b"
+        },
+        {
+          "text": "Leave the Armoury without taking anything",
+          "goto": "20a"
+        }
+      ]
+    },
+    "19a": {
+      "text": "You lift the sword from its brackets. The moment your fingers close around the grip, cold races up your arm and settles in your chest like a stone. The runes flare. The blade is lighter than it should be — it moves like an extension of your will.\n\nBut something whispers at the back of your mind. Not words. A feeling. Possessiveness. Hunger.\n\nYou slide your borrowed sword into the weapon rack and hang the black blade at your hip. It feels right there. It feels like it has always been there.\n\nThat should worry you more than it does.",
+      "add_items": [
+        "wraithbane_blade"
+      ],
+      "remove_items": [
+        "borrowed_sword"
+      ],
+      "set_flags": [
+        "cursed_blade"
+      ],
+      "choices": [
+        {
+          "text": "Continue onward",
+          "goto": "20a"
+        }
+      ]
+    },
+    "19b": {
+      "text": "You lift the sword from its brackets. Cold races up your arm and settles in your chest. The runes flare. The blade whispers at the back of your mind — not words, but a feeling of hunger, of rightness.\n\nYou slide your borrowed sword into the rack and take the candle from the shelf. The candle is cold and waxy, its inscriptions too fine to read in this light.\n\nThe black blade hangs at your hip like it has always been there.",
+      "add_items": [
+        "wraithbane_blade",
+        "candle_of_dead_speak"
+      ],
+      "remove_items": [
+        "borrowed_sword"
+      ],
+      "set_flags": [
+        "cursed_blade"
+      ],
+      "choices": [
+        {
+          "text": "Continue onward",
+          "goto": "20a"
+        }
+      ]
+    },
+    "20": {
+      "text": "You leave the black sword where it hangs. Something about it feels wrong — not the blade itself, but the eagerness with which your hand reached for it.\n\nYou take the candle. It is heavier than it looks, cool and smooth, its surface covered in spiralling script too fine to read in this light. A candle for speaking with the dead.",
+      "add_items": [
+        "candle_of_dead_speak"
+      ],
+      "choices": [
+        {
+          "text": "Continue onward",
+          "goto": "20a"
+        }
+      ]
+    },
+    "20a": {
+      "text": "You leave the Armoury and retrace your steps. The Treasury corridor is empty. The chanting has not stopped, but its character has changed — there is a raw edge to it now, a desperation. As if the chanters themselves are frightened of what they are calling.\n\nYou need to reach the deeper chambers. The sealed door in the Court of Echoes requires Aldric's signet ring.",
+      "choices": [
+        {
+          "text": "Go to the sealed door in the Court of Echoes",
+          "goto": "24",
+          "requires_item": "aldrics_ring"
+        },
+        {
+          "text": "Search for another way deeper",
+          "goto": "25",
+          "requires_no_flag": "has_ring"
+        },
+        {
+          "text": "Return to the Court of Echoes",
+          "goto": "13"
+        }
+      ]
+    },
+    "21": {
+      "text": "The corridor beyond the sealed door descends steeply. The walls change — the dressed stone gives way to rough-hewn rock, then to something else. Something organic. The surfaces are ridged and curved, like the inside of a ribcage. The violet light pulses from within the stone itself.\n\nYou round a corner and stop.\n\nA woman stands in the corridor. She wears the violet robes of the Witnesses, but hers are finer — threaded with gold, clasped at the throat with a brooch shaped like a screaming mouth. Her head is shaved, her eyes dark and bright. She is beautiful in the way that a blade is beautiful.\n\n'So,' she says. 'The village sent someone after all.' She tilts her head, studying you. 'I am Vashka. I lead the Witnesses. And you are too late to stop what is coming.' She smiles. 'But I admire the attempt.'\n\nThe chanting swells behind her. She does not flinch.",
+      "choices": [
+        {
+          "text": "Draw your weapon and attack",
+          "goto": "22"
+        },
+        {
+          "text": "Tell her you know the Crown's weakness",
+          "goto": "21a",
+          "requires_flag": "knows_crown_weakness"
+        },
+        {
+          "text": "Try to reason with her",
+          "goto": "21b"
+        }
+      ]
+    },
+    "21a": {
+      "text": "'The Crown is a parasite,' you say. 'It does not grant power. It feeds on the wearer. Aldric was its slave, not its master.'\n\nVashka's smile falters. For an instant — just an instant — you see doubt in her eyes. She has dedicated her life to this cause. She has killed for it. The possibility that it is built on a lie flickers across her face like a shadow.\n\nThen she masters herself. 'You know nothing,' she says. But her voice is not as steady as before. 'The Crown chose Aldric. It will choose again. And those who serve the Crown will be rewarded.'\n\nShe turns and walks deeper into the mountain. She does not attack you. She does not look back.\n\nBut you saw the doubt. It was real.",
+      "set_flags": [
+        "vashka_shaken"
+      ],
+      "choices": [
+        {
+          "text": "Follow her deeper",
+          "goto": "23"
+        }
+      ]
+    },
+    "21b": {
+      "text": "'This ritual will destroy you along with everyone else,' you say. 'Aldric was a tyrant. The Crown is a curse. Why would you bring that back?'\n\nVashka laughs. It is not a cruel laugh. It is the laugh of someone who has heard this argument before and found it wanting.\n\n'Because the world is ruled by those who take,' she says. 'And the Crown is the purest form of taking. Aldric was not a tyrant — he was a revelation. And when he rises, those who served him will stand at his right hand.'\n\nHer hand drops to a dagger at her belt. 'You can leave. Or you can die here. Choose quickly — I have a ritual to complete.'",
+      "choices": [
+        {
+          "text": "Attack her",
+          "goto": "22"
+        },
+        {
+          "text": "Let her go and follow at a distance",
+          "goto": "23"
+        }
+      ]
+    },
+    "22": {
+      "text": "You draw your blade. Vashka's dagger appears in her hand with practised speed. She is faster than you expected — faster than any priestess should be. The corridor is narrow. There is no room for subtlety.",
+      "combat": {
+        "enemy": "vashka",
+        "win_goto": "22a",
+        "flee_goto": "23",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "22a": {
+      "text": "Vashka staggers back, blood running from a wound in her side. She looks at you with something that might be respect, or might be hatred.\n\n'It does not matter,' she gasps. 'The ritual is almost complete. Kill me and another will finish it.' She presses her hand to the wound and retreats deeper into the corridor, moving faster than a wounded person should.\n\nYou let her go. She will not fight you again soon — but she spoke the truth. The ritual continues without her.",
+      "set_flags": [
+        "vashka_wounded"
+      ],
+      "choices": [
+        {
+          "text": "Press deeper into the mountain",
+          "goto": "23"
+        }
+      ]
+    },
+    "23": {
+      "text": "The corridor descends. The walls pulse. The air smells of ozone and old blood. You pass chambers where cultists kneel in prayer, oblivious to your passage — their eyes rolled back, their lips moving in unison. The chanting is no longer something you hear. It is something you feel, a vibration in your bones.\n\nA side chamber opens to your left. It is small and appears to have been a storeroom, now used by the cult. You glimpse supplies, ritual implements, and what might be useful items.",
+      "choices": [
+        {
+          "text": "Search the storeroom quickly",
+          "goto": "25"
+        },
+        {
+          "text": "Ignore it and press onward",
+          "goto": "27"
+        }
+      ]
+    },
+    "24": {
+      "text": "The sealed door stands in the wall of the Court of Echoes. Up close, you can see it is not iron but something darker — a metal that seems to absorb the torchlight. The circular indentation at its centre is the exact shape of a signet ring.",
+      "choices": [
+        {
+          "text": "Press Aldric's ring into the indentation",
+          "goto": "24a",
+          "requires_item": "aldrics_ring"
+        },
+        {
+          "text": "Try to force the door open",
+          "goto": "24b"
+        },
+        {
+          "text": "Return to the Court of Echoes and try another path",
+          "goto": "13"
+        }
+      ]
+    },
+    "24a": {
+      "text": "You press the ring into the indentation. It fits perfectly. The metal warms beneath your hand. A deep grinding sound reverberates through the wall, and the door splits down the centre, the two halves sliding apart with glacial slowness.\n\nBeyond it, a corridor descends into violet-tinged darkness. The air that rushes out is cold and carries the smell of a tomb — dust, dry bone, the memory of incense.\n\nThe chanting is loud now. Very loud. And it has quickened again.",
+      "choices": [
+        {
+          "text": "Descend into the depths",
+          "goto": "21"
+        }
+      ]
+    },
+    "24b": {
+      "text": "You throw your weight against the door. It does not move. You strike it with your blade — sparks fly but the metal is unmarked. You try the edges, the hinges, the stone around the frame. Nothing gives.\n\nThe door requires the ring. There is no forcing it.",
+      "test_luck": {
+        "lucky_text": "As you step back, frustrated, you notice a crack in the wall to the right of the door — barely visible, hidden behind a fallen pillar. It is narrow, and the stone beyond it is rough and jagged, but you can see faint violet light on the other side. You might be able to squeeze through.",
+        "lucky_goto": "24c",
+        "unlucky_text": "You search the walls, the floor, the pillars nearby. There is no other way through. You will need to find the ring that fits this door.",
+        "unlucky_goto": "13",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0,
+        "lucky_add_items": [],
+        "unlucky_add_items": []
+      }
+    },
+    "24c": {
+      "text": "You squeeze through the crack. The stone tears at your clothing and skin. It is a tight, claustrophobic passage, and for a terrible moment you are stuck — wedged between two slabs of rock with the mountain pressing on you from all sides.\n\nThen you push through, tumbling out into the corridor beyond the sealed door.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Continue deeper",
+          "goto": "21"
+        }
+      ]
+    },
+    "25": {
+      "text": "The storeroom is cluttered with the detritus of the cult's occupation — bedrolls, empty bottles, ritual diagrams scratched on slate. Among the clutter, you find useful things.\n\nA small glass vial of greenish liquid, labelled in a careful hand: 'Antitoxin — for spider-bite.' And tucked behind a crate, overlooked by the cultists, a black tallow candle covered in fine inscriptions.",
+      "choices": [
+        {
+          "text": "Take the antitoxin",
+          "goto": "25a",
+          "requires_no_flag": "has_antitoxin"
+        },
+        {
+          "text": "Take the candle",
+          "goto": "25b",
+          "requires_no_flag": "has_candle"
+        },
+        {
+          "text": "Take everything useful and move on",
+          "goto": "25c"
+        },
+        {
+          "text": "Leave and continue deeper",
+          "goto": "27"
+        }
+      ]
+    },
+    "25a": {
+      "text": "You pocket the vial. It might save your life.",
+      "add_items": [
+        "vial_of_antitoxin"
+      ],
+      "set_flags": [
+        "has_antitoxin"
+      ],
+      "choices": [
+        {
+          "text": "Take the candle too",
+          "goto": "25b",
+          "requires_no_flag": "has_candle"
+        },
+        {
+          "text": "Move on",
+          "goto": "27"
+        }
+      ]
+    },
+    "25b": {
+      "text": "You pick up the candle. It is cool and waxy, covered in prayers for the dead.",
+      "add_items": [
+        "candle_of_dead_speak"
+      ],
+      "set_flags": [
+        "has_candle"
+      ],
+      "choices": [
+        {
+          "text": "Take the antitoxin too",
+          "goto": "25a",
+          "requires_no_flag": "has_antitoxin"
+        },
+        {
+          "text": "Move on",
+          "goto": "27"
+        }
+      ]
+    },
+    "25c": {
+      "text": "You sweep the useful items into your pack. No sense leaving them for the cult.",
+      "add_items": [
+        "vial_of_antitoxin",
+        "candle_of_dead_speak"
+      ],
+      "set_flags": [
+        "has_antitoxin",
+        "has_candle"
+      ],
+      "choices": [
+        {
+          "text": "Continue deeper into the mountain",
+          "goto": "27"
+        }
+      ]
+    },
+    "26": {
+      "text": "Your vision darkens. The stone is cold against your back. The chanting fills the world, fills everything, and then it fades, and there is only silence.\n\nYou came to stop the darkness. Instead, you become part of it — another body in the mountain's collection, another failure the village will mourn.\n\nThe ritual continues without you.",
+      "ending": true,
+      "ending_type": "defeat"
+    },
+    "27": {
+      "text": "The King's Marrow.\n\nThe corridor is no longer stone. The walls are ridged and curved, faintly translucent, pulsing with violet light in a slow, organic rhythm. You are inside the mountain the way a splinter is inside flesh.\n\nThe chanting has stopped.\n\nThe silence is worse than the chanting. It has a texture — thick, expectant. You feel it in your teeth.",
+      "choices": [
+        {
+          "text": "Press deeper into the Marrow",
+          "goto": "27b",
+          "requires_no_flag": "too_late"
+        },
+        {
+          "text": "Press deeper into the Marrow",
+          "goto": "35",
+          "requires_flag": "too_late"
+        }
+      ]
+    },
+    "28": {
+      "text": "A second Bone Warden rises from the floor ahead of you. This one is larger than the first — its bones are older, darker, fused together with something that gleams like black resin. The sword at your hip pulses. The Warden's skull turns toward you.\n\nIt has been waiting.",
+      "combat": {
+        "enemy": "bone_warden",
+        "win_goto": "30",
+        "flee_goto": "26",
+        "flee_allowed": false
+      }
+    },
+    "29": {
+      "text": "The Bone Warden collapses into a heap of loose bones. You step over them. The corridor continues, narrowing, the walls pressing closer. The pulse of violet light quickens.",
+      "choices": [
+        {
+          "text": "Continue forward",
+          "goto": "30",
+          "requires_no_flag": "cursed_blade"
+        },
+        {
+          "text": "Continue forward",
+          "goto": "28",
+          "requires_flag": "cursed_blade"
+        }
+      ]
+    },
+    "30": {
+      "text": "The Bridge of Reflections.\n\nThe corridor opens onto a chasm. It is not wide — perhaps thirty paces — but it is deep. The bottom is lost in darkness that even the violet light cannot penetrate. A narrow bridge of white stone spans the gap, barely wide enough for one person.\n\nYou step onto the bridge. Halfway across, the air changes. A figure materialises on the far side, blocking your path.\n\nIt is you.\n\nNot a copy. Not an illusion. It is you as you were — before Kelmarsh Bridge, before the disgrace. It wears the armour you surrendered, bears the sword you were stripped of. Its eyes are clear and certain in a way yours have not been for years.\n\n'You showed mercy,' it says, in your voice. 'And it cost you everything. You know that. You have always known that.'\n\nIt draws its sword — your sword, the real one, the one you earned.\n\n'You should not have come here. You are not strong enough for what waits below. You were not strong enough then. You are not strong enough now.'",
+      "choices": [
+        {
+          "text": "Draw the silver dagger — silver is anathema to shadow-things",
+          "goto": "30d",
+          "requires_item": "silver_dagger"
+        },
+        {
+          "text": "Fight your shadow",
+          "goto": "30a"
+        },
+        {
+          "text": "Hold up the Saint's Medallion",
+          "goto": "30c",
+          "requires_item": "saints_medallion"
+        },
+        {
+          "text": "\"You're right. I showed mercy. I would do it again.\"",
+          "goto": "30b"
+        }
+      ]
+    },
+    "30a": {
+      "text": "You raise your blade. The shadow raises its. It fights the way you used to fight — precise, disciplined, relentless. It knows every move you will make before you make it.\n\nBut it does not know what you have become since your fall. It does not know what desperation has taught you.",
+      "combat": {
+        "enemy": "shadow_self",
+        "win_goto": "31",
+        "flee_goto": "26",
+        "flee_allowed": false
+      }
+    },
+    "30b": {
+      "text": "The shadow stares at you. Its sword wavers.\n\n'Mercy is weakness,' it says. But its voice is uncertain now.\n\n'Mercy is what separates me from what waits at the bottom of this mountain,' you reply. 'I chose it once and I lost everything. And I would choose it again. Because the alternative is becoming something like Aldric.'\n\nThe shadow is silent for a long moment. Then it smiles — a thin, sad smile.\n\n'Then you are already lost,' it says. 'Or already saved. I cannot tell which.'\n\nIt lowers its sword and steps aside. As you pass, it dissolves into mist. But the words linger.\n\nYou wonder if it was right. But the doubt is gone from your hands. You grip your blade steadily for the first time since entering this mountain.",
+      "add_skill": 1,
+      "set_flags": [
+        "honour_broken"
+      ],
+      "choices": [
+        {
+          "text": "Cross the bridge",
+          "goto": "31"
+        }
+      ]
+    },
+    "30c": {
+      "text": "You raise the medallion. Saint Elara's bronze face catches the violet light and throws it back, transformed — warm gold instead of bruised purple. The shadow recoils.\n\n'That is not yours,' it hisses. 'You are not worthy of—'\n\n'Perhaps not,' you say. 'But I carry it anyway.'\n\nThe medallion's warmth flares. The shadow screams — a sound like tearing cloth — and flies apart into threads of darkness that dissolve in the golden light. The bridge is clear.\n\nThe warmth fades. You lower the medallion. Your hand is shaking. But something has passed through you — a steadiness, like a sword tempered in fire.",
+      "add_skill": 1,
+      "choices": [
+        {
+          "text": "Cross the bridge",
+          "goto": "31"
+        }
+      ]
+    },
+    "31": {
+      "text": "Beyond the bridge, the corridor descends one final time. The walls are translucent now — you can see shapes moving beyond them, shadows of things that might be memories or might be alive. The violet light is constant, no longer pulsing. It has settled into a steady glow, like the light before dawn. Or the light before an eclipse.\n\nYou can smell the throne room ahead. It smells of cold iron and centuries of undisturbed dust.\n\nYou are close. Very close.",
+      "choices": [
+        {
+          "text": "Touch the Saint's Medallion and steady yourself",
+          "goto": "31a",
+          "requires_item": "saints_medallion"
+        },
+        {
+          "text": "Pour the holy water on your blade before entering",
+          "goto": "32",
+          "requires_item": "holy_water"
+        },
+        {
+          "text": "Enter the throne room",
+          "goto": "33"
+        }
+      ]
+    },
+    "32": {
+      "text": "You uncork the vial. The blessed water glows faintly as you pour it over your blade. It runs down the steel and vanishes, absorbed into the metal. For a moment, the edge gleams with a pale light.\n\nYou do not know exactly what effect it will have. But the village priest blessed this water with the last of his faith. You trust that it will matter.",
+      "remove_items": [
+        "holy_water"
+      ],
+      "set_flags": [
+        "holy_water_used"
+      ],
+      "choices": [
+        {
+          "text": "Enter the throne room",
+          "goto": "33"
+        }
+      ]
+    },
+    "33": {
+      "text": "The Throne of Bone.\n\nThe chamber is vast — a natural cavern at the mountain's heart, shaped by ancient hands into a cathedral of darkness. The ceiling arches impossibly high, stalactites hanging like stone teeth. The walls are studded with bones — skulls, ribcages, entire skeletons pressed into the rock, their empty eyes watching.\n\nAt the centre, on a dais of fused bone, stands the Throne. It is carved from a single massive femur — the bone of something that was never human. And on the Throne, Aldric sits. Not yet risen. Not yet alive. But no longer entirely dead. His body is mummified, clad in rotted finery. On his brow sits the Crown — black iron wrought in the shape of thorns. It pulses with violet light.\n\nVashka kneels before the Throne. Her hands are raised. Her voice is the last thread of the chanting — she is completing the ritual alone.",
+      "choices": [
+        {
+          "text": "Rush forward and attack Vashka before she finishes",
+          "goto": "34",
+          "requires_no_flag": "vashka_wounded"
+        },
+        {
+          "text": "Try to persuade Vashka to stop",
+          "goto": "33a",
+          "requires_flag": "vashka_shaken"
+        },
+        {
+          "text": "Ignore Vashka and go straight for the Crown",
+          "goto": "36"
+        },
+        {
+          "text": "Call out to Vashka",
+          "goto": "33b",
+          "requires_flag": "vashka_wounded"
+        }
+      ]
+    },
+    "33a": {
+      "text": "You step forward and speak. Not a shout. Not a command. You speak to the woman who hesitated in the corridor. The woman who, for one instant, doubted.\n\n'You know what I told you is true. The Crown does not grant power. It devours it. Aldric was not its master — he was its meal. And when it is done with him, it will need another. Is that what you want, Vashka? To be consumed?'\n\nHer chanting falters. Her hands tremble.",
+      "test_luck": {
+        "lucky_text": "Vashka's voice breaks. She lowers her hands. The violet light flickers, gutters, steadies — but weaker now. The ritual is incomplete.\n\n'I have given everything for this,' she whispers. 'Everything.' She looks at you with eyes that are suddenly, terribly human. 'But you are right. I felt it when I wore the ritual vestments. The hunger. It was not power. It was appetite.'\n\nShe stands. She steps away from the Throne. 'Finish it,' she says. 'Destroy the Crown. Before I change my mind.'",
+        "lucky_goto": "36",
+        "unlucky_text": "Vashka's chanting falters — but only for a moment. Then her jaw sets and her voice rises again, stronger than before.\n\n'No,' she says. 'I have come too far. Given too much.' Her eyes harden. 'You had your chance to make me doubt. It will not work twice.'\n\nShe draws her dagger without breaking the chant. You will have to fight her.",
+        "unlucky_goto": "34",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0,
+        "lucky_add_items": [],
+        "unlucky_add_items": []
+      }
+    },
+    "33b": {
+      "text": "Vashka turns. She is pale, her robes dark with blood from the wound you gave her. She has been completing the ritual through sheer will, her voice ragged, her hands shaking.\n\n'You again,' she says. She tries to smile but it becomes a grimace of pain. 'You are persistent. I will grant you that.'\n\nShe cannot fight you. Not in this state. She knows it. You know it.\n\n'Finish the ritual or stop me,' you say. 'You cannot do both.'\n\nShe looks at the Throne. At Aldric's still form. At the Crown. Then she looks at you.\n\n'He had better be worth it,' she whispers. She steps aside. The chanting dies.\n\nThe ritual is incomplete. But Aldric stirs anyway. It may be enough.",
+      "set_flags": [
+        "vashka_convinced"
+      ],
+      "choices": [
+        {
+          "text": "Approach the Throne",
+          "goto": "36"
+        }
+      ]
+    },
+    "34": {
+      "text": "You charge across the chamber. Vashka rises to meet you, her dagger flashing. Behind her, the Crown pulses. The ritual continues even without her voice — it has its own momentum now.",
+      "combat": {
+        "enemy": "vashka",
+        "win_goto": "34a",
+        "flee_goto": "26",
+        "flee_allowed": false
+      }
+    },
+    "34a": {
+      "text": "Vashka falls. She does not die — she crawls away from you, leaving a trail of blood on the bone-white floor. 'Too late,' she whispers. 'Too late.'\n\nBehind her, the Crown's light intensifies. Aldric's fingers twitch. His mouth opens.\n\nThe ritual may be incomplete. But something is waking.",
+      "choices": [
+        {
+          "text": "Approach the Throne before he fully rises",
+          "goto": "36"
+        }
+      ]
+    },
+    "36": {
+      "text": "You stand before the Throne of Bone.\n\nAldric opens his eyes. They are violet — the same colour as the light that fills the mountain. He does not move. He does not need to. The Crown does the moving. The air thickens. Shadows pool around the Throne like dark water. The temperature drops until your breath comes in white clouds.\n\nHis mouth opens. When he speaks, it is not with one voice but with many — a chorus of every soul the Crown has ever consumed.\n\n'Kneel,' he says.\n\nThe word hits you like a physical force. Your knees buckle. The shadows press.\n\nBut you do not kneel. Not this time.",
+      "choices": [
+        {
+          "text": "Attack Aldric now",
+          "goto": "37",
+          "requires_no_flag": "holy_water_used"
+        },
+        {
+          "text": "Attack Aldric now (blade blessed with holy water)",
+          "goto": "38",
+          "requires_flag": "holy_water_used"
+        },
+        {
+          "text": "Listen to what he has to say",
+          "goto": "40"
+        },
+        {
+          "text": "Speak of the bridge — and the mercy you showed there",
+          "goto": "36a",
+          "requires_flag": "honour_broken"
+        }
+      ]
+    },
+    "37": {
+      "text": "You charge the Throne. Aldric rises — slowly, terribly, his mummified body moving with a grace that belongs to the Crown, not to the corpse it inhabits. He draws a sword from the air itself — a blade of condensed shadow that hums with the same violet light as the Crown.\n\nHis skill with a blade is a thousand years old. He has fought armies. He has broken kingdoms.\n\nBut he has not fought anyone in a very long time. And you have been fighting every day of your disgraced life.",
+      "choices": [
+        {
+          "text": "Strike at the Crown while he doubts",
+          "goto": "39",
+          "requires_flag": "knows_crown_weakness"
+        },
+        {
+          "text": "Fight him with everything you have",
+          "goto": "37a"
+        }
+      ]
+    },
+    "37a": {
+      "text": "The Revenant King rises from his throne, shadow-blade raised. The Crown burns on his brow. This is the full power of Aldric the Undying, barely diminished by the incomplete ritual. The chamber shakes with each step he takes.\n\nYou raise your blade and meet him.",
+      "combat": {
+        "enemy": "aldrics_revenant",
+        "win_goto": "41",
+        "flee_goto": "26",
+        "flee_allowed": false
+      }
+    },
+    "38": {
+      "text": "You charge the Throne. The holy water on your blade flares — white-gold against the violet dark. Aldric recoils. The Crown screams — a sound beyond hearing, felt in the marrow of your bones. The blessed water burns the death-magic in his flesh, and for a moment, the Revenant King is diminished.\n\nHe rises, but slower. The violet light in his eyes flickers. The shadows around him are thinner.",
+      "choices": [
+        {
+          "text": "Strike at the Crown while he doubts",
+          "goto": "39",
+          "requires_flag": "knows_crown_weakness"
+        },
+        {
+          "text": "Fight him while he is weakened",
+          "goto": "38a"
+        }
+      ]
+    },
+    "38a": {
+      "text": "The holy water has weakened him. His movements are slower, the shadow-blade less certain. But he is still Aldric the Undying, and the Crown still sits upon his brow. You must finish this.",
+      "combat": {
+        "enemy": "aldrics_revenant_weakened",
+        "win_goto": "41",
+        "flee_goto": "26",
+        "flee_allowed": false
+      }
+    },
+    "39": {
+      "text": "'The Crown is a parasite,' you shout. 'It fed on you. You were never its master — you were its host. You doubted once, Aldric. At the end. You saw what you had become and you were afraid.'\n\nThe Revenant flinches. The Crown flares. For one instant, the violet light in Aldric's eyes dims and you see something human behind it — ancient, exhausted, afraid.\n\nThe Crown cannot abide doubt. Strike now — while the wearer questions.",
+      "combat": {
+        "enemy": "aldrics_revenant_vulnerable",
+        "win_goto": "41",
+        "flee_goto": "26",
+        "flee_allowed": false
+      }
+    },
+    "40": {
+      "text": "You lower your weapon. You do not kneel. But you listen.\n\nAldric studies you. The chorus-voice softens to something almost intimate.\n\n'I know what you are,' he says. 'Disgraced. Nameless. Wandering. You showed mercy once, and they took everything from you for it. Your rank. Your honour. Your name.' His voice is almost gentle. 'I know how that feels. I was a second son. Overlooked. Dismissed. The Crown gave me what the world would not — a throne, a kingdom, a legacy that outlasted death itself.'\n\nThe shadows shift. You see images in them — a throne room gleaming with torchlight, crowds kneeling, a kingdom bending to a single will. It is intoxicating.\n\n'I offer you the same,' Aldric says. 'Take the Crown. Not as my servant — as my successor. The ritual raised me, but I am... tired. So tired. A thousand years is long enough. Take the Crown, and I will rest at last. And you will have everything you were denied.'",
+      "choices": [
+        {
+          "text": "Refuse and attack him",
+          "goto": "37",
+          "requires_no_flag": "holy_water_used"
+        },
+        {
+          "text": "Refuse and attack him (blade blessed with holy water)",
+          "goto": "38",
+          "requires_flag": "holy_water_used"
+        },
+        {
+          "text": "Take the Crown",
+          "goto": "44"
+        },
+        {
+          "text": "Tell him about the ghosts in the banquet hall",
+          "goto": "40a",
+          "requires_flag": "sat_banquet"
+        }
+      ]
+    },
+    "41": {
+      "text": "Aldric falls. His body crumples, the ancient joints failing, the death-magic that held him together unravelling like burning thread. The shadow-blade dissolves. The violet light gutters.\n\nThe Crown sits on his brow, still intact. Still pulsing. Weaker, but alive.\n\nYou reach down and seize it. The metal is cold — colder than ice, colder than anything you have ever touched. It whispers to you. It promises. It begs.\n\nYou raise the Crown above your head. For one terrible moment, you consider putting it on.\n\nThen you bring it down against the edge of the Throne with every ounce of strength you possess.",
+      "choices": [
+        {
+          "text": "Shatter the Crown — and call to Vashka",
+          "goto": "42a",
+          "requires_flag": "vashka_convinced"
+        },
+        {
+          "text": "Shatter the Crown",
+          "goto": "42",
+          "requires_no_flag": "vashka_convinced"
+        },
+        {
+          "text": "Drive the Wraithbane Blade into the Crown",
+          "goto": "41a",
+          "requires_item": "wraithbane_blade"
+        }
+      ]
+    },
+    "42": {
+      "text": "The Crown cracks.\n\nThe sound is enormous — a detonation that echoes through every chamber of the palace, every corridor, every bone-lined hall. The violet light dies. The shadows shriek and fly apart. The walls of the King's Marrow shudder, and dust falls from the ceiling in sheets.\n\nThe Crown splits into three pieces in your hands. The whisper dies mid-syllable. The cold recedes.\n\nAnd then the mountain begins to shake.\n\nThe floor tilts. Stones fall. The Throne of Bone cracks down the middle. You hear a sound like the earth itself groaning, and you understand: the Crown was holding the palace together. Without it, the mountain is reclaiming its own.\n\nYou run.",
+      "test_luck": {
+        "lucky_text": "You sprint through the collapsing corridors. Stone falls behind you — always behind you, never on you. The bridge holds as you cross it. The stairs hold as you climb them. The Hall of Supplicants collapses at your back as you burst through the Pilgrim's Gate into cold, clean air.\n\nDawn. The eclipse has passed. The sky is pale and clear and ordinary. The violet light is gone.\n\nYou stand on the mountainside, covered in dust and blood, holding the broken fragments of the Crown. Below you, the village of Carragh's Foot is waking. Smoke rises from chimneys. Someone is ringing a bell.\n\nYou let the Crown fragments fall from your hands. They hit the ground and crumble to rust in seconds, as if a thousand years of decay have finally caught up.\n\nYou were a knight once. Then you were no one. Now — you are not sure what you are. But the sun is rising, and you are alive, and the darkness is gone.\n\nIt will do.",
+        "lucky_goto": "43",
+        "unlucky_text": "You sprint through the collapsing corridors. You cross the bridge as it cracks beneath your feet. You climb the stairs three at a time as they crumble behind you.\n\nYou almost make it.\n\nThe ceiling of the Hall of Supplicants gives way twenty paces from the gate. Stone buries you — not all at once, but in pieces, pinning your legs, your arms, your chest. You lie in the rubble and feel the mountain settling around you.\n\nBut the Crown is destroyed. The violet light is gone. Through a crack in the debris above you, you can see the sky — pale, clear, ordinary. Dawn. The eclipse has passed.\n\nYou cannot move. You can barely breathe. But you can see the sky.\n\nIt is enough.",
+        "unlucky_goto": "45",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0,
+        "lucky_add_items": [],
+        "unlucky_add_items": []
+      }
+    },
+    "43": {
+      "text": "You descend the mountain as the sun climbs. The dead trees are still dead, but the air smells different — cleaner. The iron taste is gone.\n\nBrida meets you at the edge of the village. She looks at your face and knows. She does not ask what happened in the mountain. She does not need to.\n\n'You did it,' she says.\n\n'The Crown is destroyed,' you reply.\n\nShe nods. 'Then you will need a new name. For the stories.' She looks at you with those steady eyes. 'What shall we call you?'\n\nYou think about it. You think about the knight you were, and the nothing you became, and the person who walked into a mountain full of darkness and walked out again.\n\n'Call me whatever you like,' you say. 'I am done choosing names.'\n\nBrida smiles. It is the first smile you have seen in this village.\n\nYou sit down on the steps of the chapel, in the morning sun, and you rest. For the first time in years, you rest.\n\nYOUR ADVENTURE IS OVER. YOU HAVE TRIUMPHED.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "44": {
+      "text": "You reach out and take the Crown from Aldric's brow.\n\nHe sighs. A thousand years of weariness in that single sound. His eyes close. His body crumbles to dust, and the dust settles, and he is gone.\n\nThe Crown is lighter than you expected. The black iron is warm. The thorns do not cut you. You turn it in your hands and see your reflection in its surface — battered, bloodied, nameless. A person nobody wanted. A knight without a title, a soldier without a war, a wanderer who has been searching for something to belong to for so long that the search became the only thing left.\n\nYou place the Crown upon your head.\n\nThe cold does not come. Instead, there is warmth — a vast, encompassing warmth, like stepping into sunlight after years of rain. The mountain exhales. The violet light steadies, brightens, becomes almost golden. The bones in the walls seem to straighten, as if the dead are standing at attention. The Throne of Bone gleams.\n\nYou see the kingdom as it was. Not the ruin — the glory. The great halls lit with a thousand candles. The courts full of music and laughter. The roads safe, the harvests rich, the borders secure. Aldric built this. Before the madness, before the hunger — he built something beautiful. And the Crown shows you how to build it again.\n\nYou sit on the Throne. It fits you perfectly. It has always been waiting for you — you understand that now. Every disgrace, every loss, every cold night on the road was leading here. The Crown does not take from you. The Crown completes you.\n\nThe cultists enter the chamber. Vashka is among them, her wound bound. She looks at you on the Throne and her face transforms — awe, relief, vindication. She kneels. They all kneel.\n\n'Your Majesty,' she says.\n\nThe words settle into you like stones into still water. Your Majesty. You have never been called that. You have never been called anything that mattered. But this — this matters. This is real.\n\nThe mountain seals behind you. The Pilgrim's Gate closes. The corridor fills with stone. The village below will wonder what happened. In time, they will forget. In time, everyone will forget.\n\nBut inside the mountain, in the kingdom of the dead, the new Hollow King sits upon the Throne of Bone, and the Crown whispers, and the whisper sounds like everything you ever wanted.\n\nYou were a knight once. Then you were nothing. Now you are a king.\n\nAnd if the Crown is a cage, it is the most beautiful cage ever built. And if the whisper is a lie, it is the most perfect lie ever told. And if you are lost, you are lost in a palace of your own making, surrounded by subjects who adore you, ruling a kingdom that will never end.\n\nThe thorns do not hurt. They never hurt. That is the worst part.\n\nThat is the best part.\n\nYOUR ADVENTURE IS OVER.",
+      "ending": true,
+      "ending_type": "defeat"
+    },
+    "45": {
+      "text": "The mountain settles. Dust fills the air. Through the crack above you, the dawn light is golden and warm.\n\nYou cannot feel your legs. The weight on your chest makes each breath a labour. But the Crown is destroyed — you can feel its absence, a silence where the whisper used to be. The violet light is gone from the world.\n\nYou close your eyes. You think about Kelmarsh Bridge. The rebel lord's children, running. The choice you made. The mercy that cost you everything.\n\nIt was the right choice. You know that now. You have always known it.\n\nSomewhere above, you hear voices. The villagers, coming to see what happened. They will find the rubble. They may find you. It does not matter.\n\nThe Crown is broken. The darkness is gone. The sun is rising.\n\nYou rest.\n\nYOUR ADVENTURE IS OVER. THE CROWN IS DESTROYED, AND THE DARKNESS WITH IT.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "15_late": {
+      "text": "You pull out a chair and sit. The chapel took longer than you intended. The hour presses against you like a physical thing.\n\nThe ghosts turn to look at you — slowly, one by one. The nearest leans forward and mouths something urgent. Its hands move in a gesture you read as warning, not welcome.\n\nThen the mountain shudders. A deep harmonic resonance rolls up through the floor — felt in the chest rather than heard. The ritual. It is progressing faster than you thought.\n\nOne of the courtiers rises from its seat, reaching for you. The moment has already cost too much.",
+      "set_flags": [
+        "sat_banquet",
+        "too_late"
+      ],
+      "test_luck": {
+        "lucky_text": "You shove back from the table before the ghost can seize you, overturning your chair. The vision comes anyway — fragmented, fast, the Crown on Aldric's brow and how his eyes changed. Enough. You know enough. You run.",
+        "lucky_goto": "17",
+        "unlucky_text": "The ghost's hands close on your arm. Cold races through you — not pain, but absence. You tear free and stagger, losing precious moments. The chanting below shifts pitch. They are close to done.",
+        "unlucky_goto": "15a",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 2,
+        "lucky_add_items": [],
+        "unlucky_add_items": []
+      }
+    },
+    "27b": {
+      "text": "Ahead, the corridor widens. A shape blocks the path — massive, angular, assembled from the bones of a hundred dead. A Bone Warden. It turns its hollow skull toward you and raises arms made of lashed-together femurs.\n\nThere is no way around it.",
+      "combat": {
+        "enemy": "bone_warden",
+        "win_goto": "29",
+        "flee_goto": "26",
+        "flee_allowed": false
+      }
+    },
+    "35": {
+      "text": "The Throne of Bone.\n\nBut you are too late.\n\nVashka stands at the centre of the chamber, her arms raised, her face alight with something between rapture and terror. The Crown glows on the throne — white-hot, the iron no longer black but blazing. As you watch, it rises from the throne.\n\nIt settles onto a head that has just lifted from the chest.\n\nAldric the Unbroken opens his eyes. They are not violet, like the light of his palace. They are perfectly, utterly black.\n\nVashka lowers her arms. She turns to see you. There is no triumph in her face. Only the slow, dawning horror of someone who has just understood what she has done.\n\nAldric does not look at her. He looks at you. His voice, when it comes, is not a voice. It is the palace speaking — every chamber, every corridor, every stone.\n\n'Another supplicant,' it says. 'Good. I am hungry.'\n\nThe Bone Wardens begin to rise.",
+      "choices": [
+        {
+          "text": "Stand your ground and fight",
+          "goto": "35a"
+        },
+        {
+          "text": "Run — the way you came",
+          "goto": "35b",
+          "style": "danger"
+        }
+      ]
+    },
+    "35a": {
+      "text": "You charge. It is a good death — better than the one you might have had rotting in a ditch somewhere, disgraced and forgotten. The Hollow King's blade rises to meet yours.",
+      "combat": {
+        "enemy": "aldric_full",
+        "win_goto": "43",
+        "flee_goto": "35b",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "35b": {
+      "text": "You run. The mountain shakes around you. Behind you, Aldric's voice fills every passage, every chamber — not angry, not triumphant, simply vast and patient.\n\n'Run,' it says. 'Tell them I am coming.'\n\nYou burst out of the Pilgrim's Gate as the sun clears the eastern ridge. In Carragh's Foot, the villagers are watching the mountain. They see you emerge. They see your face.\n\nThey do not need to ask.\n\nThe eclipse is past. The ritual is done. What walks in the mountain now will not stop at the valley. You have failed — not because you were weak, but because the hour ran out while you were still searching.\n\nThis time, at least, you know the difference.",
+      "ending": true,
+      "ending_type": "defeat"
+    },
+    "30d": {
+      "text": "You draw the silver dagger and hold it up.\n\nThe shadow recoils. Not like a fighter stepping back — like smoke recoiling from a flame. Its form tears at the edges. It screams, and the scream is felt rather than heard, a wrongness that vibrates in the base of your skull.\n\nThe blade in its hand clatters to the bridge. Before the sound has finished echoing, the weapon has rusted to nothing. The shadow tears apart in ribbons of darkness, each fragment spiralling into the chasm below. Gone.\n\nYou stand on the bridge, silver dagger in hand, and there is nothing left to fight.",
+      "choices": [
+        {
+          "text": "Cross the bridge",
+          "goto": "31"
+        }
+      ]
+    },
+    "31a": {
+      "text": "You press your thumb against the face of the medallion. The metal is warm — warmer than it should be in this cold, and warmer than the mountain's chill has any right to allow. The violet light pressing under the door ahead seems to dim slightly. Or perhaps you are simply steadier than you were.\n\nYou have faced worse than old kings with borrowed power. Probably.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Pour the holy water on your blade before entering",
+          "goto": "32",
+          "requires_item": "holy_water"
+        },
+        {
+          "text": "Enter the throne room",
+          "goto": "33"
+        }
+      ]
+    },
+    "36a": {
+      "text": "You lower your weapon slightly. Not in surrender — in recognition.\n\n'There is a bridge,' you say. 'A shadow of a warrior on it. It told me mercy is weakness. I told it otherwise. I walked past it without drawing my blade.'\n\nAldric is silent. The Crown's chorus — that thousand-voice hum — wavers for a moment.\n\n'My warriors walked that bridge for nine hundred years,' he says, finally. 'Every one of them fought. Every one of them won, or lost, or fled — but every one of them drew steel.' The violet eyes study you. 'You are the first who did not.'\n\nThere is something in his voice. Not warmth — he is centuries past warmth — but recognition. The Crown cannot understand what it cannot categorise. And it cannot categorise this.",
+      "choices": [
+        {
+          "text": "Listen to what he has to say",
+          "goto": "40"
+        }
+      ]
+    },
+    "40a": {
+      "text": "'The banquet hall,' you say. 'Above. The ghosts are still there. Still at the table. The food is still laid out — nine hundred years of a feast that nobody will let end.'\n\nAldric goes still. Still in a way that has nothing to do with the Crown — the puppet's pause, not the master's.\n\n'They wait,' he says. Not to you. 'They still wait.' His voice is stripped of its chorus for a moment. Raw. Old. Human.\n\nThe Crown screams back into control, but the moment — that single human moment — is enough. His grip on the sword arm loosens. His attention divides between you and the grief the Crown cannot quite suppress.\n\nThe Crown is not him. And right now, he knows it.",
+      "choices": [
+        {
+          "text": "Strike at the Crown while his attention is divided",
+          "goto": "39"
+        }
+      ]
+    },
+    "41a": {
+      "text": "You drive the Wraithbane Blade into the Crown.\n\nThe runes on the blade — the ones that have whispered at the edge of your awareness since you took it from the armoury — ignite. White-cold fire runs up the blade and into the Crown's surface. The metal screams. The violet light detonates outward and then collapses inward, a breath drawn and held and then released all at once.\n\nThe Crown does not crack. It detonates. Three pieces hit the floor and begin to rust before they stop rolling.\n\nThe blade is silent now. Whatever it was made to fight, it has fought. You hold a perfectly ordinary sword.\n\nBehind you, the mountain begins to shake.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Run",
+          "goto": "42"
+        }
+      ]
+    },
+    "42a": {
+      "text": "You shatter the Crown against the arm of the Throne.\n\nFrom somewhere in the collapsing chamber, Vashka's voice cuts through the rumble of falling stone. She stopped the ritual. Now she is using the last of that knowledge to do something else — you can hear her shouting in the old tongue, the cadences of command and binding, and the passages around you shake differently. Not randomly. The stones fall behind you, not ahead. The route to the gate clears as if the mountain itself is making way.\n\nYou run. The mountain shakes. But somehow, improbably, it shakes around you.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Run for the gate",
+          "goto": "42"
+        }
+      ]
+    }
+  }
 }
