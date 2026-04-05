@@ -758,7 +758,8 @@ function computeLongestPathNodes(passages, startId, endId) {
 
 function renderPathLengths(adventure) {
   const passages = adventure.passages;
-  const startId  = Object.keys(passages).find(id => id === 's_1' || id === '1');
+  const sp = adventure.start_passage;
+  const startId = (sp && passages[sp]) ? sp : Object.keys(passages).find(id => id === '1');
   const el = document.getElementById('path-lengths-list');
 
   const endings = Object.entries(passages)
