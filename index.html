@@ -208,6 +208,15 @@
             color: var(--ink-dim);
         }
 
+        .adventure-card .card-scope {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+            color: var(--card-accent, var(--gold));
+            opacity: 0.75;
+            margin-top: 0.3rem;
+        }
+
         .adventure-card .card-intro {
             font-size: 0.8rem;
             color: var(--ink-dim);
@@ -1428,6 +1437,7 @@ async function loadAdventureList() {
                 ${flourish}
                 <div class="card-title">${adv.title}</div>
                 <div class="card-author">by ${adv.author}</div>
+                ${(adv.endings_count && adv.passage_count) ? `<div class="card-scope">Discover all ${adv.endings_count} endings across ${adv.passage_count} choices</div>` : ''}
                 ${adv.introduction ? `<div class="card-intro">${adv.introduction}</div>` : ''}
             </div>
             ${adv.is_new ? `<div class="card-new-badge">NEW</div>` : ''}

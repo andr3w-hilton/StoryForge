@@ -9,7 +9,9 @@
     "introduction": "The storm took your ship three days ago. The Windborne went down in minutes — one moment you were fighting the sails, the next you were in black water, choking on brine, watching the mast disappear beneath the waves.\n\nYou washed ashore at Saltmere, a grey port town clinging to cliffs above the Sunken Reaches — a vast stretch of shallow reef and drowned ruins where the sea swallows ships whole. The locals pulled you from the surf, fed you, and told you something that turned your blood cold.\n\nThe storm was not natural. Beneath the Reaches, something ancient stirs — a being the fisherfolk call the Leviathan. A cult of zealots, the Drowned Priests, has been performing rituals to awaken it fully. When the tide comes in tonight, they will complete the final rite.\n\nYour crew is missing. Your ship is gone. But you still have your cutlass and three days' worth of provisions. Your adventure begins at the Saltmere harbour.",
     "cover_image": "cover_art/Leviathan Cover.jpeg",
     "hero_image": "cover_art/Leviathan Hero.jpeg",
-    "is_new": true
+    "is_new": true,
+    "endings_count": 7,
+    "passage_count": 293
   },
   {
     "id": "the_crypt_of_count_valdric",
@@ -20,6 +22,8 @@
     "theme_icon": "☠",
     "cover_image": "cover_art/Valdric Cover.jpeg",
     "hero_image": "cover_art/Valdric Hero.jpeg",
+    "endings_count": 10,
+    "passage_count": 95,
     "introduction": "The village of Ashford is dying. For three months its crops have withered in the fields and its people have sickened with a wasting fever that no healer can cure. The village elder, Maren — a sharp-eyed woman who remembers the old stories — knows the cause.\n\nA century ago, the necromancer Count Valdric ruled these lands from the fortress now known as Valdric Keep. When the people finally rose against him, they sealed his corpse in the crypt beneath the ruins with a signet ring of binding. But the ring has been lost — stolen, perhaps, or shaken loose by the tremors that struck last autumn — and without it, Valdric's death-curse bleeds freely into the land.\n\nMaren has hired you to descend into the crypt, recover the Signet Ring, and reseal the tomb before Ashford withers entirely. She presses a vial of holy water into your hand as you leave. 'You will need this,' she says. 'The dead do not rest easily beneath Valdric Keep.'\n\nYour adventure begins on the road to the ruins."
   },
   {
@@ -31,6 +35,8 @@
     "theme_icon": "✦",
     "cover_image": "cover_art/Babylon Cover.jpeg",
     "hero_image": "cover_art/Babylon Hero.jpeg",
+    "endings_count": 6,
+    "passage_count": 57,
     "introduction": "New Babylon Station hangs in the dark between stars, a vast ring of corroded steel and failing systems at the ragged edge of Imperial space. Once it was a trade hub — a crossroads where a dozen species bartered fuel, ore, and information. That was before the war. Before the Empire pulled its garrison and left the station to rot.\n\nNow it is a place for people who have nowhere else to go. Smugglers, refugees, deserters, opportunists. People like you.\n\nYou are a scavenger — a freelance wreck-rat who makes a living pulling salvage from the station's dead lower decks. Three days ago, a dying Qeth trader pressed a data chip into your hand containing coordinates for something called the Void Compass — a Precursor navigation device worth more than the station itself. But Inquisitor Malachar of the Imperial Bureau of Antiquities is two jumps out and closing. You have six hours.\n\nYour adventure begins in the Freeport Market on New Babylon's middle ring."
   },
   {
@@ -42,6 +48,8 @@
     "theme_icon": "♛",
     "cover_image": "cover_art/Hollow Cover.jpeg",
     "hero_image": "cover_art/Hollow Hero.jpeg",
+    "endings_count": 5,
+    "passage_count": 76,
     "introduction": "You were a knight once. That ended at Kelmarsh Bridge, where you chose mercy over orders and let the rebel lord's children flee. Your commander stripped your rank, your name, your lands. You have wandered since — hedge-knight, sellsword, nobody.\n\nNow you stand at the edge of Carragh's Foot, a village huddled in the shadow of Mount Aldric. The mountain is wrong. Its peak glows faintly violet against the evening sky, and the air tastes of iron and old grief. Within the ancient palace carved into the mountain's heart, a cult called the Witnesses of the Returning Crown seeks to raise the tyrant-sorcerer Aldric the Undying from death.\n\nThe village elder has offered you everything the village can spare: a sword, provisions, and the promise that if you stop the ritual, your name will be remembered. Not your old name. A new one.\n\nIt is not much. But it is more than anyone has offered you in a long time."
   }
 ]
