@@ -272,7 +272,8 @@
     "s_2d": {
       "text": "You find Old Pell still hunched at his table, but when he sees you return his eyes are different — sharper, more afraid. He grabs your sleeve and pulls you down.\n\n'You found Kael. Good. She's the only one mad enough.' He lowers his voice to a ragged whisper. 'Listen to me. Your first mate — the one I saw walking the water — he'll be down there. In the Reaches. The Drowned Priests, they take the strongest of the dead and bind them. Guards. Wardens. Your man won't know you. Or worse, he will — and he'll still try to kill you.'\n\nHe presses a tarnished coin into your palm. 'If you see him — if there's anything left of the man he was — don't fight him. Walk away. The binding loosens when there's no threat. Fight him and the priests' hold tightens.' He releases your sleeve. 'That's all I know. That's all anyone knows.'",
       "set_flags": [
-        "pell_warned_you"
+        "pell_warned_you",
+        "knows_first_mate"
       ],
       "choices": [
         {
@@ -1024,6 +1025,11 @@
           "requires_item": "tide_chart"
         },
         {
+          "text": "Explain where the skiff came from",
+          "goto": "r_1a",
+          "requires_flag": "has_skiff"
+        },
+        {
           "text": "You don't have a chart — navigate by instinct",
           "goto": "r_7a"
         }
@@ -1163,8 +1169,14 @@
           "requires_no_flag": "has_grappling_hook"
         },
         {
+          "text": "Climb below — you know what might be waiting",
+          "goto": "r_20",
+          "requires_flag": "knows_first_mate"
+        },
+        {
           "text": "Climb below to investigate the thumping",
-          "goto": "r_20"
+          "goto": "r_18b",
+          "requires_no_flag": "knows_first_mate"
         },
         {
           "text": "Leave the wreck",
@@ -2026,6 +2038,16 @@
           "text": "Move quickly — the tide turns in minutes",
           "goto": "t_1b",
           "requires_item": "tide_chart"
+        },
+        {
+          "text": "Move quickly — you calculated exactly when the tide turns",
+          "goto": "t_1b",
+          "requires_flag": "knows_tide_window"
+        },
+        {
+          "text": "You know this layout — head straight for the ritual space",
+          "goto": "t_1c",
+          "requires_flag": "knows_temple_layout"
         }
       ]
     },
@@ -3555,9 +3577,6 @@
     },
     "l_10a": {
       "text": "You recognise the symbols now. The harbour wall — the carving you traced with your fingers in the rain, back when this was just a missing-persons investigation and not the end of the world. The same pattern. The same spiral. The binding mark.\n\nThe compass is a key. You understand it with a certainty that has nothing to do with logic and everything to do with the way the brass casing warms in your hand, the way the inscriptions flare brighter as you pass, the way the passage seems to open ahead of you as though the temple itself is clearing a path.\n\nThe binding chamber is ahead. You can feel it.",
-      "set_flags": [
-        "understands_compass"
-      ],
       "choices": [
         {
           "text": "Hurry — the passage will not hold forever",
@@ -3684,9 +3703,6 @@
     },
     "l_15b": {
       "text": "The ghost speaks. The voice is thin — a whisper carried on a current that exists only in the space between you — but the words are clear.\n\n\"Elara. My name was Elara.\"\n\nA pause. The walls shake. Dust falls from the ceiling.\n\n\"The compass will hold. It was made for this. Morrow knew — he built it from the temple's own stone, keyed it to the binding script. It is not a navigator's tool. It never was.\" The ghost — Elara — looks at the socket in the pillar. \"It is a lock. And this is where it goes.\"\n\nElara's hand reaches out and rests on your arm. The touch is cold, but steady. Certain.\n\n\"Thank you. For the rum. For seeing me.\"\n\nThe chamber shakes again. Harder.",
-      "set_flags": [
-        "ghost_confirmed"
-      ],
       "choices": [
         {
           "text": "Nod, and turn to the pillar",
@@ -3696,9 +3712,6 @@
     },
     "l_15c": {
       "text": "The ghost does not speak. Perhaps it cannot. Perhaps whatever the Leviathan did to it took its voice along with everything else.\n\nBut it moves. Slowly, deliberately, it crosses the chamber and stands beside the central pillar. One translucent hand reaches out and rests on the stone basin, beside the socket. Then the ghost looks at you and looks at the compass in your hand.\n\nThe gesture is unmistakable. The ghost points at the socket.\n\nThen it places its hand on your shoulder. The touch is cold as deep water. But it is not hostile. It is the steadying hand of a sailor who has seen you through a storm.",
-      "set_flags": [
-        "ghost_confirmed"
-      ],
       "choices": [
         {
           "text": "Turn to the pillar",
@@ -3977,9 +3990,6 @@
     },
     "l_37": {
       "text": "A shout from above.\n\n\"DOWN HERE! OVER HERE, YOU BASTARD!\"\n\nKael. Standing on a ledge twenty feet up, silhouetted against the coral-light, waving her arms like a lunatic. She has a length of rope in one hand and a burning torch in the other — where she found a dry torch in a flooded temple is a question for another day.\n\nShe hurls the torch. It arcs through the air, trailing sparks, and strikes the aspect's mass. The effect is immediate — the creature recoils, its form rippling, the green-gold light flickering. Fire. The deep thing fears fire.\n\nKael's distraction buys you precious seconds. The aspect is divided — part of its attention on you, part on the screaming figure above. You use the opening.",
-      "set_flags": [
-        "kael_distracted_aspect"
-      ],
       "add_stamina": 2,
       "choices": [
         {
@@ -4210,6 +4220,42 @@
       "text": "You surface gasping. The stars are out. The sea is calm — impossibly calm, flat as glass, reflecting the sky so perfectly that for a disorienting moment you cannot tell which way is up.\n\nYou swim for shore. The water is warm. The current helps you, carrying you toward the coast with a gentleness that feels like an apology.\n\nYou reach the rocks. Climb out. Stand dripping on the stone and look toward Saltmere.\n\nThe lights are gone.\n\nNot dimmed. Not flickering. Gone. The harbour is dark. The windows are dark. The chimneys that should be trailing smoke against the stars are cold and still.\n\nYou walk toward the town. Your boots echo on the cobblestones. The sound bounces off empty buildings and returns to you unchanged, because there is nothing to absorb it. No bodies. No voices. No life.\n\nThe boats are in their slips. The nets are in the water. A pot of stew sits on a cold stove in the harbourmaster's office, a spoon still resting against the rim. Everything is exactly where it was. Everything except the people.\n\nYou check every building. Every house, every shop, every room above every tavern. Empty. All of them. Not ransacked, not abandoned in haste — just empty, as though the occupants stepped out for a moment and forgot to come back.\n\nOn the harbour wall, scratched into the stone in letters you almost recognise, a single word: REMEMBER.\n\nYou walk the empty streets until dawn. The sun rises over a perfect, calm sea, and the light falls on a town that will never wake up. The boats will rot in their slips. The nets will dissolve in the water. The stew will go cold and then go bad and then go to dust.\n\nThe Leviathan did not take you. You escaped. You survived.\n\nBut it took everyone else.\n\nYou sit on the harbour wall as the sun climbs and the gulls wheel overhead — even the gulls sound wrong, their cries echoing off empty buildings with a hollow, mocking quality. You sit there for a long time.\n\nThere is no one left to tell.\n\nThe tide rolls in. The tide rolls out. And on the shore, alone, you watch it go.",
       "ending": true,
       "ending_type": "death"
+    },
+    "r_1a": {
+      "text": "Kael squints at the stern where a name has been scraped down to bare wood, the letters 'H.W.' still faintly legible under the paint. She does not say anything for a long moment. Then: 'Harlan's warehouse.' Not a question.\n\n'It was available,' you say.\n\n'It's stolen,' she says. Then: 'Good. Harlan was going to sell it to the cult anyway.' She shifts her grip on the tiller and scans the horizon. 'If anyone asks, you found it drifting. Now — chart or no chart?'",
+      "choices": [
+        {
+          "text": "Show her the tide chart",
+          "goto": "r_5",
+          "requires_item": "tide_chart"
+        },
+        {
+          "text": "No chart — navigate by instinct",
+          "goto": "r_7a"
+        }
+      ]
+    },
+    "r_18b": {
+      "text": "You grip the hatch ring and lower yourself into the dark.\n\nThe thumping is louder below. Closer. Rhythmic in a way that raises the hair on your arms — not mechanical, not the motion of a ship at rest. Something is moving down there. Something that remembers how to move.\n\nThe water is black. Cold. It closes over your boots, your knees, your waist as you descend. You cannot see the bottom. You cannot see what is ahead. You only hear it, steady and patient, the sound of something that has been waiting a very long time.\n\nYour breath comes faster than it should. Your hands are shaking.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Press on into the dark",
+          "goto": "r_20"
+        }
+      ]
+    },
+    "t_1c": {
+      "text": "The drunk sailor's rambling resolves into something useful. You close your eyes for three seconds and let it come — his slurred description of the layout, the passages, the thing they kept hidden from the common cultists. The rear passage. The one behind the altar that leads down.\n\nYou open your eyes and look at the walls. The bioluminescence pulsing in the coral is not random — it traces lines, channels, the architecture of something older than the cult that built this shrine inside it. You can read it now. You know exactly where the main ritual space is, and you know exactly where the passage behind it leads.\n\nYou move quickly, and as you pass through the great cavern for the first time, your eye finds the rear passage immediately — a darker shadow in a dark wall, just where it should be.",
+      "set_flags": [
+        "saw_rear_passage"
+      ],
+      "choices": [
+        {
+          "text": "Press on toward the chanting",
+          "goto": "t_5"
+        }
+      ]
     }
   },
   "cover_image": "cover_art/Leviathan Cover.jpeg",
