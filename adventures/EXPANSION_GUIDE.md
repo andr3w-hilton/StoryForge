@@ -91,6 +91,16 @@ Use act prefixes for all passage IDs. The engine accepts any string.
 
 Choose prefixes that match your story's acts. Rename existing numeric IDs (`"1"`, `"2a"`) as part of the expansion.
 
+> **Critical:** When your first passage is no longer `"1"` (e.g. it becomes `"a_1"`), you **must** add a `start_passage` field to the adventure JSON top level:
+> ```json
+> {
+>   "title": "...",
+>   "start_passage": "a_1",
+>   ...
+> }
+> ```
+> Without this, the engine defaults to navigating to `"1"`, which won't exist. The character creation screen will complete normally but the game board will load blank — no stat bars, no text. This is easy to miss because the adventure JSON validates cleanly and the bug only shows at runtime.
+
 ### 1.3 The master flag table
 
 The most important section of the spec. Every flag that will exist, before writing begins.
@@ -513,5 +523,6 @@ All conditions are ANDed. Only one of each per choice. No OR conditions. No `req
 - [ ] All 4 acts written and merged
 - [ ] All 4–6 endings reachable from start passage
 - [ ] Flag audit panel shows all flags as `✓ ok`
+- [ ] `start_passage` field is set in the adventure JSON if the first passage is not `"1"`
 - [ ] Path lengths in adventure map show reasonable shortest/longest routes to each ending
 - [ ] Version bumped to `2.0` in the adventure JSON
