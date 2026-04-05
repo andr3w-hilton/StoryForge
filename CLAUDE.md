@@ -220,7 +220,7 @@ gameState = {
 
 ## Expanding or Writing Adventures
 
-See `adventures/EXPANSION_GUIDE.md` for the full process — spec writing, flag architecture, Opus prompting, merge steps, and the flag audit checklist. Read it at the start of any session that involves expanding an existing adventure or writing a new one from scratch.
+See `notes/EXPANSION_GUIDE.md` for the full process — spec writing, flag architecture, Opus prompting, merge steps, and the flag audit checklist. Read it at the start of any session that involves expanding an existing adventure or writing a new one from scratch.
 
 ## Adding a New Adventure
 
