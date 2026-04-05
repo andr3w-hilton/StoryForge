@@ -240,12 +240,6 @@
     <label>Act:</label>
     <select id="act-filter-select">
       <option value="all">All Acts</option>
-      <option value="s_">Act 1: Saltmere</option>
-      <option value="r_">Act 2: Reaches</option>
-      <option value="t_">Act 3: Temple</option>
-      <option value="l_">Act 4: Leviathan</option>
-      <option value="end_">Endings</option>
-      <option value="death_">Deaths</option>
     </select>
   </div>
 
@@ -337,6 +331,13 @@ const ACT_COLORS = {
   'death_':'#922b21',
 };
 
+function getActColor(prefix) {
+  if (ACT_COLORS[prefix]) return ACT_COLORS[prefix];
+  let hash = 0;
+  for (const c of prefix) hash = (hash * 31 + c.charCodeAt(0)) & 0xffff;
+  return `hsl(${hash % 360}, 55%, 52%)`;
+}
+
 const DIM_COLOR = {
   background: '#131210',
   border: '#1e1a12',
@@ -348,10 +349,10 @@ const DIM_FONT = { color: '#252015', size: 11, face: 'Courier New' };
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
 function getActPrefix(id) {
-  for (const p of ['end_', 'death_', 's_', 'r_', 't_', 'l_']) {
-    if (id.startsWith(p)) return p;
-  }
-  return 'legacy_';
+  if (id.startsWith('end_')) return 'end_';
+  if (id.startsWith('death_')) return 'death_';
+  const m = id.match(/^([a-z]+_)/);
+  return m ? m[1] : 'legacy_';
 }
 
 function getActLabel(prefix) {
@@ -381,9 +382,11 @@ function getNextIds(passage) {
   return ids.filter(Boolean);
 }
 
-function computeReachable(passages) {
+function computeReachable(passages, startPassage) {
   const reachable = new Set();
-  const starts = Object.keys(passages).filter(id => id === '1' || id === 's_1');
+  const startId = (startPassage && passages[startPassage]) ? startPassage
+    : (Object.keys(passages).find(id => id === '1') || Object.keys(passages)[0]);
+  const starts = startId ? [startId] : [];
   const queue = [...starts];
   for (const id of starts) reachable.add(id);
   while (queue.length) {
@@ -402,7 +405,7 @@ function computeReachable(passages) {
 function buildGraph(adventure, edgeFilter) {
   const passages = adventure.passages;
   const validIds  = new Set(Object.keys(passages));
-  const reachable = computeReachable(passages);
+  const reachable = computeReachable(passages, adventure.start_passage);
 
   const nodes = [];
   const edges = [];
@@ -495,14 +498,18 @@ function buildTooltip(id, passage) {
 
 // ─── Act-grouped layout ─────────────────────────────────────────────────────
 
-function computeActLayout(passages, nodes) {
-  const ORDER  = ['s_', 'r_', 't_', 'l_', 'end_', 'death_', 'legacy_'];
-  const LABELS = { 's_':'ACT 1\nSALTMERE', 'r_':'ACT 2\nTHE REACHES', 't_':'ACT 3\nTHE TEMPLE',
-                   'l_':'ACT 4\nTHE LEVIATHAN', 'end_':'ENDINGS', 'death_':'DEATHS', 'legacy_':'LEGACY' };
+function computeActLayout(passages, nodes, startPassage) {
+  const allPrefixes = [...new Set(Object.keys(passages).map(getActPrefix))];
+  const actPrefixes = allPrefixes.filter(p => p !== 'end_' && p !== 'death_' && p !== 'legacy_').sort();
+  const ORDER = [...actPrefixes, 'end_', 'death_', 'legacy_'].filter(p => allPrefixes.includes(p));
+  const LABELS = {};
+  actPrefixes.forEach((p, i) => { LABELS[p] = `ACT ${i+1}\n${p.replace('_','').toUpperCase()}`; });
+  LABELS['end_'] = 'ENDINGS'; LABELS['death_'] = 'DEATHS'; LABELS['legacy_'] = 'LEGACY';
   const X_STEP = 340, Y_STEP = 52;
 
   const depth = {};
-  const startId = Object.keys(passages).find(id => id === 's_1' || id === '1');
+  const startId = (startPassage && passages[startPassage]) ? startPassage
+    : Object.keys(passages).find(id => id === '1');
   if (startId) {
     depth[startId] = 0;
     const q = [[startId, 0]];
@@ -540,7 +547,7 @@ function computeActLayout(passages, nodes) {
       x, y: -halfH - 80,
       fixed: { x: true, y: true }, physics: false,
       shape: 'text',
-      font: { size: 11, color: ACT_COLORS[prefix] || '#888', face: 'Courier New', bold: true },
+      font: { size: 11, color: getActColor(prefix), face: 'Courier New', bold: true },
       chosen: false, selectable: false,
       borderWidth: 0,
       color: { background: 'transparent', border: 'transparent' },
@@ -917,15 +924,20 @@ function renderStats(adventure, reachable) {
   const types = { choices: 0, combat: 0, luck: 0, victory: 0, death: 0 };
   for (const p of Object.values(passages)) types[getPassageType(p)]++;
 
-  const ORDER = ['s_','r_','t_','l_','end_','death_','legacy_'];
   const actCounts = {};
   for (const id of Object.keys(passages)) {
     const p = getActPrefix(id);
     actCounts[p] = (actCounts[p] || 0) + 1;
   }
+  const ORDER = Object.keys(actCounts).sort((a, b) => {
+    if (a === 'end_') return 1; if (b === 'end_') return -1;
+    if (a === 'death_') return 1; if (b === 'death_') return -1;
+    if (a === 'legacy_') return 1; if (b === 'legacy_') return -1;
+    return a < b ? -1 : 1;
+  });
   const actLine = ORDER
     .filter(p => actCounts[p])
-    .map(p => `<span style="color:${ACT_COLORS[p]||'#888'}">${p.replace('_','')}:${actCounts[p]}</span>`)
+    .map(p => `<span style="color:${ACT_COLORS[p]||getActColor(p)}">${p.replace('_','')}:${actCounts[p]}</span>`)
     .join(' · ');
 
   document.getElementById('stats').innerHTML = `
@@ -1071,10 +1083,24 @@ async function renderAdventure() {
   adventureData = await loadAdventure(path);
   document.querySelector('header h1').textContent = `Adventure Map — ${adventureData.title || path}`;
 
+  // Rebuild act filter options from this adventure's actual prefixes
+  const actSel = document.getElementById('act-filter-select');
+  while (actSel.options.length > 1) actSel.remove(1);
+  const seenPrefixes = [...new Set(Object.keys(adventureData.passages).map(getActPrefix))];
+  const actPfxs = seenPrefixes.filter(p => p !== 'end_' && p !== 'death_' && p !== 'legacy_').sort();
+  [...actPfxs, 'end_', 'death_'].filter(p => seenPrefixes.includes(p)).forEach((p, i) => {
+    const opt = document.createElement('option');
+    opt.value = p;
+    opt.textContent = p === 'end_' ? 'Endings' : p === 'death_' ? 'Deaths'
+      : `Act ${i + 1}: ${p.replace('_', '').toUpperCase()}`;
+    actSel.appendChild(opt);
+  });
+  actSel.value = 'all';
+
   const { nodes, edges, reachable, validIds } = buildGraph(adventureData, edgeFilter);
 
   if (layoutType === 'act-grouped') {
-    const positions = computeActLayout(adventureData.passages, nodes);
+    const positions = computeActLayout(adventureData.passages, nodes, adventureData.start_passage);
     for (const node of nodes) {
       if (positions[node.id]) {
         node.x = positions[node.id].x;
