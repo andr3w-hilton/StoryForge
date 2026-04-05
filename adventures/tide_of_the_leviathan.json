@@ -1,7 +1,7 @@
 {
   "title": "Tide of the Leviathan",
   "author": "Andrew Hilton",
-  "version": "2.0-act3",
+  "version": "2.0-act4",
   "accent_color": "#2a7a8a",
   "genre_tag": "HIGH SEAS",
   "theme_icon": "⚓",
@@ -3392,6 +3392,824 @@
           "goto": "t_r1"
         }
       ]
+    },
+    "l_1": {
+      "text": "It rises.\n\nThe aspect of the Leviathan fills the cavern behind you — a column of dark water given form, shot through with veins of green-gold light that pulse like a heartbeat older than the stone around you. Within its mass, shapes move. Faces. Dozens of them, mouths open in silent screams, eyes white and staring. The drowned. The taken. Every sailor who ever vanished in the Reaches, pressed into service as part of something they never chose.\n\nThe water surges to your waist again. The temple groans, walls cracking, coral-light flaring and dying in stuttered bursts. Chunks of carved stone fall from the ceiling and vanish into the churning flood.\n\nThe aspect does not attack. Not yet. It turns toward you with the slow deliberation of a creature that has never needed to hurry. The green-gold eye — vast, ancient, focused — finds you in the chaos.\n\nIt is waiting. Not for you to run. Not for you to fight. It is waiting to see what you are.",
+      "choices": [
+        {
+          "text": "Hold your ground",
+          "goto": "l_2"
+        }
+      ]
+    },
+    "l_2": {
+      "text": "The green-gold light washes over you. For a moment — one terrible, luminous moment — you see the faces clearly. Not just sailors. Fishermen. Dockworkers. A woman in a harbourmaster's coat. A child, impossibly small, eyes wide with a wonder that never quite became fear.\n\nThey are not in pain. That is the worst part. They are not suffering. They are simply... held. Suspended in the aspect's form like insects in amber, their last expressions frozen, their last thoughts playing on an endless loop behind those white, staring eyes.\n\nThe aspect shifts. A low vibration runs through the water — not sound exactly, but something deeper, something that bypasses your ears and lands directly in the base of your skull. It is not a threat. It is a question.\n\nWho are you to stand here?",
+      "choices": [
+        {
+          "text": "Take stock of your options",
+          "goto": "l_3"
+        }
+      ]
+    },
+    "l_3": {
+      "text": "The cavern is collapsing passage by passage. Behind you, the way you came in is already sealed — a section of ceiling fell across it moments ago. The water is rising steadily, fed by the ocean pouring through the cracks the aspect tore in the temple floor.\n\nTo your left, a narrow passage runs along the cavern wall — too tight for the aspect's bulk, barely wide enough for a person. Beyond it, if you remember the temple's layout, lies the upper binding chamber.\n\nThe aspect's attention is focused but not hostile. Not yet. There is a window here — seconds, maybe a minute — before the creature decides you are not worth waiting for.\n\nYou feel the weight of everything you have learned, everything you carry, pressing against the inside of your skull. Whatever you do next, you must do it now.",
+      "choices": [
+        {
+          "text": "Steady yourself",
+          "goto": "l_4"
+        }
+      ]
+    },
+    "l_4": {
+      "text": "A chunk of ceiling the size of a cart crashes into the water ten feet to your right. The splash drives a wave against the cavern wall and the spray stings your eyes. When you blink clear, the aspect has moved closer — not aggressively, but with the inexorable drift of a tide coming in. The green-gold light intensifies.\n\nThe water is at your ribs now. Through the murk you can see your own legs, pale and insubstantial, planted on a stone floor that is cracking beneath your feet. One of the cracks runs directly between your boots. Below it: dark water, fathoms of it, and the faintest suggestion of something enormous moving in the deep.\n\nYou are standing on the skin of the world, and the world is thin here. Choose.",
+      "choices": [
+        {
+          "text": "Continue",
+          "goto": "l_6"
+        }
+      ]
+    },
+    "l_5": {
+      "text": "The water reaches your ribs. The aspect shifts, its mass pressing against the cavern walls, and you feel the current pull at your legs. Time is running out.\n\nWhat do you do?",
+      "choices": [
+        {
+          "text": "Follow the compass — it is pulling toward something",
+          "goto": "l_8",
+          "requires_item": "navigator_compass",
+          "requires_flag": "compass_intact"
+        },
+        {
+          "text": "Speak the ancient words of the pact",
+          "goto": "l_24",
+          "requires_flag": "knows_the_pact"
+        },
+        {
+          "text": "Stand and fight — the altar is destroyed, it can be hurt",
+          "goto": "l_35",
+          "requires_flag": "altar_destroyed"
+        },
+        {
+          "text": "Run for the exit",
+          "goto": "l_50",
+          "style": "danger"
+        }
+      ]
+    },
+    "l_6": {
+      "text": "As you weigh your options, a wave of cold washes over you — not from the water, but from inside. A pressure behind your eyes, a buzzing in your temples. The aspect's presence is doing something to you. Not attacking. Remembering.\n\nImages flash through your mind. The harbour at Saltmere, seen from below the surface. The fishing boats, their hulls dark shapes against a bright sky. The faces of the townsfolk, distorted through a lens of water and ancient attention. The Leviathan has been watching them. All of them. For a very long time.\n\nThe vision passes. You gasp, steady yourself against the cavern wall. The aspect has not moved. But you understand something now that you did not understand before: the creature is not mindless. It is grieving. Something was taken from it — its purpose, its peace, its covenant with the surface world — and it has been screaming ever since.\n\nThe water rises another inch.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Use what you know",
+          "goto": "l_7",
+          "requires_flag": "had_vision"
+        },
+        {
+          "text": "Act now",
+          "goto": "l_5"
+        }
+      ]
+    },
+    "l_7": {
+      "text": "The vision connects to something you have seen before. In the caves, when the first mate's face swam before you — that same underwater perspective, that same grief. The Leviathan was showing you then what it is showing you now. It has been trying to communicate since the beginning.\n\nThe first mate was not just a puppet. They were a messenger. The vision you had was not a threat — it was a plea.\n\nThe understanding settles into you like an anchor finding the bottom. You do not know if it will help. But you know that whatever you do next, you do it with open eyes.\n\nThe water is at your ribs. Time to choose.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Choose your path",
+          "goto": "l_5"
+        }
+      ]
+    },
+    "l_8": {
+      "text": "You pull the navigator's compass from your coat. The needle is spinning — not randomly, but with purpose, tracing the same tight circle over and over, faster and faster, until it locks.\n\nNorth-northwest. The needle points toward the narrow passage along the cavern wall, steady as a heartbeat, trembling with a resonance you can feel through the brass casing. The compass wants to go there. Every fibre of whatever strange mechanism drives it is pulling toward that passage.\n\nThe aspect watches you. The green-gold eye narrows — not with anger, but with something that might be recognition. It has seen this compass before. Or something like it.",
+      "choices": [
+        {
+          "text": "Follow the compass into the narrow passage",
+          "goto": "l_9",
+          "requires_flag": "saw_rear_passage"
+        },
+        {
+          "text": "Follow the compass into the narrow passage",
+          "goto": "l_9a",
+          "requires_no_flag": "saw_rear_passage"
+        }
+      ]
+    },
+    "l_9": {
+      "text": "You know this passage. You spotted it from the ledge above — the rear access to the binding chamber, the one Morrow's map marked with a careful asterisk. The compass confirms what you already knew. You plunge into the gap without hesitation, the stone walls scraping your shoulders, the water chest-deep and rising.\n\nBehind you, the aspect surges forward. Its bulk hits the passage entrance and stops. The stone holds. For now.",
+      "choices": [
+        {
+          "text": "Press deeper",
+          "goto": "l_9b"
+        }
+      ]
+    },
+    "l_9a": {
+      "text": "You do not know where this passage leads. The compass says north-northwest and you follow it on faith alone, squeezing into the narrow gap, the stone walls pressing against your ribs. The water is chest-deep. The coral-light is dim here, barely enough to see your own hands.\n\nYou take a wrong turn almost immediately — a branching passage that leads to a dead end, water pouring in from a crack above. You backtrack, gasping, the compass needle steady as a lodestone.\n\nBehind you, the aspect surges against the passage entrance. The stone holds. For now.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Trust the compass and press on",
+          "goto": "l_9b"
+        }
+      ]
+    },
+    "l_9b": {
+      "text": "The passage twists. The walls are slick with something that is not quite algae — a luminous film that smears under your fingers and leaves trails of faint blue light on your skin. The compass needle holds steady, pulling you forward through the dark.\n\nSomething brushes your ankle beneath the water. You freeze. It is not the aspect — the tendril is too small, too delicate. A fragment of the creature, perhaps. A scout. It coils once around your calf and releases, as though testing you, and then is gone.\n\nThe water rises another inch. You press on.",
+      "choices": [
+        {
+          "text": "Keep moving",
+          "goto": "l_9c"
+        }
+      ]
+    },
+    "l_9c": {
+      "text": "The passage opens briefly into a small chamber — a junction where three tunnels meet. The compass needle swings sharply left, and you follow it into the narrowest of the three. Behind you, from the main cavern, a sound like a cathedral being crushed. The aspect is testing the passage entrance again.\n\nThe walls here are carved more densely than anywhere else in the temple. Spirals within spirals, so tightly packed that the stone itself seems to move in the flickering coral-light. The compass vibrates in your hand, the needle trembling with recognition.\n\nYou are close to something.",
+      "choices": [
+        {
+          "text": "Follow the compass",
+          "goto": "l_10"
+        }
+      ]
+    },
+    "l_10": {
+      "text": "The passage walls are covered in spiral inscriptions — the same carvings you have seen throughout the temple, but older here, deeper cut, the grooves still sharp after centuries of tidal wash. As you pass, the compass needle swings to track each carved spiral, and the inscriptions begin to glow.\n\nFaint at first. Then brighter. Green-gold light, the same colour as the aspect's eye, racing along the carved lines like fire along a fuse. The light runs ahead of you, illuminating the passage, showing you the way.",
+      "choices": [
+        {
+          "text": "The pattern is familiar — follow the compass",
+          "goto": "l_10a",
+          "requires_flag": "saw_symbol"
+        },
+        {
+          "text": "Morrow's words guide you — follow the compass",
+          "goto": "l_10b",
+          "requires_flag": "morrow_heard",
+          "requires_no_flag": "saw_symbol"
+        },
+        {
+          "text": "Trust the compass blindly — follow the light",
+          "goto": "l_10c",
+          "requires_no_flag": "morrow_heard"
+        }
+      ]
+    },
+    "l_10a": {
+      "text": "You recognise the symbols now. The harbour wall — the carving you traced with your fingers in the rain, back when this was just a missing-persons investigation and not the end of the world. The same pattern. The same spiral. The binding mark.\n\nThe compass is a key. You understand it with a certainty that has nothing to do with logic and everything to do with the way the brass casing warms in your hand, the way the inscriptions flare brighter as you pass, the way the passage seems to open ahead of you as though the temple itself is clearing a path.\n\nThe binding chamber is ahead. You can feel it.",
+      "set_flags": [
+        "understands_compass"
+      ],
+      "choices": [
+        {
+          "text": "Hurry — the passage will not hold forever",
+          "goto": "l_12"
+        }
+      ]
+    },
+    "l_10b": {
+      "text": "Morrow's journal described these inscriptions. He spent years decoding them — the spiral language of the deep temple, the binding script that held the Leviathan in place. You cannot read them as fluently as he could, but you understand enough. The compass responds to the carvings. The carvings respond to the compass. They were made for each other.\n\nThe binding chamber is ahead. The compass is pulling you there with increasing urgency.",
+      "choices": [
+        {
+          "text": "Follow the compass",
+          "goto": "l_12"
+        }
+      ]
+    },
+    "l_10c": {
+      "text": "You do not understand the inscriptions. They glow, the compass pulls, and you follow. That is all you have — a brass instrument that wants to go somewhere, and a narrow passage filling with water. It will have to be enough.\n\nThe binding chamber is ahead. You can hear the echo changing, the passage opening into a larger space.",
+      "choices": [
+        {
+          "text": "Push forward",
+          "goto": "l_12"
+        }
+      ]
+    },
+    "l_12": {
+      "text": "The passage narrows further — barely shoulder-width now, the stone pressing in on both sides. Behind you, an enormous crash. The aspect is forcing itself against the passage entrance, and the stone is beginning to give. Cracks race along the walls. Dust and chips of rock fall into the surging water.\n\nYou need to move. Fast.",
+      "choices": [
+        {
+          "text": "Use the grappling hook to haul yourself through",
+          "goto": "l_13",
+          "requires_item": "grappling_hook"
+        },
+        {
+          "text": "Use the kelp rope to pull yourself along",
+          "goto": "l_13",
+          "requires_item": "kelp_rope"
+        },
+        {
+          "text": "Scramble through on your own",
+          "goto": "l_12a"
+        }
+      ]
+    },
+    "l_12a": {
+      "text": "You throw yourself forward, arms outstretched, pulling against the wet stone with your bare hands. The water is at your chin now. Behind you, another crash — closer.",
+      "test_luck": {
+        "lucky_text": "You find a handhold — a carved ridge in the wall — and haul yourself through the narrowest section just as a stone pillar behind you gives way. The passage seals itself with rubble. You are through.",
+        "lucky_goto": "l_13",
+        "unlucky_text": "A stone pillar breaks free from the ceiling and catches you across the shoulders. Pain lances through your back. You drag yourself forward, gasping, tasting blood and salt water, and squeeze through the gap just before the passage collapses behind you.",
+        "unlucky_goto": "l_13",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 4
+      }
+    },
+    "l_13": {
+      "text": "You haul yourself up a final incline — the passage slopes upward here, the water draining away behind you, and for the first time since you entered the temple you feel solid dry stone beneath your feet. The air is different. Warmer. Drier. You can breathe without tasting salt.\n\nThe compass needle is vibrating so intensely that the casing hums in your palm. You are close. Whatever the compass has been pulling you toward is just ahead, through a low archway carved with spirals that glow brighter as you approach.\n\nBehind you, far below, the sound of stone breaking. The aspect is still coming.",
+      "choices": [
+        {
+          "text": "Step through the archway",
+          "goto": "l_14"
+        }
+      ]
+    },
+    "l_14": {
+      "text": "You emerge into open air.\n\nThe binding chamber — the real one, not the flooded ruin below. This room sits above the waterline, accessed from above through a passage the builders carved into the living rock. It is circular, perhaps twenty feet across, and every surface is covered in the spiral inscriptions. They glow faintly, responding to your presence — or to the compass in your hand.\n\nAt the centre of the chamber stands a pillar of dark stone, waist-high, its top carved into a shallow basin. Inside the basin, a socket — circular, brass-rimmed, exactly the size of a compass casing.\n\nThe walls shake. From somewhere below, the sound of stone giving way. The aspect is coming. It is tearing through the sealed passage, one layer of rock at a time.\n\nYou do not have long.",
+      "choices": [
+        {
+          "text": "Approach the pillar",
+          "goto": "l_14a"
+        }
+      ]
+    },
+    "l_14a": {
+      "text": "The chamber hums. It is not a sound you can locate — it comes from the walls, the floor, the air itself. The spiral inscriptions pulse with a light that responds to the compass, brightening as you hold it up, dimming when you lower it. The connection is unmistakable. The compass and the chamber were made for each other.\n\nYou examine the pillar more closely. The socket is not merely brass-rimmed — the rim is engraved with microscopic spirals, so fine they are barely visible, and they match the pattern on the compass casing exactly. Someone designed this. Someone planned for this moment, centuries ago.\n\nMorrow? The original pact-makers? It does not matter now. What matters is that you are here, and the compass is in your hand, and the socket is waiting.",
+      "choices": [
+        {
+          "text": "Cross to the pillar",
+          "goto": "l_15"
+        }
+      ]
+    },
+    "l_15": {
+      "text": "You cross the chamber toward the central pillar. The compass is vibrating in your hand now, the needle locked on the socket, the brass casing warm enough to feel through your wet gloves.\n\nAnd then you feel it. A presence. Not the aspect — something smaller, quieter, closer. A cold breath on the back of your neck that carries no scent of salt or rot, only the faintest trace of rum and canvas and open sea.",
+      "choices": [
+        {
+          "text": "Turn around",
+          "goto": "l_15a",
+          "requires_flag": "spared_first_mate"
+        },
+        {
+          "text": "The chamber is empty — focus on the pillar",
+          "goto": "l_15d",
+          "requires_flag": "defeated_first_mate"
+        },
+        {
+          "text": "You are alone — focus on the pillar",
+          "goto": "l_16"
+        }
+      ]
+    },
+    "l_15d": {
+      "text": "You spin around. The chamber is empty.\n\nOf course it is. The first mate is gone — truly gone. You made certain of that when you fought them, when you cut down the thing the Leviathan had made of their body. There is no ghost to help you here. No spectral hand on your shoulder, no whispered guidance.\n\nBut for a moment — just a moment — you thought you felt something. A breath. A presence. The faintest suggestion of a person who once stood in places like this and understood what they were for.\n\nThe feeling passes. You are alone in the binding chamber, with the compass in your hand and the aspect breaking through the floor. Whatever happens next, you will do it alone.",
+      "choices": [
+        {
+          "text": "Turn to the pillar",
+          "goto": "l_16"
+        }
+      ]
+    },
+    "l_15a": {
+      "text": "The first mate stands behind you.\n\nNot as you last saw them — not as a thing of waterlogged flesh and hollow eyes, not as the broken vessel the Leviathan wore like a puppet. This is the person they were before. A sailor. Tall, weathered, steady-eyed. Translucent as sea glass, edges blurred like a reflection in moving water, but unmistakably present.\n\nThey are looking at you. Not through you. At you.",
+      "choices": [
+        {
+          "text": "Meet their gaze",
+          "goto": "l_15b",
+          "requires_flag": "knows_first_mate_awake"
+        },
+        {
+          "text": "Wait",
+          "goto": "l_15c"
+        }
+      ]
+    },
+    "l_15b": {
+      "text": "The ghost speaks. The voice is thin — a whisper carried on a current that exists only in the space between you — but the words are clear.\n\n\"Elara. My name was Elara.\"\n\nA pause. The walls shake. Dust falls from the ceiling.\n\n\"The compass will hold. It was made for this. Morrow knew — he built it from the temple's own stone, keyed it to the binding script. It is not a navigator's tool. It never was.\" The ghost — Elara — looks at the socket in the pillar. \"It is a lock. And this is where it goes.\"\n\nElara's hand reaches out and rests on your arm. The touch is cold, but steady. Certain.\n\n\"Thank you. For the rum. For seeing me.\"\n\nThe chamber shakes again. Harder.",
+      "set_flags": [
+        "ghost_confirmed"
+      ],
+      "choices": [
+        {
+          "text": "Nod, and turn to the pillar",
+          "goto": "l_16"
+        }
+      ]
+    },
+    "l_15c": {
+      "text": "The ghost does not speak. Perhaps it cannot. Perhaps whatever the Leviathan did to it took its voice along with everything else.\n\nBut it moves. Slowly, deliberately, it crosses the chamber and stands beside the central pillar. One translucent hand reaches out and rests on the stone basin, beside the socket. Then the ghost looks at you and looks at the compass in your hand.\n\nThe gesture is unmistakable. The ghost points at the socket.\n\nThen it places its hand on your shoulder. The touch is cold as deep water. But it is not hostile. It is the steadying hand of a sailor who has seen you through a storm.",
+      "set_flags": [
+        "ghost_confirmed"
+      ],
+      "choices": [
+        {
+          "text": "Turn to the pillar",
+          "goto": "l_16"
+        }
+      ]
+    },
+    "l_16": {
+      "text": "The aspect reaches the passage entrance below.\n\nThe sound is like the earth splitting open. Stone explodes inward, shards ricocheting off the chamber walls, and through the gap in the floor you see it — the green-gold light, the writhing mass, the faces of the drowned pressed against the inside of its form like passengers trapped behind glass.\n\nThe aspect cannot fit through. Not yet. But it is widening the gap, tendril by tendril, and the chamber floor is cracking under the pressure. You have seconds.\n\nThe pillar. The socket. The compass in your hand.",
+      "choices": [
+        {
+          "text": "Place the compass in the socket",
+          "goto": "l_17"
+        }
+      ]
+    },
+    "l_17": {
+      "text": "You hold the compass over the socket. The needle trembles — not spinning now, but vibrating with a deep resonance that runs up your arm and into your chest. The compass knows this place. It has been waiting to come home.\n\nA tendril of green-gold light punches through the floor six inches from your foot. The stone cracks around it like ice breaking on a spring river. Another tendril follows. Another. The aspect is coming through.",
+      "choices": [
+        {
+          "text": "Now — press it into the socket",
+          "goto": "l_18",
+          "requires_flag": "spared_first_mate"
+        },
+        {
+          "text": "Now — press it into the socket",
+          "goto": "l_20",
+          "requires_no_flag": "spared_first_mate"
+        }
+      ]
+    },
+    "l_18": {
+      "text": "You hold the compass over the socket. The needle spins one final time — a full revolution, perfectly smooth — and locks pointing straight down. Into the stone. Into the binding.\n\nThe chamber fills with light.",
+      "choices": [
+        {
+          "text": "Press it home",
+          "goto": "l_18a",
+          "requires_flag": "kael_survived"
+        },
+        {
+          "text": "Press it home",
+          "goto": "l_20",
+          "requires_no_flag": "kael_survived"
+        }
+      ]
+    },
+    "l_18a": {
+      "text": "The compass slots into the socket with a click that resonates through the stone like a bell struck underwater. The spiral inscriptions on every wall flare — not the sickly green-gold of the aspect, but a clean, bright blue-white, the colour of sunlight through shallow water on a clear day.\n\nThe aspect screams.\n\nIt is not a sound that belongs in the air. It travels through the stone, through the water, through your bones. The faces within the aspect's mass open their mouths and for one terrible moment they scream too — and then, one by one, they dissolve. Not destroyed. Released. Each face softens, loses its rictus of fear, and drifts away like foam on a retreating wave.\n\nThe binding holds.\n\nThe aspect is pulled downward, compressed, diminished. The green-gold light dims to a flicker, then to nothing. The gap in the floor seals itself — new stone growing over old like a wound closing — and the chamber falls silent.\n\nThe compass sits in the socket, needle still. It will not come out. It was never meant to.",
+      "choices": [
+        {
+          "text": "It is done",
+          "goto": "l_19"
+        }
+      ]
+    },
+    "l_19": {
+      "text": "Silence.\n\nNot the silence of absence — the silence of completion. The chamber hums with a deep, steady resonance that you feel in your teeth, in your bones, in the spaces between your heartbeats. The inscriptions on the walls glow with a soft blue-white light that will burn here, you suspect, for a very long time.\n\nThe compass needle is still. Pointing at nothing. Pointing at everything. The socket holds it perfectly — the key in its lock, the final piece of a mechanism that has waited centuries for this moment.\n\nThe air in the chamber is warm. Dry. You can breathe without tasting salt for the first time in what feels like days.\n\nFrom below: nothing. No green-gold light. No writhing mass. No drowned faces. The Leviathan sleeps.",
+      "choices": [
+        {
+          "text": "Leave the binding chamber",
+          "goto": "end_binding"
+        }
+      ]
+    },
+    "l_20": {
+      "text": "The compass slots into the socket. The inscriptions flare — blue-white light racing along the carved spirals, filling the chamber. The aspect shrieks, a sound that reverberates through the temple's bones.\n\nBut the binding wavers. The light flickers. Without the ghost to anchor the seal, without allies waiting on the surface, the binding is incomplete. The compass holds, but it demands something more. A life's worth of intent. A sacrifice freely given.\n\nThe stone beneath your feet grows hot. The inscriptions are drawing power — from the compass, from the chamber, from you. You feel it like a tide pulling at your blood, your breath, your years.\n\nYou could let it take what it needs. The seal would hold. You would walk out diminished but alive, and the Leviathan would sleep.",
+      "choices": [
+        {
+          "text": "Let the binding take what it needs",
+          "goto": "end_sacrifice"
+        },
+        {
+          "text": "Offer the ancient seal fragment instead",
+          "goto": "l_22",
+          "requires_item": "ancient_seal_fragment"
+        }
+      ]
+    },
+    "l_22": {
+      "text": "You pull the seal fragment from your pack — that broken piece of worked stone you found in the temple's depths, carved with the same spirals as the chamber walls. It pulses in your hand, resonating with the binding light.\n\nYou place it beside the compass in the socket. The fragment fits into a groove you had not noticed before — a secondary channel, a bypass. The binding light rushes through it, stabilising, and the pull on your body eases.\n\nThe seal holds. But even as the light settles and the aspect is driven back into the deep, you can feel the difference. The fragment is old. Cracked. It will serve for a generation, perhaps two, but it is not the permanent binding the compass alone could have made.\n\nSomeone will have to come back here. Someday. Someone will have to face this again.\n\nBut not today.",
+      "remove_items": [
+        "ancient_seal_fragment"
+      ],
+      "choices": [
+        {
+          "text": "Leave the chamber",
+          "goto": "end_sacrifice"
+        }
+      ]
+    },
+    "l_24": {
+      "text": "You step toward the aspect. The green-gold light washes over you, and for a terrible moment every nerve in your body screams at you to run. The primal part of your brain — the ancient, animal part that knows what a predator looks like — is telling you that nothing this vast and this old should be approached on purpose.\n\nBut you know the pact. Or you know enough of it. The words that Morrow found in the deep places of the temple, the words that the first coast-dwellers spoke to the Leviathan when the world was younger. The words that turned a predator into a guardian and a guardian into a covenant.\n\nYou stand before the aspect of the Leviathan and prepare to speak.",
+      "choices": [
+        {
+          "text": "Begin the pact-speech",
+          "goto": "l_25"
+        }
+      ]
+    },
+    "l_25": {
+      "text": "You turn to face the aspect.\n\nThe words are in your mouth before you have consciously decided to speak them. The old language — the binding tongue, the pact-speech that Morrow transcribed in his journal, that the temple walls whisper in their spiral script. The language the first settlers of Saltmere spoke to the thing beneath the Reaches when they first came to this coast and needed the sea to let them live.\n\nYou open your mouth.",
+      "choices": [
+        {
+          "text": "Speak the exact words of the pact",
+          "goto": "l_26",
+          "requires_flag": "knows_pact_words"
+        },
+        {
+          "text": "Speak what you remember of the pact",
+          "goto": "l_25a"
+        }
+      ]
+    },
+    "l_25a": {
+      "text": "You know the shape of the pact. You know its intent — the covenant between the coast-dwellers and the deep, the exchange of respect for safe passage, the acknowledgement that the sea belongs to something older than humanity. But the exact words elude you. You grasp at fragments, half-remembered phrases from Morrow's writings, and hope that intent is enough.",
+      "test_luck": {
+        "lucky_text": "The words come. Not perfectly, not fluently, but they come — dragged up from some deep well of memory you did not know you possessed. The pact-speech flows from your lips like water finding its level, and the aspect pauses. Its vast attention sharpens. It is listening.",
+        "lucky_goto": "l_26",
+        "unlucky_text": "The words do not come. You speak, but what emerges is broken — fragments without grammar, sounds without meaning. The aspect regards you with something that might be contempt, might be pity, and turns away. The moment passes. The pact-speech will not work for someone who does not truly know it.\n\nThe aspect's attention hardens. You need another plan. Now.",
+        "unlucky_goto": "l_50",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 2
+      }
+    },
+    "l_26": {
+      "text": "The words fill the cavern.\n\nThey are not loud. You are not shouting. But the pact-speech carries through the water and the stone and the air in a way that ordinary language does not. It vibrates. It resonates. The spiral inscriptions on the walls flare with green-gold light as each syllable lands, as though the temple itself is remembering something it had forgotten.\n\nThe aspect pauses.\n\nThe churning mass of water and light goes still. The faces within it — the drowned sailors, the taken — stop their silent screaming and turn to listen. The vast green-gold eye fixes on you with an intensity that makes your knees buckle.\n\nYou keep speaking. The words are a river now, flowing through you, and you understand them even though you have never spoken this language before. You are saying: I see you. I know what you are. I know what was done to you. I am here to make it right.\n\nThe aspect shifts. Its form ripples, softens. The green-gold light warms to something almost gentle.",
+      "choices": [
+        {
+          "text": "Continue the pact",
+          "goto": "l_27"
+        }
+      ]
+    },
+    "l_27": {
+      "text": "The aspect lowers itself. Not in submission — in attention. The vast form compresses, the green-gold light concentrating, until the eye is level with your face. Close enough to touch. Close enough that you can see your own reflection in that ancient iris, distorted and small and fragile.\n\nThe faces of the drowned watch you from within the creature's mass. They are listening too. Some of them — the oldest ones, the ones whose features have blurred almost beyond recognition — are mouthing words. The same words you are speaking. They remember the pact. They have been waiting to hear it again.\n\nThe water around your legs goes warm. The current gentles. For this one moment, in this one flooded cavern beneath the ruins of a corrupted temple, the sea is not your enemy.\n\nBut the pact is not complete. Words opened the door. Something else must seal it.",
+      "choices": [
+        {
+          "text": "What does the pact require?",
+          "goto": "l_28"
+        }
+      ]
+    },
+    "l_28": {
+      "text": "The pact requires more than words. The old covenant was sealed with an offering — a token of the surface world given freely to the deep, a symbol of trust between two realms that share a border but will never share a language.\n\nThe aspect waits. It has heard the words. Now it wants proof.",
+      "choices": [
+        {
+          "text": "Raise the wave cutlass — it resonates with ancient power",
+          "goto": "l_30",
+          "requires_item": "wave_cutlass"
+        },
+        {
+          "text": "Offer the navigator's compass",
+          "goto": "l_28a",
+          "requires_item": "navigator_compass"
+        },
+        {
+          "text": "Offer your own blood",
+          "goto": "l_28b"
+        }
+      ]
+    },
+    "l_30": {
+      "text": "You draw the wave cutlass.\n\nThe blade sings. There is no other word for it — a high, clear note that cuts through the sound of crashing water and crumbling stone like a bell through fog. The ancient steel catches the green-gold light and throws it back transformed, blue-white and steady.\n\nThe aspect recognises it. You see the recognition in the way its form shifts — the vast eye widening, the mass of drowned faces turning toward the blade with something that is not fear but reverence. This weapon was forged from the deep. It carries the Leviathan's own essence, worked into steel by hands that understood the pact.\n\nThe cutlass is not an offering. It is a credential. It proves that you have walked the old paths, found the old things, understood enough of the old ways to be trusted.\n\nThe aspect accepts it. No luck test. No further proof needed. The blade's song is enough.",
+      "choices": [
+        {
+          "text": "Complete the pact",
+          "goto": "l_31"
+        }
+      ]
+    },
+    "l_28a": {
+      "text": "You hold out the navigator's compass. The brass casing gleams in the green-gold light, the needle spinning slowly, and the aspect's attention sharpens.\n\nThe compass was made from the temple's own stone. Morrow built it as a key to the binding — but before the binding, before the cult twisted the Leviathan's purpose, the pact was simpler. The compass carries enough of the deep in its construction to serve as proof.\n\nThe aspect reaches toward you. A tendril of dark water extends from its mass, slow and deliberate, and touches the compass. The brass goes cold in your hand. Then the compass dissolves — not breaking, not shattering, but dissolving like salt in warm water, its substance absorbed into the aspect's form.\n\nThe offering is accepted. But the compass is gone.",
+      "remove_items": [
+        "navigator_compass"
+      ],
+      "clear_flags": [
+        "compass_intact"
+      ],
+      "choices": [
+        {
+          "text": "Complete the pact",
+          "goto": "l_31"
+        }
+      ]
+    },
+    "l_28b": {
+      "text": "You have nothing else to offer. Nothing from the deep, nothing forged in the old ways. Only yourself.\n\nYou draw your blade across your palm. Blood wells up — red and warm and human — and you hold your hand out over the water. The drops fall. The aspect watches each one descend.\n\nThe blood hits the surface and the water around your hand turns cold. Bitterly, achingly cold. You feel the chill race up your arm, through your chest, into your heart. The deep is tasting you. Judging you. Deciding whether a handful of mortal blood is enough to seal a pact that was meant to last centuries.\n\nIt is enough. Barely. The cold recedes, leaving you shaking and diminished, but the aspect's light shifts from green-gold to something warmer. The offering is accepted.",
+      "add_stamina": -4,
+      "choices": [
+        {
+          "text": "Complete the pact",
+          "goto": "l_31"
+        }
+      ]
+    },
+    "l_31": {
+      "text": "The aspect considers. The vast eye blinks — once, slowly, with a deliberation that suggests centuries of thought compressed into a single motion. Within its mass, the faces of the drowned shift and stir, and for a moment you hear them: not screaming, but murmuring. A chorus of whispered names, spoken by mouths that have not formed words in decades.\n\nThey are saying goodbye.\n\nThe aspect's form ripples. The green-gold light pulses once, twice, and then steadies into something deeper — amber, almost warm. The creature is making its decision. You stand in the rising water and wait for the oldest thing in the Reaches to decide whether you are worthy of the oldest pact in the world.",
+      "choices": [
+        {
+          "text": "Wait",
+          "goto": "l_32"
+        }
+      ]
+    },
+    "l_32": {
+      "text": "The pact is spoken. The offering is given. And the Leviathan responds.\n\nThe aspect's form shudders — a great slow tremor that runs through its entire mass like a sigh. The green-gold light deepens, steadies, and for one heartbeat the faces of the drowned within it are not screaming but smiling. Peaceful. They know what is happening. They have been waiting for this.\n\nOne by one, the faces dissolve. Not into nothing — into the light itself, absorbed, released, returned to whatever the drowned become when the thing that held them lets go. The aspect diminishes with each release, its mass shrinking, the vast eye dimming from green-gold to a deep, steady blue.\n\nThe Leviathan is not dying. It is resting. Going back to the deep place it occupied before the cult woke it, before the betrayal, before the centuries of twisted worship turned a guardian into a monster.\n\nThe water in the cavern begins to recede. The temple stops shaking. The coral-light shifts from its frantic pulsing to a slow, steady glow — the rhythm of a sleeping heartbeat.\n\nThe pact holds. The oldest agreement between coast and deep, between surface and abyss. Respect for safe passage. Acknowledgement that the sea belongs to something older than you.\n\nThe aspect sinks. Down through the shattered floor, down through the deep water, down into the dark where the Leviathan sleeps. The blue light fades. The cavern goes still.\n\nThe pact holds.",
+      "choices": [
+        {
+          "text": "Swim for the surface",
+          "goto": "l_33"
+        }
+      ]
+    },
+    "l_33": {
+      "text": "The last of the drowned faces dissolves. The aspect is barely visible now — a shadow in the water, a suggestion of green-gold light fading to blue, fading to nothing. The vast eye closes. Not in death. In sleep.\n\nThe water around your legs goes still. Perfectly, impossibly still. No current. No surge. No pull. For one breath, the ocean holds its peace, and in that silence you hear something you have never heard before: the deep, slow rhythm of the Leviathan's heartbeat, steady as the tides, slowing as the creature descends into rest.\n\nIt is the sound of a guardian going back to its post. The sound of an old wrong being made right.\n\nThe temple around you settles. The cracking stops. The coral-light dims to a warm, steady glow — not dying, just quieting. The inscriptions on the walls pulse in time with that deep heartbeat, and then they too go still.",
+      "choices": [
+        {
+          "text": "Find your way to the surface",
+          "goto": "l_34"
+        }
+      ]
+    },
+    "l_34": {
+      "text": "You swim upward through the stilling water. The temple is damaged but no longer collapsing — the Leviathan's withdrawal has taken the pressure off the ancient stone. Coral-light guides you through passages that were chaos minutes ago and are now merely dark and flooded and navigable.\n\nYou surface in the outer cavern. The air is cold and clean and tastes like the best thing you have ever breathed. Above you, through a crack in the cavern roof, you can see stars.\n\nThe tide is retreating. The Reaches are calming. Whatever the Leviathan was doing to the sea — the storms, the surges, the drownings — it has stopped.\n\nYou swim toward the light.",
+      "choices": [
+        {
+          "text": "Emerge from the deep",
+          "goto": "end_bargain"
+        }
+      ]
+    },
+    "l_35": {
+      "text": "You destroyed the altar. You felt the power leave it — felt the crack run through the temple's foundations, felt the Leviathan's hold on this place weaken. The aspect before you is not the full-strength guardian that Morrow worshipped. It is diminished. Wounded. Furious.\n\nIt can be fought. It can be beaten.\n\nYou draw your weapon and plant your feet against the current. The water is waist-deep, the footing treacherous, but you have fought in worse conditions. You have fought all the way here.\n\nThe aspect turns its full attention on you. The green-gold eye blazes.",
+      "choices": [
+        {
+          "text": "Prepare yourself",
+          "goto": "l_36"
+        }
+      ]
+    },
+    "l_36": {
+      "text": "The aspect gathers itself. The tendrils of dark water draw inward, compressing, and the creature's form solidifies — less like a cloud now, more like a body. Shoulders. Arms. A head, or something that serves the same purpose. The green-gold light pulses in rhythm, like a heart pumping venom.\n\nIt is making itself something you can fight. Or something that can fight you. The distinction matters less than you would like.\n\nThe faces of the drowned within its mass contort. They know what is coming. Some of them — the ones that still have enough humanity left to remember fear — are trying to pull away from the aspect's outer surface, pressing inward, hiding behind the deeper layers of the creature's form.\n\nThe cavern shakes. A pillar of stone collapses into the water. The aspect does not flinch. Its attention is entirely on you.",
+      "choices": [
+        {
+          "text": "Exploit the disruption",
+          "goto": "l_36a",
+          "requires_flag": "ritual_delayed"
+        },
+        {
+          "text": "Attack",
+          "goto": "l_37",
+          "requires_flag": "helped_kael"
+        },
+        {
+          "text": "Attack",
+          "goto": "l_38",
+          "requires_no_flag": "helped_kael"
+        }
+      ]
+    },
+    "l_36a": {
+      "text": "You used the sea glass amulet to disrupt the ritual. The aspect remembers — you can see it in the way the creature flinches when you step forward, the way the green-gold light stutters. The disruption you caused is still echoing through the creature's form. Its connection to the temple is not clean. There are gaps. Fractures. Places where the power does not flow.\n\nYou feel the amulet's residual energy in the water around your legs — a faint warmth, a vibration that the aspect recoils from. You may not have the amulet anymore, but the mark it left on the ritual is still here, still weakening the creature's hold.\n\nThe aspect shudders. One of its tendrils lashes out at the water where the warmth is strongest, and the impact sprays you with brine. But the tendril comes back shorter. Thinner. The disruption is costing it.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Press the advantage",
+          "goto": "l_37",
+          "requires_flag": "helped_kael"
+        },
+        {
+          "text": "Press the advantage",
+          "goto": "l_38",
+          "requires_no_flag": "helped_kael"
+        }
+      ]
+    },
+    "l_37": {
+      "text": "A shout from above.\n\n\"DOWN HERE! OVER HERE, YOU BASTARD!\"\n\nKael. Standing on a ledge twenty feet up, silhouetted against the coral-light, waving her arms like a lunatic. She has a length of rope in one hand and a burning torch in the other — where she found a dry torch in a flooded temple is a question for another day.\n\nShe hurls the torch. It arcs through the air, trailing sparks, and strikes the aspect's mass. The effect is immediate — the creature recoils, its form rippling, the green-gold light flickering. Fire. The deep thing fears fire.\n\nKael's distraction buys you precious seconds. The aspect is divided — part of its attention on you, part on the screaming figure above. You use the opening.",
+      "set_flags": [
+        "kael_distracted_aspect"
+      ],
+      "add_stamina": 2,
+      "choices": [
+        {
+          "text": "Strike while it is distracted",
+          "goto": "l_37a"
+        }
+      ]
+    },
+    "l_37a": {
+      "text": "\"Its left side!\" Kael shouts from the ledge. \"When the altar cracked, I saw — there is a wound in it, on the left, where the binding script was strongest. Hit it there!\"\n\nYou look. She is right. On the aspect's left flank, where the creature's form is thinnest, a dark line runs through the green-gold light — a fracture, a scar, the place where your destruction of the altar tore something vital from the creature's structure.\n\nThe aspect turns toward Kael's voice. For one critical moment, the wound is exposed.\n\nYou raise your weapon.",
+      "choices": [
+        {
+          "text": "Attack the wound",
+          "goto": "l_38"
+        }
+      ]
+    },
+    "l_38": {
+      "text": "The weakened aspect of the Leviathan turns on you. Its form is diminished — the destruction of the altar drained something vital from it — but it is still vast, still ancient, still terrifying. Tendrils of dark water lash toward you like whips. The faces of the drowned within its mass contort with rage.\n\nThis is the fight you came here for. Steel against the deep. One mortal against the oldest thing in the Reaches.\n\nFight well.",
+      "combat": {
+        "enemy": "the_leviathan_aspect_weakened",
+        "win_goto": "l_39",
+        "flee_goto": "l_50",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "l_39": {
+      "text": "The creature is staggering. Its form has lost coherence — the solid shape it made for the fight is dissolving back into cloud and current, the green-gold light dimming to a sickly flicker. The faces of the drowned within its mass are slack, drifting, as though the force holding them in place has loosened its grip.\n\nYou are wounded. Exhausted. The taste of salt and blood fills your mouth. But the aspect is wounded worse.\n\nOne more push. One more moment of steel and will. That is all it will take.",
+      "choices": [
+        {
+          "text": "Finish it",
+          "goto": "l_40"
+        }
+      ]
+    },
+    "l_40": {
+      "text": "The aspect reels. Your blade has found something vital — not flesh, not bone, but whatever passes for substance in a creature made of water and memory and ancient malice. The green-gold light gutters. The tendrils retract. The faces within the mass go slack.",
+      "choices": [
+        {
+          "text": "Press the advantage",
+          "goto": "l_40a",
+          "requires_flag": "spared_first_mate"
+        },
+        {
+          "text": "Press the advantage",
+          "goto": "l_41",
+          "requires_no_flag": "spared_first_mate"
+        }
+      ]
+    },
+    "l_40a": {
+      "text": "The ghost appears.\n\nBetween you and the staggering aspect — a translucent figure, standing in the churning water as though it were solid ground. The first mate. Elara. The one you spared, the one you refused to destroy when the Leviathan wore their body like a suit.\n\nThe aspect sees the ghost and hesitates. For one impossible moment, the vast creature and the tiny phantom regard each other across the flooded cavern, and something passes between them that you cannot read.\n\nThen the ghost turns and walks toward the aspect. Into it. Through it. And as it passes through the creature's mass, every drowned face it touches goes still — not released, not yet, but calmed. The ghost is a splinter of mercy in a body of fury, and the aspect cannot reconcile the two.\n\nThe creature falters. The green-gold light dims. The tendrils withdraw.\n\nYou have your opening.",
+      "choices": [
+        {
+          "text": "Drive it back",
+          "goto": "l_41"
+        }
+      ]
+    },
+    "l_41": {
+      "text": "The aspect shudders one final time. A deep vibration runs through its mass — not the vibration of power, but the vibration of something breaking. The green-gold light splits into fragments, and for one moment the creature is not one thing but many: a thousand drowned faces, a thousand currents, a thousand memories of the deep, all pulling apart.\n\nThen it contracts. Compresses. The fragments draw together and the aspect shrinks — from cavern-filling to room-sized to the size of a horse, then a dog, then a point of green-gold light hovering above the shattered floor.\n\nThe point of light sinks. Through the cracks, through the water, through the stone. Down. Back to wherever the Leviathan keeps its wounded parts.",
+      "choices": [
+        {
+          "text": "Watch it go",
+          "goto": "l_42"
+        }
+      ]
+    },
+    "l_42": {
+      "text": "The cavern is still. The green-gold light is gone. The faces of the drowned are gone. There is only dark water and broken stone and the slow, uneven drip of the ocean reclaiming what the temple tried to hold.\n\nYou stand in waist-deep water that is finally receding, your weapon hanging from a hand you can barely close, every muscle in your body singing with the kind of pain that means you pushed past every limit you had and kept going.\n\nThe Leviathan retreated. Not destroyed — you know that with a bone-deep certainty. The thing beneath the Reaches is too old and too vast to be destroyed by one mortal with a blade. But it has been driven back. Wounded. Taught that the surface still has teeth.\n\nIt will return. The sea is patient. But today, in this flooded temple, in this hour, you have driven it back.\n\nThe water begins to recede. The temple stops shaking. The coral-light fades to a dull, steady pulse.",
+      "choices": [
+        {
+          "text": "Find your way out",
+          "goto": "l_43"
+        }
+      ]
+    },
+    "l_43": {
+      "text": "The temple groans around you — deep structural sounds, the kind of noise a building makes when the thing holding it up decides to leave. Chunks of carved stone fall from the ceiling and shatter in the receding water. The coral-light gutters and dims, passage by passage, as though someone is turning off lamps in a long hallway.\n\nYou need to move. The temple was built around the Leviathan's presence, and with the creature retreating, the architecture is losing its reason to stand.\n\nThe passage ahead is one you recognise — you came through here on the way in. The water is knee-deep now, draining fast, and the footing is treacherous with fallen stone and slick algae.",
+      "choices": [
+        {
+          "text": "Run for the exit",
+          "goto": "l_44"
+        }
+      ]
+    },
+    "l_44": {
+      "text": "The temple is collapsing in slow motion — the aspect's withdrawal has removed whatever ancient power was holding the stonework together. You wade through waist-deep water that is finally receding, following the passages you mapped on the way in, as the ceiling drops chunks of carved stone around you.",
+      "choices": [
+        {
+          "text": "Navigate the collapsing corridors",
+          "goto": "l_45"
+        }
+      ]
+    },
+    "l_45": {
+      "text": "A section of corridor collapses ahead of you — the ceiling giving way in a cascade of carved stone and ancient mortar. You throw yourself backward as the rubble crashes into the water, sending a wave of dirty brine over your head.\n\nWhen you surface, coughing, the passage ahead is blocked. But to your right, a side corridor — one you did not use on the way in — is still open. The water is flowing through it, which means it connects to the outer cavern.",
+      "test_luck": {
+        "lucky_text": "You pick your way through the side corridor without incident. The stone holds. The water guides you forward, and within minutes you can see a faint glow ahead — not coral-light, but something greyer, more natural. The outer cavern. The way out.",
+        "lucky_goto": "l_46b",
+        "unlucky_text": "The side corridor is treacherous. The floor has partially given way, and you plunge through a gap into waist-deep water that is bitterly cold — runoff from the deep, carrying the last traces of the Leviathan's presence. The cold saps your strength, but you push through. Ahead, a faint grey glow. The outer cavern.",
+        "unlucky_goto": "l_46b",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 3
+      }
+    },
+    "l_46b": {
+      "text": "The outer cavern opens before you — the same vast space where the temple entrance stands, now half-collapsed, water pouring from a dozen breaches in the walls. The ceiling is cracked but holding. Through a gap at the far end, you can see dark sky. Stars.\n\nThe way out.",
+      "choices": [
+        {
+          "text": "Swim for the exit",
+          "goto": "l_46",
+          "requires_flag": "kael_survived"
+        },
+        {
+          "text": "Swim for the exit alone",
+          "goto": "l_46a"
+        }
+      ]
+    },
+    "l_46": {
+      "text": "Kael meets you in the outer passage. She is soaked, bleeding from a cut above her eye, grinning like a maniac.\n\n\"Thought you were dead,\" she says.\n\n\"Not yet.\"\n\n\"Well, this whole place is about to be. Move.\"\n\nShe grabs your arm and pulls you toward the surface. Together you swim through the collapsing corridors, dodging falling stone, lungs burning, until you break through into open water and kick for the sky.\n\nYou surface gasping. The stars are out. The sea is calm — calmer than you have ever seen it in the Reaches. The swells are long and gentle, the storm-energy that has gripped this coast for weeks spent and gone.\n\nKael surfaces beside you, coughing, laughing.\n\n\"For now,\" you say.\n\nShe looks at you. \"For now is good enough.\"",
+      "choices": [
+        {
+          "text": "Swim for shore",
+          "goto": "end_warrior"
+        }
+      ]
+    },
+    "l_46a": {
+      "text": "You swim alone through the collapsing temple. The corridors fold in behind you as you pass — stone groaning, water surging, the coral-light dying passage by passage. You hold your breath through the flooded sections and gasp in the air pockets, and somewhere between the third and fourth lungful you stop thinking and let instinct carry you.\n\nYou break through into open water. The sea is dark and cold and you kick for the surface with everything you have left.\n\nYou emerge gasping under a sky full of stars. The swells are long and gentle. The storm is over. The Reaches are calm.\n\nYou float on your back for a long time, staring up at the stars, breathing. Alone. Alive.\n\nFor now.",
+      "choices": [
+        {
+          "text": "Swim for shore",
+          "goto": "end_warrior"
+        }
+      ]
+    },
+    "l_50": {
+      "text": "You run.\n\nThere is no shame in it — not when the alternative is dying in a collapsing temple with a creature the size of a mythology bearing down on you. You turn from the aspect and plunge into the rising water, swimming hard for the passages that lead back toward the surface.\n\nBut the aspect is faster.\n\nA tendril of dark water surges past you, slamming into the passage entrance and sealing it with a wall of churning brine. You try another exit — sealed. Another — sealed. The creature is closing off every way out, one by one, herding you into an ever-smaller pocket of air and stone.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Keep searching for a way out",
+          "goto": "l_50a"
+        }
+      ]
+    },
+    "l_50a": {
+      "text": "You throw yourself against the sealed passage. The wall of dark water is solid — colder than ice, dense as stone. Your fists leave no mark. You try the next passage. Sealed. The next. Sealed.\n\nThe aspect watches you with patient, terrible attention. It is not angry. It is not hostile. It is collecting.\n\nThe water rises to your chest. The ceiling is low here — six feet, maybe less — and you can feel the air pocket shrinking. Each breath tastes thinner than the last.",
+      "choices": [
+        {
+          "text": "Look for another way",
+          "goto": "l_50b",
+          "requires_flag": "saw_rear_passage"
+        },
+        {
+          "text": "Search desperately",
+          "goto": "l_51"
+        }
+      ]
+    },
+    "l_50b": {
+      "text": "You remember the rear passage — the one you spotted from the ledge, the one the builders used as a secondary access. If there is one gap the aspect might have overlooked, it is a small one, tucked away where the temple's design was most secretive.\n\nYou dive. The water is dark and cold but you know the general direction — along the cavern wall, low, near the floor. Your hands find stone, algae, carved spirals, and then... a gap. Small. Barely enough to fit through. But the water is flowing through it, outward, which means open ocean on the other side.\n\nYou did not see this on the way in. This is not the rear passage — it is something older, something the builders did not design. A natural fissure in the rock, widened by centuries of tidal erosion.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Squeeze through",
+          "goto": "l_52"
+        }
+      ]
+    },
+    "l_51": {
+      "text": "The cavern shrinks around you. The water rises to your neck. The green-gold light is everywhere now, casting your shadow in four directions at once.\n\nYou splash through the flooding chamber, hands trailing along the walls, searching for any gap the aspect has not sealed. The stone is smooth and cold and offers nothing.\n\nThen — there. Near the waterline, half-hidden behind a collapsed pillar. A crack in the cavern wall, no wider than your shoulders, with water flowing through it in a steady current. Where there is current, there is open water. Where there is open water, there is a chance.\n\nThe aspect's attention swings toward you. It has seen what you have seen. A tendril extends, reaching for the crack, reaching to seal the last way out.\n\nYou have seconds.",
+      "choices": [
+        {
+          "text": "Dive for the crack before it closes",
+          "goto": "l_52"
+        }
+      ]
+    },
+    "l_52": {
+      "text": "There. A gap in the stone — narrow, jagged, barely visible beneath the surface. Water is flowing through it, which means it connects to the open sea. If you can fit through, if you can hold your breath long enough, if the current does not smash you against the rocks...\n\nYou take the deepest breath of your life and dive.",
+      "test_luck": {
+        "lucky_text": "The current catches you and pulls you through. Stone scrapes your ribs, your shoulders, your skull — but you fit, barely, and the passage opens into dark open water. You kick upward. Your lungs are screaming. Stars burst behind your eyes.\n\nYou break the surface. Air. Salt. Sky.\n\nYou have escaped the temple. But as you float gasping in the calm water, you turn back toward the shore — and your blood goes cold.",
+        "lucky_goto": "end_hollow",
+        "unlucky_text": "The current catches you wrong. Your shoulder strikes stone, hard, and you spin in the dark water, disoriented, lungs burning. You reach for the gap but your hands find only smooth rock. The current is pressing you against the wall, holding you there, and the green-gold light is growing brighter behind you.\n\nYou feel the aspect's attention settle on you like a hand closing around a moth. The faces of the drowned turn toward you in the dark water. Their mouths are open. They are not screaming anymore. They are welcoming.\n\nThe cold closes in.",
+        "unlucky_goto": "end_drowned",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "end_binding": {
+      "text": "The compass sits in the socket, its needle still. It will never spin again. It was never a navigator's tool — it was a key, forged from temple stone and binding script, waiting centuries for someone to carry it home.\n\nBeside you, the ghost of Elara — the first mate, the one you saved, the one you saw — places their hand over yours on the pillar's rim. The touch is cold as sea glass. Then they smile. The first real expression you have seen on that translucent face.\n\n\"Fair winds,\" the ghost says.\n\nAnd then they dissolve. Upward, like sea spray caught in sunlight, like mist burning off a harbour at dawn. Not destroyed. Released. Gone to wherever the drowned go when the thing that held them finally lets go.\n\nThe binding chamber is silent. The inscriptions on the walls glow with a steady blue-white light — the colour of safe water, the colour of a coast that will not betray its people. The seal is set. The Leviathan sleeps.\n\nYou climb out of the temple through passages that feel stable for the first time since you entered. The stone is solid. The water is receding. The coral-light pulses with the slow rhythm of a sleeping heartbeat.\n\nYou surface in the outer cove. The stars are out — all of them, more than you have ever seen, as though the sky itself is celebrating. The Reaches are calm. The swells are long and gentle and kind.\n\nKael is waiting on the rocks. She has built a fire — a small one, driftwood and determination — and when she sees you, she does not shout or wave. She just nods. The nod of a sailor who knows the job is done.\n\nYou sit beside the fire. The warmth of it reaches places the deep cold had claimed. You do not speak for a long time.\n\nIn the morning, you row back to Saltmere. The harbour is intact. The boats are in their slips. The nets are drying in the wind. Old Harlan is on the quay, mending a creel, and he looks up as you approach with the expression of a man who has been waiting to see whether the world would still be here in the morning.\n\n\"Well?\" he says.\n\nYou think about the compass locked in its stone socket. The ghost dissolving into light. The Leviathan's eye closing, slowly, like a century settling down to rest.\n\n\"The seal holds,\" you say.\n\nHarlan nods. Goes back to his creel.\n\nThe seal holds. The coast is safe. The tide rolls in, and the tide rolls out, and in the deep places the Leviathan sleeps, and the compass needle points to nothing, because there is nowhere left to go.\n\nYou did it. All of it. Every choice mattered. Every mercy paid off. The best outcome, the one that almost nobody finds.\n\nThe seal holds.",
+      "remove_items": [
+        "navigator_compass"
+      ],
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_sacrifice": {
+      "text": "The compass locks into the socket. The binding flares — blue-white light filling the chamber, racing along every carved spiral, and the aspect shrieks as the seal takes hold. The sound is terrible. The sound is final.\n\nThe Leviathan is driven down. The seal closes over it like a hand pressing shut a wound. The green-gold light vanishes. The temple goes still.\n\nBut the binding took something from you. You feel it in the hollow behind your ribs, in the way your hands tremble, in the curious lightness of your body as you wade back through the receding water. Something was given. Something was spent. The seal needed more than a compass and stone — it needed intent, and intent has a cost.\n\nYou surface alone. The stars are out. The Reaches are calm.\n\nThere is no one waiting on the rocks. No fire, no friendly face, no steady nod of recognition. You swim to shore and sit on the cold stone and watch the water lap at the rocks and try to feel something other than empty.\n\nThe walk back to Saltmere takes longer than it should. Your legs are heavy. Your thoughts are slow. The town is intact — the harbour, the boats, the nets. People are moving behind windows, carrying lanterns, living their lives. They do not know what happened tonight. They will never know.\n\nYou do not stay long. There is nothing left for you here. The compass is sealed in the deep. The ghost did not come. The people you might have saved along the way are gone or absent or never were.\n\nYou take the coast road north. Behind you, Saltmere's lights dwindle to a single warm point on the horizon, then vanish.\n\nThe seal holds. The coast is safe. But the cost is yours alone, and you will carry it in the hollow place behind your ribs for the rest of your days.\n\nThe tide rolls in. The tide rolls out. And you walk on.",
+      "remove_items": [
+        "navigator_compass"
+      ],
+      "add_luck": -1,
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_warrior": {
+      "text": "You drag yourself onto the shore. Your arms are lead. Your lungs are raw. Every wound you sustained in the fight with the aspect pulses with a cold that goes deeper than flesh.\n\nBut you are alive. And the Leviathan is gone. Driven back into the deep by steel and stubbornness and — if you are honest — a fair amount of luck.\n\nThe temple is gone. As you watch from the shore, the last stones of the Drowned Temple collapse inward, swallowed by the sea. The place where Morrow built his cult, where the binding was broken and remade and broken again, disappears beneath the Reaches as though it was never there.\n\nThe sea is calm. The stars are out. The storm that has gripped this coast for weeks has spent itself, and the Reaches lie flat and silver under the moon.\n\nYou know it is not over. The aspect retreated — it did not die. The Leviathan sleeps, but it sleeps lighter now, and the seal that held it is broken beyond repair. It will stir again. In a year. In a decade. In a century. The sea is patient, and the things that live in the deep are more patient still.\n\nBut tonight, the coast is safe. Tonight, the tide rolls in and the tide rolls out, and no one drowns in the Reaches, and the lights of Saltmere burn steady against the dark.\n\nYou sit on the rocks and watch the water.\n\nFor now.\n\nFor now is good enough.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_bargain": {
+      "text": "You walk out of the sea.\n\nThe water releases you gently — no current, no surge, no final grasp. The Reaches are calm in a way you have never seen them, the surface so still it reflects the stars like a second sky. You wade through the shallows and stand on the shore and breathe.\n\nThe Leviathan is not dead. It was never meant to die. It is a guardian — the oldest guardian, the one that was here before the first settlers built their harbour, before the first boats went out, before anyone gave the Reaches a name. The cult twisted it. Morrow's worship corrupted its purpose, turned protection into predation, turned a covenant into a cage.\n\nYou broke the cage. Not with steel, not with sacrifice, but with the words. The old words. The pact that was struck when humanity and the deep first learned to share a coastline.\n\nThe Leviathan understood. It remembered. And it went back to sleep — not the tortured sleep of a caged thing, but the deep, steady rest of a guardian that knows its borders are respected.\n\nThe coast is safe. Not because you killed a monster, but because you understood that it was never a monster at all.\n\nYou stand on the shore for a long time, watching the Reaches. The water is dark and calm and full of life — the ordinary life of a healthy sea, fish and current and the slow dance of tides. No green-gold light. No drowned faces. Just the ocean, doing what the ocean does.\n\nSaltmere's lights burn steady in the distance. The harbour is full of boats. Tomorrow the fishermen will go out, and the nets will come back full, and the sea will give what it has always given to those who respect it.\n\nYou feel something you did not expect. Not triumph. Not relief.\n\nPeace.\n\nThe pact holds. The deep guardian sleeps. The tide rolls in, and the tide rolls out, and the oldest agreement between coast and abyss — the one that says we will not take more than we need, and you will not take more than we can bear — is honoured once again.\n\nYou turn from the sea and walk toward the lights of Saltmere.\n\nThe pact holds.",
+      "add_luck": 2,
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_drowned": {
+      "text": "The cold is not unpleasant. That surprises you.\n\nThe green-gold light fills your vision — soft now, gentle, almost warm. The faces of the drowned drift toward you through the dark water, and up close they are not screaming. They are calm. Patient. They have been here a long time. They know how this goes.\n\nA hand touches yours. Then another. Then a dozen, a hundred, a host of cold fingers interlacing with yours, and you feel yourself drawn inward, into the aspect's mass, into the cloud of drowned souls that make up the Leviathan's outer skin.\n\nYour face joins theirs. Your eyes go white. Your mouth opens in the silent expression that all the drowned share — not a scream, not a cry, just the last shape a mouth makes when it accepts that the air is never coming back.\n\nThe aspect descends. Down through the temple. Down through the dark water. Down to the place where the Leviathan sleeps and dreams and holds its collection of the taken.\n\nAbove, the sea surges.\n\nSaltmere's harbour wall holds for three hours. Then the first stones give way, and the tide pours through the gap, and the boats are kindling, and the nets are tangled wreckage, and the people who stayed too long on the quay are taken the same way you were — gently, coldly, without malice but without mercy.\n\nThe Reaches belong to the deep. They always did. You just reminded everyone.\n\nThe tide rolls in. The tide does not roll out.",
+      "ending": true,
+      "ending_type": "death"
+    },
+    "end_hollow": {
+      "text": "You surface gasping. The stars are out. The sea is calm — impossibly calm, flat as glass, reflecting the sky so perfectly that for a disorienting moment you cannot tell which way is up.\n\nYou swim for shore. The water is warm. The current helps you, carrying you toward the coast with a gentleness that feels like an apology.\n\nYou reach the rocks. Climb out. Stand dripping on the stone and look toward Saltmere.\n\nThe lights are gone.\n\nNot dimmed. Not flickering. Gone. The harbour is dark. The windows are dark. The chimneys that should be trailing smoke against the stars are cold and still.\n\nYou walk toward the town. Your boots echo on the cobblestones. The sound bounces off empty buildings and returns to you unchanged, because there is nothing to absorb it. No bodies. No voices. No life.\n\nThe boats are in their slips. The nets are in the water. A pot of stew sits on a cold stove in the harbourmaster's office, a spoon still resting against the rim. Everything is exactly where it was. Everything except the people.\n\nYou check every building. Every house, every shop, every room above every tavern. Empty. All of them. Not ransacked, not abandoned in haste — just empty, as though the occupants stepped out for a moment and forgot to come back.\n\nOn the harbour wall, scratched into the stone in letters you almost recognise, a single word: REMEMBER.\n\nYou walk the empty streets until dawn. The sun rises over a perfect, calm sea, and the light falls on a town that will never wake up. The boats will rot in their slips. The nets will dissolve in the water. The stew will go cold and then go bad and then go to dust.\n\nThe Leviathan did not take you. You escaped. You survived.\n\nBut it took everyone else.\n\nYou sit on the harbour wall as the sun climbs and the gulls wheel overhead — even the gulls sound wrong, their cries echoing off empty buildings with a hollow, mocking quality. You sit there for a long time.\n\nThere is no one left to tell.\n\nThe tide rolls in. The tide rolls out. And on the shore, alone, you watch it go.",
+      "ending": true,
+      "ending_type": "death"
     }
   },
   "cover_image": "cover_art/Leviathan Cover.jpeg",
