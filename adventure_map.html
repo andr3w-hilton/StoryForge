@@ -256,9 +256,8 @@
   <div class="filter-group">
     <label>Layout:</label>
     <select id="layout-select">
+      <option value="act-grouped">Act Groups</option>
       <option value="force">Force-directed</option>
-      <option value="hierarchical">Hierarchical (L→R)</option>
-      <option value="hierarchical-ud">Hierarchical (T→B)</option>
     </select>
   </div>
 
@@ -721,33 +720,96 @@ function getLayoutOptions(layoutType) {
         stabilization: { iterations: 200 },
       },
     };
-  } else if (layoutType === 'hierarchical') {
-    return {
-      layout: {
-        hierarchical: {
-          enabled: true,
-          direction: 'LR',
-          sortMethod: 'directed',
-          nodeSpacing: 80,
-          levelSeparation: 160,
-        },
-      },
-      physics: { enabled: false },
-    };
   } else {
+    // act-grouped: positions are pre-assigned on nodes, physics off
     return {
-      layout: {
-        hierarchical: {
-          enabled: true,
-          direction: 'UD',
-          sortMethod: 'directed',
-          nodeSpacing: 60,
-          levelSeparation: 120,
-        },
-      },
+      layout: { hierarchical: false },
       physics: { enabled: false },
     };
   }
+}
+
+// Act-grouped layout: column per act, sorted by BFS depth within each column.
+// Returns { passageId: {x, y} } and also injects header nodes into the nodes array.
+function computeActLayout(passages, nodes) {
+  const ACT_ORDER  = ['s_', 'r_', 't_', 'l_', 'end_', 'death_', 'legacy_'];
+  const ACT_LABELS = {
+    's_':     'ACT 1\nSALTMERE',
+    'r_':     'ACT 2\nTHE REACHES',
+    't_':     'ACT 3\nTHE TEMPLE',
+    'l_':     'ACT 4\nTHE LEVIATHAN',
+    'end_':   'ENDINGS',
+    'death_': 'DEATHS',
+    'legacy_':'LEGACY',
+  };
+  const ACT_X_STEP = 340;
+  const Y_STEP     = 52;
+
+  // BFS depth from start
+  const depth = {};
+  const startId = Object.keys(passages).find(id => id === 's_1' || id === '1');
+  if (startId) {
+    const bfsQ = [[startId, 0]];
+    depth[startId] = 0;
+    while (bfsQ.length) {
+      const [cur, d] = bfsQ.shift();
+      const p = passages[cur];
+      if (!p) continue;
+      for (const nxt of getNextIds(p)) {
+        if (passages[nxt] && depth[nxt] === undefined) {
+          depth[nxt] = d + 1;
+          bfsQ.push([nxt, d + 1]);
+        }
+      }
+    }
+  }
+
+  // Group by act prefix
+  const groups = {};
+  for (const id of Object.keys(passages)) {
+    const prefix = getActPrefix(id);
+    if (!groups[prefix]) groups[prefix] = [];
+    groups[prefix].push(id);
+  }
+
+  // Sort each group by BFS depth then ID (gives top-to-bottom story order)
+  for (const prefix in groups) {
+    groups[prefix].sort((a, b) => {
+      const da = depth[a] ?? 9999;
+      const db = depth[b] ?? 9999;
+      return da !== db ? da - db : a.localeCompare(b, undefined, { numeric: true });
+    });
+  }
+
+  // Assign x/y — each act is a vertical column, centred around y=0
+  const positions = {};
+  ACT_ORDER.forEach((prefix, col) => {
+    const group = groups[prefix] || [];
+    if (!group.length) return;
+    const x = col * ACT_X_STEP;
+    const halfH = ((group.length - 1) * Y_STEP) / 2;
+    group.forEach((id, i) => {
+      positions[id] = { x, y: i * Y_STEP - halfH };
+    });
+
+    // Column header node (non-interactive)
+    const headerY = -halfH - 80;
+    nodes.push({
+      id: `__header_${prefix}`,
+      label: ACT_LABELS[prefix] || prefix,
+      x, y: headerY,
+      fixed: { x: true, y: true },
+      physics: false,
+      shape: 'text',
+      font: { size: 11, color: ACT_COLORS[prefix] || '#888', face: 'Courier New', bold: true },
+      chosen: false,
+      selectable: false,
+      borderWidth: 0,
+      color: { background: 'transparent', border: 'transparent' },
+    });
+  });
+
+  return positions;
 }
 
 async function loadAdventure(path) {
@@ -773,6 +835,19 @@ async function renderAdventure() {
     `Adventure Map — ${adventureData.title || path}`;
 
   const { nodes, edges, reachable, validIds } = buildGraph(adventureData, edgeFilter);
+
+  // Apply act-grouped positions if needed
+  if (layoutType === 'act-grouped') {
+    const positions = computeActLayout(adventureData.passages, nodes);
+    for (const node of nodes) {
+      if (positions[node.id]) {
+        node.x = positions[node.id].x;
+        node.y = positions[node.id].y;
+        node.fixed = { x: true, y: true };
+        node.physics = false;
+      }
+    }
+  }
 
   nodesDS = new vis.DataSet(nodes);
   edgesDS = new vis.DataSet(edges);
@@ -809,6 +884,7 @@ async function renderAdventure() {
     network.on('click', function(params) {
       if (params.nodes.length > 0) {
         const id = params.nodes[0];
+        if (id.startsWith('__header_')) return;
         const node = nodesDS.get(id);
         if (node && node._passage) {
           showPassageDetail(id, node._passage);
