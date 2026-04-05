@@ -226,7 +226,7 @@ See `adventures/EXPANSION_GUIDE.md` for the full process — spec writing, flag 
 
 1. Create `adventures/my_adventure.json` following the schema above
 2. Add an entry to `adventures/index.json` (the static manifest)
-3. Start at passage `"1"` (engine always begins there)
+3. Start passage defaults to `"1"`. For adventures that use a prefixed ID scheme (e.g. `"s_1"`), add `"start_passage": "s_1"` at the top level of the adventure JSON.
 4. Must have at least one `"ending": true` passage
 5. Recommended: run the passage validator to check all gotos resolve and all passages are reachable
 

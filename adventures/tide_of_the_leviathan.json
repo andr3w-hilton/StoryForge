@@ -4259,5 +4259,6 @@
     }
   },
   "cover_image": "cover_art/Leviathan Cover.jpeg",
-  "hero_image": "cover_art/Leviathan Hero.jpeg"
+  "hero_image": "cover_art/Leviathan Hero.jpeg",
+  "start_passage": "s_1"
 }

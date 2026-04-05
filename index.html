@@ -1595,7 +1595,7 @@ function beginAdventure() {
     const adv = gameState.adventure;
     document.getElementById('game-title').textContent = adv.title;
     showScreen('game');
-    navigateToPassage("1");
+    navigateToPassage(adv.start_passage || "1");
 }
 
 // ══════════════════════════════════════════════════════
