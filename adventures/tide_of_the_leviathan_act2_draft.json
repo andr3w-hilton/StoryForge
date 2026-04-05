@@ -1,0 +1,1003 @@
+{
+  "_notes": [
+    "Act 2 — The Sunken Reaches. 70 passages (r_1 through r_70, not all numbers used).",
+    "r_1 is a rewrite of the existing live passage — gotos now point to r_5 and r_7a instead of old IDs '8' and '7a'.",
+    "The only goto outside r_ space is r_70 -> t_1 (Act 3 bridge).",
+    "death_sea is referenced from r_9 — it already exists in the live adventure JSON.",
+    "r_33 (Kael dives) requires kael_told_story which is set in Act 1 (s_3h). If that flag is not set, r_33 is unreachable by design.",
+    "The drowned_first_mate enemy has skill:8 stamina:10 as defined in the adventure. The r_25 variant with rum-weakened stamina is handled narratively (add_stamina: -1 on the enemy is not supported by engine — instead r_25 sets a flag and the combat text reflects the hesitation, but mechanically it is the same fight). CORRECTION: engine does not support per-combat enemy modification. The spec says -1 STAMINA to enemy if rum offered. Since we cannot modify enemy stats per-passage, we give the player +1 luck instead as mechanical compensation for the narrative advantage.",
+    "r_40 has a luck test for players without grappling_hook or kelp_rope. The three paths (item-safe, luck-safe, luck-fail) are handled via r_40 choices + r_41 luck test.",
+    "Passage r_8 is used as a bridge between r_5/r_9 and the wreck/outcrop decision point, per the spine: r_1 -> r_5 -> r_8 -> r_14 -> r_16 -> r_70. r_14 is the Reaches crossing passage that bridges wreck and outcrop branches.",
+    "r_52 reef shark encounter: spec says two sharks, grappling hook deters one. Engine only supports one enemy per combat. Narrative describes deterring the first; combat is against the second.",
+    "Items awarded: navigator_compass (r_18, r_28b, r_30), grappling_hook (r_19), drowned_key (r_30, r_68), sea_glass_amulet (r_68), ancient_seal_fragment (r_48)."
+  ],
+  "passages": {
+    "r_1": {
+      "text": "The skiff cuts through grey water as Saltmere shrinks behind you, its harbour lights dimming to pinpricks against the dusk. Kael handles the tiller with the ease of someone who has done this a thousand times, though her jaw is tight and her one good eye keeps scanning the horizon where thunderheads are stacking like black masonry.\n\nThe wind carries something that is not salt. Something older. The smell of deep water — the kind that has never seen sunlight, where things settle and are forgotten. You feel it in your teeth, a pressure that has nothing to do with weather.\n\n'The Reaches start about two miles out,' Kael says quietly, as if the sea might be listening. 'Shallow water over drowned ruins. Reefs that will open a hull like a fish-knife if you don't know the channels.' She glances at you, and in the failing light her expression is unreadable. 'Tell me you have a chart.'",
+      "choices": [
+        {
+          "text": "Show her the tide chart",
+          "goto": "r_5",
+          "requires_item": "tide_chart"
+        },
+        {
+          "text": "You don't have a chart — navigate by instinct",
+          "goto": "r_7a"
+        }
+      ]
+    },
+    "r_5": {
+      "text": "Kael takes the chart and holds it close, tracing the channels with a calloused finger. Her expression shifts — not quite relief, but something adjacent. 'This is proper work,' she murmurs. 'Whoever drew this knew the Reaches like a lover knows a body. Every sandbar, every dead-water pocket.' She adjusts the tiller and the skiff threads between two reef-spines that would have gutted the hull.\n\nThe water beneath you turns from grey to glass-green. Through the surface you can see it — an entire town below. Rooftops furred with waving kelp. Streets where shoals of silver fish dart through doorways. A market square with stone stalls still standing, goods long dissolved, the merchants long drowned. An entire settlement swallowed whole by the sea, preserved in the cold dark like a memory the ocean refuses to release.\n\nKael is quiet for a long time. Then she points. Ahead, rising from the shallows like the bones of something vast, are the masts of a wrecked ship. Broken spars trailing rigging like seaweed. Your stomach drops. You know that silhouette. You have watched it from a hundred harbour approaches.\n\nThe Windborne. Your ship. Your home for three years.\n\n'That's her, isn't it,' Kael says. It is not a question.",
+      "choices": [
+        {
+          "text": "Ask Kael what she knows about these waters",
+          "goto": "r_3"
+        },
+        {
+          "text": "Sail to the wreck of the Windborne",
+          "goto": "r_6"
+        },
+        {
+          "text": "Follow the chart directly to the ritual site",
+          "goto": "r_8"
+        }
+      ]
+    },
+    "r_7a": {
+      "text": "Kael stares at you. The silence stretches long enough to hear the water lapping against the hull. 'No chart,' she says flatly. 'You want to sail the Sunken Reaches — a maze of reefs that has swallowed ships twice this size — without a chart.' She swears, creatively and at length, in a dialect you do not entirely recognise.\n\n'Fine. We follow the current and we pray to whatever's still listening.' She hauls the tiller hard over. The skiff enters the shallows. The water turns from grey to green to the colour of old bruises. You can feel the reefs below — the hull shuddering as stone teeth scrape the timber.\n\nKael fights the tiller, muscles standing out on her forearms. Then the hull catches hard on a submerged ridge. The crack of splitting timber is the loudest sound you have ever heard. Water floods in through a wound in the planking that you could put both fists through.\n\nThe skiff is sinking. You have moments.",
+      "add_stamina": -3,
+      "choices": [
+        {
+          "text": "Swim for the nearest reef",
+          "goto": "r_2"
+        }
+      ]
+    },
+    "r_8": {
+      "text": "You sail past the wreck. It takes an act of will not to look back. Kael says nothing — she has the good grace not to ask, though you can feel the question in her silence.\n\nThe chart guides you south-southwest through channels that grow narrower and darker. The drowned town falls behind. Ahead, the water deepens, and the reefs close in like the walls of a corridor. The sky is the colour of a week-old bruise.\n\n'We're close,' Kael says. She points to where the chart marks a rocky outcrop — the only dry ground for hundreds of yards. The entrance to whatever waits below. 'From here, the tide decides the timetable. Not us.'",
+      "choices": [
+        {
+          "text": "Head for the rocky outcrop",
+          "goto": "r_60"
+        }
+      ]
+    },
+    "r_9": {
+      "text": "You swim hard. The water is shockingly cold — not the cold of winter seas but something deeper, a cold that feels intentional, as though the ocean is trying to tell you something about what lives in its depths. The current drags at your legs with the patience of something that has all the time in the world.\n\nKael surfaces beside you, gasping, blood from a cut on her temple mixing with the brine. Ahead, a flat reef shelf breaks the surface — pale stone like a giant's stepping-stone. You drag yourself onto it, coughing saltwater until your ribs ache.\n\nThe skiff is gone, settling into the deep with a trail of bubbles that looks almost peaceful. Kael wrings water from her hair and surveys the Reaches with her one good eye. To the north, ship masts break the surface — the silhouette of a wreck. To the south, the water churns over what looks like a submerged structure, its outline wavering beneath the surface.\n\n'We swim from here,' Kael says. Her voice is steady, but you can see her hands shaking. 'Pick a direction and mean it.'",
+      "choices": [
+        {
+          "text": "Head north to the wrecked ship",
+          "goto": "r_14"
+        },
+        {
+          "text": "Head south to the submerged structure",
+          "goto": "r_60"
+        },
+        {
+          "text": "Give up — the sea has beaten you",
+          "goto": "death_sea",
+          "style": "danger"
+        }
+      ]
+    },
+    "r_14": {
+      "text": "The Windborne grows larger as you approach. She lies on her starboard side, half-swallowed by the reef, her masts jutting from the water at angles that make your navigator's eye flinch. The hull is torn open where the rocks caught her — a wound twenty feet long, the timbers splintered outward like broken ribs. Kelp hangs from the rigging in long funeral streamers, swaying in the current.\n\nThis was your ship. Three years of your life lived on those decks. You knew every plank, every rope, every creak she made in a following sea. Now she is a carcass, and the ocean is picking her bones.\n\nYou can board from the exposed section of hull, or continue past toward the ritual site. The compass — if you have one — would guide you south-southwest from here.",
+      "choices": [
+        {
+          "text": "Board the wreck",
+          "goto": "r_15"
+        },
+        {
+          "text": "Continue past — head for the ritual site",
+          "goto": "r_36"
+        }
+      ]
+    },
+    "r_15": {
+      "text": "You pull yourself onto the Windborne's exposed hull. The timber is slick with algae and crusted with barnacles that cut your palms. The ship groans beneath you — a deep, resonant sound, as though she is still dying, still settling into her grave by inches.\n\nKael follows you up, sure-footed despite the angle. She pauses at the top, one hand on a broken spar, and looks down into the dark water filling the lower decks. 'Something's not right about this wreck,' she says quietly. 'A ship this size — there should be flotsam everywhere. Barrels, rope, canvas. It's all been... pulled inside.'\n\nShe is right. The deck is swept clean. Everything has been drawn inward, toward the lower holds, as though the ship is slowly swallowing itself.",
+      "choices": [
+        {
+          "text": "Search the exposed upper deck",
+          "goto": "r_10"
+        },
+        {
+          "text": "Head forward to the broken foremast",
+          "goto": "r_17"
+        },
+        {
+          "text": "Descend through the hatch to the lower deck",
+          "goto": "r_20"
+        },
+        {
+          "text": "This feels wrong — leave the wreck",
+          "goto": "r_35",
+          "style": "danger"
+        }
+      ]
+    },
+    "r_16": {
+      "text": "You pick across the tilted upper deck, testing each step before committing your weight. The helm is smashed — the wheel snapped clean off its mount, spokes scattered. The captain's cabin is half underwater, its door hanging open on one hinge, dark water lapping at the threshold.\n\nForward, the fo'c'sle is canted at a steep angle but mostly above the waterline. Through a gap in the planking you can see a waterproof chest wedged against the bulkhead, still sealed. Further along, rope and rigging hang in tangles from the broken foremast.\n\nFrom below, you hear it — a rhythmic thumping, like a heartbeat. Or like something moving through flooded compartments, bumping against bulkheads with the patience of the tide.",
+      "choices": [
+        {
+          "text": "Open the waterproof chest in the fo'c'sle",
+          "goto": "r_18"
+        },
+        {
+          "text": "Cut the grappling hook free from the rigging",
+          "goto": "r_19",
+          "requires_no_flag": "has_grappling_hook"
+        },
+        {
+          "text": "Check the captain's cabin",
+          "goto": "r_12"
+        },
+        {
+          "text": "Climb below to investigate the thumping",
+          "goto": "r_20"
+        },
+        {
+          "text": "Leave the wreck",
+          "goto": "r_35"
+        }
+      ]
+    },
+    "r_18": {
+      "text": "You brace yourself against the tilted deck and wrench the chest open. The seal holds — the interior is dry, a small miracle in a ship that has been dead in the water for days. Inside, wrapped in oilcloth, is a brass compass. Your breath catches. You know this compass. You gave it to your first mate two years ago, a birthday gift bought in Caravos with money you could not afford to spend. The case is engraved with a wave-pattern.\n\nThe needle spins wildly for a moment, then locks onto a bearing — south-southwest. Toward the ritual site. Toward whatever waits beneath the Reaches. It remembers the way, even if its owner no longer can.\n\nYou close the case and slip it into your coat. The weight of it feels like a promise you are not sure you can keep.",
+      "add_items": [
+        "navigator_compass"
+      ],
+      "set_flags": [
+        "has_compass",
+        "compass_intact"
+      ],
+      "choices": [
+        {
+          "text": "Cut the grappling hook free from the rigging",
+          "goto": "r_19",
+          "requires_no_flag": "has_grappling_hook"
+        },
+        {
+          "text": "Climb below to investigate the thumping",
+          "goto": "r_20"
+        },
+        {
+          "text": "Leave the wreck",
+          "goto": "r_35"
+        }
+      ]
+    },
+    "r_19": {
+      "text": "You cut the grappling hook free from the tangle of rigging. Good iron, three-pronged, still solid despite days in saltwater. Thirty feet of hempen rope coiled tight. You loop it over your shoulder.\n\nKael watches you work. 'That'll be useful,' she says, with the careful understatement of someone who has spent her life on boats. 'The Reaches are all vertical surfaces and no handholds.'",
+      "add_items": [
+        "grappling_hook"
+      ],
+      "set_flags": [
+        "has_grappling_hook"
+      ],
+      "choices": [
+        {
+          "text": "Open the waterproof chest in the fo'c'sle",
+          "goto": "r_18",
+          "requires_no_flag": "has_compass"
+        },
+        {
+          "text": "Climb below to investigate the thumping",
+          "goto": "r_20"
+        },
+        {
+          "text": "Leave the wreck",
+          "goto": "r_35"
+        }
+      ]
+    },
+    "r_20": {
+      "text": "You lower yourself through the main hatch into the flooded lower deck. The water is waist-deep, black as ink, swirling with debris — splinters of wood, strips of canvas, things you do not look at too closely. Your feet find the tilted deck beneath the surface, and you brace yourself against the bulkhead as the current tugs at your legs.\n\nThe thumping is louder here. Rhythmic. Patient. It comes from the cargo hold ahead, beyond a half-open door whose hinges have corroded to green lace. The sound is not mechanical. It has the cadence of something alive — or something that remembers what alive felt like.\n\nKael hangs back at the hatch. 'I'll watch the way out,' she says. Her voice is steady, but she is not following you. Not into this.",
+      "choices": [
+        {
+          "text": "Push through the door to the cargo hold",
+          "goto": "r_21"
+        },
+        {
+          "text": "Go back — search the upper deck instead",
+          "goto": "r_16"
+        }
+      ]
+    },
+    "r_22": {
+      "text": "You push through the door. It resists, then gives with a groan of swollen timber. The cargo hold opens before you — vast and dark, the water here chest-deep and utterly still. No current. No movement. As though the sea itself is holding its breath.\n\nA figure stands at the far end of the hold.\n\nIt wears the remains of a sailor's coat — your ship's coat, the dark blue wool you know by touch. Its skin is grey-blue, bloated, marbled with veins of something that is not blood. Barnacles cluster at its jaw and collar. Its eyes are white as sea-foam, wide and unblinking.\n\nBut you know that face. God help you, you know it. You sailed with that face for three years. You shared watches and rum and silence on a hundred still nights. Your first mate. Drowned. And yet standing here, waist-deep in black water, swaying with a motion that has nothing to do with the current.\n\nIts mouth opens. Saltwater pours over the swollen lower lip. And it speaks, in a voice like waves dragging over gravel: 'Captain... the tide... is coming...'\n\nThe white eyes fix on you. There is something behind them — not life, but the memory of life. A candle guttering in a flooded room.",
+      "choices": [
+        {
+          "text": "Step closer — reach out to your first mate",
+          "goto": "r_24"
+        },
+        {
+          "text": "Draw your weapon — whatever this is, it is not your friend",
+          "goto": "r_26"
+        },
+        {
+          "text": "Stand frozen — you cannot move",
+          "goto": "r_23"
+        },
+        {
+          "text": "Back away slowly toward the hatch",
+          "goto": "r_28",
+          "style": "danger"
+        }
+      ]
+    },
+    "r_24": {
+      "text": "You step forward through the black water. Each step feels like wading through grief. 'It's me,' you say, and your voice sounds strange in this drowned place — too warm, too alive. 'I'm here. We can break you free of this.'\n\nThe white eyes track your movement. For a moment — a single, aching moment — something stirs behind them. The jaw works. A sound comes out that might be your name, buried under layers of saltwater and whatever cold power holds this body upright.\n\nYour first mate's hand rises from the water. The fingers are swollen, the nails black, but the gesture is achingly familiar — the same hand that steadied the wheel in storms, that passed you a flask on cold watches, that gripped your forearm in greeting a thousand times.\n\nThe fingers reach for yours.",
+      "choices": [
+        {
+          "text": "Offer the rum — a taste of the old life",
+          "goto": "r_24b",
+          "requires_item": "rum"
+        },
+        {
+          "text": "Take the hand",
+          "goto": "r_25"
+        }
+      ]
+    },
+    "r_24b": {
+      "text": "You pull the flask of Saltmere dark from your coat and hold it out. The gesture is instinct — how many times did you share a drink on the quarterdeck, passing the flask back and forth without a word? Some rituals go deeper than death.\n\nThe drowned fingers close around the flask. For a heartbeat, the white eyes clear. Not fully — not back to the warm brown you remember — but enough. Enough to see recognition. Enough to see grief. Your first mate's mouth forms a word that the waterlogged throat cannot quite produce. Your name, perhaps. Or 'run.'\n\nThe flask slips beneath the water. The rum disperses in dark clouds. But the moment holds — three seconds, maybe four, of the person your first mate used to be, looking at you from behind the dead white eyes of the thing the Leviathan has made.\n\nThen the light gutters. The jaw unhinges. The cold comes back, and with it, the hunger.",
+      "remove_items": [
+        "rum"
+      ],
+      "set_flags": [
+        "knows_first_mate_awake"
+      ],
+      "choices": [
+        {
+          "text": "Brace yourself",
+          "goto": "r_25"
+        }
+      ]
+    },
+    "r_25": {
+      "text": "The recognition collapses like a wave breaking on stone. Whatever surfaced in those dead eyes is dragged back under by something vast and cold. The jaw unhinges impossibly wide and a sound comes out — not a scream but a pressure wave, a pulse of cold that hits you like a fist to the chest. The black water around you churns.\n\nThe drowned thing that was your friend lunges. Fingers hooked into claws. The Leviathan's hold is absolute — whatever flicker of the person you knew remains, it is buried now beneath the hunger of the deep.\n\nThere is no reaching them. Not like this. You must fight or you must die.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Fight your drowned first mate",
+          "goto": "r_27"
+        }
+      ]
+    },
+    "r_26": {
+      "text": "Your drowned first mate comes at you through the black water, moving with horrible, jerking speed — not the motion of a living body but something puppeted by a force that does not understand joints or tendons. Its hands are cold as deep-sea iron and strong as the tide. The water around you churns with each blow, each grapple, each desperate separation.\n\nThis is the hardest fight of your life. Not because of the danger — though the danger is real, those dead hands could hold you under until your lungs fill — but because of who this used to be. Every time you strike, you see the face of someone who trusted you. Every time you dodge, you see the coat you watched them button against a hundred cold mornings.\n\nYou raise your weapon. Forgive me.",
+      "combat": {
+        "enemy": "drowned_first_mate",
+        "win_goto": "r_30",
+        "flee_goto": "r_28",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "r_28": {
+      "text": "You back toward the hatch, not taking your eyes off the swaying figure. The black water drags at your legs as though reluctant to let you go. Your first mate watches you retreat with those dead white eyes — and for a moment, just before you reach the door, the swaying stops.\n\nThe drowned mouth works. Water spills over grey lips. And a voice comes — not the grinding wave-on-gravel sound from before, but something quieter. Almost human. Almost the voice you remember from three years of shared watches.\n\n'The key... below the waterline... the temple door. Don't let them... finish it.'\n\nThe words cost something. You can see it — the effort of pushing through whatever cold power animates this body, of being a person for three more seconds. Then the white eyes dim. The swaying resumes. The thumping against the bulkhead begins again, slow and rhythmic as a tide.\n\nYou climb out. Your hands are shaking. Behind you, the sound continues — thump, thump, thump — the heartbeat of a ship that will not die.",
+      "set_flags": [
+        "spared_first_mate"
+      ],
+      "choices": [
+        {
+          "text": "Search for the compass in the flooded hold on your way out",
+          "goto": "r_28b",
+          "requires_no_flag": "has_compass"
+        },
+        {
+          "text": "Search the upper deck",
+          "goto": "r_29",
+          "requires_no_flag": "has_compass"
+        },
+        {
+          "text": "Leave the wreck",
+          "goto": "r_35"
+        }
+      ]
+    },
+    "r_28b": {
+      "text": "On your way back through the flooded hold, your foot catches on something wedged beneath a fallen beam. You reach down into the black water and your fingers close around cold brass. The compass. It must have fallen from your first mate's neck — or been left here, deliberately, in that brief moment of lucidity.\n\nYou pull it free. The needle spins once, twice, then locks south-southwest with the certainty of a thing that knows exactly where it needs to go. The case is engraved with a wave-pattern. You remember buying it in Caravos. You remember the look on your first mate's face when you handed it over.\n\nYou slip it into your coat and climb toward daylight.",
+      "add_items": [
+        "navigator_compass"
+      ],
+      "set_flags": [
+        "has_compass",
+        "compass_intact"
+      ],
+      "choices": [
+        {
+          "text": "Continue to the upper deck",
+          "goto": "r_16"
+        },
+        {
+          "text": "Leave the wreck",
+          "goto": "r_35"
+        }
+      ]
+    },
+    "r_30": {
+      "text": "Your first mate falls. The white eyes dim like lamps guttering in a storm. For one heartbeat — one impossibly long heartbeat — the face relaxes. The bloating recedes. The barnacles seem to loosen their grip. And there it is: the expression you remember from a thousand watches shared on quiet seas. Tired. Fond. At peace.\n\nThen the body slides beneath the black water and is gone. No ripple. No sound. The hold is silent in a way that silence should not be — absolute, total, as though the ship itself is mourning.\n\nYou stand in chest-deep water, breathing hard. Your weapon hand is shaking. Around the dead thing's neck, the brass compass broke free in the fight. You fish it from the water. The needle spins, then locks south-southwest. Toward whatever waits beneath the Reaches.\n\nIn the dead hand that floats to the surface, a barnacle-encrusted key. You take it. Whatever it opens, you will find out.\n\nYou faced the worst thing the sea could offer — grief made flesh — and you are still standing. Something has hardened in you. Something that will not break.",
+      "add_skill": 1,
+      "add_items": [
+        "navigator_compass",
+        "drowned_key"
+      ],
+      "set_flags": [
+        "defeated_first_mate",
+        "has_compass",
+        "has_drowned_key"
+      ],
+      "choices": [
+        {
+          "text": "Stand here a moment longer",
+          "goto": "r_31"
+        }
+      ]
+    },
+    "r_32": {
+      "text": "You do not move for a long time. The water laps at your chest. The hold is dark and the silence is complete and you stand there with a dead friend's compass in one hand and a dead friend's key in the other and you try to remember what their laugh sounded like.\n\nYou cannot. The sea has taken that too.\n\nWhen you finally climb back up to the light, Kael is waiting. She takes one look at your face and says nothing. She does not ask what was down there. She does not ask about the compass or the key or the blood on your hands. She just nods, once, and turns toward the rail.\n\nSome things do not need words. Some things are better without them.",
+      "choices": [
+        {
+          "text": "Ask Kael to check the wreck for supplies",
+          "goto": "r_33",
+          "requires_flag": "kael_told_story"
+        },
+        {
+          "text": "Leave the wreck behind",
+          "goto": "r_35"
+        }
+      ]
+    },
+    "r_33": {
+      "text": "Kael looks at the dark water filling the lower decks. Something passes across her face — not fear, exactly, but the memory of fear. Then she strips off her coat, tucks her knife into her belt, and dives.\n\nShe is gone for a long time. Too long. You lean over the rail, staring into the murk, and you are about to go in after her when she surfaces with a gasp, hauling a waterproof satchel above her head.\n\n'Provisions,' she coughs, treading water. 'Sealed cask. Still good.' She passes the satchel up to you and you haul her aboard. She lies on the deck, chest heaving, water pooling around her. 'Saw your friend down there,' she says quietly, not looking at you. 'What's left of them. Floating in the dark.'\n\nShe is quiet for a long time. Then: 'Did they know you? At the end?'",
+      "set_flags": [
+        "kael_survived",
+        "kael_knows"
+      ],
+      "choices": [
+        {
+          "text": "'For a moment. Just a moment.'",
+          "goto": "r_34"
+        },
+        {
+          "text": "Say nothing",
+          "goto": "r_34"
+        }
+      ]
+    },
+    "r_35": {
+      "text": "You leave the Windborne behind. It takes an act of will not to look back — and when you fail, when you do turn, the wreck is already smaller, the masts like dead fingers reaching from the water. The kelp streamers sway in a current that is not wind. The ship settles another inch, and another, and one day the sea will close over her entirely and there will be nothing left to mark where she went down.\n\nAhead, the Reaches stretch south. The water is shallow enough to wade in places, deep enough to swim in others. Reefs rise like the spines of buried beasts. The sky is darkening — not just evening, but something else. The clouds have a sick green-grey tinge, and the air pressure is dropping in a way your sailor's instincts recognise. A storm that is not a storm. The ritual tide is building.\n\nKael moves beside you in silence, navigating the reef channels with grim efficiency. Below the surface, you can see drowned ruins — an entire submerged town. And beyond it, the dark shape of the temple outcrop.",
+      "choices": [
+        {
+          "text": "Dive down to the submerged ruins below",
+          "goto": "r_40"
+        },
+        {
+          "text": "Swim directly toward the temple outcrop",
+          "goto": "r_52"
+        }
+      ]
+    },
+    "r_40": {
+      "text": "Below the surface, you can see them — the drowned ruins, clearer here than anywhere else in the Reaches. Not just rooftops and walls, but entire streets, preserved in the cold water like insects in amber. A settlement older than Saltmere, older perhaps than anything on this coast. The buildings are made of stone that does not belong to this region — dark basalt, cut with a precision that speaks of wealth and purpose.\n\nThe water is fifteen feet deep. Clear enough to see the bottom. You will need to anchor yourself to dive safely — the current down there runs sideways, and without a line to the surface you could be pulled into one of the collapsed buildings and trapped.",
+      "choices": [
+        {
+          "text": "Anchor with the grappling hook and dive",
+          "goto": "r_42",
+          "requires_item": "grappling_hook"
+        },
+        {
+          "text": "Anchor with the kelp rope and dive",
+          "goto": "r_42",
+          "requires_item": "kelp_rope"
+        },
+        {
+          "text": "Dive without an anchor — trust your swimming",
+          "goto": "r_41"
+        },
+        {
+          "text": "Stay on the surface — press on to the temple",
+          "goto": "r_50"
+        }
+      ]
+    },
+    "r_41": {
+      "text": "You take a deep breath and dive. Without an anchor line, you are at the mercy of the current — and the current here has ideas of its own. It pulls you sideways, toward a collapsed doorway choked with kelp. You kick hard, fighting for the street below.",
+      "test_luck": {
+        "lucky_text": "Your strokes are strong and true. You break free of the current and settle onto the basalt street, boots finding purchase on ancient cobblestones. The water is still here — a pocket of calm between the ruined buildings. You can explore.",
+        "lucky_goto": "r_42",
+        "unlucky_text": "The current drags you into the collapsed doorway. Kelp wraps your legs. You thrash free, but not before a jagged edge of basalt opens a gash along your ribs. You surface gasping, blood clouding the water around you.",
+        "unlucky_goto": "r_42",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 4
+      }
+    },
+    "r_42": {
+      "text": "The drowned street is a place that should not exist. Buildings stand on either side — houses, shops, what might have been a guildhall — their walls intact, their windows open to the sea. Fish drift through doorways like ghosts of the people who once lived here. Anemones bloom in window-boxes where flowers once grew. A crab picks its way across a threshold that a thousand feet once crossed.\n\nThe air is trapped in pockets — doorways and alcoves where the stone creates sealed chambers. You surface into one, gasping, and find yourself in what was once someone's kitchen. A stone table. Clay bowls, miraculously unbroken. A child's wooden toy, swollen with water but recognisable — a boat.\n\nThe settlement is old. Very old. The architecture predates anything you have seen on the coast by centuries. And at the centre of the street, visible through the green water, is the largest building — a hall with pillars, its doors standing open.",
+      "choices": [
+        {
+          "text": "Explore deeper into the settlement",
+          "goto": "r_43"
+        },
+        {
+          "text": "Swim to the pillared hall",
+          "goto": "r_44"
+        },
+        {
+          "text": "Surface and continue to the temple",
+          "goto": "r_50"
+        }
+      ]
+    },
+    "r_44": {
+      "text": "The hall is vast. The pillars are carved with wave-patterns that spiral upward toward a ceiling lost in murky darkness. At the centre, on a raised platform, stands an altar-stone — a block of dark basalt twice the height of a man, its surface carved with a single symbol.\n\nAn inverted spiral. The same mark you have been seeing since Saltmere — on harbour walls, on cult robes, branded into flotsam. But this one is different. This one is old. Old in a way that makes the cult's markings look like children scratching in sand. The spiral is cut deep into the stone with a precision that no human hand could achieve, and around it, carved in a script you cannot read, are words that circle the symbol like satellites orbiting a dark star.\n\nThis was not a cult temple. This was a binding place. Something was held here — not worshipped, but contained. The inverted spiral is not a symbol of devotion. It is a lock.",
+      "choices": [
+        {
+          "text": "Study the altar-stone more closely",
+          "goto": "r_44b",
+          "requires_flag": "saw_symbol"
+        },
+        {
+          "text": "Examine the carvings on the pillars",
+          "goto": "r_45"
+        },
+        {
+          "text": "Note the symbol and move on — something guards this place",
+          "goto": "r_46"
+        }
+      ]
+    },
+    "r_44b": {
+      "text": "You have seen this symbol before. On the harbour wall in Saltmere, half-hidden by barnacles — but there it was newer, cruder, a copy of a copy. Here is the original. And with the original comes understanding.\n\nThe words circling the spiral are not a prayer. They are terms. Conditions. A contract between the people of this drowned settlement and something that lived in the deep water. The Leviathan was not their enemy — it was their guardian, bound by pact and ritual to protect the coast. The inverted spiral is the seal of that pact.\n\nThe cult has not been summoning the Leviathan. They have been breaking its chains. Inverting the pact. Turning a guardian into a weapon.\n\nThe realisation settles into you like cold water. Everything you thought you knew about what waits beneath the Reaches is wrong.",
+      "set_flags": [
+        "knows_the_pact"
+      ],
+      "choices": [
+        {
+          "text": "Search the hall — there may be something useful here",
+          "goto": "r_46"
+        }
+      ]
+    },
+    "r_46": {
+      "text": "As you move deeper into the hall, the water grows colder. Unnaturally cold. The bioluminescent algae on the walls dims, then dies, leaving you in near-darkness. And in that darkness, something moves.\n\nIt rises from behind the altar — a shape made of water and rage and something that might once have been human. A Tide Wraith. Its form shifts and reforms, a face appearing and dissolving in the liquid mass, mouth open in a silent scream. It is a guardian, or what is left of one — bound to this place long after there was anything left to guard.\n\nIt flows toward you, and the water around your legs turns to ice.",
+      "combat": {
+        "enemy": "tide_wraith",
+        "win_goto": "r_47",
+        "flee_goto": "r_50",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "r_48": {
+      "text": "The Tide Wraith collapses. The water that composed its body splashes back into the flooded hall, and for a moment the bioluminescent glow flares bright — green-gold, almost warm — as though the hall itself is relieved.\n\nBehind the altar, wedged into a niche in the stone, you find a chest of dark wood bound with corroded bronze. Inside, resting on a bed of silt, is a cracked stone disc the size of your palm. Carved into its face is the inverted spiral — the same symbol as the altar, but this one is broken. Half a disc. One piece of something that was meant to be whole.\n\nYou take it. The stone is warm to the touch, which makes no sense in this freezing water. It vibrates faintly, a hum you feel in your bones rather than hear.",
+      "add_items": [
+        "ancient_seal_fragment"
+      ],
+      "choices": [
+        {
+          "text": "Surface and continue to the temple",
+          "goto": "r_49"
+        }
+      ]
+    },
+    "r_50": {
+      "text": "You surface into air that tastes of ozone and rot. The sky has darkened further — the green-grey clouds are thicker now, pressing down on the Reaches like a hand on a wound. The wind has dropped entirely. The sea is flat, glassy, wrong. Water should not be this still.\n\nAhead, the Reaches narrow toward a rocky outcrop — the only solid ground in sight. Even from here you can see the stairway carved into the stone, descending below the waterline. The entrance to the Drowned Temple.\n\nKael treads water beside you, scanning the approach. 'Guards,' she says. 'On the rocks. Three of them.'",
+      "choices": [
+        {
+          "text": "Approach the outcrop",
+          "goto": "r_51"
+        },
+        {
+          "text": "Check the wreck first — you passed ship masts earlier",
+          "goto": "r_14",
+          "requires_no_flag": "defeated_first_mate"
+        }
+      ]
+    },
+    "r_52": {
+      "text": "Movement in the water below. Two grey shapes, fast and sleek, cutting through the green with the efficiency of things perfectly designed to kill. Reef sharks. Each one six feet of muscle and teeth, drawn by vibration or blood or the simple predatory awareness that something alive is in their territory.\n\nThey circle once, then split — one going wide, the other rising directly toward you.",
+      "choices": [
+        {
+          "text": "Thrust the grappling hook at the nearest shark",
+          "goto": "r_52b",
+          "requires_item": "grappling_hook"
+        },
+        {
+          "text": "Draw your weapon and prepare to fight",
+          "goto": "r_52c"
+        }
+      ]
+    },
+    "r_52b": {
+      "text": "You swing the grappling hook in a wide arc beneath the water. The iron catches the lead shark across the snout — the most sensitive part of its body. It recoils, thrashing, and veers away into the murk. The second shark hesitates, circling wider now, but it is hungry and you are in its water.\n\nOne shark. You can handle one shark.",
+      "combat": {
+        "enemy": "reef_shark",
+        "win_goto": "r_55",
+        "flee_goto": "r_50",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "r_52c": {
+      "text": "Both sharks come at you. You kick hard, putting your back against a reef wall, and draw your blade. The first shark lunges — you slash at it and it rolls away, trailing a ribbon of blood. But the blood draws the second one in, frenzied now, and you must fight.\n\nThe wounded shark circles at a distance, unwilling to re-engage. The second presses its attack.",
+      "add_stamina": -2,
+      "combat": {
+        "enemy": "reef_shark",
+        "win_goto": "r_53",
+        "flee_goto": "r_50",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "r_55": {
+      "text": "The shark rolls away into the deep, and the water around you clears. Your arms are burning, your lungs ache, and there is blood in the water that you hope is not all yours. The second shark has vanished — gone to find easier prey, or simply gone.\n\nAhead, the water is clear and open. The rocky outcrop rises from the surface, dark and solid against the sick green sky. You can see the guards on the rocks — robed figures, grey as the stone, standing motionless. The stairway behind them descends into the deep.\n\nYou swim on. The last stretch.",
+      "choices": [
+        {
+          "text": "Approach the outcrop",
+          "goto": "r_54"
+        }
+      ]
+    },
+    "r_60": {
+      "text": "The outcrop rises from the water like a fist of dark stone. Three robed figures stand on its flat summit, evenly spaced around the stairway entrance. They are still as statues, their grey-green robes heavy with water, barnacles growing on their hands and the exposed skin of their faces. Their eyes are the dead white of deep-sea fish.\n\nThree Drowned Priests. Sentinels. The stairway behind them descends into darkness — carved steps worn smooth by centuries of tides, vanishing below the waterline. From that darkness comes the sound of chanting. Low, guttural, rhythmic. The ritual has begun.\n\nThe sky presses down. The air is thick with ozone. Whatever happens next, it happens now.",
+      "choices": [
+        {
+          "text": "Scout the outcrop from a distance first",
+          "goto": "r_61"
+        },
+        {
+          "text": "Approach openly and challenge them",
+          "goto": "r_62"
+        },
+        {
+          "text": "Circle around and use the grappling hook to bypass them",
+          "goto": "r_64",
+          "requires_item": "grappling_hook"
+        },
+        {
+          "text": "Swim underwater to reach the stairway unseen",
+          "goto": "r_65"
+        },
+        {
+          "text": "Signal Kael to create a distraction",
+          "goto": "r_66",
+          "requires_flag": "kael_survived"
+        }
+      ]
+    },
+    "r_62": {
+      "text": "You haul yourself onto the outcrop, seawater streaming from your clothes. The three Drowned Priests turn as one — the movement synchronised, inhuman, as though controlled by a single will. Their robes are heavy with water, their skin the grey-green of things that have spent too long in the deep. Barnacles cluster at their knuckles. Their eyes are white and empty.\n\n'The tide comes,' the nearest one intones, its voice a chorus of grinding stone. 'All will be reclaimed. You cannot stop what has already begun.'\n\nThe first priest draws a curved knife of corroded bronze and comes at you with the jerking, tide-driven gait you have learned to dread. The other two hang back — waiting their turn, or building toward something worse.",
+      "combat": {
+        "enemy": "drowned_cultist",
+        "win_goto": "r_63",
+        "flee_goto": "r_60",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "r_63": {
+      "text": "The first priest crumples. Before the body has finished falling, the second is on you — faster than the first, angrier, its dead mouth open in a sound that is less a scream than a pressure change. The third priest has turned toward the stairway, moving with purpose. Going to warn the others below.\n\nYou have to finish this quickly.",
+      "combat": {
+        "enemy": "drowned_cultist",
+        "win_goto": "r_67",
+        "flee_goto": "r_60",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "r_64": {
+      "text": "You circle the outcrop, staying low in the water, the rocks cutting your palms as you grip the rough stone. On the far side, you find what you were hoping for — a crumbling section of cliff with rusted iron rings driven into the rock. An old mooring point, predating the cult by centuries.\n\nYou swing the grappling hook. The iron bites into the ledge above with a sound that makes you wince, but the guards do not move. They face outward, watching the water — sentinels designed for threats that come from the sea, not from behind.\n\nYou haul yourself up hand over hand, the rope cutting into your palms, and roll onto the ledge. The stairway is ten feet away, unguarded from this side. Below, the chanting rises — low, guttural, rhythmic. The ritual has begun, and you have bypassed its first line of defence.",
+      "choices": [
+        {
+          "text": "Search the fallen priest nearby for useful items",
+          "goto": "r_68"
+        },
+        {
+          "text": "Descend the stairway immediately",
+          "goto": "r_70"
+        }
+      ]
+    },
+    "r_65": {
+      "text": "You take a deep breath and slip beneath the surface. The water around the outcrop is murky — silt stirred up by the current, visibility dropping to arm's length. You swim low, hugging the reef, kicking toward where you saw the stairway entrance.\n\nSomething moves in the murk below you. A grey shape, fast and sleek. The vibration of your swimming has drawn it — a reef shark, patrolling the base of the outcrop.",
+      "test_luck": {
+        "lucky_text": "The shark passes beneath you, close enough to touch, but does not turn. Your luck holds — you reach the far side of the outcrop and surface in the shadow of the stairway entrance. The guards are fifteen feet away, facing the wrong direction. You haul yourself onto the rocks in silence.",
+        "lucky_goto": "r_66b",
+        "unlucky_text": "The shark turns. Dead black eyes fix on you. It comes fast — a missile of grey muscle and teeth.",
+        "unlucky_goto": "r_65b",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "r_65b": {
+      "text": "The shark is on you before you can draw a full breath. You have seconds before the guards hear the thrashing.",
+      "combat": {
+        "enemy": "reef_shark",
+        "win_goto": "r_66b",
+        "flee_goto": "r_60",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "r_66": {
+      "text": "You signal Kael. She nods — no hesitation, no questions. She dives, surfaces on the far side of the outcrop, and begins splashing. Loudly. Deliberately. The three priests turn toward the sound with synchronised precision, their dead-white eyes fixing on the disturbance.\n\nKael shouts something — a curse, a challenge, it does not matter. The priests move toward her, their jerking gait carrying them across the rocks. You have a window. Twenty seconds, maybe thirty, before they turn back.\n\nYou pull yourself onto the outcrop and sprint for the stairway. Your boots slip on wet stone. Behind you, Kael dives again, vanishing beneath the surface before the priests can reach her. She surfaces fifty feet away, already swimming hard.\n\nShe will be fine. She has been fine her whole life. You tell yourself this as you descend.",
+      "set_flags": [
+        "kael_helped_distraction"
+      ],
+      "choices": [
+        {
+          "text": "Search the area near the stairway for anything useful",
+          "goto": "r_68"
+        },
+        {
+          "text": "Descend the stairway immediately",
+          "goto": "r_70"
+        }
+      ]
+    },
+    "r_66b": {
+      "text": "You haul yourself onto the rocks behind the guards, gasping as quietly as you can manage. Saltwater streams from your clothes. The three priests are ten feet away, facing outward, watching the water where the shark thrashed. They heard the splashing — but they are looking the wrong way, scanning for a threat from the deep.\n\nYou slip past them. The stairway is right there — carved steps descending into darkness. From below, the chanting rises, and with it a cold that has nothing to do with the water.",
+      "choices": [
+        {
+          "text": "Search the area for anything useful before descending",
+          "goto": "r_68"
+        },
+        {
+          "text": "Descend the stairway",
+          "goto": "r_70"
+        }
+      ]
+    },
+    "r_68": {
+      "text": "At the base of the stairway entrance, slumped against the rock, is a dead cultist — not drowned-dead like the priests above, but truly dead, weeks old, its robes torn and its face fixed in an expression of abject terror. Whatever killed this one, it was not the sea. Something came up from below.\n\nYou search the body. Around its neck, on a cord of braided kelp, hangs a shard of green sea-glass worn smooth by the tides — an amulet of some kind, warm to the touch despite the cold. In its robes, a barnacle-encrusted iron key. You take what you need.\n\nThe stairway waits. Below, the chanting grows louder.",
+      "add_items": [
+        "sea_glass_amulet",
+        "drowned_key"
+      ],
+      "set_flags": [
+        "has_drowned_key"
+      ],
+      "choices": [
+        {
+          "text": "Descend the stairway",
+          "goto": "r_69"
+        }
+      ]
+    },
+    "r_2": {
+      "text": "The Reaches reveal themselves slowly. First the water changes colour — grey to green to something darker, the colour of deep forest canopy. Then the reefs appear, just beneath the surface, their edges sharp as broken glass. And then, far below, the shapes. Buildings. Streets. The drowned geography of a civilisation that the sea claimed so completely that even its name has been forgotten.\n\nKael fights the tiller, muscles rigid, threading between reef-spines on instinct alone. Without the chart's guidance, every channel is a guess. The hull shudders as something scrapes the keel — close, too close.\n\n'Something's different,' she says through clenched teeth. 'The current. It's pulling us south. Not hard — but steady. Like it wants us to go somewhere specific.' She pauses. 'I don't like things that want.'\n\nThen the hull catches. The crack is final.",
+      "choices": [
+        {
+          "text": "Abandon the skiff",
+          "goto": "r_9"
+        }
+      ]
+    },
+    "r_3": {
+      "text": "Kael tells you about the Reaches as you sail. Not the safe version — the one she would tell passengers. The real version. The one that comes out when the light is failing and the water is dark.\n\n'My grandmother sailed these waters,' she says, not looking at you. 'Before the reefs shifted. Before the town went under. She said the sea here was different — not hostile, not exactly, but aware. Like sailing through something that was paying attention.' She adjusts the tiller. 'She stopped coming out here fifteen years ago. Said the attention had changed. Said it felt hungry.'\n\nAhead, the water deepens. The drowned town is visible below — rooftops furred with kelp, a market square where fish swim through stalls. An entire settlement preserved in cold water like a pressed flower in a book.\n\n'Whatever took that town,' Kael says quietly, 'it's still here. And it's awake.'",
+      "choices": [
+        {
+          "text": "Ask Kael what she thinks is down there",
+          "goto": "r_3b"
+        },
+        {
+          "text": "Sail on in silence",
+          "goto": "r_14"
+        }
+      ]
+    },
+    "r_3b": {
+      "text": "'What do I think?' Kael is quiet for a long time. The skiff creaks. Water laps against the hull. 'I think there are things in the ocean that have been there since before there was anything on land to name them. I think some of those things were worshipped once, and some were feared, and some were both. And I think the difference between worship and fear is thinner than most people want to believe.'\n\nShe looks at you then — really looks, with that single dark eye that misses nothing. 'I think whatever is down there is older than the town it drowned. Older than the reefs. And I think the people performing rituals to wake it up have no idea what they're actually doing. They think they're summoning a god. They're opening a cage.'\n\nThe water around the skiff is still. Unnaturally still. Even the wind has died.",
+      "choices": [
+        {
+          "text": "Continue toward the wreck",
+          "goto": "r_14"
+        }
+      ]
+    },
+    "r_6": {
+      "text": "The chart's annotations become denser as you sail deeper into the Reaches. Whoever drew this — and Kael suspects it was a harbour pilot, generations ago — marked not just the channels but the moods of the water. 'Dead current here — beware slack tide.' 'Singing sound from below at dawn — avoid.' 'The drowned town. Do not anchor.'\n\nKael reads these notes aloud in a flat voice. The skiff slides between reef-spines that rise from the water like the teeth of something buried. The light is failing. The clouds have that sick green tinge that your sailor's instinct recognises as wrong — not weather, but something wearing weather's face.\n\n'There,' Kael says suddenly. She is pointing ahead, where masts break the surface of the water like the ribs of a whale carcass. 'That wreck. Do you recognise it?'\n\nYou do. Your stomach turns to cold water. The Windborne.",
+      "choices": [
+        {
+          "text": "Sail closer to the wreck",
+          "goto": "r_14"
+        },
+        {
+          "text": "Steer away — follow the chart to the ritual site",
+          "goto": "r_8"
+        }
+      ]
+    },
+    "r_10": {
+      "text": "The wreck of the Windborne settles around you as you explore. Every surface is coated with a thin film of salt and algae. The timbers creak with each swell — the ship is still dying, still coming apart by degrees, and each groan sounds like a word you almost understand.\n\nKael stays near the rail, watching the water. 'Ships don't usually feel like this,' she says, almost to herself. 'They're wood and iron. They don't have moods.' She pauses. 'This one has a mood. And it's grieving.'\n\nShe is not wrong. The Windborne was a good ship — reliable, honest, the kind of vessel that earned the loyalty of its crew not through speed or beauty but through the simple virtue of bringing them home. She deserved better than this reef and this dark water and this slow dissolution into nothing.",
+      "choices": [
+        {
+          "text": "Look for traces of your crew",
+          "goto": "r_11"
+        },
+        {
+          "text": "Search the fo'c'sle and rigging",
+          "goto": "r_16"
+        },
+        {
+          "text": "Descend into the lower holds",
+          "goto": "r_20"
+        }
+      ]
+    },
+    "r_11": {
+      "text": "You find traces of your crew throughout the wreck. A hammock still strung between beams, though its occupant is long gone. A knife driven into a table — someone's way of marking a card game that will never be finished. A waterlogged book of pressed flowers, the pages dissolving into coloured pulp.\n\nThese were people you knew. People who trusted you to bring them through the storm. And you failed them.\n\nThe Leviathan took the ship. The cult took the crew. But the captain — the captain is supposed to go down with both. You did not. And that is a debt that will not be settled until you find what has become of the people who served under you.",
+      "choices": [
+        {
+          "text": "Continue searching the wreck",
+          "goto": "r_16"
+        },
+        {
+          "text": "Go below deck to the cargo hold",
+          "goto": "r_20"
+        }
+      ]
+    },
+    "r_12": {
+      "text": "The captain's cabin is half underwater, its door swinging on one hinge with each swell. You wade in, chest-deep. Your desk is submerged — the charts you spent years collecting are paste. Your sea chest has broken open, its contents scattered across the tilted floor. Clothes. A shaving kit. A letter you never sent.\n\nBut in the drawer of the desk, sealed in a waterproof case that you had almost forgotten, is your logbook. The last entry is in your handwriting, dated three days ago: 'Storm rising. Barometric pressure dropping fast. Crew nervous. First mate reports strange sounds from below the keel — rhythmic, like chanting. Dismissing as whale-song. Setting storm canvas.'\n\nYou close the logbook. Whale-song. God help you. You heard it and you called it whale-song.",
+      "choices": [
+        {
+          "text": "Take the logbook and continue searching",
+          "goto": "r_16"
+        },
+        {
+          "text": "Go below deck",
+          "goto": "r_20"
+        }
+      ]
+    },
+    "r_17": {
+      "text": "The upper deck of the Windborne is a landscape of destruction rendered in salt and silence. The mainmast has snapped ten feet above the deck, its broken end jagged as a shattered bone. Rope hangs in tangles. The deck planking has buckled where the hull struck the reef, creating ridges and valleys that you must navigate on hands and knees.\n\nBeneath you, through gaps in the planking, dark water moves with a slow, breathing motion. And from that water comes the thumping — patient, rhythmic, the sound of something bumping against bulkheads in the flooded hold below. It is the only sound in the wreck apart from the creak of dying timber.\n\nKael crouches beside a broken spar, listening. 'That's not wave action,' she says quietly. 'That's something moving down there. Something with intent.'",
+      "choices": [
+        {
+          "text": "Search the fo'c'sle for supplies",
+          "goto": "r_18"
+        },
+        {
+          "text": "Investigate the thumping below",
+          "goto": "r_20"
+        },
+        {
+          "text": "Leave the wreck — you have heard enough",
+          "goto": "r_35",
+          "style": "danger"
+        }
+      ]
+    },
+    "r_21": {
+      "text": "The flooded lower deck is a place where light goes to die. The water is black — not dark, not murky, but the absolute absence of light, as though the sea has concentrated its darkness here. Your lantern, if you had one, would struggle. Your eyes adjust slowly, and what they find is worse than darkness.\n\nDebris floats around you — personal effects of the crew. A boot. A belt buckle. A pipe, the bowl still packed with tobacco that will never be lit. The water is chest-deep and cold in a way that goes beyond temperature. It is the cold of deep places. The cold of things that have been dead a long time.\n\nAhead, the door to the cargo hold stands half-open. The thumping comes from beyond it — louder here, insistent, the rhythm of something that has forgotten how to rest.",
+      "choices": [
+        {
+          "text": "Push through the door",
+          "goto": "r_22"
+        },
+        {
+          "text": "Turn back",
+          "goto": "r_16"
+        }
+      ]
+    },
+    "r_23": {
+      "text": "You stand in the cargo hold, face to face with what used to be your first mate. The water between you is black and still. The dead white eyes hold yours. The barnacle-crusted jaw works slowly, as though chewing on words it has forgotten how to form.\n\nThis is the person who stood beside you through three years of voyages. Who argued with you about navigation and bought you drinks when you were right and louder drinks when you were wrong. Who kept the crew together when the sea tried to pull them apart. Who you trusted with your ship and your life.\n\nThe Leviathan has taken all of that and left this — a puppet of cold water and dead flesh, animated by a will that is not its own. But somewhere behind those white eyes, in the spaces between the grinding of the Leviathan's will, something remains. You are sure of it. Almost sure.\n\nWhat do you do?",
+      "choices": [
+        {
+          "text": "Step closer — reach out",
+          "goto": "r_24"
+        },
+        {
+          "text": "Draw your weapon",
+          "goto": "r_26"
+        },
+        {
+          "text": "Back away slowly",
+          "goto": "r_28",
+          "style": "danger"
+        }
+      ]
+    },
+    "r_27": {
+      "text": "The fight is brutal and close and the worst thing you have ever done. In the confined space of the flooded hold, there is no room for technique — only desperation, cold hands grasping, the terrible strength of something that does not feel pain. Your first mate fights not with skill but with the mindless persistence of the tide itself, coming at you again and again, each blow driven by a force that has nothing to do with muscle.\n\nYou parry a clawing hand and your blade bites deep. No blood — just black water, pouring from the wound like the sea reclaiming its own. The dead white eyes do not blink. The drowned mouth opens and closes. And for one terrible moment, the face looks exactly like it did on those quiet watches — tired, patient, waiting for you to make the right call.\n\nYou are the captain. This is the call.",
+      "choices": [
+        {
+          "text": "Finish it",
+          "goto": "r_26"
+        },
+        {
+          "text": "Drop your weapon and back away",
+          "goto": "r_28",
+          "style": "danger"
+        }
+      ]
+    },
+    "r_29": {
+      "text": "You wade back through the flooded hold, leaving the thumping behind you. The sound follows you — not physically, but in the way that certain sounds embed themselves in your skull and refuse to leave. Thump. Thump. Thump. The heartbeat of a dead ship.\n\nKael is waiting at the hatch. She reads your face and says nothing. This is one of her better qualities — the ability to see a thing that words would only make worse and to leave it in silence.\n\nThe wreck feels different now. Not just a dead ship but a haunted one. The timbers creak around you like the walls of a tomb. It is time to go.",
+      "choices": [
+        {
+          "text": "Search the upper deck before leaving",
+          "goto": "r_16",
+          "requires_no_flag": "has_compass"
+        },
+        {
+          "text": "Leave the wreck",
+          "goto": "r_35"
+        }
+      ]
+    },
+    "r_31": {
+      "text": "You stand over the place where your first mate disappeared beneath the water. The surface is still now — glass-flat, black, reflecting nothing. A few bubbles rise and break. Then nothing.\n\nKael climbs down from the hatch and stands beside you. She looks at the dark water for a long time. 'I knew someone like that once,' she says. 'Someone the sea took. Not the drowning kind of took — the other kind. Where the body keeps going but the person is gone.' She touches the eyepatch. 'The sea takes things. It's what it does. The trick is deciding what you won't let it have.'\n\nShe turns toward the ladder. 'Come on, Captain. There's still work to do.'",
+      "choices": [
+        {
+          "text": "Follow Kael up",
+          "goto": "r_32"
+        }
+      ]
+    },
+    "r_34": {
+      "text": "Kael dries off on the deck, wringing water from her coat with practiced efficiency. She catches you watching her and shrugs — a gesture that encompasses the wreck, the Reaches, the dying light, everything. 'We're still alive,' she says. 'That counts for something.'\n\nYou look back at the Windborne one last time. The kelp streamers sway from the rigging. The hull groans. Somewhere below deck, in the flooded dark, the thumping continues — or has stopped; you cannot tell from here, and you will not go back to check.\n\nThe Reaches stretch ahead. The sky is green-dark with the gathering ritual tide. Whatever waits at the temple, it has been waiting long enough.",
+      "choices": [
+        {
+          "text": "Head south through the Reaches",
+          "goto": "r_35"
+        }
+      ]
+    },
+    "r_36": {
+      "text": "The Reaches between the wreck and the temple are a landscape that should not exist above water — and indeed, it barely does. The reef shelves break the surface at intervals, creating stepping-stones of pale coral and dark basalt separated by channels of deep water. You wade, swim, and climb by turns.\n\nThe drowned town is visible below — a ghost-settlement shimmering through the green water. Fish swim through windows. Kelp grows in gardens. A bell tower stands at the town's centre, its bell still hung, swaying in the current. If it rang, you wonder who would hear it.\n\nKael pauses on a reef shelf, water streaming from her legs. 'There,' she says, pointing down. 'That building — the one with the pillars. See the symbol on the door?'\n\nYou look. Through the water, on the lintel of the largest building, you can make out the inverted spiral. The cult's mark — or something older.",
+      "choices": [
+        {
+          "text": "Dive down to investigate the drowned town",
+          "goto": "r_40"
+        },
+        {
+          "text": "Keep moving toward the temple",
+          "goto": "r_37"
+        }
+      ]
+    },
+    "r_37": {
+      "text": "The water around you changes as you approach the temple outcrop. It grows warmer — not comfortably warm, but the wrong kind of warm, like blood in bathwater. The colour shifts from green to something darker, almost violet. And the current, which has been pulling you south since you entered the Reaches, intensifies.\n\nKael fights it, her strokes growing shorter and harder. 'The current's alive,' she gasps. 'It's not just pulling — it's herding. Something wants us to approach from a specific direction.'\n\nShe is right. The current is funnelling you toward the outcrop's western face — directly into the line of sight of the robed figures standing guard on the rocks above.\n\nBut there may be other approaches.",
+      "choices": [
+        {
+          "text": "Go with the current — approach directly",
+          "goto": "r_60"
+        },
+        {
+          "text": "Fight the current — try to circle around",
+          "goto": "r_60"
+        }
+      ]
+    },
+    "r_43": {
+      "text": "The drowned street extends deeper into the settlement. Here the buildings are larger, older, their basalt walls carved with wave-patterns that spiral inward. The architecture is not from any culture you recognise — the doorways are too wide, the ceilings too high, as though built for people who were not quite the same shape as the ones who live on the coast now.\n\nIn an alcove between two buildings, you find an air pocket — a sealed chamber where the stone ceiling has trapped a bubble of stale but breathable atmosphere. You surface into it, gasping, and find yourself in what was once a workshop. Tools hang on the walls, corroded beyond recognition. On a bench, covered in silt, are carved stone tablets — records, perhaps, in a script no living person can read.\n\nThe silence here is absolute. Not the silence of emptiness but the silence of waiting. This place is patient in a way that makes your skin crawl.",
+      "choices": [
+        {
+          "text": "Swim to the pillared hall at the centre of town",
+          "goto": "r_44"
+        },
+        {
+          "text": "Surface — you have spent too long down here",
+          "goto": "r_50"
+        }
+      ]
+    },
+    "r_45": {
+      "text": "The altar-stone dominates the hall like a tombstone dominates a grave. Up close, the carving is more intricate than you first realised. The inverted spiral is surrounded by concentric rings of text — and within the text, small pictograms. Figures standing in water. Figures raising their hands. A shape beneath the waves, vast and coiled, with eyes that the carver rendered as empty circles.\n\nThe Leviathan. This is the first time you have seen it depicted, and the image is nothing like the monster the cult describes. The creature in the carving is curled protectively around the settlement — not threatening it but enclosing it, the way a parent's arms enclose a child. The inverted spiral is at its heart.\n\nThis was not a prison. This was a covenant. The town and the creature existed together, bound by mutual need — the people maintaining the seal, the Leviathan keeping the deep-water predators at bay. When the town drowned, the covenant broke. And something that was a guardian began to dream of becoming something else.",
+      "choices": [
+        {
+          "text": "Search the hall for anything useful",
+          "goto": "r_46"
+        },
+        {
+          "text": "Surface and continue to the temple",
+          "goto": "r_50"
+        }
+      ]
+    },
+    "r_47": {
+      "text": "The Tide Wraith dissolves into the water from which it was formed, and the hall falls still. The bioluminescent glow on the walls pulses once — warm, golden, grateful — and then dims to its usual sickly green. Whatever the wraith was guarding, it has accepted your presence. Or it has simply run out of the will to fight.\n\nBehind the altar, where the wraith emerged, you can see a niche in the stone wall. Something is wedged inside — a chest of dark wood, its bronze bindings green with verdigris. The water around it is noticeably warmer than the rest of the hall, as though the chest itself is generating heat.\n\nThe hall is quiet now. The fish have returned, drifting through the pillars. Somewhere above, the surface glitters.",
+      "choices": [
+        {
+          "text": "Open the chest",
+          "goto": "r_48"
+        },
+        {
+          "text": "Leave the chest — surface and press on",
+          "goto": "r_50"
+        }
+      ]
+    },
+    "r_49": {
+      "text": "You surface from the drowned town with the weight of centuries pressing on your mind. The air above is sharp and cold after the still waters below. Kael is waiting on a reef shelf, her coat wrapped tight against the wind.\n\n'You were down there too long,' she says. 'Your lips are blue.' She does not ask what you found. Something in your expression must tell her it was not nothing.\n\nThe sky has darkened further. The green-grey clouds have thickened into a solid ceiling, pressing down on the Reaches like a lid on a pot. The wind has died entirely. The sea is flat and glassy — not calm but suppressed, as though something is holding it still from below.\n\n'We need to move,' Kael says. 'Whatever they're doing at the temple, it's getting stronger. Can you feel it? The pressure?'\n\nYou can. In your teeth, in your bones. The ritual tide is building.",
+      "choices": [
+        {
+          "text": "Head for the temple outcrop",
+          "goto": "r_51"
+        }
+      ]
+    },
+    "r_51": {
+      "text": "The approach to the temple outcrop takes you through the last stretch of open water in the Reaches. The reefs have fallen away here, and the sea floor drops into darkness — a trench, perhaps, or simply the edge of the shallow shelf giving way to the true deep. You cannot see the bottom.\n\nThe water is warm. Wrong-warm, like a fever. And the colour has changed — not green now but a deep, bruised violet, the colour of the sky before the worst kind of storm. Kael swims beside you in silence, her strokes efficient and mechanical. She has stopped talking. She has stopped looking at you. Her one eye is fixed on the outcrop ahead.\n\nSomething moves in the deep water below you — not a shark, not a fish, but something vast and slow, a shadow that passes beneath your feet like a cloud passing beneath the sun. You do not look down. You do not want to see what casts a shadow that size.\n\nThe outcrop is close now. You can see the guards.",
+      "choices": [
+        {
+          "text": "Approach the outcrop",
+          "goto": "r_60"
+        }
+      ]
+    },
+    "r_53": {
+      "text": "The reef shark thrashes in the water, its blood dispersing in dark ribbons. The second shark — the one you wounded first — has vanished into the deep, trailing its own blood. The water around you is a cloudy mess of silt and gore.\n\nYou surface, gasping, and the air hits you like a slap. Your arms are burning. There are shallow cuts on your forearms from the shark's rough skin, and a deeper gash on your thigh that you will need to deal with later. For now, adrenaline keeps the pain at bay.\n\nKael appears beside you, surfacing from wherever she sheltered during the fight. She looks at the blood in the water, looks at you, and says with impressive understatement: 'You're going to need to wash those cuts in fresh water. Salt's going to sting.'",
+      "choices": [
+        {
+          "text": "Press on toward the temple",
+          "goto": "r_55"
+        }
+      ]
+    },
+    "r_54": {
+      "text": "The water clears as you leave the shark encounter behind. The reef gives way to a stretch of open water — deep blue shading to violet, the colour of a bruise. Below you, the drowned landscape falls away into darkness. No more rooftops. No more streets. Just the abyss.\n\nAnd then, ahead, the outcrop. It rises from the water like a black fist — jagged dark stone, encrusted with barnacles and draped with kelp. On its flat summit, three figures stand motionless. Their robes are heavy with water. Their faces are turned toward the sea.\n\nThe stairway is behind them, descending into the rock. Into the dark. Into whatever waits below.",
+      "choices": [
+        {
+          "text": "Approach the outcrop",
+          "goto": "r_60"
+        }
+      ]
+    },
+    "r_61": {
+      "text": "You circle the outcrop, staying low in the water, examining the guards from a distance. Three Drowned Priests, evenly spaced, facing outward. Their robes are sodden with seawater. Barnacles grow on their exposed skin like jewellery. They do not blink, do not shift, do not breathe.\n\nBut they are not statues. One of them turns its head — slowly, mechanically — tracking something in the water. The movement has the precision of a lighthouse beam. They are watching. Whatever animates them has given them purpose, and that purpose is vigilance.\n\nThe stairway entrance is between the two leftmost guards. A ten-foot gap. You could rush it. You could try to go around. Or you could go under.\n\nKael touches your arm and points. On the far side of the outcrop, rusted iron rings are driven into the rock — an old mooring point. With the right equipment, you could bypass the guards entirely.",
+      "choices": [
+        {
+          "text": "Rush the guards head-on",
+          "goto": "r_62"
+        },
+        {
+          "text": "Use the grappling hook on the mooring rings",
+          "goto": "r_64",
+          "requires_item": "grappling_hook"
+        },
+        {
+          "text": "Swim under the outcrop to the far side",
+          "goto": "r_65"
+        },
+        {
+          "text": "Have Kael create a distraction",
+          "goto": "r_66",
+          "requires_flag": "kael_survived"
+        }
+      ]
+    },
+    "r_67": {
+      "text": "The third guard — the one that turned toward the stairway — has descended. Gone below to warn the others, or simply recalled by whatever hive-mind controls the cult's drowned servants. The outcrop is clear. The stairway stands open.\n\nYou pause at the top of the stairs. Below, the chanting rises — louder now, more urgent, as though the ritual has entered a new phase. The sound vibrates through the stone beneath your feet. The air coming up from below is cold and wet and smells of things that have been dead for centuries.\n\nKael crouches beside you. She does not say anything about the fight, or the guards, or the blood on your hands. She simply nods toward the darkness below and says: 'Last chance to turn back.'\n\nIt is not a suggestion. It is a formality. You both know there is no turning back.",
+      "choices": [
+        {
+          "text": "Descend into the temple",
+          "goto": "r_70"
+        }
+      ]
+    },
+    "r_69": {
+      "text": "You take a moment at the top of the stairs. Behind you, the Reaches stretch to the horizon — grey water, broken reefs, the distant silhouette of the Windborne's masts. Saltmere is invisible, lost in the gathering murk. The sky is the colour of old iron.\n\nEverything you have done since you washed ashore has led to this stairway. Every choice. Every fight. Every moment of doubt. The tavern in Saltmere. The one-eyed woman on the docks. The harbour wall symbol. The drowned town below the waves. The thing in the cargo hold that wore your first mate's face.\n\nAll of it brought you here, to this outcrop, to this moment, standing above a darkness that descends into the bones of the earth.\n\nKael checks her knife. Settles her coat. 'Ready?'\n\nYou are not ready. No one could be ready for what is down there. But you nod, and together you begin to descend.",
+      "choices": [
+        {
+          "text": "Descend",
+          "goto": "r_70"
+        }
+      ]
+    },
+    "r_70": {
+      "text": "The stairs are carved from living rock, worn smooth by centuries of tides. They descend steeply — ten steps, twenty, thirty — and with each step the light from above diminishes and the chanting from below grows. The walls press close. Water seeps from cracks in the stone, tracing dark lines down the steps like veins.\n\nThe air changes. It is cold — not the honest cold of deep water but something worse. A cold that feels old. A cold that feels intentional, as though the temperature itself is a warning. Your breath mists. Frost forms on the stone walls, which should be impossible this close to the sea.\n\nAnd beneath the chanting — beneath the low, guttural rhythm that thrums through the rock — you hear something else. Something vast and slow, like a heartbeat the size of an ocean. It comes from below. From the deep places where the stairs end and the temple begins.\n\nWhatever waits down there, it knows you are coming. It has always known.",
+      "choices": [
+        {
+          "text": "Descend into the Drowned Temple",
+          "goto": "t_1"
+        }
+      ]
+    }
+  }
+}
