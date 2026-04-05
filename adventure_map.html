@@ -150,6 +150,18 @@
     .path-row:hover { background: #1c1a12; }
     .path-row:last-child { border-bottom: none; }
 
+    .path-hl-btn {
+      background: #1a1a14;
+      color: #8a7a5a;
+      border: 1px solid #3a3020;
+      padding: 2px 7px;
+      font-family: inherit;
+      font-size: 0.67rem;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    .path-hl-btn:hover { border-color: #d4a843; color: #d4a843; }
+
     /* Flag audit */
     .flag-list-container { max-height: 300px; overflow-y: auto; }
 
@@ -561,15 +573,16 @@ function applyActFilter(filter) {
   if (!nodesDS || !currentAllNodes.length) return;
   const updates = currentAllNodes.map(n => {
     const isHeader = n.id.startsWith('__header_');
-    let hidden;
-    if (filter === 'all') {
-      hidden = false;
-    } else if (isHeader) {
-      hidden = n.id !== `__header_${filter}`;
-    } else {
-      hidden = n._act !== filter;
+    if (isHeader) {
+      return { id: n.id, hidden: filter !== 'all' && n.id !== `__header_${filter}` };
     }
-    return { id: n.id, hidden };
+    if (filter === 'all') {
+      return { id: n.id, hidden: false, color: n.color, font: n.font, borderWidth: n.borderWidth };
+    }
+    const matches = n._act === filter;
+    return matches
+      ? { id: n.id, hidden: false, color: n.color, font: n.font, borderWidth: n.borderWidth }
+      : { id: n.id, hidden: false, color: DIM_COLOR, font: DIM_FONT, borderWidth: 1 };
   });
   nodesDS.update(updates);
 
@@ -680,6 +693,62 @@ function computeLongestPath(passages, startId, endId) {
   return { val: best, truncated: calls > MAX_CALLS };
 }
 
+function computeShortestPathNodes(passages, startId, endId) {
+  const parent = { [startId]: null };
+  const queue = [startId];
+  while (queue.length) {
+    const cur = queue.shift();
+    if (cur === endId) {
+      const path = new Set();
+      let node = cur;
+      while (node !== null) { path.add(node); node = parent[node]; }
+      return path;
+    }
+    for (const nxt of getNextIds(passages[cur] || {})) {
+      if (passages[nxt] && parent[nxt] === undefined) {
+        parent[nxt] = cur;
+        queue.push(nxt);
+      }
+    }
+  }
+  return null;
+}
+
+function computeLongestPathNodes(passages, startId, endId) {
+  let bestPath = null;
+  let bestLen  = -1;
+  let calls    = 0;
+  const MAX_CALLS = 60000;
+  const currentPath = [startId];
+  const visited     = new Set([startId]);
+
+  function dfs(id) {
+    if (++calls > MAX_CALLS) return;
+    if (id === endId) {
+      if (currentPath.length - 1 > bestLen) {
+        bestLen  = currentPath.length - 1;
+        bestPath = [...currentPath];
+      }
+      return;
+    }
+    if (currentPath.length > 501) return;
+    const p = passages[id];
+    if (!p || p.ending) return;
+    for (const nxt of getNextIds(p)) {
+      if (passages[nxt] && !visited.has(nxt)) {
+        visited.add(nxt);
+        currentPath.push(nxt);
+        dfs(nxt);
+        currentPath.pop();
+        visited.delete(nxt);
+      }
+    }
+  }
+
+  if (passages[startId]) dfs(startId);
+  return bestPath ? new Set(bestPath) : null;
+}
+
 function renderPathLengths(adventure) {
   const passages = adventure.passages;
   const startId  = Object.keys(passages).find(id => id === 's_1' || id === '1');
@@ -698,7 +767,7 @@ function renderPathLengths(adventure) {
     return;
   }
 
-  el.innerHTML = '<div style="font-size:0.67rem;color:#6a5a3a;margin-bottom:4px">Click a row to highlight all paths to that ending.</div>';
+  el.innerHTML = '<div style="font-size:0.67rem;color:#6a5a3a;margin-bottom:4px">Click row → all paths · ▶ shortest · ▶▶ longest</div>';
 
   for (const [id, p] of endings) {
     const isVictory = p.ending_type === 'victory';
@@ -720,14 +789,29 @@ function renderPathLengths(adventure) {
         <span style="color:#c8b98a"> ${id}</span>
         <span style="font-size:0.65rem;color:#6a5a3a;margin-left:4px">${isVictory ? 'victory' : 'death'}</span>
       </div>
-      <div style="display:flex;gap:20px;margin-top:2px">
-        <span style="font-size:0.68rem;color:#6a5a3a">shortest: <span style="color:#a89870">${shortStr}</span></span>
-        <span style="font-size:0.68rem;color:#6a5a3a">longest: <span style="color:#a89870">${longStr}</span></span>
+      <div style="display:flex;gap:6px;align-items:center;margin-top:4px;flex-wrap:wrap">
+        <button class="path-hl-btn" data-ending="${id}" data-mode="shortest" title="Highlight shortest path (${shortStr} passages)">▶ ${shortStr}</button>
+        <button class="path-hl-btn" data-ending="${id}" data-mode="longest"  title="Highlight longest path (${longStr} passages)">▶▶ ${longStr}</button>
       </div>
     `;
-    row.addEventListener('click', () => highlightEndingPaths(id));
+    row.addEventListener('click', e => {
+      if (!e.target.classList.contains('path-hl-btn')) highlightEndingPaths(id);
+    });
     el.appendChild(row);
   }
+
+  el.querySelectorAll('.path-hl-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      if (!adventureData || !startId) return;
+      const endId = btn.dataset.ending;
+      const mode  = btn.dataset.mode;
+      const pathNodes = mode === 'shortest'
+        ? computeShortestPathNodes(adventureData.passages, startId, endId)
+        : computeLongestPathNodes(adventureData.passages, startId, endId);
+      if (pathNodes) dimAllExcept(pathNodes);
+    });
+  });
 }
 
 // ─── Flag audit ──────────────────────────────────────────────────────────────
