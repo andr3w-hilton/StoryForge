@@ -1942,6 +1942,18 @@ function resolveLuckTest(luckDef) {
                 if (!gameState.items.includes(item)) gameState.items.push(item);
             }
         }
+        if (luckDef.lucky_add_skill) {
+            gameState.skill.current = clamp(
+                gameState.skill.current + luckDef.lucky_add_skill,
+                0, gameState.skill.max
+            );
+        }
+        if (luckDef.lucky_add_luck) {
+            gameState.luck.current = clamp(
+                gameState.luck.current + luckDef.lucky_add_luck,
+                0, gameState.luck.max
+            );
+        }
     } else {
         resultBox.textContent = luckDef.unlucky_text;
         resultBox.className = 'luck-result unlucky';
@@ -1955,6 +1967,18 @@ function resolveLuckTest(luckDef) {
             for (const item of luckDef.unlucky_add_items) {
                 if (!gameState.items.includes(item)) gameState.items.push(item);
             }
+        }
+        if (luckDef.unlucky_add_skill) {
+            gameState.skill.current = clamp(
+                gameState.skill.current + luckDef.unlucky_add_skill,
+                0, gameState.skill.max
+            );
+        }
+        if (luckDef.unlucky_add_luck) {
+            gameState.luck.current = clamp(
+                gameState.luck.current + luckDef.unlucky_add_luck,
+                0, gameState.luck.max
+            );
         }
     }
 

@@ -102,6 +102,11 @@
       "name": "Count Valdric",
       "skill": 10,
       "stamina": 14
+    },
+    "risen_villager": {
+      "name": "Risen Villager",
+      "skill": 5,
+      "stamina": 4
     }
   },
   "passages": {
@@ -630,7 +635,7 @@
       "choices": [
         {
           "text": "Push open the doors and enter the tomb",
-          "goto": "c_8"
+          "goto": "c_50"
         },
         {
           "text": "Check the passage to the west",
@@ -992,12 +997,12 @@
       "choices": [
         {
           "text": "Place the ring and speak the words of dissolution",
-          "goto": "k_4",
+          "goto": "k_3a",
           "requires_flag": "knows_the_pact"
         },
         {
           "text": "Place the ring on the altar",
-          "goto": "k_10",
+          "goto": "k_3b",
           "requires_no_flag": "knows_the_pact"
         },
         {
@@ -1036,13 +1041,7 @@
       "choices": [
         {
           "text": "The ritual deepens",
-          "goto": "k_5a",
-          "requires_flag": "helped_sera"
-        },
-        {
-          "text": "The ritual deepens",
-          "goto": "end_freed",
-          "requires_no_flag": "helped_sera"
+          "goto": "k_8"
         }
       ]
     },
@@ -1140,7 +1139,219 @@
       "text": "You fight the compulsion. Your hand trembles over the ring, and for a moment — one terrible, lucid moment — you understand what is happening. Aldric's voice echoes in your memory: the pact, the loop, the Lady of Bones. You knew something was wrong. You knew the candle mattered. You chose not to use it, or could not find it, and now the ritual has no testimony to anchor to.\n\nIt is reaching for you instead.\n\nYou wrench your hand back from the ring. The glyphs flare the wrong colour — not blue, not white, but a deep and furious red. The temperature in the chamber drops so fast that frost forms on the altar stone.\n\nThen the sound from above. The vault doors — sealed when you came through — opening.\n\nSomething is descending the stairs. Patient. Deliberate. The scrape of dead feet on old stone. A sound you have heard before, in the vault above, when the sarcophagus opened.\n\nValdric is not defeated. He was resting. The ring's failed ritual has called him back — not as the diminished revenant you fought, but as something else. Something the pact has reshaped in the minutes since his body fell.\n\nThe blue light returns to the chamber. Colder than before. Colder than anything.\n\nYou draw your weapon. There is nowhere to run.\n\nThe last thing you see is the Count's face in the stairwell — smiling, as the dead smile, with patience and with certainty.\n\nThe crypt has noted your choices. All of them.",
       "ending": true,
       "ending_type": "death"
+    },
+    "k_3a": {
+      "text": "You know what the ring is. You know the pact it seals — Valdric's bargain with the Lady of Bones, the loop of death and undeath written into gold and stone. And as you lower the Signet Ring towards the altar, the ring knows that you know.\n\nIt burns cold. Not heat — the opposite of heat, a cold so intense it feels like a blade pressed flat against your palm. The serpent seal writhes under your thumb. Visions slam into you: the Lady's domain, a vast grey plain where the dead stand motionless in ranks that stretch to every horizon. Valdric kneeling before her throne. The price. The clause. The century of service owed.\n\nThe ring does not want to be placed. It was made to hold, not to be held. Every nerve in your hand screams at you to let go.\n\nBut Maren's instructions were clear. You steel yourself against the cold, against the visions, against the ring's mute fury. You have seen worse in these halls. You know what you are doing, and that knowledge is your anchor.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Force the ring onto the altar stone",
+          "goto": "k_4"
+        }
+      ]
+    },
+    "k_3b": {
+      "text": "You lower the Signet Ring towards the depression in the altar. The moment it comes within a hand's width of the stone, the ring turns cold — searingly, impossibly cold, like gripping a bar of frozen iron in midwinter.\n\nVisions hit you. A woman in black standing on a grey plain. Dead figures in rows behind her, motionless, stretching to the horizon. A voice that is not a voice — a pressure, a demand, a clause in a contract you never signed and cannot read.\n\nYou do not know what you are seeing. You do not know what the ring is fighting or why. The cold deepens. Your fingers are going numb. The woman in black turns towards you, and her gaze is the worst thing you have ever felt — not malice, not anger, but appraisal. She is deciding what you are worth.\n\nYou grit your teeth and push the ring downward.",
+      "test_luck": {
+        "lucky_text": "Something gives. The cold breaks like a fever, and the ring slides into the depression with a click that resonates through the stone floor. Your hand throbs, but the numbness fades. The woman in black is gone. The visions dissolve.",
+        "lucky_goto": "k_10",
+        "unlucky_text": "The cold does not break — it detonates. The woman's gaze locks onto you and the ring's resistance becomes a psychic scream that drives you to your knees. Your vision whites out. When you can see again, the ring is in the depression — forced home by reflex — but your body has paid the price.",
+        "unlucky_goto": "k_10",
+        "lucky_stamina_cost": 1,
+        "unlucky_stamina_cost": 3
+      }
+    },
+    "k_8": {
+      "text": "The glyphs are burning steady now. The ring is almost seated. The ritual has found its rhythm — a deep, subsonic pulse that you feel in your teeth and your sternum. One more minute. Perhaps two. The binding will hold.\n\nThen you hear it: the scrape of bone on stone from the stairway behind you.\n\nYou turn. A skeleton warrior descends the steps into the sealing chamber, its empty eye sockets fixed on you with a malice that outlasted its flesh. Rusted armour hangs from its frame. A notched sword is raised in one fleshless hand. The air fills with the smell of old graves.\n\nValdric's last servant. His final objection, sent from whatever remains of his will in the stones of this place.",
+      "choices": [
+        {
+          "text": "Sera throws herself forward — \"Go! I'll hold it!\"",
+          "goto": "k_9",
+          "requires_flag": "helped_sera"
+        },
+        {
+          "text": "Face the skeleton warrior alone",
+          "goto": "k_8a",
+          "requires_no_flag": "helped_sera"
+        }
+      ]
+    },
+    "k_8a": {
+      "text": "There is no one to help you. The skeleton warrior advances across the chamber floor, its sword scraping a line through the dust. Behind you, the altar glyphs pulse with increasing urgency — the ritual will not wait.\n\nYou draw your weapon. The skeleton is between you and the stairs. There is no retreat, no clever solution. There is only the fight.\n\nYou must kill it quickly, before the ritual unravels.",
+      "combat": {
+        "enemy": "skeleton_warrior",
+        "win_goto": "k_9",
+        "flee_allowed": false
+      }
+    },
+    "k_9": {
+      "text": "The chamber is still. Bone fragments litter the floor, and the smell of old death is already fading — replaced by the clean, cold scent of the binding glyphs.\n\nThe ritual held. The glyphs still burn their steady blue, and the ring sits in its depression on the altar, waiting for completion. Whatever Valdric's will sent to stop you, it was not enough.\n\nYou turn back to the altar. The sequence surfaces in your mind with sudden clarity — the testimony, the witness, the seal. Aldric's guidance, given hours ago in a dark corridor, surfaces now like a stone turning in clear water.\n\nYou place your hands on the altar and the ritual resumes.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Complete the ritual with Sera at your side",
+          "goto": "k_5a",
+          "requires_flag": "helped_sera"
+        },
+        {
+          "text": "Complete the ritual alone",
+          "goto": "end_freed",
+          "requires_no_flag": "helped_sera"
+        }
+      ]
+    },
+    "c_50": {
+      "text": "You stand before the vault doors — massive slabs of iron-banded oak, cold to the touch. From beyond them comes a low, arrhythmic sound, halfway between breathing and the creak of old rope. Whatever waits inside is awake.\n\nThe doors are not locked. A thin gap runs between them where the wood has warped with age. You could press your ear to it and try to slip through unnoticed, or simply throw the doors wide and face what comes.",
+      "choices": [
+        { "text": "Press your ear to the gap and listen", "goto": "c_51" },
+        { "text": "Signal Sera to create a diversion", "goto": "c_52", "requires_flag": "helped_sera" },
+        { "text": "Push open the doors and stride in", "goto": "c_8" }
+      ]
+    },
+    "c_51": {
+      "text": "You press your face to the gap between the doors. The air that seeps through is tomb-cold and carries the sweet-rot smell of old death. Through the narrow opening you can make out flickering light — candles, dozens of them — and a tall shape moving among them with awful patience.\n\nThe gap is just wide enough. If you're careful, you might slip through without the doors betraying you.",
+      "test_luck": {
+        "lucky_text": "You ease through the gap like a shadow. The doors hold silent. The figure ahead has not turned. You have a few precious seconds of advantage.",
+        "lucky_goto": "c_8",
+        "unlucky_text": "The ancient hinge shrieks as your shoulder catches the door. You stumble through, cracking your knee hard against the stone floor. So much for surprise.",
+        "unlucky_goto": "c_8",
+        "lucky_add_skill": 1,
+        "unlucky_stamina_cost": 2
+      }
+    },
+    "c_52": {
+      "text": "Sera meets your eyes and nods once. She understands. Without a word she slips away down the corridor, and moments later you hear her voice ring out from somewhere beyond the vault — a sharp, defiant shout that echoes through the stonework. From behind the doors comes a hiss of irritation, then the scrape of movement.\n\nThis is your chance. Valdric's attention is elsewhere, however briefly.",
+      "add_luck": 1,
+      "choices": [
+        { "text": "Rush through the doors while he's distracted", "goto": "c_8" },
+        { "text": "Light the blessed candle while his back is turned", "goto": "c_53", "requires_item": "blessed_candle", "requires_no_flag": "candle_used" }
+      ]
+    },
+    "c_53": {
+      "text": "You strike the candle's wick against the doorframe and it catches instantly — not with ordinary fire but with a cold blue flame that throws no heat. The wax begins to weep immediately, running down your fingers like ice water.\n\nYou hold it high as you step through the doors. Valdric is turned away, snarling toward the corridor where Sera's voice still echoes. The blue light touches his shadow first, and his shadow flinches. Then the light finds him. He wheels around and the sound he makes is not a scream but something older — the noise of a thing that has forgotten how to feel pain suddenly remembering.\n\nThe candle gutters and dies in your hand, spent in a single terrible moment. But the damage is done. Valdric staggers, diminished, his movements no longer certain. The advantage is yours.",
+      "remove_items": ["blessed_candle"],
+      "set_flags": ["candle_used"],
+      "choices": [
+        { "text": "Press your attack while he is weakened", "goto": "c_9" }
+      ]
+    },
+    "a_1": {
+      "text": "You arrive in Ashford at dawn, but the village does not look like morning. The light is thin and grey, as though the sun cannot quite reach this place. A cart loaded with wilting turnips stands abandoned at the edge of the road. The farmer who left it sits on a stone wall nearby, staring at nothing.\n\nThe people you pass have the colour of old ash. A woman draws water from a rain barrel — the village well stands nearby with a crude warning sign nailed to the bucket. Children watch you from doorways but do not come out. The market square is empty except for a dog nosing at an overturned stall.\n\nA sharp-eyed woman in her sixties meets you at the village gate. She does not introduce herself. She does not need to — you know from her letters that this is Elder Maren.\n\n'You came,' she says. Not a question. She falls into step beside you and talks as she walks. Three months since the tremors. Three months since the crops began to die and the fever set in. The Signet Ring of Valdric — the binding that sealed the crypt a century ago — is broken or lost. Without it, the death-curse bleeds into the land like poison into a well.\n\nShe presses a small glass vial into your hand. Holy water, cold against your palm. 'You will need this,' she says. 'The dead do not rest easily beneath Valdric Keep.'\n\nShe stops walking and looks at you directly. 'You can leave now, if you choose. But there is time to prepare, if you want it.'",
+      "choices": [
+        {
+          "text": "Ask Maren about the history of the crypt",
+          "goto": "a_4"
+        },
+        {
+          "text": "Look around the village before you leave",
+          "goto": "a_2"
+        },
+        {
+          "text": "Head for the Keep immediately — there is no time to lose",
+          "goto": "a_7"
+        }
+      ]
+    },
+    "a_2": {
+      "text": "You walk the length of Ashford in ten minutes. It is a small village and the curse has made it smaller. Half the houses have their shutters drawn in the middle of the day. The vegetable gardens are grey — not brown, not dried out, but grey, as though the colour has been leached from the soil itself.\n\nA woman passes you carrying a child who does not move or cry. She holds the child against her chest and walks with the careful steadiness of someone who has been awake for days. She does not look at you.\n\nThe village well stands in the square with a piece of sacking tied over the bucket and a charcoal mark scrawled on the stone: a crude skull. Whatever is in the water, no one is drinking it.\n\nNear the graveyard wall, an old man sits on an upturned bucket, whittling at a stick with no particular purpose. A gravedigger, by the look of his boots and the shovel leaning beside him. He watches you approach.\n\n'Had to bury three this week,' he says, without being asked. 'And last night — last night one of them came back.' He jerks his thumb at the graveyard behind him. The iron gate hangs open. 'It is still in there. I am not going in after it.'",
+      "choices": [
+        {
+          "text": "Go into the graveyard and deal with it",
+          "goto": "a_3"
+        },
+        {
+          "text": "Ask the gravedigger what he knows about the Keep",
+          "goto": "a_2a"
+        },
+        {
+          "text": "Head to the smithy you passed on the way in",
+          "goto": "a_5"
+        }
+      ]
+    },
+    "a_2a": {
+      "text": "The gravedigger sets down his whittling and looks at you properly for the first time. 'The Keep. Aye.' He spits into the dust. 'My grandfather told stories about the sealing. The whole village turned out to watch them carry the ring into the crypt. Gold ring, serpent eating its own tail. They said the priest who performed the binding wept when it was done — said the evil down there was old, older than the Count himself.'\n\nHe scratches his jaw. 'Fifty years back, a priest went in to check the seals. Cavel, his name was. Young man, serious. Told Maren's mother he had found records suggesting the original sealing was incomplete — that the ring alone might not hold forever.' The gravedigger shrugs. 'He went in and he did not come out. But they say his notes are still in the chapel, just inside the crypt. He was writing everything down as he went.'\n\nHe picks up his whittling again. 'That is all I know. More than I want to, truth be told.'",
+      "choices": [
+        {
+          "text": "Go into the graveyard",
+          "goto": "a_3"
+        },
+        {
+          "text": "Head to the smithy",
+          "goto": "a_5"
+        },
+        {
+          "text": "Head for the Keep",
+          "goto": "a_7"
+        }
+      ]
+    },
+    "a_3": {
+      "text": "The village graveyard is small — a dozen headstones behind a low stone wall, shaded by a single yew tree that has not yet succumbed to the curse. The grass between the graves is long and unkempt. No one has tended this place in weeks.\n\nYou find it almost immediately. A man — it was a man, three days ago — stands between two headstones near the back wall. He wears burial clothes, a simple linen shroud now torn and muddied. His skin has the waxy grey pallor of the recently dead, but his eyes are open and they track your movement.\n\nHe was someone's husband. Someone's father, perhaps. He was buried with care — you can see the stitching where the shroud was closed. Now he lurches toward you with a low, wet sound in his throat, and his hands reach out with a purpose that has nothing to do with the man he was.\n\nYou draw your sword.",
+      "combat": {
+        "enemy": "risen_villager",
+        "win_goto": "a_4",
+        "flee_goto": "a_2",
+        "flee_allowed": true,
+        "flee_stamina_cost": 1
+      }
+    },
+    "a_4": {
+      "text": "Maren is waiting for you near the gate, arms folded, watching the road that leads north toward the Keep. She speaks without turning around.\n\n'You want to know about the crypt. Fair enough.' She pauses, choosing her words. 'A century ago, Count Valdric ruled from the fortress on the hill. He was a necromancer — not the kind from stories who cackles and raises armies. A quiet man, by all accounts. Patient. He studied death the way a scholar studies languages. And when the people finally rose against him, it took two hundred of them and a priest of the old faith to put him down.'\n\nShe turns to face you. 'They sealed him with the Signet Ring — gold, inscribed with the serpent seal. The binding held for a hundred years. But fifty years ago, a young priest named Cavel went into the crypt to check the seals. He told my mother, before he went in, that he had found records suggesting the original binding was incomplete. That the ring alone might not be enough.'\n\nHer expression hardens. 'Cavel never came out. But if you find his notes in there — in the chapel, just inside the entrance — read them. Whatever he discovered might help you.'",
+      "choices": [
+        {
+          "text": "Ask if she has any supplies",
+          "goto": "a_5"
+        },
+        {
+          "text": "You have enough. Leave for the Keep.",
+          "goto": "a_7"
+        }
+      ]
+    },
+    "a_5": {
+      "text": "The village smithy stands at the north end of Ashford, close to the road. Smoke still rises from the chimney, though it is thin and reluctant. Inside, a broad man with scarred forearms is hammering nails — not horseshoes, not ploughshares, not weapons. Nails. The kind you use for coffins.\n\nHe looks up as you enter. His name is Durk, and he sizes you up the way smiths do — by what you are carrying. His eyes settle on your sword.\n\n'Decent blade,' he says. 'Could be sharper. Could be better balanced.' He sets down his hammer. 'I can work on it for you. Take an hour, maybe two. You will feel the difference.'\n\nHe pauses. 'Or — if it is supplies you need — a healer came through last week and left some dried herbs in payment for ironwork. They are yours if you want them. But I can only spare the time for one or the other.'",
+      "choices": [
+        {
+          "text": "Have him sharpen the blade",
+          "goto": "a_6"
+        },
+        {
+          "text": "Ask for the healing supplies instead",
+          "goto": "a_5a"
+        }
+      ]
+    },
+    "a_5a": {
+      "text": "Durk nods and reaches under his workbench. He produces a small leather pouch, tied with twine, and tosses it to you. Inside are dried herbs — yarrow, comfrey, something you do not recognise with a sharp medicinal smell. A healer's remedy, rough but effective.\n\n'Chew them if you get hurt,' Durk says. 'Taste is foul. But they work.' He picks up his hammer and turns back to his nails. The conversation is over.",
+      "add_items": ["healing_herbs"],
+      "choices": [
+        {
+          "text": "Thank him and leave for the Keep",
+          "goto": "a_7"
+        }
+      ]
+    },
+    "a_6": {
+      "text": "Durk takes your sword and examines it by the light of the forge. He grunts — not impressed, not dismissive — and sets to work. You help where you can, working the bellows until your arms burn, holding the blade steady on the anvil while he hammers the edge true.\n\nIt takes longer than an hour. By the time he is done, your shoulders ache and your legs feel heavy. But when he hands the blade back, you can feel the difference immediately. The balance has shifted — the sword sits in your hand as though it belongs there, the edge keen enough to part a hair.\n\n'Don't waste it on something it cannot hurt,' Durk says, wiping his hands on his apron. He watches you test the edge, turning the blade in the forge-light. Then he goes back to his nails.",
+      "add_skill": 1,
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Leave for the Keep",
+          "goto": "a_7"
+        }
+      ]
+    },
+    "a_7": {
+      "text": "Maren walks with you to the edge of the village. She does not say much. The road north is visible from here — it climbs through dead trees into the grey hills where Valdric Keep stands in ruins.\n\nAt the boundary stone — old, moss-covered, carved with the serpent seal of the Valdric family — she stops. The seal is the same design as the Signet Ring: a serpent devouring its own tail. Someone has left wildflowers at the base of the stone, though they are already wilting.\n\n'You are not the first person I have sent into that place,' she says. Her voice is steady but her hands are not. 'The others did not come back. I am telling you this so you understand what you are walking into — not to frighten you, but because you deserve to know.'\n\nShe straightens. Folds her arms. Becomes the Elder again.\n\n'Come back. With the ring.'\n\nYou turn toward the dead forest and the road that climbs to Valdric Keep.",
+      "choices": [
+        {
+          "text": "Head for the Keep",
+          "goto": "v_1"
+        }
+      ]
     }
   },
-  "start_passage": "v_1"
+  "start_passage": "a_1"
 }
