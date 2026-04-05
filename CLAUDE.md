@@ -218,6 +218,10 @@ gameState = {
 6. Enemy STAMINA ≤ 0 → victory → navigate to `win_goto`
 7. Player STAMINA ≤ 0 → death screen
 
+## Expanding or Writing Adventures
+
+See `adventures/EXPANSION_GUIDE.md` for the full process — spec writing, flag architecture, Opus prompting, merge steps, and the flag audit checklist. Read it at the start of any session that involves expanding an existing adventure or writing a new one from scratch.
+
 ## Adding a New Adventure
 
 1. Create `adventures/my_adventure.json` following the schema above
