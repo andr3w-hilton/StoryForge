@@ -4700,7 +4700,7 @@
       "choices": [
         {
           "text": "Talk to Harlow — see what she makes of all this",
-          "goto": "a_10"
+          "goto": "a_10b"
         },
         {
           "text": "Talk to Crane — the Council should know the plan",
@@ -4708,6 +4708,50 @@
         },
         {
           "text": "Drink up and return to the Adamant",
+          "goto": "a_60"
+        }
+      ]
+    },
+    "a_10b": {
+      "text": "Harlow is back at the bar. She sees you coming and puts her cup down.\n\n\"Morrow doesn't usually move that fast,\" she says. \"You made an impression.\"\n\nShe doesn't say it like a compliment. She says it like a piece of intelligence she is filing away.\n\n\"The Shallows of Perdition,\" she continues, quietly enough that the afternoon crowd can't hear. \"Ten years that wreck has been sitting there. You understand why Morrow waited this long?\"\n\nShe is not asking whether you understand the logistics. She is asking whether you understand Morrow.",
+      "choices": [
+        {
+          "text": "\"She was protecting herself. The Correspondence kept Ashford off her back.\"",
+          "goto": "a_10c"
+        },
+        {
+          "text": "\"I'm not sure I do. Tell me.\"",
+          "goto": "a_10d"
+        },
+        {
+          "text": "Change the subject — ask what to expect at the Shallows",
+          "goto": "a_10e"
+        }
+      ]
+    },
+    "a_10c": {
+      "text": "Harlow studies you for a long moment.\n\n\"Most captains take longer than one conversation to figure that out.\" She picks up her cup. \"She's going to watch you closely. So am I. You're good for Nassau or you're good for yourself — we'll find out which at the Shallows.\"\n\nShe turns back to the bar. The conversation is over.",
+      "choices": [
+        {
+          "text": "Head back to the Adamant",
+          "goto": "a_60"
+        }
+      ]
+    },
+    "a_10d": {
+      "text": "\"Ashford came to Nassau three years ago with one ship and a polite letter,\" Harlow says. \"Morrow met with him. After that he left — and came back this year with three.\"\n\nShe sets her cup down. \"Whatever she told him in that meeting bought Nassau three years of breathing room. Whatever he found out — or didn't find out — ended that arrangement.\"\n\nShe looks at you steadily. \"You're diving into the middle of something that started before you arrived. Keep that in mind.\"",
+      "choices": [
+        {
+          "text": "Head back to the Adamant",
+          "goto": "a_60"
+        }
+      ]
+    },
+    "a_10e": {
+      "text": "Harlow's expression shifts — the closest she gets to showing that a question landed well.\n\n\"Reef channels. The Shallows will take a ship apart if you don't know what you're doing. The San Cristóbal is in forty feet — you'll need free divers, not just your crew going over the side.\" She pauses. \"If you don't have anyone who knows that reef, find someone before you sail. There are pilots in Nassau who've worked the southern cays.\"\n\nUseful. Practical. That's Harlow.",
+      "choices": [
+        {
+          "text": "Thank her and head back to the Adamant",
           "goto": "a_60"
         }
       ]
