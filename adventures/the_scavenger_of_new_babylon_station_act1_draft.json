@@ -1,0 +1,155 @@
+{
+  "passages": {
+    "s_1": {
+      "text": "The Freeport Market is a cathedral of noise and bad air. Stalls are crammed into what was once a cargo sorting bay — welded together from shipping containers, hung with LED strips and hand-lettered signs in a dozen languages. The air stinks of frying protein, coolant fluid, and unwashed bodies.\n\nYou push through the crowd, one hand on the data chip in your jacket pocket. Six hours. Maybe less. You need to get to the lower decks, and there are two ways down.\n\nThe maintenance shafts on the station's north spine are the direct route — dark, tight, and unmapped. Scavengers use them, but so do the things that live in the walls. The other option is the cargo elevator on the south side, which still works intermittently, but it passes through a section controlled by Harko's crew — smugglers who charge a toll and don't take no for an answer.\n\nBefore you decide, you notice a weapons dealer across the market hawking plasma pistols from a battered case. And near the market's edge, old Zara — the station's best-connected information broker — is watching you from her tea stall with knowing eyes.",
+      "add_items": ["data_chip"],
+      "choices": [
+        { "text": "Visit the weapons dealer first", "goto": "s_2" },
+        { "text": "Talk to Zara the information broker", "goto": "s_3" },
+        { "text": "Take a moment to read the room before committing", "goto": "s_colour_1" },
+        { "text": "Head straight for the north maintenance shafts", "goto": "h_1" },
+        { "text": "Head for the south cargo elevator", "goto": "s_4" }
+      ]
+    },
+
+    "s_2": {
+      "text": "The dealer is a heavyset Vellian with four arms, each one busy with a different task — polishing a barrel, counting credits, scratching his neck, and beckoning you closer. His name, according to the sign, is Gruub.\n\n'You look like someone who needs firepower in a hurry,' Gruub says, grinning with too many teeth. 'Plasma pistol. Compact model. Three shots before the cell's dead, but those three shots will put a hole through hull plating.' He names a price — steep, but not unreasonable for hardware that could save your life.\n\nYou count your credits. You can afford it, barely.",
+      "add_items": ["plasma_pistol"],
+      "add_luck": -1,
+      "set_flags": ["has_plasma_pistol"],
+      "choices": [
+        { "text": "Talk to Zara the information broker", "goto": "s_3" },
+        { "text": "Head for the north maintenance shafts", "goto": "h_1" },
+        { "text": "Head for the south cargo elevator", "goto": "s_4" }
+      ]
+    },
+
+    "s_3": {
+      "text": "Zara is ancient — nobody knows how old — and she sits behind her tea stall like a spider in a web. She pours you a cup of something dark and bitter without asking.\n\n'You have the Qeth's chip,' she says. It is not a question. 'I know what it leads to. And I know who is coming for it.' She sips her tea. 'Malachar. Eighteen hours ago he was two jumps out. Which means he docks in five hours, maybe four. His advance team may already be on the station.'\n\nShe leans forward. 'I can tell you two things. First: there is an Imperial deserter on the station. A soldier named Voss. He was part of Malachar's personal guard until he developed a conscience. He is hiding in the maintenance corridors near shaft seven. If you find him, he may help you — he knows Malachar's methods.'\n\nShe holds up a gnarled finger. 'Second: the lower decks are sealed with Station Authority bulkheads. You need a security keycard to get through them. I know where one is — the old security office on sub-level two, near the cargo elevator. It has not been looted because Harko's crew controls that section.'\n\nShe finishes her tea. 'That is all I will say for free.'\n\nYou drink your own cup in silence, turning everything over. By the time you stand up, you have a route in your head and a read on the enemy. That is more than you usually go in with.",
+      "add_skill": 1,
+      "set_flags": ["zara_info"],
+      "choices": [
+        { "text": "Visit the weapons dealer", "goto": "s_2", "requires_no_flag": "has_plasma_pistol" },
+        { "text": "Ask about the network", "goto": "s_3a" },
+        { "text": "Head for the north maintenance shafts — and look for Voss", "goto": "h_1" },
+        { "text": "Head for the south cargo elevator and the security office", "goto": "s_4" }
+      ]
+    },
+
+    "s_3a": {
+      "text": "Zara studies you for a long moment. The market noise fills the silence between you — a vendor shouting prices, the hiss of a welding torch, someone's child crying two stalls over.\n\nYou ask about the network. The people who move things that should not be moved, not for profit but because they believe certain objects should not end up locked in Imperial vaults.\n\nShe is quiet for several seconds. Her eyes track someone passing behind you, then come back.\n\n'There is a phrase,' she says. 'If you find yourself talking to the right kind of wrong person, you say it and they will know.' She tells you the phrase. You commit it to memory.\n\n'If the Compass is what I think it is,' she says, 'it should end up somewhere that uses it. Not somewhere that locks it away.' She picks up her teacup again. The conversation is over.",
+      "set_flags": ["resistance_contact"],
+      "choices": [
+        { "text": "Visit the weapons dealer", "goto": "s_2", "requires_no_flag": "has_plasma_pistol" },
+        { "text": "Head for the north maintenance shafts", "goto": "h_1" },
+        { "text": "Head for the south cargo elevator", "goto": "s_4" }
+      ]
+    },
+
+    "s_4": {
+      "text": "The south cargo elevator is a massive industrial platform designed to move shipping containers between decks. It still works — barely — shuddering and grinding as it descends. The problem is the territory it passes through.\n\nHarko's crew controls sub-levels one and two. They are smugglers, mostly — running contraband through the station's dead zones. They charge a toll to anyone who passes through their turf. Those who refuse to pay tend to disappear.\n\nYou ride the elevator down to sub-level one. The doors grind open to reveal a barricade of welded scrap metal, manned by two bored-looking thugs with shotguns. One of them holds up a hand.\n\n'Toll,' he says. 'Fifty credits or something worth fifty credits. Or you ride back up.'",
+      "choices": [
+        { "text": "Pay the toll and pass through", "goto": "s_5" },
+        { "text": "Bluff your way past — claim you're working for Harko", "goto": "s_6" },
+        { "text": "Turn back and take the maintenance shafts instead", "goto": "h_1", "style": "danger" }
+      ]
+    },
+
+    "s_5": {
+      "text": "You hand over the credits. The thug counts them with practised fingers, nods, and waves you through. Beyond the barricade, Harko's territory is surprisingly well-organised — better lit than most of the station, with power tapped from the main grid. Smugglers need infrastructure.\n\nYou move through quickly, keeping your head down. On sub-level two, you spot the old security office Zara mentioned — if she mentioned it. The door is dented but intact, and the lock panel beside it still has power.",
+      "add_luck": -1,
+      "choices": [
+        { "text": "Try to access the security office", "goto": "s_8" },
+        { "text": "Ask to speak with Harko directly", "goto": "s_harko_meet" },
+        { "text": "Continue past to the maintenance shafts beyond Harko's territory", "goto": "h_5" }
+      ]
+    },
+
+    "s_6": {
+      "text": "You straighten your back and put authority into your voice. 'Harko sent me. Sub-level three job. You want to call him and explain why his cargo is late?'\n\nThe two thugs exchange a glance.",
+      "test_luck": {
+        "lucky_text": "The thugs hesitate, then step aside. 'Go on then,' the first one mutters. 'But if Harko didn't send you, it's your funeral.' You walk through the barricade without looking back. On sub-level two, you notice the old security office — its door dented but intact.",
+        "lucky_goto": "s_8",
+        "unlucky_text": "The thug's eyes narrow. 'Funny. I just talked to Harko ten minutes ago. He didn't mention anyone.' He raises his shotgun. 'Toll just went up to a hundred credits. Pay, or we take it out of your hide.' You have no choice but to pay — and they rough you up for the insult.",
+        "unlucky_goto": "s_7",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 3
+      }
+    },
+
+    "s_7": {
+      "text": "You pick yourself up from the floor, ribs aching, credits gone. The thugs have already lost interest. Beyond their barricade, you press on through sub-level two, nursing your bruises.\n\nYou pass the old security office but the door is sealed and you are in no mood to linger in Harko's territory. Better to keep moving.",
+      "choices": [
+        { "text": "Ask to speak with Harko directly", "goto": "s_harko_meet" },
+        { "text": "Continue to the maintenance shafts", "goto": "h_5" }
+      ]
+    },
+
+    "s_8": {
+      "text": "The security office door is sealed, but the lock panel still has power. You examine it — a standard Station Authority biometric lock, but the biometric reader is smashed. Only the keypad entry still works. Someone has scratched four numbers into the wall beside it: 7-7-3-1. A previous scavenger's gift, perhaps.\n\nYou punch in the code. The door slides open with a reluctant hiss.\n\nInside, the office is small and ransacked — chairs overturned, monitors smashed. But in a drawer beneath the main console, you find what you need: a Station Authority security keycard, still sealed in its plastic sleeve. It should open the bulkhead doors to the lower decks.",
+      "add_items": ["security_keycard"],
+      "choices": [
+        { "text": "Search the office more thoroughly", "goto": "s_9" },
+        { "text": "Ask to speak with Harko directly", "goto": "s_harko_meet" },
+        { "text": "Take the keycard and head for the maintenance shafts", "goto": "h_5" }
+      ]
+    },
+
+    "s_9": {
+      "text": "You dig through the remaining drawers and cabinets. Most contain useless paperwork — duty rosters, incident reports from a station that no longer exists in any meaningful sense. But taped to the underside of the desk, you find a single EMP grenade. Military hardware — someone stashed it here as insurance.\n\nThe grenade is compact and heavy in your hand. One use only, but it would fry every electronic system within ten metres. Drones, locks, comm relays. Useful.",
+      "add_items": ["emp_grenade"],
+      "choices": [
+        { "text": "Ask to speak with Harko directly", "goto": "s_harko_meet" },
+        { "text": "Head for the maintenance shafts", "goto": "h_5" }
+      ]
+    },
+
+    "s_harko_meet": {
+      "text": "You ask one of the crew to take you to Harko. The thug looks you over, speaks into a comm unit clipped to his collar, and after a pause jerks his head toward a corridor. 'Follow me. Hands where I can see them.'\n\nHarko's office is a converted shipping container on sub-level two — insulated, clean, almost comfortable. Screens on the far wall show camera feeds from across the station. Two heavies stand at the door with the posture of people who were trained somewhere better than this. Harko himself sits behind a steel desk, compact and grey-haired, with the careful eyes of someone who has been making risk calculations since before you were born.\n\nHe does not waste time.\n\n'I know about the corvette,' he says. 'Imperial Bureau vessel. It appeared on my traffic feeds two hours ago.' He turns a screen toward you — a long-range sensor image of a ship, angular and black. 'An Inquisitor docking means my operation shuts down. Days, maybe permanently, if he decides to make an example of the station.'\n\nHe folds his hands on the desk. 'I want to know what he is specifically after and how long he intends to stay. Not rumour. Hard intelligence. The kind you get by being close to his operation.'\n\nHe lets that sit for a moment.\n\n'In exchange, I open an extraction tunnel for you. Runs behind the outer hull, connects to a private docking collar. No Imperial checkpoints. No toll. You get off this station clean, with whatever you are carrying.' He watches you steadily. 'That is the deal.'",
+      "choices": [
+        { "text": "Accept the deal", "goto": "s_harko_accept" },
+        { "text": "Decline and continue on your own", "goto": "s_harko_decline" }
+      ]
+    },
+
+    "s_harko_accept": {
+      "text": "You nod. Harko does not smile — he is not the type — but something in his expression shifts. Satisfaction, maybe. Or just the look of a man who has found a useful tool.\n\n'Good,' he says. 'When you have something concrete on Malachar — his objective, his timetable, his force strength — you contact me on channel four-seven. My people will open the tunnel.'\n\nHe stands, and the meeting is over. One of his heavies escorts you back through the corridor. The deal sits in your gut like a second meal. Harko is practical and reasonable, which makes him more dangerous than a thug. But a private extraction route is worth the price of an obligation.\n\nYou are back in Harko's territory. Time to move.",
+      "set_flags": ["harko_deal"],
+      "choices": [
+        { "text": "Head for the maintenance shafts", "goto": "h_5" }
+      ]
+    },
+
+    "s_harko_decline": {
+      "text": "You shake your head. 'I work alone.'\n\nHarko regards you for a moment, then shrugs — a small, economical motion. 'Your choice. The offer stands if you change your mind.' He turns back to his screens. You have been dismissed.\n\nOne of his heavies escorts you out. The corridor feels colder than before, but that might just be the ventilation. You are on your own, which is how you usually operate. Whether that is an advantage remains to be seen.",
+      "choices": [
+        { "text": "Head for the maintenance shafts", "goto": "h_5" }
+      ]
+    },
+
+    "s_colour_1": {
+      "text": "You hang back near the market's edge, reading the crowd before you commit to a direction.\n\nAgainst the far wall, a Qeth family has made camp — three of them, huddled on a thermal blanket between two stalls. Their belongings fit in a single bag. The eldest is a woman with the grey-blue skin and dark eyes common to her species. She is watching you.\n\nNot with hostility. With recognition. Her gaze drops to your jacket pocket — the pocket where the data chip sits. Her people made that map. She knows what it is.\n\nShe does not ask for it back. She does not ask for anything. She just holds your eyes for a long moment and says, very quietly, 'Do not let the Empire have it.'\n\nThen she looks away, and the conversation is over before it started.",
+      "choices": [
+        { "text": "Move on through the market", "goto": "s_colour_2" }
+      ]
+    },
+
+    "s_colour_2": {
+      "text": "Near a service corridor entrance, two station workers in stained coveralls carry a body bag between them. The bag is fresh — the seals are still white. They look at you without expression and keep moving, their boots scraping on the deck plates.\n\nIn the corridor behind them, you can see a vibro-knife lying on the deck beside a smear of blood. Not your knife. Someone else's. Another scavenger went down today — probably tried the lower decks alone and met something that disagreed with the plan.\n\nThe knife is cheap, the kind you can buy at any stall. You leave it where it is. Taking a dead scavenger's gear before they are cold is the kind of thing that follows you.",
+      "choices": [
+        { "text": "Keep moving", "goto": "s_colour_3" }
+      ]
+    },
+
+    "s_colour_3": {
+      "text": "The PA system crackles overhead — a burst of static, then an automated voice cycling through three languages. Docking request. Imperial light frigate, registry number starting with INQ. Not Malachar's corvette. A scout ship.\n\nHis advance team is already here.\n\nThe market noise dips for a half-second as people register what they heard, then resumes louder than before. A vendor starts packing his stall. Two men near the entrance exchange a look and walk quickly toward the docking ring. Somewhere in the crowd, someone is swearing in Vellian.\n\nThe clock just got shorter. Whatever you are going to do, you need to start doing it now.",
+      "add_luck": -1,
+      "choices": [
+        { "text": "Visit the weapons dealer", "goto": "s_2", "requires_no_flag": "has_plasma_pistol" },
+        { "text": "Talk to Zara the information broker", "goto": "s_3", "requires_no_flag": "zara_info" },
+        { "text": "Head for the north maintenance shafts", "goto": "h_1" },
+        { "text": "Head for the south cargo elevator", "goto": "s_4" }
+      ]
+    }
+  }
+}

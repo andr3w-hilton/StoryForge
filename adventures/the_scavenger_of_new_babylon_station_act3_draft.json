@@ -1,0 +1,334 @@
+{
+  "passages": {
+    "e_1": {
+      "text": "The lower decks are different. Quieter. The constant background hum of the station's systems is muted here, replaced by an intermittent ticking — thermal expansion in the hull plates, where the station's skin meets the vacuum.\n\nYour data chip projects a holographic waypoint arrow, guiding you deeper. The corridors here are wider than the maintenance shafts above, designed for cargo transport. But they are dark, and the walls are rimed with frost where the heating has failed.\n\nAfter ten minutes of walking, the corridor forks. The waypoint arrow points left, toward what the station map labels 'Research Lab 7.' But from the right, you hear something unexpected — a voice. Human. Speaking in clipped, authoritative tones.\n\nImperial comms chatter. Malachar's advance team is already here.\n\nThe dark presses in. Down here, everything you know about fighting feels a little further away.",
+      "add_skill": -1,
+      "choices": [
+        {
+          "text": "Follow the waypoint toward Research Lab 7",
+          "goto": "e_10"
+        },
+        {
+          "text": "Investigate the Imperial comms",
+          "goto": "e_3"
+        },
+        {
+          "text": "Warn Voss and plan an ambush",
+          "goto": "e_4",
+          "requires_flag": "voss_allied"
+        }
+      ]
+    },
+    "e_2": {
+      "text": "The loading tunnel ends at another bulkhead, but this one is already open. Something — the stalker, probably — tore the door half off its track years ago. You squeeze through the gap.\n\nBeyond, the lower decks stretch out in cold silence. Your data chip projects a waypoint arrow, guiding you deeper into the dark. After a few minutes, you hear something that stops you cold.\n\nImperial comms chatter. Clipped voices, echoing from a corridor to your right. Malachar's advance team is already here.",
+      "choices": [
+        {
+          "text": "Follow the waypoint toward the Void Compass",
+          "goto": "e_10"
+        },
+        {
+          "text": "Investigate the Imperial comms",
+          "goto": "e_3"
+        }
+      ]
+    },
+    "e_3": {
+      "text": "You creep toward the voices, keeping to the shadows. Around a corner, you see them — two Imperial soldiers in grey combat armour, setting up a portable sensor relay. They are scanning the lower decks, methodically, section by section.\n\nOne of them speaks into his comm. 'Sector seven clear. Moving to sector eight. No sign of the artefact yet.' A pause. 'Understood, Inquisitor. We'll report when we have it.'\n\nMalachar is directing them remotely. He may not be on the station yet, or he may be close. Either way, his people are between you and the Void Compass.\n\nYou could try to slip past them, or deal with them directly.",
+      "choices": [
+        {
+          "text": "Try to sneak past while they're distracted",
+          "goto": "e_5"
+        },
+        {
+          "text": "Attack while you have surprise",
+          "goto": "e_6"
+        },
+        {
+          "text": "Use the EMP grenade to disable their equipment",
+          "goto": "e_7",
+          "requires_item": "emp_grenade"
+        }
+      ]
+    },
+    "e_4": {
+      "text": "You pull Voss into an alcove and describe what you heard. His face goes hard.\n\n'Advance team,' he says. 'Two or three soldiers, probably. Setting up sensor relays so Malachar can direct the search from his ship.' He thinks for a moment. 'I know their relay frequencies. If we find their equipment, I can feed false data — send them searching in the wrong direction. Buy us time.'\n\nHe checks his pistol. 'Or we can take them out quietly. Your call.'",
+      "choices": [
+        {
+          "text": "Have Voss sabotage their sensors — the quiet approach",
+          "goto": "e_8"
+        },
+        {
+          "text": "Take them out together",
+          "goto": "e_6"
+        }
+      ]
+    },
+    "e_5": {
+      "text": "You wait until both soldiers are focused on their equipment, then move. The corridor is wide but the lighting is poor — plenty of shadows to use. You keep low, hugging the wall, placing each foot with care.",
+      "test_luck": {
+        "lucky_text": "You slip past like a ghost. Neither soldier looks up. By the time they finish their scan, you are two corridors away and moving fast toward the waypoint.",
+        "lucky_goto": "e_10",
+        "unlucky_text": "Your boot catches a loose deck plate. The clang echoes through the corridor like a gunshot. Both soldiers spin toward you, weapons raised. 'Contact!' one shouts into his comm. You have no choice but to fight.",
+        "unlucky_goto": "e_6",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "e_6": {
+      "text": "The Imperial soldier sees you and reacts with trained precision, snapping his weapon up and firing. The shot scorches the wall beside your head. You close the distance fast — at this range, in these tight corridors, it is close-quarters work.\n\nHis partner is further back, still at the relay. One enemy at a time.",
+      "set_flags": [
+        "fought_imperials"
+      ],
+      "combat": {
+        "enemy": "imperial_soldier",
+        "win_goto": "e_9",
+        "flee_goto": "e_10",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "e_7": {
+      "text": "You pull the pin on the EMP grenade and roll it down the corridor toward the soldiers. It detonates with a blue-white flash and a sound like a thunderclap in a tin can. Every piece of electronics within ten metres dies instantly — the sensor relay, their comm units, their weapon optics, the corridor lighting.\n\nIn the sudden darkness, the soldiers shout in confusion. You hear them stumbling, blind without their helmet displays. By the time they recover, you are gone — moving fast through the dark corridors with only your data chip's waypoint to guide you.\n\nThe EMP also took out the soldiers' comm link to Malachar. He just lost eyes on this section.",
+      "remove_items": [
+        "emp_grenade"
+      ],
+      "set_flags": [
+        "emp_used"
+      ],
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Press on toward the Void Compass",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_8": {
+      "text": "Voss circles around through a parallel corridor while you watch from cover. He moves with the practised silence of someone who spent years on covert operations. You see him reach the sensor relay, open a panel on its side, and make rapid adjustments.\n\nThe soldiers do not notice. Their helmet displays are focused outward, scanning for threats in the corridors ahead, not behind.\n\nVoss slips back to your position two minutes later. 'Done,' he whispers. 'Their sensors will show the lower sections as fully scanned and clear. Malachar will redirect them to the upper decks. We have maybe an hour before someone realises the data is wrong.'\n\nYou move on together, leaving the soldiers scanning empty corridors.",
+      "set_flags": [
+        "sensors_sabotaged"
+      ],
+      "add_luck": 2,
+      "choices": [
+        {
+          "text": "Press on toward the Void Compass",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_9": {
+      "text": "The soldier drops. His partner, back at the relay, raises his weapon — but hesitates when he sees his comrade down. He makes a split-second decision: he grabs the sensor relay and runs, disappearing down a side corridor.\n\nHe will report your position to Malachar. The clock just got shorter.\n\nYou check the fallen soldier quickly. He carries nothing useful — standard Imperial kit, all biometrically locked. But his comm unit crackles with a final transmission before going silent: 'All units, subject is armed and hostile. Sector seven. Converge.'",
+      "set_flags": [
+        "alarm_triggered"
+      ],
+      "choices": [
+        {
+          "text": "Move quickly toward the Void Compass",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_10": {
+      "text": "Research Lab 7 is a large, circular chamber — clearly pre-Imperial, built into the station's original structure. The walls are smooth dark metal, unmarked by the rust and decay that afflicts the rest of the lower decks. Precursor construction. This room was ancient before the station was built around it.\n\nIn the centre of the chamber, on a pedestal of black stone, sits the Void Compass.\n\nIt is smaller than you expected — a sphere of dark crystal no larger than your fist, veined with threads of silver light that pulse slowly, like a heartbeat. The light moves in patterns that hurt your eyes if you stare too long. This thing is old. Not centuries old. Millennia.\n\nAs you reach for it, Voss speaks sharply from behind you — or if Voss is not with you, a voice speaks from the chamber's entrance.",
+      "choices": [
+        {
+          "text": "Grab the Compass quickly",
+          "goto": "e_13"
+        },
+        {
+          "text": "Wait — check for traps first",
+          "goto": "e_11"
+        },
+        {
+          "text": "Let the data chip interface with the chamber",
+          "goto": "e_new_data_chip"
+        }
+      ]
+    },
+    "e_11": {
+      "text": "Caution has kept you alive this long. You study the pedestal without touching it. The black stone is covered in Precursor script — angular symbols that no living species can fully translate. But you have seen enough Precursor salvage to recognise a warning when you see one.\n\nThe pedestal has a pressure plate. Remove the Compass without disabling it, and something happens — an alarm, a trap, a seal. You cannot tell which.\n\nYour repair kit could disable it. Or you could just grab it and deal with the consequences.",
+      "choices": [
+        {
+          "text": "Use the repair kit to disable the pressure plate",
+          "goto": "e_12",
+          "requires_item": "repair_kit"
+        },
+        {
+          "text": "Just grab it — no time for caution",
+          "goto": "e_13"
+        }
+      ]
+    },
+    "e_12": {
+      "text": "You kneel beside the pedestal and work carefully with the micro-tools from your repair kit. The Precursor mechanism is unlike anything you have seen — no circuits, no wiring, just smooth channels cut into the stone that seem to carry light instead of electricity.\n\nBut engineering is engineering, regardless of who built it. You find the trigger point and bridge it with a length of conductive sealant. The pressure plate clicks softly and goes inert.\n\nYou lift the Void Compass from the pedestal. It is warm in your hand, and the silver veins pulse brighter at your touch. Something stirs in the crystal — not intelligence exactly, but awareness. It knows it has been found.\n\nNo alarms. No traps. Clean.\n\nYou exhale slowly. This is what you do. The confidence of it sharpens you.",
+      "add_skill": 1,
+      "add_items": [
+        "void_compass"
+      ],
+      "set_flags": [
+        "clean_retrieval"
+      ],
+      "choices": [
+        {
+          "text": "The compass is trying to show you something — let it",
+          "goto": "e_new_compass_vision"
+        },
+        {
+          "text": "No time — head for the exit",
+          "goto": "e_14"
+        }
+      ]
+    },
+    "e_13": {
+      "text": "You seize the Void Compass. The moment it leaves the pedestal, the silver light flares brilliant white and the chamber shudders. A deep harmonic tone reverberates through the station's bones — felt more than heard.\n\nThe Compass is warm in your hand, pulsing with alien light. Whatever that tone was, it just announced your location to everyone on the lower decks.\n\nThen the lights die. All of them. For three seconds you stand in absolute darkness. When the emergency lighting kicks in — blue, flickering — you hear the sound of boots. Many boots. Running toward you.",
+      "add_items": [
+        "void_compass"
+      ],
+      "set_flags": [
+        "alarm_triggered"
+      ],
+      "choices": [
+        {
+          "text": "The compass is showing you something — one moment",
+          "goto": "e_new_compass_fragment"
+        },
+        {
+          "text": "Run for the exit — the way you came in",
+          "goto": "e_14",
+          "style": "danger"
+        },
+        {
+          "text": "Look for another way out of the lab",
+          "goto": "e_15"
+        }
+      ]
+    },
+    "e_14": {
+      "text": "You sprint back through the corridors, the Void Compass clutched to your chest. Behind you, the sound of pursuit grows louder — boots on metal, shouted orders in Imperial military cadence.\n\nYou round a corner and skid to a halt. Two Imperial soldiers stand in the corridor ahead, weapons drawn, blocking your retreat. Behind you, more are closing in.",
+      "choices": [
+        {
+          "text": "Fight through them",
+          "goto": "e_16"
+        },
+        {
+          "text": "Use the EMP grenade to blind them",
+          "goto": "e_17",
+          "requires_item": "emp_grenade"
+        },
+        {
+          "text": "Voss — create a diversion!",
+          "goto": "e_18",
+          "requires_flag": "voss_allied"
+        }
+      ]
+    },
+    "e_15": {
+      "text": "You scan the lab. The Precursor chamber has a second exit — a narrow passage in the far wall, half-hidden by shadow. It was not on the station schematics. Precursor construction again, older than the station itself.\n\nThe passage is tight but passable. You squeeze through as the sound of boots reaches the main entrance behind you. The passage twists, descends, then opens into a service tunnel. You are behind the Imperial cordon.\n\nBut you are not out yet. The service tunnel leads back toward the cargo bays — a long climb up to the main station.",
+      "choices": [
+        {
+          "text": "Move through the service tunnels toward the cargo bays",
+          "goto": "b_1"
+        }
+      ]
+    },
+    "e_16": {
+      "text": "There is no room for cleverness. You charge the soldiers ahead of you — the only direction that leads to escape. They open fire. A shot sears your arm, but you close the distance and engage the nearest one at close quarters.",
+      "add_stamina": -2,
+      "combat": {
+        "enemy": "imperial_soldier",
+        "win_goto": "b_1",
+        "flee_goto": "death_cornered",
+        "flee_allowed": false
+      }
+    },
+    "e_17": {
+      "text": "You pull the EMP grenade and hurl it into the corridor ahead. The blue-white flash kills every electronic system in range — lights, weapons optics, comm units. The soldiers' helmet displays go black and they stagger, momentarily blind.\n\nYou charge through the gap, shouldering past the disoriented soldiers and into the dark corridor beyond. In the chaos, no one gets a clean shot.",
+      "remove_items": [
+        "emp_grenade"
+      ],
+      "set_flags": [
+        "emp_used"
+      ],
+      "choices": [
+        {
+          "text": "Keep running toward the cargo bays",
+          "goto": "b_1",
+          "style": "danger"
+        }
+      ]
+    },
+    "e_18": {
+      "text": "Voss does not hesitate. He pulls a flare from his belt and hurls it down a side corridor, then opens fire into the darkness — shooting at nothing, but the muzzle flash and the noise draw attention. 'Go!' he shouts. 'I'll lead them away and meet you at the cargo elevator!'\n\nThe soldiers turn toward the gunfire. You run the other way, the Void Compass heavy in your hand.",
+      "set_flags": [
+        "voss_diversion"
+      ],
+      "choices": [
+        {
+          "text": "Run for the cargo bays",
+          "goto": "e_new_signal",
+          "style": "danger"
+        }
+      ]
+    },
+    "e_new_data_chip": {
+      "text": "The chamber responds before you even reach the pedestal. The silver veins in the black stone brighten, their pulse quickening, and in your jacket pocket something answers — a warmth, a faint vibration. The data chip.\n\nYou take it out. The chip the dying Qeth trader pressed into your hands in a docking bay cantina three days ago. You assumed it was a map. It was more than that.\n\nThe chip pulls toward the pedestal as if magnetised. You let it go. It slides into a reader port in the side of the stone — a slot you had not noticed, precisely shaped — and is absorbed. Gone. For a moment you feel the loss of it, the only thing connecting you to the Qeth archaeologist who died to get this information out.\n\nThen the chamber inscriptions light up. Every angular symbol on the walls, on the pedestal, on the floor — all of them flare silver-white. And for three seconds, they are not alien. The Precursor script resolves into something your mind can parse. Partial translations scroll across the stone like a projection: coordinates, star designations, distance calculations in units you do not recognise but can intuit. The Qeth archaeologists found this place, documented it in secret, encoded what they learned into that chip before Malachar's people caught up with them. They never made it back to retrieve the Compass themselves.\n\nThe chip was their last act. And now it has done what they could not.\n\nThe translations fade. The chamber goes quiet again. But the pedestal's pressure plate — you can see it clearly now, a hairline seam around the base of the Compass — sits inert. The chip disarmed it. The way is open.",
+      "remove_items": [
+        "data_chip"
+      ],
+      "choices": [
+        {
+          "text": "Now take the Compass",
+          "goto": "e_11"
+        }
+      ]
+    },
+    "e_new_compass_vision": {
+      "text": "You stand still. The Compass sits in your palm, warm, its silver veins pulsing in a rhythm that does not match your heartbeat but feels as if it should. You let it do what it is trying to do.\n\nIt is not dramatic. There is no flash of light, no alien voice, no vision of ancient worlds. It is simpler than that and stranger. A direction settles into your awareness the way a memory surfaces — not arriving, but being recognised. As if you always knew which way to look and are only now allowing yourself to notice.\n\nThree jumps from here. A dead star system at the edge of surveyed space, outside Imperial charts, outside anyone's charts. The system has no name in any human language. The Compass does not name it either. It simply points.\n\nAnd from that direction, carried on whatever medium the Compass uses to listen: a signal. Continuous. Old beyond any frame of reference you possess. It has been transmitting for ten thousand years with the patience of a thing that does not experience time the way you do. It is not calling. It is not waiting. It is simply there, the way a star is there, and the Compass is the instrument that can hear it.\n\nThe coordinates settle into your memory. You will not forget them. You are not sure you could forget them if you tried.\n\nYou lower the Compass and put it in your jacket. The silver light dims to a slow, steady pulse against your ribs. You know exactly where to go.",
+      "set_flags": [
+        "compass_attuned"
+      ],
+      "choices": [
+        {
+          "text": "Head for the exit",
+          "goto": "e_14"
+        }
+      ]
+    },
+    "e_new_compass_fragment": {
+      "text": "The Compass flares in your grip. For half a second — less — something reaches through the noise. A direction. A distance. The ghost of a signal from somewhere impossibly far away, old and patient and continuous. You feel it the way you feel the pull of gravity: not as information but as fact.\n\nThen the alarm tone floods the chamber and the vision collapses. The silver veins in the crystal go wild, strobing, and the feeling of direction scatters like a compass needle spinning in a magnetic storm.\n\nIt was trying to tell you something. You caught the edge of it — enough to know it matters, not enough to know what it was. The Compass pulses erratically in your hand, still trying, but the moment has passed.\n\nYou shove it into your jacket. Whatever it wanted to show you, it will have to wait.",
+      "choices": [
+        {
+          "text": "Run",
+          "goto": "e_14",
+          "style": "danger"
+        }
+      ]
+    },
+    "e_new_signal": {
+      "text": "Voss disappeared around a corner thirty seconds ago and you heard gunfire — his pistol, three quick shots, then shouted voices and the sound of boots changing direction. The diversion is working. The route ahead is clear. You have maybe three minutes before they realise the distraction is one man and come back for you.\n\nThe corridor stretches ahead, silent except for the ticking of cooling metal and the faint pulse of the Compass against your ribs.\n\nIn your jacket is a comm unit. And somewhere in your memory — if you took the time to get it — is a seven-digit frequency.",
+      "choices": [
+        {
+          "text": "Signal Voss — send him the rendezvous point",
+          "goto": "e_new_signal_sent",
+          "requires_flag": "has_voss_freq"
+        },
+        {
+          "text": "Run — trust him to find his own way out",
+          "goto": "b_1"
+        }
+      ]
+    },
+    "e_new_signal_sent": {
+      "text": "You pull the comm unit from your jacket and key in the frequency. Seven digits. You transmit a single compressed burst — cargo bay twelve, floor hatch, ten minutes. No voice. No names. Just the data.\n\nThe comm clicks twice. Acknowledgement or static — you cannot tell. No reply comes. Either he heard it, or he did not. Either way, you have done what you can for him.\n\nYou pocket the comm and move.",
+      "set_flags": [
+        "voss_signalled"
+      ],
+      "choices": [
+        {
+          "text": "Move",
+          "goto": "b_1"
+        }
+      ]
+    }
+  }
+}
