@@ -1153,12 +1153,12 @@
       "text": "The Broken Wheel is busier now — the afternoon crowd. You find a spot at the bar and take stock of what you know.\n\nAshford is afraid. The blockade is not about Nassau — it is about the San Cristóbal. Whatever is in the Red Correspondence, it can destroy him. Morrow knows where the wreck is and has not acted. The Council is running out of time and patience.\n\nAnd you — a captain with a small, fast sloop that nobody considers a threat — are sitting in the middle of all of it.",
       "choices": [
         {
-          "text": "Approach Harlow — you have information Morrow needs",
+          "text": "Find Harlow — Morrow's lieutenant at the bar. You have information she needs",
           "goto": "a_15",
           "requires_flag": "marine_confronted"
         },
         {
-          "text": "Talk to Aldous Crane",
+          "text": "Find Aldous Crane — the Harbour Council's factor",
           "goto": "a_20a",
           "requires_no_flag": "council_backed"
         },
