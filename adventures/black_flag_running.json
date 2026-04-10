@@ -2255,7 +2255,7 @@
       "choices": [
         {
           "text": "Let him aboard — hear what he has to say",
-          "goto": "n_25",
+          "goto": "n_42b",
           "requires_no_flag": "ashford_contact"
         },
         {
@@ -2283,7 +2283,25 @@
       "choices": [
         {
           "text": "Read the note",
-          "goto": "n_25"
+          "goto": "n_42b"
+        }
+      ]
+    },
+    "n_42b": {
+      "text": "The seal breaks cleanly. Inside, a single sheet in a careful, educated hand:\n\n\"Captain — I represent interests aboard the Crown's Justice. My principal offers safe passage through the blockade for the Adamant, no questions, no pursuit. In exchange: the Red Correspondence, delivered before it is read by any other party. The gold from the war chest is yours to keep. Reply by sunset. Leave your answer with the boy at the east dock stairs. — A friend.\"",
+      "choices": [
+        {
+          "text": "Study the handwriting carefully",
+          "goto": "n_26",
+          "requires_item": "marine_notebook"
+        },
+        {
+          "text": "Write a reply — safe passage is worth considering",
+          "goto": "n_27"
+        },
+        {
+          "text": "Burn the note and tell no one",
+          "goto": "n_28"
         }
       ]
     },
@@ -2297,7 +2315,7 @@
       ]
     },
     "n_44": {
-      "text": "The mooring lines come in. The Adamant drifts free of the dock, catching the outgoing tide, her bow swinging toward the harbour mouth. Canvas drops and fills — the evening wind, right on schedule, pushing south.\n\nNassau slides past to port. The fort. The rooftops. The long curve of the harbour wall where Drest sits with his endless net. The Broken Wheel, shuttered now against the afternoon heat. A town holding its breath.\n\nFour Crown warships sit at the harbour mouth. The Adamant will have to thread between them.",
+      "text": "The mooring lines come in. The Adamant drifts free of the dock, catching the outgoing tide, her bow swinging toward the harbour mouth. Canvas drops and fills — the evening wind, right on schedule, pushing south.\n\nNassau slides past to port. The fort. The rooftops. The long curve of the harbour wall where Drest sits with his endless net. The Broken Wheel, shuttered now against the afternoon heat. A town holding its breath.\n\nThree Crown warships sit at the harbour mouth. The Adamant will have to thread between them.",
       "choices": [
         {
           "text": "Take one last look at Nassau",
@@ -2526,16 +2544,16 @@
       ]
     },
     "n_62": {
-      "text": "You take a last look at Nassau as the Adamant clears the harbour. The fort stands on its hill, the Union Jack hanging limp in the still air. Below it, the town — a jumble of rooftops and smoke and activity that looks, from this distance, almost peaceful. Almost normal.\n\nBut the four Crown ships tell the real story. Crown's Justice. Fervent. Resolve. Reliance. Ashford's patience made manifest in oak and iron. They sit at the harbour mouth like a sentence waiting to be finished.\n\nWhatever you find at the Shallows — gold, secrets, the Red Correspondence — it comes back through those ships. That arithmetic hasn't changed.",
+      "text": "You take a last look at Nassau as the Adamant clears the harbour. The fort stands on its hill, the Union Jack hanging limp in the still air. Below it, the town — a jumble of rooftops and smoke and activity that looks, from this distance, almost peaceful. Almost normal.\n\nBut the three Crown ships tell the real story. Crown's Justice. Fervent. Resolve. Ashford's patience made manifest in oak and iron. They sit at the harbour mouth like a sentence waiting to be finished.\n\nWhatever you find at the Shallows — gold, secrets, the Red Correspondence — it comes back through those ships. That arithmetic hasn't changed.",
       "choices": [
         {
           "text": "Turn your attention forward — to the sea ahead",
-          "goto": "n_50"
+          "goto": "n_45"
         }
       ]
     },
     "n_63": {
-      "text": "The harbour at midday is a study in contrasts. The civilian docks buzz with small activity — fishermen, chandlers, dock workers going about their business as if four warships weren't sitting in the harbour mouth. The naval anchorage, by contrast, is still. The Crown ships sit in formation, neat and threatening, their crews moving with drill-ground precision.\n\nYou walk past a warehouse where three men are arguing over the price of salt. Past a woman selling fried fish from a cart. Past two boys fishing off the dock with homemade lines. Nassau, going about the business of staying alive while its future hangs in the balance.",
+      "text": "The harbour at midday is a study in contrasts. The civilian docks buzz with small activity — fishermen, chandlers, dock workers going about their business as if three warships weren't sitting in the harbour mouth. The naval anchorage, by contrast, is still. The Crown ships sit in formation, neat and threatening, their crews moving with drill-ground precision.\n\nYou walk past a warehouse where three men are arguing over the price of salt. Past a woman selling fried fish from a cart. Past two boys fishing off the dock with homemade lines. Nassau, going about the business of staying alive while its future hangs in the balance.",
       "choices": [
         {
           "text": "A boy tugs at your sleeve",
@@ -2651,19 +2669,11 @@
       ]
     },
     "s_3": {
-      "text": "You watch Pell's shape diminish as he pulls himself down the sounding line — a dark silhouette against white sand, shrinking with every stroke. At twenty feet the detail blurs. At thirty, he is a shadow. At forty, he reaches the bottom and the line goes still.\n\nA minute passes. Then two. The crew watches in silence, hands on the safety lines.\n\nThen the line jerks — three sharp tugs. Pell's signal: *I found it.*\n\nHe comes up slowly, hand over hand, and breaks the surface gasping. Water streams from his hair. He grabs the rail and pulls himself up enough to speak.\n\n\"She's there, Captain. The San Cristóbal. On her port side, like the chart says. The mainmast is gone — broke off and lying across the reef. But the hull...\" He pauses, catching his breath. \"The hull is open. Starboard gunport, midships. Big enough to swim through. I tied a guide line to the frame.\"\n\nHe pulls himself aboard and sits dripping on the deck. \"The captain's cabin is aft, one deck up from the hold. There's a companionway — silted up, but passable. The cargo hold is forward of that, through the orlop. I could see crates.\"\n\nHe looks up at you. \"What do you want first, Captain?\"",
+      "text": "You watch Pell's shape diminish as he pulls himself down the sounding line — a dark silhouette against white sand, shrinking with every stroke. At twenty feet the detail blurs. At thirty, he is a shadow. At forty, he reaches the bottom and the line goes still.\n\nA minute passes. Then two. The crew watches in silence, hands on the safety lines.\n\nThen the line jerks — three sharp tugs. Pell's signal: *I found it.*\n\nHe comes up slowly, hand over hand, and breaks the surface gasping. Water streams from his hair. He grabs the rail and pulls himself up enough to speak.\n\n\"She's there, Captain. The San Cristóbal. On her port side, like the chart says. The mainmast is gone — broke off and lying across the reef. But the hull...\" He pauses, catching his breath. \"The hull is open. Starboard gunport, midships. Big enough to swim through. I tied a guide line to the frame.\"\n\nHe pulls himself aboard and sits dripping on the deck. \"The captain's cabin is aft, one deck up from the hold. There's a companionway — silted up, but passable. The cargo hold is forward of that, through the orlop. I could see crates.\"\n\nYou look at him, then at the rest of the crew. You have already sent one man down into a dead ship on the bottom of the sea. You are not sending another. Whatever is down there, you will find it yourself.",
       "choices": [
         {
-          "text": "Go over the side — make the dive yourself",
+          "text": "Go over the side",
           "goto": "s_73"
-        },
-        {
-          "text": "Send Pell back down for the captain's cabin",
-          "goto": "s_10"
-        },
-        {
-          "text": "Send Pell back down for the cargo hold",
-          "goto": "s_20"
         }
       ]
     },
@@ -3412,7 +3422,7 @@
       "choices": [
         {
           "text": "Prepare for what comes next",
-          "goto": "r_1"
+          "goto": "r_2"
         }
       ]
     },
@@ -3421,7 +3431,7 @@
       "choices": [
         {
           "text": "The reckoning begins",
-          "goto": "r_1"
+          "goto": "r_2"
         }
       ]
     },
@@ -3532,7 +3542,7 @@
       "choices": [
         {
           "text": "Face what comes next",
-          "goto": "r_1"
+          "goto": "r_2"
         }
       ]
     },
@@ -3542,20 +3552,6 @@
         {
           "text": "Sail north — to Nassau, and to the reckoning",
           "goto": "s_55"
-        }
-      ]
-    },
-    "r_1": {
-      "text": "The back channel is narrow — barely wide enough for the Adamant's beam — and dark. No moon tonight. You navigate by memory and the phosphorescence that traces the reef edges in pale green fire. Behind you, the open sea. Ahead, Nassau.\n\nThe blockade has changed. Four ships now, not three. Ashford has brought a fourth vessel — a brig, lighter than the others, positioned to cover the shallows where the larger ships cannot go. The line stretches across the entire harbour mouth. No gaps. No running through.\n\nBut the back channel was never on Ashford's charts. The reef closes overhead in places, and twice the Adamant's keel scrapes coral with a sound that makes your teeth ache. Pell, at the bow with a sounding pole, calls depth in a whisper. Six feet. Five. Six again.\n\nThen the channel opens, and you are inside the harbour. Nassau lies before you — lanterns along the waterfront, the fort dark on the hill above, the smell of woodsmoke and low tide.\n\nYou have returned. What you brought back will determine what happens next.",
-      "choices": [
-        {
-          "text": "Head through the waterfront to the fort",
-          "goto": "r_64",
-          "requires_no_flag": "council_backed"
-        },
-        {
-          "text": "Take stock of what you carry",
-          "goto": "r_2"
         }
       ]
     },
@@ -3588,6 +3584,11 @@
           "requires_flag": "ashford_contact"
         },
         {
+          "text": "Head for the fort — there is no time to waste",
+          "goto": "r_64",
+          "requires_no_flag": "council_backed"
+        },
+        {
           "text": "You have nothing. Walk into Nassau and see what is left.",
           "goto": "r_60",
           "requires_no_flag": "red_correspondence_held"
@@ -3607,7 +3608,7 @@
       ]
     },
     "r_4": {
-      "text": "You find Morrow at the fort. She is standing on the lower wall, looking out at the blockade. Four ships now, their riding lights steady in the dark.\n\nShe does not turn when you approach. \"I heard the Adamant came through the back channel,\" she says. \"Half the harbour heard your keel on the coral.\"\n\nYou tell her what you found. What you brought back. She listens without expression.\n\n\"You are going to call the captains together,\" she says. It is not a question. \"And you expect me to stand there.\"\n\n\"I do.\"\n\nA long silence. The blockade lights do not move.\n\n\"I will be there,\" she says finally. \"I will stand behind you. I will not speak. You used what you knew about me to put me in this position, and I have accepted that. But do not ask me to pretend it was a kindness.\"\n\nShe walks past you toward the stairs. She does not offer her seal.",
+      "text": "You find Morrow at the fort. She is standing on the lower wall, looking out at the blockade. Four ships now, their riding lights steady in the dark.\n\nShe does not turn when you approach. \"I heard the Adamant came through the blockade,\" she says. \"Half the harbour was watching.\"\n\nYou tell her what you found. What you brought back. She listens without expression.\n\n\"You are going to call the captains together,\" she says. It is not a question. \"And you expect me to stand there.\"\n\n\"I do.\"\n\nA long silence. The blockade lights do not move.\n\n\"I will be there,\" she says finally. \"I will stand behind you. I will not speak. You used what you knew about me to put me in this position, and I have accepted that. But do not ask me to pretend it was a kindness.\"\n\nShe walks past you toward the stairs. She does not offer her seal.",
       "choices": [
         {
           "text": "Accept her terms and prepare the rally",
