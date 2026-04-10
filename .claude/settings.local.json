@@ -10,13 +10,20 @@
       "Bash(head -50 echo \"---\" gh api repos/boorch/dronage-terminal-pak/git/trees/HEAD?recursive=1 --jq '.tree[].path')",
       "Bash(base64 -d echo \"---\")",
       "Bash(python3:*)",
+      "Bash(py:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
+      "Bash(python3.exe -c ':*)",
+      "Bash(git fetch:*)",
+      "Bash(git reset:*)",
       "Bash(git rm:*)",
+      "Bash(git mv:*)",
+      "Bash(ls adventures/*.json)",
+      "Bash(git log:*)",
+      "Bash(git status:*)",
       "Bash(git pull:*)",
-      "Bash(git stash:*)",
-      "Bash(git mv:*)"
+      "Bash(git stash:*)"
     ]
   }
 }
