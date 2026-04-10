@@ -1292,7 +1292,7 @@
 <div id="restore-code-overlay">
     <div class="save-prompt-card">
         <div class="save-prompt-eyebrow">Restore from Save Code</div>
-        <input class="restore-code-input" id="restore-code-input" type="text" placeholder="XXXXX-XXXXX-XXXX" maxlength="20" autocomplete="off" autocorrect="off" spellcheck="false">
+        <input class="restore-code-input" id="restore-code-input" type="text" placeholder="BF-XXXXX-XXXXX-XXXX" maxlength="22" autocomplete="off" autocorrect="off" spellcheck="false">
         <div class="restore-code-error" id="restore-code-error"></div>
         <div class="save-prompt-buttons">
             <button class="btn btn-primary" id="btn-restore-submit">Restore</button>
@@ -2118,13 +2118,20 @@ function updateSidebar() {
 // ══════════════════════════════════════════════════════
 
 const SAVE_CODE_ALPHA = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; // 32 chars — no 0/O/1/I/L
-const SAVE_CODE_ADVENTURES = [
-    'the_crypt_of_count_valdric',
-    'the_scavenger_of_new_babylon_station',
-    'the_throne_of_the_hollow_king',
-    'tide_of_the_leviathan',
-    'black_flag_running'
-];
+
+// Two-character prefix per adventure. Adding new adventures here never
+// invalidates existing codes — the prefix is outside the bit-packed section.
+const SAVE_CODE_PREFIX = {
+    'CV': 'the_crypt_of_count_valdric',
+    'NB': 'the_scavenger_of_new_babylon_station',
+    'HK': 'the_throne_of_the_hollow_king',
+    'LV': 'tide_of_the_leviathan',
+    'BF': 'black_flag_running'
+};
+// Reverse map: adventure ID → prefix
+const SAVE_CODE_PREFIX_R = Object.fromEntries(
+    Object.entries(SAVE_CODE_PREFIX).map(([k, v]) => [v, k])
+);
 
 function buildCodeIndex(adventure) {
     const passages = Object.keys(adventure.passages).sort();
@@ -2148,15 +2155,14 @@ function readBits(bits, offset, count) {
 }
 
 function generateSaveCode(gs) {
-    const advIdx = SAVE_CODE_ADVENTURES.indexOf(gs.adventureId);
-    if (advIdx === -1) return null;
+    const prefix = SAVE_CODE_PREFIX_R[gs.adventureId];
+    if (!prefix) return null;
     const idx      = buildCodeIndex(gs.adventure);
     const passIdx  = idx.passages.indexOf(gs.currentPassage);
     if (passIdx === -1) return null;
     const passBits = Math.ceil(Math.log2(idx.passages.length + 1));
 
     const bits = [];
-    pushBits(bits, advIdx,               3);
     pushBits(bits, passIdx,              passBits);
     pushBits(bits, gs.skill.current,     4);
     pushBits(bits, gs.skill.max,         4);
@@ -2176,12 +2182,18 @@ function generateSaveCode(gs) {
         code += SAVE_CODE_ALPHA[v];
     }
     while (code.length < 14) code += SAVE_CODE_ALPHA[0];
-    return `${code.slice(0,5)}-${code.slice(5,10)}-${code.slice(10,14)}`;
+    return `${prefix}-${code.slice(0,5)}-${code.slice(5,10)}-${code.slice(10,14)}`;
 }
 
 async function restoreFromSaveCode(raw) {
-    const code = raw.replace(/[\s\-]/g, '').toUpperCase();
-    if (code.length < 12 || code.length > 14) return { error: 'Code should be 12–14 characters.' };
+    const parts = raw.trim().toUpperCase().split('-');
+    if (parts.length < 2) return { error: 'Invalid code format. Expected XX-XXXXX-XXXXX-XXXX.' };
+    const prefix = parts[0];
+    const adventureId = SAVE_CODE_PREFIX[prefix];
+    if (!adventureId) return { error: `Unknown adventure prefix: ${prefix}` };
+
+    const code = parts.slice(1).join('');
+    if (code.length < 12 || code.length > 14) return { error: 'Code should be 14 characters after the prefix.' };
 
     const bits = [];
     for (const ch of code) {
@@ -2189,11 +2201,6 @@ async function restoreFromSaveCode(raw) {
         if (v === -1) return { error: `Invalid character: ${ch}` };
         pushBits(bits, v, 5);
     }
-
-    let o = 0, val;
-    [val, o] = readBits(bits, o, 3);
-    const adventureId = SAVE_CODE_ADVENTURES[val];
-    if (!adventureId) return { error: 'Unknown adventure in code.' };
 
     let adventure;
     try {
@@ -2205,6 +2212,7 @@ async function restoreFromSaveCode(raw) {
     const idx      = buildCodeIndex(adventure);
     const passBits = Math.ceil(Math.log2(idx.passages.length + 1));
 
+    let o = 0;
     let passIdx, skillCur, skillMax, stamCur, stamMax, luckCur, luckMax, provisions;
     [passIdx,   o] = readBits(bits, o, passBits);
     [skillCur,  o] = readBits(bits, o, 4);
