@@ -2122,7 +2122,8 @@ const SAVE_CODE_ADVENTURES = [
     'the_crypt_of_count_valdric',
     'the_scavenger_of_new_babylon_station',
     'the_throne_of_the_hollow_king',
-    'tide_of_the_leviathan'
+    'tide_of_the_leviathan',
+    'black_flag_running'
 ];
 
 function buildCodeIndex(adventure) {
@@ -2155,7 +2156,7 @@ function generateSaveCode(gs) {
     const passBits = Math.ceil(Math.log2(idx.passages.length + 1));
 
     const bits = [];
-    pushBits(bits, advIdx,               2);
+    pushBits(bits, advIdx,               3);
     pushBits(bits, passIdx,              passBits);
     pushBits(bits, gs.skill.current,     4);
     pushBits(bits, gs.skill.max,         4);
@@ -2190,7 +2191,7 @@ async function restoreFromSaveCode(raw) {
     }
 
     let o = 0, val;
-    [val, o] = readBits(bits, o, 2);
+    [val, o] = readBits(bits, o, 3);
     const adventureId = SAVE_CODE_ADVENTURES[val];
     if (!adventureId) return { error: 'Unknown adventure in code.' };
 
