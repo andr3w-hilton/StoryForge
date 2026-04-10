@@ -69,6 +69,11 @@
       "type": "consumable",
       "stamina_restore": 4,
       "description": "Vacuum-sealed protein bars and a water pouch. Tastes like cardboard and regret. Restores 4 STAMINA."
+    },
+    "precursor_disc": {
+      "name": "Precursor Disc",
+      "type": "quest",
+      "description": "A thin disc of dark metal, feather-light. Raised lines on one face converge toward a single edge, like rivers flowing toward an unseen coast."
     }
   },
   "enemies": {
@@ -866,6 +871,10 @@
       "add_skill": -1,
       "choices": [
         {
+          "text": "The left corridor narrows ahead — beyond it the walls change, darker metal, no frost, no corrosion",
+          "goto": "e_pre_1"
+        },
+        {
           "text": "Follow the waypoint toward Research Lab 7",
           "goto": "e_10"
         },
@@ -997,6 +1006,11 @@
         {
           "text": "Let the data chip interface with the chamber",
           "goto": "e_new_data_chip"
+        },
+        {
+          "text": "You have seen this mechanism before. You know where the trigger is.",
+          "goto": "e_pre_clean",
+          "requires_flag": "precursor_seen"
         }
       ]
     },
@@ -1111,8 +1125,17 @@
       "choices": [
         {
           "text": "Run for the cargo bays",
-          "goto": "e_new_signal",
+          "goto": "e_div_run",
           "style": "danger"
+        }
+      ]
+    },
+    "e_div_run": {
+      "text": "You run. The corridor is dark and you run by memory and by the faint emergency lighting that pulses red every twenty metres. Behind you Voss's pistol fires again — three shots, a pause, two more. The echoes flatten and multiply in the metal corridors until it sounds like a firefight, which is the point.\n\nYou take a left at a junction you half-remember. Then a right. The Compass is a warm pressure against your ribs through the fabric of your jacket, heavier than it should be for its size. Your boots ring on the deck plating and you force yourself to slow down because noise carries and the diversion only works if they follow Voss, not you.\n\nAnother corridor. Longer. The lighting here has failed entirely and you navigate by the wall under your hand, cold pipe and riveted steel.\n\nThe gunfire stops.\n\nYou stop too, one hand on the wall, breathing hard. You listen. The station hums — ventilation, reactor vibration, the deep mechanical sounds that pass for silence on New Babylon. But no shots. No shouting. No boots.\n\nThe Compass pulses once against your chest. Slow. Patient.\n\nYou stand in the dark and you do not know what the silence means.",
+      "choices": [
+        {
+          "text": "Keep moving",
+          "goto": "e_new_signal"
         }
       ]
     },
@@ -1183,6 +1206,11 @@
           "text": "Use Harko's extraction tunnel — his man is waiting",
           "goto": "b_new_harko_exit",
           "requires_flag": "harko_deal"
+        },
+        {
+          "text": "Take the longer route through the container stacks",
+          "goto": "b_wit_1",
+          "requires_no_flag": "alarm_triggered"
         },
         {
           "text": "Imperial patrol — you'll have to fight through",
@@ -1544,6 +1572,119 @@
       "text": "You reached Voss. That was the easy part. Getting out again — that was the part you did not plan for.\n\nThe cordon closed behind you. Three soldiers became six. Six became a full squad. They came from both ends of the corridor, cutting off the junction, and the mathematics of the situation became very simple.\n\nVoss fought beside you. He was good — better than you expected, clean shots, disciplined movement. But there were too many of them, and the corridor was too narrow, and eventually a stun round found him and then one found you.\n\nThe Void Compass rolls from your hand as you fall. Its silver veins pulse once, twice, then go dark.\n\nMalachar arrives three minutes later. He picks up the compass without looking at either of you. An aide takes notes.\n\nYour adventure ends here.",
       "ending": true,
       "ending_type": "death"
+    },
+    "e_pre_1": {
+      "text": "You follow the waypoint left, but after thirty metres the corridor changes.\n\nThe frost stops. Not gradually — it ends in a clean line across the floor, as if the cold knows better than to go further. Beyond that line the walls are smooth dark metal, seamless, without bolt or weld. The ceiling is higher than it should be. The proportions are wrong in a way you can't immediately name.\n\nYour boots echo differently here. The sound doesn't bounce — it drops, swallowed by surfaces that weren't designed for human acoustics.\n\nThere is a side passage to your left. It has no door. The opening is shaped like a tall, narrow oval, its edges bevelled inward. Through it, faintly, you can see light. Not station light. Something cooler, steadier, with no visible source.",
+      "choices": [
+        {
+          "text": "Step through the oval passage toward the light",
+          "goto": "e_pre_2"
+        },
+        {
+          "text": "Stay on course — follow the waypoint to Research Lab 7",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_pre_2": {
+      "text": "The passage is short — four steps — but the proportions make it feel longer. The oval opening is wide enough for you to walk through without turning sideways, but only just. It was sized for something narrower at the shoulder and taller at the crown.\n\nYou emerge into a room.\n\nIt is not large. Roughly octagonal, perhaps ten metres across, though the angles are not quite regular — some walls are slightly longer than others, giving the space an asymmetry that feels deliberate. The floor is the same dark metal, but here it slopes. Not toward a wall. Toward the centre, where a shallow depression holds a drain or channel of some kind. The channel leads down at an angle that does not correspond to the station's gravity.\n\nThe light comes from the ceiling. No fixture, no panel. The metal itself holds a faint luminescence, blue-white, constant. It has been doing this for a very long time. You are certain of that without knowing why.\n\nAgainst the far wall, there are recesses. Shallow niches set into the metal at varying heights. Some are at chest level. Others are near the floor. Their shapes suggest they once held objects, but the objects are gone. The niches have too many curves — sized for things with geometries your hands wouldn't know how to grip.",
+      "choices": [
+        {
+          "text": "Examine the recesses more closely",
+          "goto": "e_pre_3"
+        },
+        {
+          "text": "Follow the channel in the floor — see where it leads",
+          "goto": "e_pre_4"
+        }
+      ]
+    },
+    "e_pre_3": {
+      "text": "You crouch beside one of the lower niches and hold your hand inside it. The surface is warm. Not from any mechanism you can detect — no vibration, no hum. The warmth is in the metal itself, as though it remembers being held.\n\nThe niche's shape is complex. Five lobes, but they branch at the tips, and the branches fork again. Whatever rested here had a structure more like coral than bone. You try to imagine the hand — the limb — the body that would reach for this shelf at this height, at this angle, and your mind slides off the picture.\n\nIn the niche beside it, higher up, you find something. A thin disc of the same dark metal, no wider than your palm. It is lodged in the back of the recess as though it slipped behind whatever was meant to sit there. You pry it loose.\n\nIt weighs almost nothing. One face is smooth. The other has a pattern of raised lines — not writing, not circuitry. Something between the two. The lines converge toward one edge of the disc, all of them, like rivers flowing toward a coast you can't see.",
+      "add_items": [
+        "precursor_disc"
+      ],
+      "set_flags": [
+        "precursor_seen"
+      ],
+      "choices": [
+        {
+          "text": "Follow the channel in the floor before you leave",
+          "goto": "e_pre_4"
+        },
+        {
+          "text": "Return to the main corridor and head for Research Lab 7",
+          "goto": "e_pre_5"
+        }
+      ]
+    },
+    "e_pre_4": {
+      "text": "The channel in the floor is shallow — barely deep enough to hold water, if water is what it was meant to hold. It runs from the central depression to the far wall, where it passes through a slit in the metal and continues beyond.\n\nYou follow it to the wall and kneel. Through the slit, you can see the channel continuing — sloping down, curving left, descending into the station's deeper structure. Or into whatever the station was built on top of.\n\nThe light is stronger here. You press your face close to the slit and look.\n\nBelow — far below, further than the station's hull should allow — there is a space. You can't judge the size. The light from the channel illuminates only the nearest surfaces: more dark metal, more curves, more geometry that doesn't repeat. But the sense of volume is enormous. The air that comes through the slit is dry and cold and carries no smell at all.\n\nYou are looking at the top of something. Whatever this room is, it is the uppermost point of a structure that extends downward into a space the station maps don't show.\n\nThe light below is not diffuse. It comes from a direction. You turn your head and the angle resolves: it comes from galactic north-east. From a point in the sky that, at this station's position, holds nothing charted.",
+      "set_flags": [
+        "precursor_seen"
+      ],
+      "choices": [
+        {
+          "text": "Examine the wall recesses before you leave",
+          "goto": "e_pre_3"
+        },
+        {
+          "text": "You've seen enough — return to the corridor and find Research Lab 7",
+          "goto": "e_pre_5"
+        }
+      ]
+    },
+    "e_pre_5": {
+      "text": "You step back through the oval passage into the main corridor. The frost is waiting on the other side of that clean line. Station light. Station sounds. The ticking of thermal expansion in the hull plates.\n\nYou stand still for a moment. The waypoint arrow on your data chip is patient, pointing ahead toward Research Lab 7. The Void Compass is close.\n\nBut you are thinking about the light. The direction it came from. The way every line in that room pointed the same way, like a compass needle that was never meant to spin.",
+      "choices": [
+        {
+          "text": "Continue to Research Lab 7",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "b_wit_1": {
+      "text": "You don't take the direct route. Instead you move along the container stacks, keeping low, working your way through the maze of freight modules toward the far side of the bay. Longer path. Better cover.\n\nYou hear them before you see them. Boots on deck plating — not running, not hurried. A measured pace. The sound of people who have a schedule.\n\nYou press yourself into the gap between two shipping containers and look through the slit where their edges don't quite meet.\n\nThree soldiers in Bureau grey. Standard sidearms, holstered. They're not expecting a fight. Between them, a small group — a woman in maintenance coveralls, an older man with a station tech badge, a kid who can't be more than sixteen. Residents. The kind of people who live in cargo bays because they can't afford the upper decks.\n\nThe soldiers are walking them toward the freight elevator at the far end of the bay. Nobody is in restraints. Nobody is being dragged. They're just walking.",
+      "choices": [
+        {
+          "text": "Keep watching",
+          "goto": "b_wit_2"
+        }
+      ]
+    },
+    "b_wit_2": {
+      "text": "The woman in coveralls stops. She turns to the nearest soldier — a young man, clean-shaven, unremarkable.\n\n'We haven't done anything,' she says. Not shouting. Not pleading. Just stating it, the way you'd correct a clerical error. 'We live here. We work Bay 14 cargo sorting. We don't know anything about Precursor artefacts.'\n\nThe soldier looks at her. He nods, once, the way you'd acknowledge someone telling you the time. Then he puts his hand on her shoulder — not roughly — and guides her forward. She goes. There is nothing else to do.\n\nThe older man says something you can't hear. The soldier behind him answers. You catch the tail end of it: '...processing area. Shouldn't take long.'\n\nProcessing. That's the word. Not detention, not arrest. Processing. Like cargo. Like inventory being moved to a different bay before audit.\n\nThe kid is the last one through the elevator doors. He looks back over his shoulder, scanning the cargo bay — not for rescue, just looking at the place where he lives, as if he is trying to remember it. The doors close.\n\nThe Void Compass sits in your pack. You are aware of its weight in a way you weren't before.",
+      "choices": [
+        {
+          "text": "There's nothing you can do here. Move on.",
+          "goto": "b_2"
+        },
+        {
+          "text": "Follow the soldiers toward the freight elevator",
+          "goto": "b_wit_3"
+        }
+      ]
+    },
+    "b_wit_3": {
+      "text": "You move to the freight elevator. The indicator light shows it descending — sub-level 2, sub-level 3. It stops at sub-level 4. A storage tier. Nothing down there but empty containers and station infrastructure.\n\nNothing down there that anyone would need to see.\n\nYou stand at the elevator doors for a moment longer than you should. You could call it back. Ride it down. Find them. And then what. Fight three armed soldiers. Rescue three people you don't know to a station that is being locked down by an Imperial Inquisitor with a warship at the dock.\n\nYou are a scavenger. You survive by knowing what you can carry and what you have to leave behind.\n\nYou turn away from the elevator and head for the exit.",
+      "choices": [
+        {
+          "text": "Continue",
+          "goto": "b_2"
+        }
+      ]
+    },
+    "e_pre_clean": {
+      "text": "In the antechamber, you saw the same channels cut into the same stone — the same light-carrying geometry. You understand, without being able to explain how, exactly where the pressure plate’s trigger point is. Not learned. Recognised.\n\nYour hand goes to the right spot without hesitation. You press, and the plate clicks inert.\n\nYou lift the Void Compass from the pedestal. It is warm before you touch it. The silver veins pulse brighter, and for a moment you feel the same pull you felt in the antechamber — that sense of direction, pointing somewhere specific. It is stronger now. Much stronger.",
+      "add_items": [
+        "void_compass"
+      ],
+      "choices": [
+        {
+          "text": "Let the compass show you what it wants to show you",
+          "goto": "e_new_compass_vision"
+        }
+      ]
     }
   },
   "start_passage": "s_1"
