@@ -240,7 +240,13 @@
       "choices": [
         {
           "text": "Approach the Morrow lieutenant",
-          "goto": "a_10"
+          "goto": "a_10",
+          "requires_no_flag": "met_harlow"
+        },
+        {
+          "text": "Talk to Harlow — you have things to discuss",
+          "goto": "a_10b",
+          "requires_flag": "met_harlow"
         },
         {
           "text": "Approach Aldous Crane",
@@ -261,7 +267,13 @@
       "choices": [
         {
           "text": "Approach the Morrow lieutenant",
-          "goto": "a_10"
+          "goto": "a_10",
+          "requires_no_flag": "met_harlow"
+        },
+        {
+          "text": "Talk to Harlow — you have things to discuss",
+          "goto": "a_10b",
+          "requires_flag": "met_harlow"
         },
         {
           "text": "Approach Aldous Crane",
@@ -945,7 +957,13 @@
       "choices": [
         {
           "text": "Seek out Morrow — through Harlow at the bar",
-          "goto": "a_10"
+          "goto": "a_10",
+          "requires_no_flag": "met_harlow"
+        },
+        {
+          "text": "Talk to Harlow — you have things to discuss",
+          "goto": "a_10b",
+          "requires_flag": "met_harlow"
         },
         {
           "text": "Find Aldous Crane — the Council might know more",
