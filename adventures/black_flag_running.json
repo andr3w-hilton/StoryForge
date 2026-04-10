@@ -498,7 +498,7 @@
         },
         {
           "text": "Head to the Broken Wheel — you need a drink first",
-          "goto": "a_3"
+          "goto": "a_3b"
         }
       ]
     },
@@ -514,7 +514,7 @@
         },
         {
           "text": "Visit the Broken Wheel first",
-          "goto": "a_3"
+          "goto": "a_3b"
         }
       ]
     },
@@ -4694,6 +4694,23 @@
         "flee_allowed": true,
         "flee_stamina_cost": 3
       }
+    },
+    "a_3b": {
+      "text": "The Broken Wheel is the same as it always is. Smoke, rum, the door that never sits right in its frame.\n\nBut it is different now. You know the woman at the bar — Harlow, who reports to Morrow and watches the room with a professional eye. You know the man in the pressed coat — Crane, writing his figures, pretending not to notice things he absolutely notices. You know the old sailor by the hearth — Drest, who carries the weight of the San Cristóbal in his cup.\n\nYou order something and find a seat. The Adamant is waiting. The Shallows of Perdition are eight leagues south. And you have just agreed to dive a ten-year-old wreck with a woman who has kept its location secret for three years.\n\nYou drink slowly and think about what you have walked into.",
+      "choices": [
+        {
+          "text": "Talk to Harlow — see what she makes of all this",
+          "goto": "a_10"
+        },
+        {
+          "text": "Talk to Crane — the Council should know the plan",
+          "goto": "a_20a"
+        },
+        {
+          "text": "Drink up and return to the Adamant",
+          "goto": "a_60"
+        }
+      ]
     }
   }
 }
