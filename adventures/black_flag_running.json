@@ -1389,12 +1389,15 @@
     "a_76": {
       "text": "The chart shows the Shallows of Perdition — a maze of reef systems and sandbars eight leagues south of Nassau. Morrow has marked a spot with a small red cross.\n\n\"The San Cristóbal sits in twelve fathoms of water, here. The reef protects her from the open ocean but makes approach difficult — you need a shallow-draft vessel and a captain who can navigate tight channels.\" She looks at you. \"A sloop.\"\n\nShe folds the chart. \"The gold funds Nassau's defence. But the Red Correspondence is what matters. Whatever is in that pouch, it is the reason Ashford is here. It is the weapon that makes him leave.\"\n\nShe pushes the chart across the table. \"Your ship. Your crew. Your risk. But this is not a request — it is an offer. Everything Nassau has rides on what comes out of that wreck.\"\n\nThe chart sits between you. The weight of it — paper and ink and the location of a ship that could change everything.",
       "test_luck": {
+        "prompt": "The chart is dense with reef markings and tidal notations. You have navigated difficult waters before — but the Shallows of Perdition are something else. Do you trust your instincts, or do you study every hazard and go in prepared for the worst?",
         "lucky_text": "You feel the familiar quickening — the sense that the tide is turning in your favour. The chart is clear, the markings precise. You can read the reef channels. The Adamant can make this run.",
         "lucky_goto": "a_77",
         "unlucky_text": "A cold feeling settles in your stomach. The chart is complex — the reef channels are narrow and the currents are marked in red. This will not be easy. The Adamant will be tested.",
         "unlucky_goto": "a_77a",
         "lucky_stamina_cost": 0,
-        "unlucky_stamina_cost": 0
+        "unlucky_stamina_cost": 0,
+        "skip_goto": "a_77a",
+        "skip_text": "Study every hazard — go in prepared for the worst"
       }
     },
     "a_77": {

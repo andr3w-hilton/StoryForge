@@ -1198,7 +1198,7 @@
 
         <!-- Luck Test -->
         <div class="luck-test-area" id="luck-area" style="display:none">
-            <div class="luck-prompt">Do you wish to Test Your Luck?</div>
+            <div class="luck-prompt" id="luck-prompt-text">Do you wish to Test Your Luck?</div>
             <div class="combatant-stats" style="font-size:0.82rem">
                 Current LUCK: <span id="luck-current-display" style="color:var(--gold-hi)"></span>
             </div>
@@ -1206,6 +1206,7 @@
             <div class="combat-buttons">
                 <button class="btn btn-luck"  id="btn-test-luck">Test Your Luck</button>
                 <button class="btn"           id="btn-skip-luck" style="display:none">Continue</button>
+                <button class="btn"           id="btn-decline-luck" style="display:none"></button>
             </div>
         </div>
 
@@ -1924,13 +1925,23 @@ function testLuck() {
 }
 
 function renderLuckTest(luckDef) {
+    document.getElementById('luck-prompt-text').textContent = luckDef.prompt || 'Do you wish to Test Your Luck?';
     document.getElementById('luck-current-display').textContent = gameState.luck.current;
     document.getElementById('luck-result-box').style.display = 'none';
     document.getElementById('btn-test-luck').style.display = 'inline-block';
     document.getElementById('btn-skip-luck').style.display = 'none';
     document.getElementById('luck-area').style.display = 'flex';
 
-    // Store def on the button for use in handler
+    // Optional decline button — bypasses the roll and goes straight to skip_goto
+    const btnDecline = document.getElementById('btn-decline-luck');
+    if (luckDef.skip_goto) {
+        btnDecline.textContent = luckDef.skip_text || 'Accept the challenge';
+        btnDecline.style.display = 'inline-block';
+        btnDecline.onclick = () => navigateToPassage(luckDef.skip_goto);
+    } else {
+        btnDecline.style.display = 'none';
+    }
+
     document.getElementById('btn-test-luck').onclick = () => resolveLuckTest(luckDef);
 }
 
