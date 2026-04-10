@@ -2007,6 +2007,7 @@ function resolveLuckTest(luckDef) {
     updateSidebar();
 
     document.getElementById('btn-test-luck').style.display = 'none';
+    document.getElementById('btn-decline-luck').style.display = 'none';
     document.getElementById('btn-skip-luck').style.display = 'inline-block';
 
     const gotoId = lucky ? luckDef.lucky_goto : luckDef.unlucky_goto;
