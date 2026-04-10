@@ -1,0 +1,377 @@
+{
+  "passages": {
+
+    "h_shaft_3": {
+      "text": "The service passage runs straight for fifty metres before opening into a small equipment bay. Lockers line the walls — all forced open, all empty. Other scavengers have been thorough.\n\nBut in the far corner, slumped against a locker, you find something they left behind. A body. Not recent — the station's dry recycled air has turned it into something between a corpse and a mummy. A scavenger, judging by the gear harness. The harness is stripped clean, but there is a personal log chip still slotted into the dead woman's wrist unit.\n\nYou pull the chip and slot it into your own unit. A voice, thin and distorted by time: 'Day fourteen. Deeper than anyone I know has gone. Past the coolant breach, past the crawler nests. The coordinates are good — the Qeth data matches the old station blueprints. There's a sealed research section below Cargo Bay 12. That's where it is.'\n\nA pause. Static. Then: 'Day sixteen. Something else is down here. Not the crawlers. Something organised. I found tool marks on a door — fresh ones. Someone or something is opening hatches that have been sealed for decades. I'm going to—'\n\nThe recording ends.",
+      "choices": [
+        {
+          "text": "Examine the body more closely",
+          "goto": "h_shaft_3c"
+        },
+        {
+          "text": "Take the passage back and continue the descent",
+          "goto": "h_shaft_2"
+        },
+        {
+          "text": "Search the equipment bay more thoroughly",
+          "goto": "h_shaft_3b"
+        }
+      ]
+    },
+
+    "h_shaft_3c": {
+      "text": "You kneel beside the dead scavenger. She has been here a long time — months, maybe longer. The dry station air has preserved her face in a hollow grimace, lips pulled back from teeth.\n\nHer gear harness is stripped, as you noted, but whoever cleaned her out missed a few things. A folded sheet of station blueprint, tucked inside her boot. You pull it free and smooth it out. Hand-annotated in a cramped, precise hand. She mapped her route through the shafts — the coolant breach, the crawler nests, a flooded section she marked AVOID. Her final annotation is a circled section of Sublevel Nine with three words: COMPASS IS REAL.\n\nShe believed. She came this far alone, and she believed.\n\nSomething else. Written on the back of the blueprint in different handwriting — blocky, masculine: LOOKING FOR THE SAME THING. DON'T TRUST THE BUREAU. The ink is fresher than her annotations. Someone else found her body, read her map, and left a message for whoever came next.\n\nYou fold the blueprint and pocket it. The dead scavenger stares at the ceiling with empty sockets. She got close. Closer than most.",
+      "choices": [
+        {
+          "text": "Search the equipment bay more thoroughly",
+          "goto": "h_shaft_3b"
+        },
+        {
+          "text": "Take the passage back and continue the descent",
+          "goto": "h_shaft_2"
+        }
+      ]
+    },
+
+    "h_shaft_7b": {
+      "text": "Before committing to the collapsed section, you notice a side hatch in the corridor wall — a maintenance access point, its signage still legible: ENG. RECORDS — SUBLEVEL EIGHT. The hatch is ajar.\n\nBeyond it, a narrow room lined with filing drawers and a wall-mounted terminal. The terminal is dead, but the drawers are intact. You pull one open. Paper records — actual paper, yellowed and brittle. Engineering reports from the station's original construction crew, decades before the Imperial garrison arrived.\n\nMost of it is technical. Weld specifications. Load-bearing calculations. But one folder is different. It is labelled ANOMALOUS MATERIALS — SECTOR 7 LOWER and stamped with a classification mark you do not recognise. Inside, a single page: a memo requesting that Research Lab 7 be sealed with reinforced bulkheads and placed under separate environmental controls. The reason given is one word: CONTAINMENT.\n\nWhatever the Void Compass is, the people who built this station knew it was here. They built walls around it.",
+      "choices": [
+        {
+          "text": "Take the collapsed left branch — tight but direct",
+          "goto": "h_shaft_8a"
+        },
+        {
+          "text": "Take the clear right branch — longer but safer",
+          "goto": "h_shaft_8b"
+        }
+      ]
+    },
+
+    "h_shaft_7": {
+      "text": "The shaft opens into a broader corridor — a transitional space between the upper maintenance levels and the deep infrastructure below. The walls here are older. The station was built in layers over decades, and this deep you can see the original construction: heavier alloys, cruder welds, design philosophy from a different era.\n\nA side hatch stands ajar to your left, marked ENG. RECORDS — SUBLEVEL EIGHT. Ahead, the corridor splits. The left branch slopes downward at a sharp angle — the direct route deeper, but the ceiling is buckled. Something structural gave way at some point, and the passage narrows to a tight squeeze between collapsed deck plates. The right branch is wider and clear, but curves away from your bearing — a longer route that arcs around whatever caused the collapse.",
+      "choices": [
+        {
+          "text": "Check the engineering records room",
+          "goto": "h_shaft_7b"
+        },
+        {
+          "text": "Take the collapsed left branch — tight but direct",
+          "goto": "h_shaft_8a"
+        },
+        {
+          "text": "Take the clear right branch — longer but safer",
+          "goto": "h_shaft_8b"
+        }
+      ]
+    },
+
+    "h_shaft_8b": {
+      "text": "The right branch curves in a wide arc around the collapse zone. It is an older section — the walls are bare metal here, unfinished, with exposed rivet lines and conduit bundles that were never given proper housing. The station's bones.\n\nThe detour takes twenty minutes. You pass through two empty junction rooms and a decommissioned pump station, its machinery long since stripped for parts. The only sound is your own breathing and the distant, ever-present groan of the station's hull.\n\nAt the far end of the arc, just before the corridor rejoins the main route, you spot a door set into the right wall. A faded placard reads MAINTENANCE CREW REST AREA — SUBLEVEL 8. The door is unlocked.",
+      "choices": [
+        {
+          "text": "Check the rest area",
+          "goto": "h_shaft_rest"
+        },
+        {
+          "text": "Continue deeper",
+          "goto": "h_shaft_9"
+        }
+      ]
+    },
+
+    "h_shaft_rest": {
+      "text": "The rest area is small — four bunks bolted to the wall, a fold-down table, a chemical stove that still has a canister of fuel. A layer of dust covers everything. No one has been here in years.\n\nThe bunks are stripped. Personal effects cleared out in the evacuation. But someone left a logbook on the table — a hardbound Station Authority issue, its cover embossed with a serial number. The last pages are filled with tight, careful handwriting.\n\nThere is also a sealed ration pack wedged behind one of the bunks. Still vacuum-sealed. Still good, if the preservatives have held.",
+      "add_items": ["provisions"],
+      "choices": [
+        {
+          "text": "Read the logbook",
+          "goto": "h_shaft_rest_log"
+        },
+        {
+          "text": "Leave the rest area and continue the descent",
+          "goto": "h_shaft_9"
+        }
+      ]
+    },
+
+    "h_shaft_rest_log": {
+      "text": "The logbook belongs to Maintenance Chief Rhul Okafor. Most entries are mundane — shift rosters, repair schedules, requisition forms. But the final week of entries is different.\n\n'Station-wide memo: all non-essential personnel to evacuate to upper decks. Imperial garrison withdrawing. No explanation given. Research staff in Lab 7 left two days ago without filing departure logs.'\n\n'We sealed the lower decks as ordered. Full atmospheric shutdown below Sublevel Ten. I asked Commander Yeoh why. She said it was classified. She looked scared. I have never seen Yeoh scared of anything.'\n\nThe last entry: 'Something is wrong with the air recyclers on Nine. They are pulling more power than they should — drawing from the emergency grid. The sealed sections below should be vacuum by now, but the atmospheric readings show breathable air in Lab 7. That is not possible unless something down there is generating its own atmosphere.'\n\nBelow that, in a different pen: 'We are leaving. All of us. If anyone reads this — do not go below Sublevel Ten.'\n\nYou close the logbook and set it back on the table.",
+      "choices": [
+        {
+          "text": "Leave the rest area and continue the descent",
+          "goto": "h_shaft_9"
+        }
+      ]
+    },
+
+    "h_shaft_5b": {
+      "text": "The transition between levels is marked by a change in the air. It grows colder with each step, and the mould on the walls thickens — dark patches of it climbing the conduit runs like something reaching upward. Your breath fogs.\n\nThe shaft narrows. The ceiling lowers. You are moving through the spaces between the station's bones now, where the builders never intended anyone to walk. Cable runs press against your shoulders. The floor is uneven — grating in some places, bare hull plate in others, with gaps that show the dark of the level below.\n\nYour headlamp catches something scratched into the wall at eye level. Three vertical lines, crossed by a diagonal. A scavenger's mark — it means PASSAGE CLEAR, ROUTE TESTED. Someone came this way before you and survived it. Small comfort, but comfort nonetheless.",
+      "choices": [
+        {
+          "text": "Continue the descent",
+          "goto": "h_shaft_7"
+        }
+      ]
+    },
+
+    "h_shaft_voss_warn": {
+      "text": "Voss grabs your arm. His grip is iron.\n\n'Stop,' he breathes. Not a suggestion. An order.\n\nYou stop. He points — not ahead, but up. Your headlamp follows his finger to the ceiling, where a pale shape clings motionless to a pipe junction. A duct crawler, large, its body pressed flat against the metal in ambush posture. You would have walked directly under it.\n\n'Saw the leg move,' Voss whispers. 'They drop on you from above. Go for the neck.' He draws his pistol and sights along the barrel. 'On three. One, two—'\n\nHe fires. The shot is deafening in the enclosed shaft. The crawler drops, twitching, and Voss stamps on it twice with his boot heel. Efficient. Brutal.\n\n'You're welcome,' he says, holstering the pistol. The other crawlers — you can hear them deeper in the shaft — scatter at the sound. For now.\n\nThe way forward is clear.",
+      "choices": [
+        {
+          "text": "Continue through the cleared shaft",
+          "goto": "h_shaft_7"
+        }
+      ]
+    },
+
+    "h_shaft_5": {
+      "text": "The shaft levels out briefly at what the station schematics would call Sublevel Nine. The air here has a different quality — thinner, metallic, with an undertone of something biological. Mould or fungal growth coats the walls in irregular patches, dark and faintly damp.\n\nYour headlamp catches movement ahead — a pale shape, fast, scuttling along the ceiling of the shaft. A duct crawler, smaller than the ones you've heard about but still the size of a terrier. It freezes in your light, mandibles twitching, then bolts deeper into the shaft.\n\nYou hear more of them ahead. Clicking. Rustling. A nest, maybe. The shaft continues straight through their territory. To the right, a sealed ventilation iris offers a possible alternate route — a circular mechanical valve sized for cargo airflow, frozen solid with years of corrosion. A side passage angles down and to the left, the walls slick with condensation.",
+      "choices": [
+        {
+          "text": "Voss spots something on the ceiling",
+          "goto": "h_shaft_voss_warn",
+          "requires_flag": "voss_allied"
+        },
+        {
+          "text": "Push through the crawler territory",
+          "goto": "h_shaft_6"
+        },
+        {
+          "text": "Try to cut through the ventilation iris with your vibro-knife",
+          "goto": "h_new_vibro_knife"
+        },
+        {
+          "text": "Take the side passage down",
+          "goto": "h_shaft_5b"
+        }
+      ]
+    },
+
+    "h_shaft_4c": {
+      "text": "You pause at the edge of the flooded section. The body your foot caught on is just visible beneath the surface — a dark shape in the luminescent coolant, face down, arms spread. A scavenger's headlamp, still faintly glowing, rests on the bottom beside the body like a fallen star.\n\nThe coolant has preserved the body better than the dry air preserved the woman in the equipment bay. This one is more recent. Weeks, not months. Male. Heavy build. His gear harness is intact — no one stripped him. He came this far and simply stopped.\n\nYou can see the cause. His right leg, below the knee, is swollen to twice its normal size — dark, mottled, the skin split. A crawler bite, badly infected. He made it this far on adrenaline and willpower and then the leg gave out. He fell face-first into the coolant and did not get up.\n\nHis pack is submerged but within reach. You could fish it out, but it would mean kneeling in the coolant — more exposure to the cold chemicals than you have already endured.",
+      "test_luck": {
+        "lucky_text": "You plunge your arm into the coolant and hook the pack's strap. The cold bites deep but you drag it free. Inside: waterlogged ration bars, a corroded multi-tool, and a hand-drawn map of the lower shafts. The map is ruined, but from what you can read, it confirms your route. You wring the worst of the coolant from your sleeve and press on, grateful for the confirmation.",
+        "lucky_goto": "h_shaft_5",
+        "unlucky_text": "You reach for the pack and lose your balance. One knee plunges into the coolant. The cold is savage — it locks your muscles and you gasp, inhaling acrid fumes. You drag yourself back, empty-handed. The pack is wedged under the body and won't come free. You sit on the grating, shaking, and wait for the feeling to return to your leg. When it does, it comes as pain.",
+        "unlucky_goto": "h_shaft_5",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 2
+      }
+    },
+
+    "h_shaft_4": {
+      "text": "You step into the coolant. It is cold enough to make your teeth ache — industrial refrigerant, not designed for human contact. The fluid comes up past your ankles, soaking through your boots. Each step sends ripples across the surface, disturbing the floating debris.\n\nHalfway across, your foot catches on something submerged — a body. The shape is just visible beneath the green surface.\n\nThe far side of the landing is dry. You haul yourself up onto the grating and shake the worst of the coolant from your legs. Your feet are numb. The shaft continues down.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Look back at the body in the coolant",
+          "goto": "h_shaft_4c"
+        },
+        {
+          "text": "Continue the descent",
+          "goto": "h_shaft_5"
+        }
+      ]
+    },
+
+    "h_shaft_9b": {
+      "text": "Before descending further, you notice a side passage branching from the main shaft — a narrow crawlway marked with yellow hazard stripes. It ends after ten metres at a reinforced viewport set into the floor. A window looking down.\n\nYou kneel and wipe the grime from the glass. Below, lit by the blue emergency lighting of the lower decks, you can see a corridor stretching into the distance. The walls are different down there — darker metal, smoother, without the crude welds and exposed conduit of the upper station. Purpose-built. The architecture of people who expected what they built to last centuries.\n\nSomething moves in the corridor below. A figure — humanoid, armoured. It passes beneath the viewport and continues out of sight. Grey combat armour. Imperial issue.\n\nMalachar's advance team. They are already in the lower decks.\n\nYou pull back from the viewport. The glass is cold against your palms. Somewhere below you, armed professionals are searching for the same thing you are. And they have a head start.",
+      "choices": [
+        {
+          "text": "Descend into the condemned sections",
+          "goto": "h_shaft_10"
+        }
+      ]
+    },
+
+    "h_shaft_9": {
+      "text": "You are deep now. Deep enough that the electromagnetic interference is constant — your headlamp flickers in stuttering pulses, and the data chip in your pocket gives off a faint warmth, as if its circuits are fighting the static.\n\nThe shaft descends one more level and opens onto a wider passage. This is the boundary — below here are the condemned sections, the sealed decks where the atmosphere recyclers failed and the Station Authority stopped sending repair crews. Everything below this point is supposed to be dead.\n\nBut the air moves. And it carries a smell — old, biological, rank. Something down here is very much alive.\n\nA side crawlway branches off to the right, marked with faded yellow hazard stripes. Through the gloom, you can see it ends at what looks like a viewport in the floor.",
+      "choices": [
+        {
+          "text": "Check the viewport",
+          "goto": "h_shaft_9b"
+        },
+        {
+          "text": "Descend into the condemned sections",
+          "goto": "h_shaft_10"
+        }
+      ]
+    },
+
+    "h_9e": {
+      "text": "You work your way along a row of intact containers on the bay's north wall. These are smaller units — personnel storage, personal effects. The kind of containers people fill when they are leaving a place and do not expect to come back.\n\nOne is open. Inside, the remnants of someone's life: folded clothes, a toolkit, a framed photograph of two children standing in front of what looks like a docking bay window with stars behind them. The photo is faded but the children are smiling. They do not know that one day this station will be sealed and abandoned.\n\nAnother container holds engineering manuals and a set of calibration instruments, all carefully packed. A third is empty except for a single item — a Station Authority winter coat, heavy-duty, rated for the cold sections of the lower decks. You pull it on over your gear harness. It fits poorly but the warmth is immediate.\n\nThe bay stretches on. The loading tunnel waits at the far end.",
+      "add_stamina": 1,
+      "choices": [
+        {
+          "text": "Return to the centre of the bay",
+          "goto": "h_9"
+        }
+      ]
+    },
+
+    "h_shaft_1b": {
+      "text": "Voss holds up a fist — the military signal to halt. You stop. He tilts his head, listening, then moves to the wall and runs his fingers along a section of conduit housing.\n\n'Here,' he says quietly. He pulls a loose panel free, revealing a recessed terminal behind the wall cladding. The screen is cracked but still drawing power — a maintenance monitoring station, hidden from casual view. It shows atmospheric readings for the lower levels.\n\n'Look at this.' He taps the screen. 'Sublevel Ten — atmosphere should be zero. Station Authority sealed it and pumped the air. But these readings show breathable atmosphere in sections of the lower deck. Someone — or something — is maintaining life support down there.'\n\nHe replaces the panel carefully. 'Malachar's scouts would have found this too. He knows what's down there is still active.' He checks his pistol. 'We should keep moving. Quietly.'",
+      "choices": [
+        {
+          "text": "Take the main descent route to the left",
+          "goto": "h_shaft_2"
+        },
+        {
+          "text": "Explore the service passage to the right",
+          "goto": "h_shaft_3"
+        }
+      ]
+    },
+
+    "h_shaft_1": {
+      "text": "The shaft drops through three levels of dead infrastructure. Each level is darker than the last. The ladder rungs are slick with condensation, and in places the metal is pitted with corrosion — your hands come away gritty with rust.\n\nAt the second level landing, a junction platform branches in two directions. To the left, a narrow access tunnel slopes downward at a steep angle — the main descent route, marked with faded Station Authority chevrons. To the right, a wider service passage runs horizontally, its ceiling strung with dead cable runs. A faint draught comes from the right — air moving, which means it connects to something open below.\n\nFrom the left tunnel, you hear the distant drip of liquid. From the right, nothing at all.",
+      "choices": [
+        {
+          "text": "Voss notices something on the wall",
+          "goto": "h_shaft_1b",
+          "requires_flag": "voss_allied"
+        },
+        {
+          "text": "Take the main descent route to the left",
+          "goto": "h_shaft_2"
+        },
+        {
+          "text": "Explore the service passage to the right",
+          "goto": "h_shaft_3"
+        }
+      ]
+    },
+
+    "h_shaft_voss_rest": {
+      "text": "At the bottom of the final ladder, Voss leans against the wall and lets out a long breath. The tension in his shoulders eases for the first time since you met him. He pulls a dented canteen from his kit and drinks, then offers it to you.\n\n'I keep thinking about the Qeth team,' he says, not looking at you. 'The archaeologists Malachar killed. There was a woman — Dr. Sev, their lead researcher. She spent three years mapping Precursor sites across the sector. She told me once that the Precursors didn't build things to be found. They built things to be ready. As if they knew someone would need them, eventually.'\n\nHe caps the canteen. 'The Void Compass isn't just valuable, is what I'm saying. If Dr. Sev was right — and she was right about everything else — it does something. Something Malachar wants very badly.'\n\nHe straightens up. 'Let's find it before he does.'",
+      "choices": [
+        {
+          "text": "Continue to the main junction",
+          "goto": "h_5"
+        }
+      ]
+    },
+
+    "h_shaft_10": {
+      "text": "The passage widens as you descend the final ladder. At the bottom, a horizontal crawlway stretches in both directions. To the left, a side corridor branches off into shadow — and from it, you hear voices. Not Imperial. Rough, station dialect. The kind of voices that belong to people who work for Harko.\n\nTo the right, the crawlway continues toward the main junction that leads to the deeper service corridors and cargo bays.",
+      "choices": [
+        {
+          "text": "Those voices — someone is in trouble in that corridor",
+          "goto": "h_new_second_chance",
+          "requires_flag": "met_voss",
+          "requires_no_flag": "voss_allied"
+        },
+        {
+          "text": "Investigate the voices",
+          "goto": "h_shaft_10b",
+          "requires_no_flag": "met_voss"
+        },
+        {
+          "text": "Rest here and talk before moving on",
+          "goto": "h_shaft_voss_rest",
+          "requires_flag": "voss_allied"
+        },
+        {
+          "text": "Continue to the main junction",
+          "goto": "h_5"
+        }
+      ]
+    },
+
+    "h_9b": {
+      "text": "You skirt the east wall of the bay, keeping your headlamp low. The containers here are stacked three high, their markings still legible: PATEL TRADING CONSORTIUM — BONDED CARGO — NEW BABYLON STATION. Commercial goods, locked in place when the lower decks were sealed.\n\nMost are intact. But one stack, near the loading tunnel, has been disturbed. The top container sits at an angle, shoved aside by something enormously strong. The middle container is torn open from the inside — the reinforced wall peeled outward like a flower blooming in steel. Claw marks score the metal in long parallel grooves.\n\nInside the ruined container, a nest. Shredded insulation material piled deep, stained dark with old fluids. Bones — rat-sized, human-sized, and everything between — are scattered through the bedding. The smell is thick and feral.\n\nThis is where the stalker sleeps. You are standing in its home.",
+      "choices": [
+        {
+          "text": "Search the nest carefully",
+          "goto": "h_9c"
+        },
+        {
+          "text": "Back away quietly",
+          "goto": "h_9"
+        }
+      ]
+    },
+
+    "h_9c": {
+      "text": "You hold your breath and pick through the stalker's nest. It is deeply unpleasant work. The bedding is warm — body heat, recently occupied. The creature is close.\n\nAmong the bones and shredded material, you find objects that do not belong. A Station Authority badge, corroded but legible: the name reads SGT. K. MWANGI. A broken comm unit, its casing cracked by teeth marks. A child's shoe, impossibly small, impossibly out of place in this dead section of the station.\n\nThe creature was human once. These are the things it kept. Some buried instinct, deeper than the mutation, made it collect fragments of the life it lost.\n\nYou put the objects back where you found them. There is nothing useful here — only grief, old and calcified. But the nest tells you something practical: the stalker returns here. If you move quickly toward the loading tunnel, you will have to pass through its hunting ground.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Press on toward the loading tunnel",
+          "goto": "h_10"
+        },
+        {
+          "text": "Go back to the main bay",
+          "goto": "h_9"
+        }
+      ]
+    },
+
+    "h_10b": {
+      "text": "You move toward the loading tunnel slowly, reading the bay as you go. The signs are everywhere once you know what to look for. Scratches on the floor — long gouges where something heavy dragged itself between the container rows. A dark smear on a container wall at head height, too thick to be oil. The rank biological smell grows stronger with every step.\n\nYou find a kill site. A rat — one of the station's ubiquitous vermin, grown fat in the lower decks — has been torn apart and partially consumed. The remains are fresh. Hours old at most.\n\nThe stalker is active. It is awake and it has fed recently, which means it is either sated and sluggish or energised and territorial. You have no way to know which.\n\nAhead, between you and the loading tunnel, the container rows open into a wide clearing. Good sightlines, but nowhere to hide. If the creature is here, this is where you will meet it.",
+      "choices": [
+        {
+          "text": "Cross the clearing",
+          "goto": "h_10"
+        },
+        {
+          "text": "Circle back to the main bay",
+          "goto": "h_9"
+        }
+      ]
+    },
+
+    "h_9d": {
+      "text": "You draw the plasma pistol and check the charge. The indicator glows a steady amber — three-quarter power. Down here, in the close confines of the cargo bay, the weapon gives you an edge nothing else in your kit can match. The stalker is big, but superheated plasma does not care about size.\n\nThe pistol's barrel emits a faint warmth against your palm. You keep it drawn as you move between the containers, its weight a reassurance in the cold dark. Whatever is down here, you are not meeting it with just a knife.\n\nThe loading tunnel lies ahead. The smell is stronger now — rank and animal.",
+      "choices": [
+        {
+          "text": "Follow the stalker's trail toward the tunnel",
+          "goto": "h_10b"
+        },
+        {
+          "text": "Press directly to the loading tunnel",
+          "goto": "h_10"
+        }
+      ]
+    },
+
+    "h_9": {
+      "text": "Cargo Bay 12 is cavernous — a vast dark space that swallows your headlamp beam. Shipping containers stand in rusting rows like the buildings of a dead city. The air is cold here, noticeably colder than the corridors above.\n\nYou pick your way between the containers, following the data chip's coordinates. The bay connects to the lower decks through a freight loading tunnel at its far end. But as you move deeper into the bay, you notice something wrong. The containers nearest the loading tunnel have been torn open — not by tools, but by something with terrible strength. Metal peeled back like paper. Claw marks gouged into steel.\n\nAnd there is a smell. Biological. Rank. The smell of something large and alive.",
+      "choices": [
+        {
+          "text": "Press on toward the loading tunnel",
+          "goto": "h_10"
+        },
+        {
+          "text": "Search the torn containers for salvage",
+          "goto": "h_11"
+        },
+        {
+          "text": "Explore the east wall containers",
+          "goto": "h_9b"
+        },
+        {
+          "text": "Ready the plasma pistol and advance",
+          "goto": "h_9d",
+          "requires_item": "plasma_pistol"
+        },
+        {
+          "text": "Follow the trail of claw marks",
+          "goto": "h_10b"
+        },
+        {
+          "text": "Check the north wall storage containers",
+          "goto": "h_9e"
+        },
+        {
+          "text": "Check the wall terminal",
+          "goto": "h_new_terminal"
+        },
+        {
+          "text": "Go back and try Service Corridor 7-Alpha",
+          "goto": "h_6"
+        }
+      ]
+    }
+  }
+}

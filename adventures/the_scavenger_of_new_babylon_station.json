@@ -1,7 +1,7 @@
 {
   "title": "The Scavenger of New Babylon Station",
   "author": "Andrew Hilton",
-  "version": "2.0",
+  "version": "2.1",
   "accent_color": "#8a3030",
   "genre_tag": "SPACE OPERA",
   "theme_icon": "✦",
@@ -177,6 +177,10 @@
           "goto": "s_3"
         },
         {
+          "text": "Browse the other market stalls",
+          "goto": "s_market_1"
+        },
+        {
           "text": "Head for the north maintenance shafts",
           "goto": "h_1"
         },
@@ -304,6 +308,10 @@
           "goto": "s_9"
         },
         {
+          "text": "Check the back room",
+          "goto": "s_sec_terminal"
+        },
+        {
           "text": "Ask to speak with Harko directly",
           "goto": "s_harko_meet"
         },
@@ -319,6 +327,10 @@
         "emp_grenade"
       ],
       "choices": [
+        {
+          "text": "Check the back room",
+          "goto": "s_sec_terminal"
+        },
         {
           "text": "Ask to speak with Harko directly",
           "goto": "s_harko_meet"
@@ -348,6 +360,10 @@
         "harko_deal"
       ],
       "choices": [
+        {
+          "text": "Take a look at Harko's operation before leaving",
+          "goto": "s_harko_tour_1"
+        },
         {
           "text": "Head for the maintenance shafts",
           "goto": "h_5"
@@ -394,6 +410,10 @@
           "text": "Talk to Zara the information broker",
           "goto": "s_3",
           "requires_no_flag": "zara_info"
+        },
+        {
+          "text": "Browse the other market stalls before leaving",
+          "goto": "s_market_1"
         },
         {
           "text": "Head for the north maintenance shafts",
@@ -478,6 +498,11 @@
       "text": "The shaft drops through three levels of dead infrastructure. Each level is darker than the last. The ladder rungs are slick with condensation, and in places the metal is pitted with corrosion — your hands come away gritty with rust.\n\nAt the second level landing, a junction platform branches in two directions. To the left, a narrow access tunnel slopes downward at a steep angle — the main descent route, marked with faded Station Authority chevrons. To the right, a wider service passage runs horizontally, its ceiling strung with dead cable runs. A faint draught comes from the right — air moving, which means it connects to something open below.\n\nFrom the left tunnel, you hear the distant drip of liquid. From the right, nothing at all.",
       "choices": [
         {
+          "text": "Voss notices something on the wall",
+          "goto": "h_shaft_1b",
+          "requires_flag": "voss_allied"
+        },
+        {
           "text": "Take the main descent route to the left",
           "goto": "h_shaft_2"
         },
@@ -502,9 +527,13 @@
       ]
     },
     "h_shaft_4": {
-      "text": "You step into the coolant. It is cold enough to make your teeth ache — industrial refrigerant, not designed for human contact. The fluid comes up past your ankles, soaking through your boots. Each step sends ripples across the surface, disturbing the floating debris.\n\nHalfway across, your foot catches on something submerged — a body. You don't look down. You keep moving.\n\nThe far side of the landing is dry. You haul yourself up onto the grating and shake the worst of the coolant from your legs. Your feet are numb. The shaft continues down.",
+      "text": "You step into the coolant. It is cold enough to make your teeth ache — industrial refrigerant, not designed for human contact. The fluid comes up past your ankles, soaking through your boots. Each step sends ripples across the surface, disturbing the floating debris.\n\nHalfway across, your foot catches on something submerged — a body. The shape is just visible beneath the green surface.\n\nThe far side of the landing is dry. You haul yourself up onto the grating and shake the worst of the coolant from your legs. Your feet are numb. The shaft continues down.",
       "add_stamina": -1,
       "choices": [
+        {
+          "text": "Look back at the body in the coolant",
+          "goto": "h_shaft_4c"
+        },
         {
           "text": "Continue the descent",
           "goto": "h_shaft_5"
@@ -523,6 +552,10 @@
     "h_shaft_3": {
       "text": "The service passage runs straight for fifty metres before opening into a small equipment bay. Lockers line the walls — all forced open, all empty. Other scavengers have been thorough.\n\nBut in the far corner, slumped against a locker, you find something they left behind. A body. Not recent — the station's dry recycled air has turned it into something between a corpse and a mummy. A scavenger, judging by the gear harness. The harness is stripped clean, but there is a personal log chip still slotted into the dead woman's wrist unit.\n\nYou pull the chip and slot it into your own unit. A voice, thin and distorted by time: 'Day fourteen. Deeper than anyone I know has gone. Past the coolant breach, past the crawler nests. The coordinates are good — the Qeth data matches the old station blueprints. There's a sealed research section below Cargo Bay 12. That's where it is.'\n\nA pause. Static. Then: 'Day sixteen. Something else is down here. Not the crawlers. Something organised. I found tool marks on a door — fresh ones. Someone or something is opening hatches that have been sealed for decades. I'm going to—'\n\nThe recording ends.",
       "choices": [
+        {
+          "text": "Examine the body more closely",
+          "goto": "h_shaft_3c"
+        },
         {
           "text": "Take the passage back and continue the descent",
           "goto": "h_shaft_2"
@@ -547,8 +580,13 @@
       ]
     },
     "h_shaft_5": {
-      "text": "The shaft levels out briefly at what the station schematics would call Sublevel Nine. The air here has a different quality — thinner, metallic, with an undertone of something biological. Mould or fungal growth coats the walls in irregular patches, dark and faintly damp.\n\nYour headlamp catches movement ahead — a pale shape, fast, scuttling along the ceiling of the shaft. A duct crawler, smaller than the ones you've heard about but still the size of a terrier. It freezes in your light, mandibles twitching, then bolts deeper into the shaft.\n\nYou hear more of them ahead. Clicking. Rustling. A nest, maybe. The shaft continues straight through their territory. To the right, a sealed ventilation iris offers a possible alternate route — a circular mechanical valve sized for cargo airflow, frozen solid with years of corrosion.",
+      "text": "The shaft levels out briefly at what the station schematics would call Sublevel Nine. The air here has a different quality — thinner, metallic, with an undertone of something biological. Mould or fungal growth coats the walls in irregular patches, dark and faintly damp.\n\nYour headlamp catches movement ahead — a pale shape, fast, scuttling along the ceiling of the shaft. A duct crawler, smaller than the ones you've heard about but still the size of a terrier. It freezes in your light, mandibles twitching, then bolts deeper into the shaft.\n\nYou hear more of them ahead. Clicking. Rustling. A nest, maybe. The shaft continues straight through their territory. To the right, a sealed ventilation iris offers a possible alternate route — a circular mechanical valve sized for cargo airflow, frozen solid with years of corrosion. A side passage angles down and to the left, the walls slick with condensation.",
       "choices": [
+        {
+          "text": "Voss spots something on the ceiling",
+          "goto": "h_shaft_voss_warn",
+          "requires_flag": "voss_allied"
+        },
         {
           "text": "Push through the crawler territory",
           "goto": "h_shaft_6"
@@ -556,6 +594,10 @@
         {
           "text": "Try to cut through the ventilation iris with your vibro-knife",
           "goto": "h_new_vibro_knife"
+        },
+        {
+          "text": "Take the side passage down",
+          "goto": "h_shaft_5b"
         }
       ]
     },
@@ -580,8 +622,12 @@
       ]
     },
     "h_shaft_7": {
-      "text": "The shaft opens into a broader corridor — a transitional space between the upper maintenance levels and the deep infrastructure below. The walls here are older. The station was built in layers over decades, and this deep you can see the original construction: heavier alloys, cruder welds, design philosophy from a different era.\n\nAhead, the corridor splits. The left branch slopes downward at a sharp angle — the direct route deeper, but the ceiling is buckled. Something structural gave way at some point, and the passage narrows to a tight squeeze between collapsed deck plates. The right branch is wider and clear, but curves away from your bearing — a longer route that arcs around whatever caused the collapse.",
+      "text": "The shaft opens into a broader corridor — a transitional space between the upper maintenance levels and the deep infrastructure below. The walls here are older. The station was built in layers over decades, and this deep you can see the original construction: heavier alloys, cruder welds, design philosophy from a different era.\n\nA side hatch stands ajar to your left, marked ENG. RECORDS — SUBLEVEL EIGHT. Ahead, the corridor splits. The left branch slopes downward at a sharp angle — the direct route deeper, but the ceiling is buckled. Something structural gave way at some point, and the passage narrows to a tight squeeze between collapsed deck plates. The right branch is wider and clear, but curves away from your bearing — a longer route that arcs around whatever caused the collapse.",
       "choices": [
+        {
+          "text": "Check the engineering records room",
+          "goto": "h_shaft_7b"
+        },
         {
           "text": "Take the collapsed left branch — tight but direct",
           "goto": "h_shaft_8a"
@@ -603,8 +649,12 @@
       ]
     },
     "h_shaft_8b": {
-      "text": "The right branch curves in a wide arc around the collapse zone. It is an older section — the walls are bare metal here, unfinished, with exposed rivet lines and conduit bundles that were never given proper housing. The station's bones.\n\nThe detour takes twenty minutes. You pass through two empty junction rooms and a decommissioned pump station, its machinery long since stripped for parts. The only sound is your own breathing and the distant, ever-present groan of the station's hull.",
+      "text": "The right branch curves in a wide arc around the collapse zone. It is an older section — the walls are bare metal here, unfinished, with exposed rivet lines and conduit bundles that were never given proper housing. The station's bones.\n\nThe detour takes twenty minutes. You pass through two empty junction rooms and a decommissioned pump station, its machinery long since stripped for parts. The only sound is your own breathing and the distant, ever-present groan of the station's hull.\n\nAt the far end of the arc, just before the corridor rejoins the main route, you spot a door set into the right wall. A faded placard reads MAINTENANCE CREW REST AREA — SUBLEVEL 8. The door is unlocked.",
       "choices": [
+        {
+          "text": "Check the rest area",
+          "goto": "h_shaft_rest"
+        },
         {
           "text": "Continue deeper",
           "goto": "h_shaft_9"
@@ -612,8 +662,12 @@
       ]
     },
     "h_shaft_9": {
-      "text": "You are deep now. Deep enough that the electromagnetic interference is constant — your headlamp flickers in stuttering pulses, and the data chip in your pocket gives off a faint warmth, as if its circuits are fighting the static.\n\nThe shaft descends one more level and opens onto a wider passage. This is the boundary — below here are the condemned sections, the sealed decks where the atmosphere recyclers failed and the Station Authority stopped sending repair crews. Everything below this point is supposed to be dead.\n\nBut the air moves. And it carries a smell — old, biological, rank. Something down here is very much alive.",
+      "text": "You are deep now. Deep enough that the electromagnetic interference is constant — your headlamp flickers in stuttering pulses, and the data chip in your pocket gives off a faint warmth, as if its circuits are fighting the static.\n\nThe shaft descends one more level and opens onto a wider passage. This is the boundary — below here are the condemned sections, the sealed decks where the atmosphere recyclers failed and the Station Authority stopped sending repair crews. Everything below this point is supposed to be dead.\n\nBut the air moves. And it carries a smell — old, biological, rank. Something down here is very much alive.\n\nA side crawlway branches off to the right, marked with faded yellow hazard stripes. Through the gloom, you can see it ends at what looks like a viewport in the floor.",
       "choices": [
+        {
+          "text": "Check the viewport",
+          "goto": "h_shaft_9b"
+        },
         {
           "text": "Descend into the condemned sections",
           "goto": "h_shaft_10"
@@ -633,6 +687,11 @@
           "text": "Investigate the voices",
           "goto": "h_shaft_10b",
           "requires_no_flag": "met_voss"
+        },
+        {
+          "text": "Rest here and talk before moving on",
+          "goto": "h_shaft_voss_rest",
+          "requires_flag": "voss_allied"
         },
         {
           "text": "Continue to the main junction",
@@ -784,6 +843,23 @@
           "goto": "h_11"
         },
         {
+          "text": "Explore the east wall containers",
+          "goto": "h_9b"
+        },
+        {
+          "text": "Ready the plasma pistol and advance",
+          "goto": "h_9d",
+          "requires_item": "plasma_pistol"
+        },
+        {
+          "text": "Follow the trail of claw marks",
+          "goto": "h_10b"
+        },
+        {
+          "text": "Check the north wall storage containers",
+          "goto": "h_9e"
+        },
+        {
           "text": "Check the wall terminal",
           "goto": "h_new_terminal"
         },
@@ -886,6 +962,14 @@
           "text": "Warn Voss and plan an ambush",
           "goto": "e_4",
           "requires_flag": "voss_allied"
+        },
+        {
+          "text": "Take the side corridor marked 'Engineering Section 4'",
+          "goto": "e_eng_1"
+        },
+        {
+          "text": "A flooded passage branches off to the left — ankle-deep liquid reflects your light",
+          "goto": "e_flood_1"
         }
       ]
     },
@@ -899,6 +983,10 @@
         {
           "text": "Investigate the Imperial comms",
           "goto": "e_3"
+        },
+        {
+          "text": "Take the side corridor marked 'Engineering Section 4'",
+          "goto": "e_eng_1"
         }
       ]
     },
@@ -977,6 +1065,10 @@
         {
           "text": "Press on toward the Void Compass",
           "goto": "e_10"
+        },
+        {
+          "text": "Watch the soldiers react to the false data",
+          "goto": "e_imp_disarray"
         }
       ]
     },
@@ -989,6 +1081,10 @@
         {
           "text": "Move quickly toward the Void Compass",
           "goto": "e_10"
+        },
+        {
+          "text": "Follow the fleeing soldier — stop him before he reports",
+          "goto": "e_imp_pursuit"
         }
       ]
     },
@@ -1011,6 +1107,10 @@
           "text": "You have seen this mechanism before. You know where the trigger is.",
           "goto": "e_pre_clean",
           "requires_flag": "precursor_seen"
+        },
+        {
+          "text": "Check the side room first — more artefacts on the workbenches",
+          "goto": "e_lab_side"
         }
       ]
     },
@@ -1060,17 +1160,21 @@
         },
         {
           "text": "Run for the exit — the way you came in",
-          "goto": "e_14",
+          "goto": "e_alarm_atmo",
           "style": "danger"
         },
         {
           "text": "Look for another way out of the lab",
           "goto": "e_15"
+        },
+        {
+          "text": "The Precursor corridor — you saw it curve behind the lab",
+          "goto": "e_escape_alt"
         }
       ]
     },
     "e_14": {
-      "text": "You sprint back through the corridors, the Void Compass clutched to your chest. Behind you, the sound of pursuit grows louder — boots on metal, shouted orders in Imperial military cadence.\n\nYou round a corner and skid to a halt. Two Imperial soldiers stand in the corridor ahead, weapons drawn, blocking your retreat. Behind you, more are closing in.",
+      "text": "You sprint back through the corridors, the Void Compass clutched to your chest. Behind you, the sound of pursuit grows louder — boots on metal, shouted orders in Imperial military cadence.\n\nThe station responds to the alarm. Blast doors you passed through minutes ago begin cycling — closing, opening, closing again in a pattern that follows no logic you can parse. The corridor lighting shifts from the faint white of emergency systems to deep red, bathing everything in the colour of warning. An automated PA activates, cycling through Imperial military protocol in a flat synthetic voice: 'Security condition red. All sectors. Lockdown in progress.'\n\nYou round a corner and skid to a halt. Two Imperial soldiers stand in the corridor ahead, weapons drawn, blocking your retreat. Behind you, more are closing in.",
       "choices": [
         {
           "text": "Fight through them",
@@ -1085,6 +1189,11 @@
           "text": "Voss — create a diversion!",
           "goto": "e_18",
           "requires_flag": "voss_allied"
+        },
+        {
+          "text": "The service crawlway — you saw the access hatch on the way in",
+          "goto": "e_escape_service",
+          "requires_flag": "sensors_sabotaged"
         }
       ]
     },
@@ -1203,6 +1312,10 @@
       "text": "You are climbing. Back through the dark tunnels, back up through the station's guts, the Void Compass pulsing softly in your pack. The way out is close — you can feel it in the changing air pressure, the faint warmth of the inhabited decks above.\n\nYou pull yourself up through a floor hatch into Cargo Bay 12. The cavernous space is dark, cold, and almost silent — just the hum of the station's ancient life support cycling through its last reserves.\n\nThen the PA system crackles. An automated voice first — flat, synthetic: 'Docking confirmation. Imperial corvette Relentless. Docking bay seven. Clearance code accepted.'\n\nA pause. Then a different voice. Calm, precise, carried on every speaker in the station.\n\n'This is Inquisitor Malachar of the Imperial Bureau of Antiquities. This station is now under Imperial jurisdiction. All persons in possession of artefacts of Precursor origin are ordered to surrender immediately. Non-compliance will be treated as sedition.'\n\nThe PA cuts out. The silence that follows is worse than the announcement.\n\nHe is here. The cargo bay exit is ahead of you — the route back to the upper decks, the docking ring, your ship. Between you and it: depends on what happened below.",
       "choices": [
         {
+          "text": "Listen — the station is changing around you",
+          "goto": "b_new_pa"
+        },
+        {
           "text": "Use Harko's extraction tunnel — his man is waiting",
           "goto": "b_new_harko_exit",
           "requires_flag": "harko_deal"
@@ -1240,7 +1353,7 @@
       "add_stamina": -2,
       "combat": {
         "enemy": "imperial_soldier",
-        "win_goto": "b_2",
+        "win_goto": "b_new_malachar_prep",
         "flee_goto": "death_cornered",
         "flee_allowed": false
       }
@@ -1331,6 +1444,10 @@
     "b_8": {
       "text": "Malachar falls. The Inquisitor — terror of the frontier, collector of forbidden artefacts, destroyer of worlds — lies on the deck of a cargo bay in a dying station at the edge of nowhere, and he does not get up.\n\nThe Void Compass pulses in your pack, steady as a heartbeat. You are bleeding, exhausted, and a long way from safe. But you are alive, and the artefact is yours.\n\nYou step over Malachar's body. The corridor ahead is still — but still is not the same as safe.",
       "choices": [
+        {
+          "text": "Search Malachar before you go",
+          "goto": "b_new_aftermath"
+        },
         {
           "text": "Head for the ship — Voss will find his way",
           "goto": "b_voss_gate",
@@ -1670,7 +1787,7 @@
       "choices": [
         {
           "text": "Continue",
-          "goto": "b_2"
+          "goto": "b_new_bay_approach"
         }
       ]
     },
@@ -1685,6 +1802,1081 @@
           "goto": "e_new_compass_vision"
         }
       ]
+    },
+    "h_shaft_3c": {
+      "text": "You kneel beside the dead scavenger. She has been here a long time — months, maybe longer. The dry station air has preserved her face in a hollow grimace, lips pulled back from teeth.\n\nHer gear harness is stripped, as you noted, but whoever cleaned her out missed a few things. A folded sheet of station blueprint, tucked inside her boot. You pull it free and smooth it out. Hand-annotated in a cramped, precise hand. She mapped her route through the shafts — the coolant breach, the crawler nests, a flooded section she marked AVOID. Her final annotation is a circled section of Sublevel Nine with three words: COMPASS IS REAL.\n\nShe believed. She came this far alone, and she believed.\n\nSomething else. Written on the back of the blueprint in different handwriting — blocky, masculine: LOOKING FOR THE SAME THING. DON'T TRUST THE BUREAU. The ink is fresher than her annotations. Someone else found her body, read her map, and left a message for whoever came next.\n\nYou fold the blueprint and pocket it. The dead scavenger stares at the ceiling with empty sockets. She got close. Closer than most.",
+      "choices": [
+        {
+          "text": "Search the equipment bay more thoroughly",
+          "goto": "h_shaft_3b"
+        },
+        {
+          "text": "Take the passage back and continue the descent",
+          "goto": "h_shaft_2"
+        }
+      ]
+    },
+    "h_shaft_7b": {
+      "text": "Before committing to the collapsed section, you notice a side hatch in the corridor wall — a maintenance access point, its signage still legible: ENG. RECORDS — SUBLEVEL EIGHT. The hatch is ajar.\n\nBeyond it, a narrow room lined with filing drawers and a wall-mounted terminal. The terminal is dead, but the drawers are intact. You pull one open. Paper records — actual paper, yellowed and brittle. Engineering reports from the station's original construction crew, decades before the Imperial garrison arrived.\n\nMost of it is technical. Weld specifications. Load-bearing calculations. But one folder is different. It is labelled ANOMALOUS MATERIALS — SECTOR 7 LOWER and stamped with a classification mark you do not recognise. Inside, a single page: a memo requesting that Research Lab 7 be sealed with reinforced bulkheads and placed under separate environmental controls. The reason given is one word: CONTAINMENT.\n\nWhatever the Void Compass is, the people who built this station knew it was here. They built walls around it.",
+      "choices": [
+        {
+          "text": "Take the collapsed left branch — tight but direct",
+          "goto": "h_shaft_8a"
+        },
+        {
+          "text": "Take the clear right branch — longer but safer",
+          "goto": "h_shaft_8b"
+        }
+      ]
+    },
+    "h_shaft_rest": {
+      "text": "The rest area is small — four bunks bolted to the wall, a fold-down table, a chemical stove that still has a canister of fuel. A layer of dust covers everything. No one has been here in years.\n\nThe bunks are stripped. Personal effects cleared out in the evacuation. But someone left a logbook on the table — a hardbound Station Authority issue, its cover embossed with a serial number. The last pages are filled with tight, careful handwriting.\n\nThere is also a sealed ration pack wedged behind one of the bunks. Still vacuum-sealed. Still good, if the preservatives have held.",
+      "add_items": [
+        "provisions"
+      ],
+      "choices": [
+        {
+          "text": "Read the logbook",
+          "goto": "h_shaft_rest_log"
+        },
+        {
+          "text": "Leave the rest area and continue the descent",
+          "goto": "h_shaft_9"
+        }
+      ]
+    },
+    "h_shaft_rest_log": {
+      "text": "The logbook belongs to Maintenance Chief Rhul Okafor. Most entries are mundane — shift rosters, repair schedules, requisition forms. But the final week of entries is different.\n\n'Station-wide memo: all non-essential personnel to evacuate to upper decks. Imperial garrison withdrawing. No explanation given. Research staff in Lab 7 left two days ago without filing departure logs.'\n\n'We sealed the lower decks as ordered. Full atmospheric shutdown below Sublevel Ten. I asked Commander Yeoh why. She said it was classified. She looked scared. I have never seen Yeoh scared of anything.'\n\nThe last entry: 'Something is wrong with the air recyclers on Nine. They are pulling more power than they should — drawing from the emergency grid. The sealed sections below should be vacuum by now, but the atmospheric readings show breathable air in Lab 7. That is not possible unless something down there is generating its own atmosphere.'\n\nBelow that, in a different pen: 'We are leaving. All of us. If anyone reads this — do not go below Sublevel Ten.'\n\nYou close the logbook and set it back on the table.",
+      "choices": [
+        {
+          "text": "Leave the rest area and continue the descent",
+          "goto": "h_shaft_9"
+        }
+      ]
+    },
+    "h_shaft_5b": {
+      "text": "The transition between levels is marked by a change in the air. It grows colder with each step, and the mould on the walls thickens — dark patches of it climbing the conduit runs like something reaching upward. Your breath fogs.\n\nThe shaft narrows. The ceiling lowers. You are moving through the spaces between the station's bones now, where the builders never intended anyone to walk. Cable runs press against your shoulders. The floor is uneven — grating in some places, bare hull plate in others, with gaps that show the dark of the level below.\n\nYour headlamp catches something scratched into the wall at eye level. Three vertical lines, crossed by a diagonal. A scavenger's mark — it means PASSAGE CLEAR, ROUTE TESTED. Someone came this way before you and survived it. Small comfort, but comfort nonetheless.",
+      "choices": [
+        {
+          "text": "Continue the descent",
+          "goto": "h_shaft_7"
+        }
+      ]
+    },
+    "h_shaft_voss_warn": {
+      "text": "Voss grabs your arm. His grip is iron.\n\n'Stop,' he breathes. Not a suggestion. An order.\n\nYou stop. He points — not ahead, but up. Your headlamp follows his finger to the ceiling, where a pale shape clings motionless to a pipe junction. A duct crawler, large, its body pressed flat against the metal in ambush posture. You would have walked directly under it.\n\n'Saw the leg move,' Voss whispers. 'They drop on you from above. Go for the neck.' He draws his pistol and sights along the barrel. 'On three. One, two—'\n\nHe fires. The shot is deafening in the enclosed shaft. The crawler drops, twitching, and Voss stamps on it twice with his boot heel. Efficient. Brutal.\n\n'You're welcome,' he says, holstering the pistol. The other crawlers — you can hear them deeper in the shaft — scatter at the sound. For now.\n\nThe way forward is clear.",
+      "choices": [
+        {
+          "text": "Continue through the cleared shaft",
+          "goto": "h_shaft_7"
+        }
+      ]
+    },
+    "h_shaft_4c": {
+      "text": "You pause at the edge of the flooded section. The body your foot caught on is just visible beneath the surface — a dark shape in the luminescent coolant, face down, arms spread. A scavenger's headlamp, still faintly glowing, rests on the bottom beside the body like a fallen star.\n\nThe coolant has preserved the body better than the dry air preserved the woman in the equipment bay. This one is more recent. Weeks, not months. Male. Heavy build. His gear harness is intact — no one stripped him. He came this far and simply stopped.\n\nYou can see the cause. His right leg, below the knee, is swollen to twice its normal size — dark, mottled, the skin split. A crawler bite, badly infected. He made it this far on adrenaline and willpower and then the leg gave out. He fell face-first into the coolant and did not get up.\n\nHis pack is submerged but within reach. You could fish it out, but it would mean kneeling in the coolant — more exposure to the cold chemicals than you have already endured.",
+      "test_luck": {
+        "lucky_text": "You plunge your arm into the coolant and hook the pack's strap. The cold bites deep but you drag it free. Inside: waterlogged ration bars, a corroded multi-tool, and a hand-drawn map of the lower shafts. The map is ruined, but from what you can read, it confirms your route. You wring the worst of the coolant from your sleeve and press on, grateful for the confirmation.",
+        "lucky_goto": "h_shaft_5",
+        "unlucky_text": "You reach for the pack and lose your balance. One knee plunges into the coolant. The cold is savage — it locks your muscles and you gasp, inhaling acrid fumes. You drag yourself back, empty-handed. The pack is wedged under the body and won't come free. You sit on the grating, shaking, and wait for the feeling to return to your leg. When it does, it comes as pain.",
+        "unlucky_goto": "h_shaft_5",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 2
+      }
+    },
+    "h_shaft_9b": {
+      "text": "Before descending further, you notice a side passage branching from the main shaft — a narrow crawlway marked with yellow hazard stripes. It ends after ten metres at a reinforced viewport set into the floor. A window looking down.\n\nYou kneel and wipe the grime from the glass. Below, lit by the blue emergency lighting of the lower decks, you can see a corridor stretching into the distance. The walls are different down there — darker metal, smoother, without the crude welds and exposed conduit of the upper station. Purpose-built. The architecture of people who expected what they built to last centuries.\n\nSomething moves in the corridor below. A figure — humanoid, armoured. It passes beneath the viewport and continues out of sight. Grey combat armour. Imperial issue.\n\nMalachar's advance team. They are already in the lower decks.\n\nYou pull back from the viewport. The glass is cold against your palms. Somewhere below you, armed professionals are searching for the same thing you are. And they have a head start.",
+      "choices": [
+        {
+          "text": "Descend into the condemned sections",
+          "goto": "h_shaft_10"
+        }
+      ]
+    },
+    "h_9e": {
+      "text": "You work your way along a row of intact containers on the bay's north wall. These are smaller units — personnel storage, personal effects. The kind of containers people fill when they are leaving a place and do not expect to come back.\n\nOne is open. Inside, the remnants of someone's life: folded clothes, a toolkit, a framed photograph of two children standing in front of what looks like a docking bay window with stars behind them. The photo is faded but the children are smiling. They do not know that one day this station will be sealed and abandoned.\n\nAnother container holds engineering manuals and a set of calibration instruments, all carefully packed. A third is empty except for a single item — a Station Authority winter coat, heavy-duty, rated for the cold sections of the lower decks. You pull it on over your gear harness. It fits poorly but the warmth is immediate.\n\nThe bay stretches on. The loading tunnel waits at the far end.",
+      "add_stamina": 1,
+      "choices": [
+        {
+          "text": "Return to the centre of the bay",
+          "goto": "h_9"
+        }
+      ]
+    },
+    "h_shaft_1b": {
+      "text": "Voss holds up a fist — the military signal to halt. You stop. He tilts his head, listening, then moves to the wall and runs his fingers along a section of conduit housing.\n\n'Here,' he says quietly. He pulls a loose panel free, revealing a recessed terminal behind the wall cladding. The screen is cracked but still drawing power — a maintenance monitoring station, hidden from casual view. It shows atmospheric readings for the lower levels.\n\n'Look at this.' He taps the screen. 'Sublevel Ten — atmosphere should be zero. Station Authority sealed it and pumped the air. But these readings show breathable atmosphere in sections of the lower deck. Someone — or something — is maintaining life support down there.'\n\nHe replaces the panel carefully. 'Malachar's scouts would have found this too. He knows what's down there is still active.' He checks his pistol. 'We should keep moving. Quietly.'",
+      "choices": [
+        {
+          "text": "Take the main descent route to the left",
+          "goto": "h_shaft_2"
+        },
+        {
+          "text": "Explore the service passage to the right",
+          "goto": "h_shaft_3"
+        }
+      ]
+    },
+    "h_shaft_voss_rest": {
+      "text": "At the bottom of the final ladder, Voss leans against the wall and lets out a long breath. The tension in his shoulders eases for the first time since you met him. He pulls a dented canteen from his kit and drinks, then offers it to you.\n\n'I keep thinking about the Qeth team,' he says, not looking at you. 'The archaeologists Malachar killed. There was a woman — Dr. Sev, their lead researcher. She spent three years mapping Precursor sites across the sector. She told me once that the Precursors didn't build things to be found. They built things to be ready. As if they knew someone would need them, eventually.'\n\nHe caps the canteen. 'The Void Compass isn't just valuable, is what I'm saying. If Dr. Sev was right — and she was right about everything else — it does something. Something Malachar wants very badly.'\n\nHe straightens up. 'Let's find it before he does.'",
+      "choices": [
+        {
+          "text": "Continue to the main junction",
+          "goto": "h_5"
+        }
+      ]
+    },
+    "h_9b": {
+      "text": "You skirt the east wall of the bay, keeping your headlamp low. The containers here are stacked three high, their markings still legible: PATEL TRADING CONSORTIUM — BONDED CARGO — NEW BABYLON STATION. Commercial goods, locked in place when the lower decks were sealed.\n\nMost are intact. But one stack, near the loading tunnel, has been disturbed. The top container sits at an angle, shoved aside by something enormously strong. The middle container is torn open from the inside — the reinforced wall peeled outward like a flower blooming in steel. Claw marks score the metal in long parallel grooves.\n\nInside the ruined container, a nest. Shredded insulation material piled deep, stained dark with old fluids. Bones — rat-sized, human-sized, and everything between — are scattered through the bedding. The smell is thick and feral.\n\nThis is where the stalker sleeps. You are standing in its home.",
+      "choices": [
+        {
+          "text": "Search the nest carefully",
+          "goto": "h_9c"
+        },
+        {
+          "text": "Back away quietly",
+          "goto": "h_9"
+        }
+      ]
+    },
+    "h_9c": {
+      "text": "You hold your breath and pick through the stalker's nest. It is deeply unpleasant work. The bedding is warm — body heat, recently occupied. The creature is close.\n\nAmong the bones and shredded material, you find objects that do not belong. A Station Authority badge, corroded but legible: the name reads SGT. K. MWANGI. A broken comm unit, its casing cracked by teeth marks. A child's shoe, impossibly small, impossibly out of place in this dead section of the station.\n\nThe creature was human once. These are the things it kept. Some buried instinct, deeper than the mutation, made it collect fragments of the life it lost.\n\nYou put the objects back where you found them. There is nothing useful here — only grief, old and calcified. But the nest tells you something practical: the stalker returns here. If you move quickly toward the loading tunnel, you will have to pass through its hunting ground.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Press on toward the loading tunnel",
+          "goto": "h_10"
+        },
+        {
+          "text": "Go back to the main bay",
+          "goto": "h_9"
+        }
+      ]
+    },
+    "h_10b": {
+      "text": "You move toward the loading tunnel slowly, reading the bay as you go. The signs are everywhere once you know what to look for. Scratches on the floor — long gouges where something heavy dragged itself between the container rows. A dark smear on a container wall at head height, too thick to be oil. The rank biological smell grows stronger with every step.\n\nYou find a kill site. A rat — one of the station's ubiquitous vermin, grown fat in the lower decks — has been torn apart and partially consumed. The remains are fresh. Hours old at most.\n\nThe stalker is active. It is awake and it has fed recently, which means it is either sated and sluggish or energised and territorial. You have no way to know which.\n\nAhead, between you and the loading tunnel, the container rows open into a wide clearing. Good sightlines, but nowhere to hide. If the creature is here, this is where you will meet it.",
+      "choices": [
+        {
+          "text": "Cross the clearing",
+          "goto": "h_10"
+        },
+        {
+          "text": "Circle back to the main bay",
+          "goto": "h_9"
+        }
+      ]
+    },
+    "h_9d": {
+      "text": "You draw the plasma pistol and check the charge. The indicator glows a steady amber — three-quarter power. Down here, in the close confines of the cargo bay, the weapon gives you an edge nothing else in your kit can match. The stalker is big, but superheated plasma does not care about size.\n\nThe pistol's barrel emits a faint warmth against your palm. You keep it drawn as you move between the containers, its weight a reassurance in the cold dark. Whatever is down here, you are not meeting it with just a knife.\n\nThe loading tunnel lies ahead. The smell is stronger now — rank and animal.",
+      "choices": [
+        {
+          "text": "Follow the stalker's trail toward the tunnel",
+          "goto": "h_10b"
+        },
+        {
+          "text": "Press directly to the loading tunnel",
+          "goto": "h_10"
+        }
+      ]
+    },
+    "s_market_1": {
+      "text": "You drift deeper into the market, past the main stalls. The crowd thins slightly here — fewer shoppers, more people with business that does not involve browsing. A narrow lane branches off between two welded containers.\n\nOn the left, a stall is hung with objects that do not belong on this station. Carved stones. A ring of dark metal. Something that looks like a compass but is not. A hand-lettered sign reads: PRECURSOR ARTEFACTS — AUTHENTICATED. The dealer is a thin human woman with prosthetic eyes that track you with unnerving precision.\n\nAcross the lane, a canteen has been set up in what was once a storage alcove — a counter, six stools, a pot of something that smells almost like coffee. Three scavengers sit at the counter, talking in low voices.\n\nFarther down the lane, you can see a viewport set into the station's hull — one of the few on the middle ring that has not been plated over.",
+      "choices": [
+        {
+          "text": "Examine the artefact dealer's wares",
+          "goto": "s_market_artefact"
+        },
+        {
+          "text": "Sit at the canteen and listen",
+          "goto": "s_market_canteen"
+        },
+        {
+          "text": "Look out the viewport",
+          "goto": "s_market_viewport"
+        },
+        {
+          "text": "Head back to the main market",
+          "goto": "s_1"
+        }
+      ]
+    },
+    "s_market_artefact": {
+      "text": "You stop at the stall and pick up the compass-like object. It is warm to the touch, which it should not be.\n\nThe dealer watches you with those prosthetic eyes. 'Precursor navigation aid,' she says. 'Third dynasty. Non-functional — the crystal matrix is cracked. Decorative only.' Her voice is flat and rehearsed.\n\nYou set it down and let your gaze drift across the other items. 'I'm looking for something specific. A Precursor navigation device. Intact.'\n\nThe change in her is immediate. Her hands go still. The prosthetic eyes dilate — an involuntary reflex, or the closest thing to one.\n\n'I don't deal in intact Precursor nav systems,' she says. Too quickly. 'Those are Bureau-controlled items. Class one restricted.'\n\n'I didn't say I was buying. I said I was looking.'\n\nShe is quiet for a long moment. When she speaks again, her voice is lower. 'If something like that existed on this station, and if someone were looking for it, I would tell that person two things. First: the Bureau already knows. Second: whatever is in the lower decks has been there a long time, and the things that guard it have been there longer.'\n\nShe picks up a cloth and begins polishing a stone. The conversation is over.",
+      "choices": [
+        {
+          "text": "Try the canteen",
+          "goto": "s_market_canteen"
+        },
+        {
+          "text": "Check the viewport",
+          "goto": "s_market_viewport"
+        },
+        {
+          "text": "Return to the main market",
+          "goto": "s_1"
+        }
+      ]
+    },
+    "s_market_canteen": {
+      "text": "You take a stool at the canteen counter and order whatever passes for coffee. It arrives in a dented tin cup — dark, bitter, and scalding. Good enough.\n\nThe three scavengers beside you are mid-conversation. You keep your eyes on your cup and your ears open.\n\n'...went down to sub-four last week,' the one nearest to you is saying. A wiry woman with burn scars on her forearms. 'Made it as far as the atrium before the crawlers came out of the vents. Three of them. Lost my pack and barely made it back to the shaft.'\n\n'Sub-four is gone,' says the man beside her. Big, bearded, missing two fingers on his left hand. 'Anything below three is crawler territory now. They nest in the ductwork — you can hear them clicking if you put your ear to the walls.'\n\nThe third scavenger, a young Qeth with a bandaged arm, shakes his head. 'The crawlers are not the problem. There is something else down there. Below sub-five. I heard it through the deck plates. Something large. Moving slowly.' He pauses. 'It was not mechanical.'\n\nThe other two go quiet. The woman finishes her coffee and does not order another.\n\nAt the far end of the counter, a man in clean clothes nurses a drink that is not coffee. He has been listening too.\n\nYou file the information away. Crawlers in the vents, something worse below. Useful to know.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Talk to the man at the end of the counter",
+          "goto": "s_market_fixer"
+        },
+        {
+          "text": "Ask the scarred woman for advice",
+          "goto": "s_market_rumour"
+        },
+        {
+          "text": "Check the artefact stall",
+          "goto": "s_market_artefact"
+        },
+        {
+          "text": "Look out the viewport",
+          "goto": "s_market_viewport"
+        },
+        {
+          "text": "Return to the main market",
+          "goto": "s_1"
+        }
+      ]
+    },
+    "s_market_fixer": {
+      "text": "At the far end of the counter, the man sits alone. He is not a scavenger — his clothes are too clean, his hands too soft. When you sit down next to him, he does not look surprised.\n\n'You have the look,' he says. 'Someone heading down, not up.' He takes a slow sip. 'I sell information. Specifics. Not the kind of thing Zara deals in — she trades in people and connections. I trade in movements. Patrol schedules. Imperial troop positions.'\n\nHe sets down his glass. 'Right now I can tell you this for free, because it is good for business when people survive: Malachar's advance team landed twenty minutes ago. Four soldiers, Imperial Enforcers, not regular Army. They are setting up a command post on the docking ring and they will be sweeping downward within the hour.'\n\nHe meets your eyes. 'If you are going to the lower decks, go now. Not in ten minutes. Now. Every minute you spend in this market is a minute they spend getting organized.'\n\nThe weight of the data chip in your pocket suddenly feels heavier.",
+      "choices": [
+        {
+          "text": "Ask about patrol schedules in the lower decks",
+          "goto": "s_market_intel"
+        },
+        {
+          "text": "Thank him and head back to the main market",
+          "goto": "s_1"
+        },
+        {
+          "text": "Head straight for the north maintenance shafts",
+          "goto": "h_1"
+        },
+        {
+          "text": "Head for the south cargo elevator",
+          "goto": "s_4"
+        }
+      ]
+    },
+    "s_market_intel": {
+      "text": "You lean closer. 'The patrol schedules,' you say. 'The automated ones in the lower decks. What do you know?'\n\nHe names a price. It is not cheap, but it is not as bad as Gruub's markup on the plasma pistol.\n\nYou pay. He speaks quickly and quietly.\n\n'Station Authority used to run patrols on sub-levels three through six. Rotating shifts, four-man teams, standard six-hour cycles. When the garrison pulled out, the automated systems kept running for about a year. Security drones on fixed routes — predictable, avoidable if you know the timing.'\n\nHe draws a rough pattern on the counter with a wet finger. 'The drones cycle through each corridor every nine minutes. Wait at a junction, count to nine, and move when the drone passes. Simple.'\n\nHe wipes the pattern away. 'Below sub-six, there are no patrols. The drones do not go down there. Nothing goes down there. Take from that what you will.'",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Head back to the main market",
+          "goto": "s_1"
+        },
+        {
+          "text": "Head for the north maintenance shafts",
+          "goto": "h_1"
+        },
+        {
+          "text": "Head for the south cargo elevator",
+          "goto": "s_4"
+        }
+      ]
+    },
+    "s_market_viewport": {
+      "text": "The viewport is a metre-wide circle of reinforced glass, scratched and yellowed with age. You press your face close to it and look out.\n\nNew Babylon Station curves away from you in both directions — a vast torus of grey metal, pocked with running lights and the blue flicker of welding torches where repair crews work on the hull. Beyond the station, the stars are hard and white against absolute black.\n\nAnd there, closing from the station's port quarter, you see it. A ship. Angular, dark, running without navigation lights. Imperial design — the kind of silhouette that makes civilian pilots change course. It is still distant, but it is not slowing down.\n\nMalachar's corvette. The main force.\n\nYou watch it for ten seconds, maybe fifteen. It grows visibly larger in that time. Fast approach. No attempt at subtlety.\n\nYour stomach tightens. The advance team is already here. The corvette is perhaps three hours out, maybe less. When it docks, the station will be locked down. No ships in or out. No exceptions.\n\nYou pull back from the viewport. Three hours to get down, find the Compass, and get out. The math is not encouraging.",
+      "add_luck": -1,
+      "choices": [
+        {
+          "text": "Browse the artefact stall",
+          "goto": "s_market_artefact"
+        },
+        {
+          "text": "Try the canteen",
+          "goto": "s_market_canteen"
+        },
+        {
+          "text": "Move toward the docking ring entrance",
+          "goto": "s_market_docking"
+        },
+        {
+          "text": "Return to the main market — no more time to waste",
+          "goto": "s_1"
+        }
+      ]
+    },
+    "s_market_rumour": {
+      "text": "The wiry woman with the burn scars catches your eye as you stand to leave the canteen. She glances at the other scavengers, then lowers her voice.\n\n'You are going down. I can tell.' She turns her cup in her hands. 'Listen. Sub-level four, the main corridor splits at a junction marked with yellow paint. Left fork goes to the water processing plant — that is where the crawlers nest. You will hear them before you see them. Clicking, like someone tapping metal on metal.'\n\nShe rolls up her sleeve. The burn scars extend past her elbow. 'Right fork leads to the freight lifts. Most of them are dead, but one still has power — intermittent, unreliable. If you can get it working, it drops you straight to sub-six without passing through five.'\n\nShe pulls her sleeve back down. 'Sub-five is where I lost my crew. I do not recommend the scenic route.'\n\nShe picks up her cup and turns back to the counter. You have been given all the charity she has to offer.",
+      "choices": [
+        {
+          "text": "Check the artefact stall",
+          "goto": "s_market_artefact"
+        },
+        {
+          "text": "Look out the viewport",
+          "goto": "s_market_viewport"
+        },
+        {
+          "text": "Return to the main market",
+          "goto": "s_1"
+        }
+      ]
+    },
+    "s_market_docking": {
+      "text": "You follow the narrow lane past the viewport and find yourself at the edge of the market, where the corridor widens into a transit hub. From here you can see the entrance to docking ring three — a set of heavy blast doors flanked by faded Station Authority markings.\n\nThe blast doors are open. Through them, you catch a glimpse of activity — figures in dark uniforms moving with military precision, setting up portable barricades. Imperial Enforcers. They are not looking in your direction yet, but they are thorough, and they will be soon.\n\nA station worker in a stained jumpsuit leans against the wall nearby, watching the Imperials with the flat expression of someone who has seen occupations before.\n\n'They started twenty minutes ago,' she says, not looking at you. 'Checking IDs on the docking ring. They will be in the market within the hour.' She spits on the deck. 'Every time. Same routine. Lock the exits, sweep inward, take what they want.'\n\nShe pushes off the wall and walks away. You have seen enough. The noose is tightening, and you are still on the wrong side of it.",
+      "choices": [
+        {
+          "text": "Head back through the market",
+          "goto": "s_1"
+        },
+        {
+          "text": "Head straight for the north maintenance shafts",
+          "goto": "h_1"
+        },
+        {
+          "text": "Head for the south cargo elevator",
+          "goto": "s_4"
+        }
+      ]
+    },
+    "s_harko_tour_1": {
+      "text": "Instead of heading straight for the shafts, you take a longer route through Harko's territory. His heavy does not stop you — the deal has bought you a degree of freedom here.\n\nThe corridor opens into a wide maintenance bay that has been converted into a working operation. Cargo containers line the walls, some sealed, some open. Two of Harko's people — a man and a woman in matching grey jumpsuits — sit at a folding table checking manifests against a datapad. They glance up as you pass, assess you, and go back to work.\n\nBeyond them, a container has been converted into a small market — no signs, no advertising, just a curtain across the opening and a steady trickle of people going in and out. Black market. The kind of place where you can buy things that do not officially exist on this station.\n\nA third crew member leans against the wall near a heavy blast door, eating from a ration pack. He has a shotgun slung across his back and the relaxed posture of someone who knows exactly how much violence is appropriate in any given situation.",
+      "choices": [
+        {
+          "text": "Check out the black market container",
+          "goto": "s_harko_tour_2"
+        },
+        {
+          "text": "Talk to the guard by the blast door",
+          "goto": "s_harko_tour_3"
+        },
+        {
+          "text": "Check the map on the wall further down",
+          "goto": "s_harko_tour_5"
+        },
+        {
+          "text": "Follow Harko's heavy through the corridors",
+          "goto": "s_harko_escort"
+        },
+        {
+          "text": "Keep moving to the maintenance shafts",
+          "goto": "h_5"
+        }
+      ]
+    },
+    "s_harko_tour_2": {
+      "text": "You push through the curtain. Inside, the container is dim and cramped, lined with shelves of goods that fell off the back of a cargo shuttle. Stim-packs, ration packs, tools, ammunition, a rack of second-hand clothing. A Vellian woman sits on a crate behind a counter, arms folded.\n\nNothing you need that you do not already have. But the operation itself tells you something about Harko. This is not a smash-and-grab outfit. This is infrastructure. Supply chains. Organisation. The man is building something that will outlast any single deal.\n\nYou browse for a minute, letting your eyes adjust. On a back shelf, half-hidden behind a stack of water purification tablets, you notice a small shrine — a candle, a Qeth prayer stone, a faded photograph of someone's family. Even black marketeers need something to believe in.\n\nYou step back out into the corridor.",
+      "choices": [
+        {
+          "text": "Talk to the guard by the blast door",
+          "goto": "s_harko_tour_3"
+        },
+        {
+          "text": "Head for the tunnel entrance",
+          "goto": "s_harko_tour_4"
+        },
+        {
+          "text": "Head for the maintenance shafts",
+          "goto": "h_5"
+        }
+      ]
+    },
+    "s_harko_tour_3": {
+      "text": "You approach the guard by the blast door. He watches you come without straightening up — not hostile, just attentive.\n\n'You're the one Harko just talked to,' he says. Not a question. 'Word travels fast down here.'\n\nHe jerks his chin toward the blast door behind him. 'That leads to the deep maintenance corridors. Sub-level three and below. We don't go past this point — Harko's orders. Too many things down there that eat shotgun pellets and keep coming.'\n\nHe takes another bite of his ration. 'Last crew that went deep was three months ago. Six of them. Two came back. One of those two stopped talking afterwards.' He chews. 'The other one works for Harko now. Night shift. Doesn't sleep much.'\n\nHe looks at you with something that might be pity. 'You're going down there alone?'\n\nYou do not answer. He nods as if you did.",
+      "choices": [
+        {
+          "text": "Check out the black market",
+          "goto": "s_harko_tour_2"
+        },
+        {
+          "text": "Find the tunnel entrance",
+          "goto": "s_harko_tour_4"
+        },
+        {
+          "text": "Head for the maintenance shafts",
+          "goto": "h_5"
+        }
+      ]
+    },
+    "s_harko_tour_4": {
+      "text": "Harko's heavy leads you down a side corridor that narrows as it goes. The lighting changes from the jury-rigged LED strips of Harko's territory to the original station fluorescents — most of them dead, a few flickering in irregular rhythms that make the shadows jump.\n\nThe corridor ends in a maintenance bay. Tools hang on wall racks, most of them coated in dust. A workbench holds the disassembled guts of an atmospheric processor. In the centre of the bay's floor, a hatch is set into the deck plates — a square metre of reinforced steel marked with strips of orange tape.\n\n'That's your way down,' the heavy says. 'Maintenance shaft. Runs behind the outer hull for about fifty metres, then connects to the sub-level three service corridors.' He taps the orange tape with his boot. 'The tape is Harko's. Means the route has been checked in the last month. When you stop seeing orange tape, you're in unmapped territory.'\n\nHe pulls the hatch open. Below, a ladder descends into darkness. The air that rises from it is cold and smells of old metal and something faintly organic.\n\n'Good luck,' he says. He does not sound like he means it.",
+      "choices": [
+        {
+          "text": "Descend into the shaft",
+          "goto": "h_5"
+        }
+      ]
+    },
+    "s_harko_tour_5": {
+      "text": "Further along the corridor, the wall panels have been removed, exposing the station's guts — pipes, cables, structural ribs. Someone has written on the bare metal in white paint: HARKO'S LAW — TAKE NOTHING YOU CAN'T CARRY, KILL NOTHING YOU CAN'T EAT.\n\nBeneath the graffiti, a laminated sheet is bolted to the wall. A map of the sub-levels, hand-drawn and annotated. Most of it is labelled CLEARED or AVOID. Sub-level five is marked with a single word in red: NO.\n\nYou study the map for a minute. It confirms what you already suspected — the Void Compass coordinates point to sub-level six, in a section marked on no official chart. The map's annotations stop at sub-level four. Below that, Harko's people have not gone.\n\nA crew member passes behind you, glances at the map, and keeps walking. This is old news down here. Everyone knows what is below. Nobody goes.",
+      "choices": [
+        {
+          "text": "Continue to the tunnel entrance",
+          "goto": "s_harko_tour_4"
+        },
+        {
+          "text": "Head for the maintenance shafts",
+          "goto": "h_5"
+        }
+      ]
+    },
+    "s_harko_escort": {
+      "text": "Harko's heavy walks you back through the corridors toward the main thoroughfare. He is not talkative, but he is observant — he checks each junction before waving you through, and his hand stays near the shotgun on his hip.\n\nAs you pass through a narrow section between two cargo containers, he stops.\n\n'Listen,' he says. Not to you — to the station. You stop and listen. Through the deck plates, through the walls, you can hear it: a low vibration, almost below the threshold of hearing. Not mechanical. Not the hum of power conduits or the rhythm of atmosphere recyclers. Something else.\n\nIt lasts five seconds, then stops.\n\nThe heavy looks at you. His expression has not changed, but his hand is now on the shotgun grip. 'That started about a month ago,' he says. 'Comes and goes. Nobody knows what it is. Nobody wants to find out.'\n\nHe starts walking again. You follow, and you do not ask questions.",
+      "choices": [
+        {
+          "text": "Check out the black market on the way past",
+          "goto": "s_harko_tour_2"
+        },
+        {
+          "text": "Head straight for the maintenance shafts",
+          "goto": "h_5"
+        }
+      ]
+    },
+    "s_sec_terminal": {
+      "text": "Behind the main office, a narrow door leads to a back room — barely more than a closet. A terminal sits on a shelf bolted to the wall, its screen cracked but still displaying a cursor. Power is coming from somewhere — probably the same tapped line that keeps the lock panel running.\n\nYou tap a key. The screen flickers, then stabilises. The system is running on emergency backup — most functions are locked out, but the duty log directory is still accessible.\n\nYou scroll through the entries. Most are routine — patrol reports, maintenance tickets, noise complaints from the market. But the last few entries, dated three weeks before the garrison pulled out, are different.\n\n'Anomalous readings from Research Lab 7, sub-level 6. Seismic activity inconsistent with station operations. Maintenance team dispatched — no report filed.'\n\n'Second team dispatched to Lab 7. Team lead reports unusual electromagnetic interference. Equipment failures. Request for additional personnel denied by Station Command.'\n\nThe final entry is short: 'Lab 7 sealed by order of Station Commander. All personnel withdrawn from sub-levels 5 and 6. No further investigation authorised.'\n\nResearch Lab 7. Sub-level 6. That is where the data chip is pointing you.",
+      "choices": [
+        {
+          "text": "Check the evidence locker in the corner",
+          "goto": "s_sec_locker"
+        },
+        {
+          "text": "Try the comms unit on the shelf",
+          "goto": "s_sec_comms"
+        },
+        {
+          "text": "Leave the security office",
+          "goto": "s_sec_exit"
+        }
+      ]
+    },
+    "s_sec_locker": {
+      "text": "In the corner of the back room, a small evidence locker is bolted to the wall. Standard Station Authority model — reinforced steel, combination lock. The combination died with whoever set it.\n\nThe lock is good, but the hinges are not. You draw your vibro-knife and work the blade into the gap between the door and the frame. The molecular-edge oscillator whines as it bites into old metal. After thirty seconds of careful cutting, the hinge pins give way and the door swings open.\n\nInside: a dead officer's personal effects, sealed in a clear bag. A wedding ring. A data slate with a cracked screen. A photograph of two children standing in front of a viewport, stars behind them. A half-empty pack of cigarettes — real tobacco, worth a fortune on a station like this.\n\nNo weapons. No useful intelligence. Just the remains of someone's life, sealed away by procedure and forgotten by everyone.\n\nYou close the locker door and leave the contents where they are. Some salvage is not worth taking.",
+      "choices": [
+        {
+          "text": "Try the comms unit",
+          "goto": "s_sec_comms"
+        },
+        {
+          "text": "Leave the security office",
+          "goto": "s_sec_exit"
+        }
+      ]
+    },
+    "s_sec_comms": {
+      "text": "On a shelf beside the terminal, a portable comms unit sits in its charging cradle. The unit is cracked and the antenna is bent, but a faint power light pulses on the side panel. Someone left it here in a hurry.\n\nYou pick it up and examine it. The transmitter is dead — no way to send. But the receiver might still work if you can patch the antenna connection.",
+      "choices": [
+        {
+          "text": "Attempt a repair with your repair kit",
+          "goto": "s_sec_comms_fix",
+          "requires_item": "repair_kit"
+        },
+        {
+          "text": "Leave the security office",
+          "goto": "s_sec_exit"
+        }
+      ]
+    },
+    "s_sec_comms_fix": {
+      "text": "You open your repair kit and get to work. The antenna connection is corroded but not broken — sealant paste and a new contact strip get it functional. You splice in a replacement capacitor from your spare boards and close the casing.\n\nThe comms unit hisses to life. Static, mostly. You cycle through frequencies — dead air, dead air, more dead air. Then, on a military band, you catch something. Fragments of a transmission, garbled by the station's hull.\n\n'...Inquisitor confirms objective is sub-level six... research lab designation... full squad deploying to maintenance access points... authorization to use lethal force on any...'\n\nThe signal breaks up. You try to get it back, but it is gone — scattered by the station's metal bones.\n\nSub-level six. They know exactly where they are going. And lethal force authorisation means Malachar is not interested in witnesses.\n\nYou set the comms unit down. The information is not surprising, but hearing it in that clipped Imperial diction makes it real in a way that rumour does not.",
+      "add_skill": 1,
+      "choices": [
+        {
+          "text": "Check the evidence locker",
+          "goto": "s_sec_locker"
+        },
+        {
+          "text": "Leave the security office",
+          "goto": "s_sec_exit"
+        }
+      ]
+    },
+    "s_sec_exit": {
+      "text": "You step out of the security office and pull the door shut behind you. The corridor is empty. From somewhere deeper in Harko's territory, you can hear voices and the clang of metal on metal — crew at work, maintaining the infrastructure that keeps this section livable.\n\nThe keycard sits in your pocket, a rectangle of hard plastic that represents access to places most people on this station have forgotten exist. Time to use it.",
+      "choices": [
+        {
+          "text": "Ask to speak with Harko",
+          "goto": "s_harko_meet"
+        },
+        {
+          "text": "Head for the maintenance shafts",
+          "goto": "h_5"
+        }
+      ]
+    },
+    "b_new_pa": {
+      "text": "You stop. You stand in the dark between two freight containers and you listen.\n\nThe PA is still cycling. Malachar's voice plays on a loop — the same words, the same cadence, every ninety seconds. But it is the station's response that tells you what you need to know.\n\nThe hum of the cargo bay has changed. The maintenance drones that normally shuttle between container stacks have stopped moving — parked in their charging bays, obedient to some override signal you cannot see. The ventilation fans have shifted pitch, cycling faster. Someone has accessed the environmental controls. Someone with authority codes.\n\nFrom somewhere in the upper decks, you hear the deep clang of a pressure bulkhead cycling shut. Then another. Then a third, further away. The station is being sealed, section by section, like a ship preparing for decompression.\n\nThis is not a raid. This is an occupation.\n\nYou have been on New Babylon long enough to know what happens to stations that attract Imperial attention. They do not recover. The people who live here — the maintenance crews, the cargo sorters, the families in the lower habitation blocks — they will be processed, relocated, or simply forgotten. The station will be stripped for intelligence value and then left to rot, this time without even the pretence of civilian governance.\n\nThe Void Compass pulses against your back. The Empire wants it. The Empire wants everything.\n\nTime to move.",
+      "choices": [
+        {
+          "text": "You've heard enough",
+          "goto": "b_1"
+        }
+      ]
+    },
+    "b_new_malachar_prep": {
+      "text": "You move toward the cargo bay exit, but something is wrong. The space ahead is too quiet, too clean. The usual detritus of a working cargo bay — loose cable, discarded packing material, the accumulated grime of a station that no one maintains — has been cleared from the corridor. Sight lines opened up. Fields of fire established.\n\nHe knew you were coming.\n\nThe alarm you triggered in the lower decks told him everything he needed to know. Not just that someone was down there — that someone had found the artefact and was heading back up. His soldiers have been in position for minutes. The checkpoint ahead is not improvised. It is prepared.\n\nYou can see the marks on the deck plating where the portable barricade was dragged into place. The scorch marks on the wall where they tested their weapons' charge levels. Even the lighting has been adjusted — the overhead panels dimmed to put the glare in your eyes, not theirs.\n\nMalachar has done this before. Many times. You are not the first scavenger to come up from the dark with something the Empire wanted. You will need to be smarter than the others were.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Press forward",
+          "goto": "b_2"
+        }
+      ]
+    },
+    "b_new_aftermath": {
+      "text": "Malachar is on the deck. His rapier has powered down — the plasma edge guttering, fading, dying with its owner. The silver insignia at his throat catches the light.\n\nYou could run. You should run. Every second you stay here is a second his reinforcements get closer.\n\nBut something makes you pause. His coat has fallen open, and you can see the lining — not the standard-issue grey of Bureau field wear, but something older. Dark leather, hand-stitched, with a pattern you recognise. Precursor geometric work. The same angular lines you saw in the chamber below.\n\nHe was wearing it against his skin. A man who collected Precursor artefacts was literally wrapped in them.\n\nA data tablet has slipped from his inside pocket, its screen cracked but still lit. You can see fragments of text — coordinates, star charts, a list of sites. The Void Compass was not his primary objective. It was a key to something larger. A network of Precursor installations, spread across the frontier, and Malachar had been mapping them for years. The compass would have completed his chart.\n\nThe tablet flickers and dies. Whatever was on it is gone — the cracked screen fading to black. But you saw enough. The compass is not just valuable. It is the centre of a web that someone in the Empire has been building quietly for a very long time.\n\nThe corridor ahead is still clear. For now.",
+      "choices": [
+        {
+          "text": "Take his insignia as proof and move",
+          "goto": "b_new_station_free"
+        },
+        {
+          "text": "Leave him — run for the ship",
+          "goto": "b_new_station_free"
+        }
+      ]
+    },
+    "b_new_station_free": {
+      "text": "You are halfway to the docking ring when the station PA crackles again. But this time it is not Malachar's voice. It is the automated system — flat, synthetic, indifferent.\n\n'Attention all personnel. Imperial corvette Relentless reporting drive malfunction. Docking bay seven lockdown protocols engaged. All Imperial personnel report to assigned stations.'\n\nThe PA cuts out. In the corridor ahead, two soldiers who were walking toward you stop, exchange a glance, and turn back the way they came. Recalled. Whatever happened to the Relentless — damage from station systems, sabotage, mechanical failure — it has pulled the Imperial presence inward, toward their own ship.\n\nThe station is not free. It will never be free again, not really. But for this moment, the corridors are empty and the way to the docking ring is clear. The bill for Malachar's arrogance has come due, and the Empire is paying it in confusion.\n\nYou move.",
+      "choices": [
+        {
+          "text": "Head for the docking ring",
+          "goto": "b_new_docking_ring"
+        }
+      ]
+    },
+    "b_new_docking_ring": {
+      "text": "The docking ring is chaos restrained. Imperial soldiers move in pairs through the main corridor, checking ident papers, scanning cargo manifests, establishing the bureaucratic architecture of occupation. But their attention is focused inward — toward the station, not toward the docks. They are securing what they have, not watching what leaves.\n\nYou keep to the service corridors. The maintenance passages that run behind the docking collar walls are narrow, unlit, and smell of recycled coolant. Nobody patrols them because nobody important uses them. You are not important. That is, for once, an advantage.",
+      "choices": [
+        {
+          "text": "Harko's people are still here — use their route",
+          "goto": "b_new_harko_evac",
+          "requires_flag": "harko_deal"
+        },
+        {
+          "text": "Navigate alone through the service corridors",
+          "goto": "b_new_pistol_check",
+          "requires_no_flag": "harko_deal"
+        }
+      ]
+    },
+    "b_new_harko_evac": {
+      "text": "Harko's man is at the tunnel junction — the same orange jumpsuit, the same economy of movement. But this time he is not waiting for you. He is rigging the tunnel with demo charges, small shaped packages fixed to the structural supports at precise intervals.\n\n'Harko's pulling out,' he says, without looking up from his work. 'Whole operation. The old man's been running this station for nine years and he knows when the house wins. Imperial corvette at the dock means it's over.'\n\nHe finishes the last charge and straightens up. 'He said to tell you — the deal stands. You got clear, his tunnels stay open until the charges blow. After that, this passage doesn't exist.' He checks a wrist-mounted timer. 'You've got four minutes.'\n\nHe moves past you, heading deeper into the tunnel network, toward whatever extraction route Harko has prepared for his own people. He does not look back.\n\nFour minutes. The tunnel ahead leads to the docking ring.",
+      "choices": [
+        {
+          "text": "Move — fast",
+          "goto": "b_new_sable_moth"
+        }
+      ]
+    },
+    "b_new_pistol_check": {
+      "text": "The service corridor narrows where it passes behind docking collar seven — Malachar's own berth. Through a ventilation grille, you can see the boarding tunnel of the Relentless. Two guards in heavy armour, standing at parade rest. Professional. Alert.\n\nThe corridor beyond them leads to your docking collar. Twenty metres of open deck between the end of the service passage and the Sable Moth's boarding tunnel. Twenty metres with no cover, directly in the guards' sight line.",
+      "choices": [
+        {
+          "text": "Use the plasma pistol — drop them at range before they react",
+          "goto": "b_new_pistol_shot",
+          "requires_item": "plasma_pistol"
+        },
+        {
+          "text": "Wait for a shift change and slip past",
+          "goto": "b_new_dock_luck"
+        }
+      ]
+    },
+    "b_new_pistol_shot": {
+      "text": "The plasma pistol's advantage has always been range. A vibro-knife needs you close. A pistol needs you accurate.\n\nYou brace against the corridor wall, sight through the grille, and fire twice. The first shot catches the near guard in the chest plate — he staggers back, armour smoking. The second takes the far guard in the shoulder as he turns. Neither goes down, but they are hurt, disoriented, and looking the wrong way.\n\nYou are through the service hatch and across the open deck before they recover. A plasma bolt scorches the wall behind you as you dive into the Sable Moth's boarding tunnel. Close. But close is good enough.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Board the Sable Moth",
+          "goto": "b_new_sable_moth"
+        }
+      ]
+    },
+    "b_new_dock_luck": {
+      "text": "You wait. The guards hold position, disciplined and still. Minutes pass. Then one of them touches his earpiece — new orders, or a shift rotation. Both turn toward the Relentless's airlock.\n\nThis is your window. You move fast, staying low, feet quiet on the deck plating. The twenty metres feel like twenty miles.",
+      "test_luck": {
+        "lucky_text": "You make it. The gap closes behind you — the guards returning to their post — but you are already in the shadow of the Sable Moth's boarding tunnel. They never saw you. Your heart is hammering, but your hands are steady.",
+        "lucky_goto": "b_new_sable_moth",
+        "unlucky_text": "You are halfway across when one of the guards turns back. He sees you. A shout, a bolt of plasma searing the deck plating at your feet. You sprint the last ten metres, taking a glancing hit across your ribs that drops you to one knee. You drag yourself into the boarding tunnel before the second shot comes.",
+        "unlucky_goto": "b_new_sable_moth",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 3
+      }
+    },
+    "b_new_sable_moth": {
+      "text": "The Sable Moth sits in docking collar nine, exactly where you left it. For a moment you just stand there, looking at it through the reinforced viewport of the boarding tunnel.\n\nShe is not a beautiful ship. A battered Kestrel-class light freighter, twenty years past her service date, held together by aftermarket parts and a maintenance schedule that is more prayer than engineering. The hull plating is mismatched — three different shades of grey where panels have been replaced over the years. One of the manoeuvring thrusters has a visible weld scar from a docking accident you prefer not to discuss.\n\nBut the engines work. The FTL drive is sound. And right now, she is the most beautiful thing you have ever seen.\n\nYou cycle the airlock and step aboard. The cockpit air smells like home — recycled atmosphere, old coffee, the faint ozone tang of electronics that run too hot. You run the pre-flight sequence from memory. Fuel cells: sixty-two per cent. Drive coils: charged. Navigation: online.\n\nThrough the cockpit viewport, you can see New Babylon Station spread out below you. Imperial shuttles are moving between the docking bays. Running lights on the Relentless blink in the middle distance. The station that was your home for two years is becoming something else, and you are watching it happen in real time.",
+      "choices": [
+        {
+          "text": "Wait one minute — Voss might still make it to the airlock",
+          "goto": "b_new_wait_voss",
+          "requires_flag": "voss_signalled",
+          "requires_no_flag": "voss_survived"
+        },
+        {
+          "text": "Use the stim-pack before launch",
+          "goto": "b_new_stim_pack",
+          "requires_item": "stim_pack"
+        },
+        {
+          "text": "Engage the FTL drive",
+          "goto": "end_gate_1"
+        }
+      ]
+    },
+    "b_new_wait_voss": {
+      "text": "You sit in the pilot's seat with your hand on the drive engagement lever and you wait.\n\nSixty seconds. That is what you give him. One minute, measured by the cockpit chronometer, while Imperial patrols sweep the docking ring and the window for escape narrows with every heartbeat.\n\nForty seconds. Nothing. The airlock sensors show no movement in the boarding tunnel.\n\nThirty seconds. A squad of soldiers passes the viewport, heading toward the adjacent docking collar. They do not look your way. Yet.\n\nFifteen seconds. The comm unit crackles — static, or maybe a carrier signal too weak to resolve. You cannot tell.\n\nFive seconds. The airlock proximity sensor chirps. A single contact, moving fast, in the boarding tunnel. The airlock cycles.\n\nVoss comes through the hatch like a man who has been running for his life, because he has. One arm is bound with a torn sleeve. His jacket is gone. He has a plasma burn across his left shoulder that he is pretending does not exist.\n\nHe drops into the co-pilot's seat, breathing hard, and looks at you.\n\n'You waited.'\n\n'Don't make it a habit.'",
+      "set_flags": [
+        "voss_survived"
+      ],
+      "choices": [
+        {
+          "text": "Use the stim-pack before launch",
+          "goto": "b_new_stim_pack",
+          "requires_item": "stim_pack"
+        },
+        {
+          "text": "Engage the FTL drive",
+          "goto": "end_gate_1"
+        }
+      ]
+    },
+    "b_new_bay_approach": {
+      "text": "The far side of the cargo bay is different from the side you entered. Here, the containers are stacked higher and closer together, forming narrow canyons of corrugated steel. The air is warmer — you are closer to the inhabited decks, closer to the life support cores that still function.\n\nYou can hear the station around you now. Not the dead silence of the lower decks, but the living noise of a place full of people who have just been told their world has changed. Muffled voices behind bulkhead doors. The distant whine of a lift car moving too fast. Someone is running, somewhere above you — boots on metal, urgent but not panicked. Not yet.\n\nThrough a gap in the container wall you catch a glimpse of the main concourse. Imperial soldiers are visible at the far end — grey uniforms, sidearms, the practised stillness of professionals establishing a perimeter. They have not reached this section yet. But they will.\n\nThe exit is ahead. Beyond it, the corridor that leads to the upper decks and the docking ring. Between you and it stands one man who has crossed Imperial space to take what you are carrying.\n\nYou check your gear. You steady your breathing. You move.",
+      "choices": [
+        {
+          "text": "Step out to face what's waiting",
+          "goto": "b_2"
+        }
+      ]
+    },
+    "e_eng_1": {
+      "text": "The corridor widens into a vaulted space that must have been impressive once. The sign above the entrance reads ENGINEERING SECTION 4 — PROPULSION RESEARCH in faded stencil. Below it, someone scratched a later addition: DECOMMISSIONED — NO ENTRY BY ORDER OF STATION AUTHORITY.\n\nStation Authority hasn't existed for three years. You duck under the sign.\n\nThe section opens into a long gallery with workbenches bolted to both walls. Most of the equipment is gone — stripped for parts long ago — but the benches themselves remain, scarred and stained by decades of use. Above them, cable runs sag from the ceiling like dead vines. The air is noticeably colder here, and each breath comes out in a faint cloud.\n\nAhead, the gallery continues into darkness. To your right, a heavy door stands ajar, marked DRIVE CORE TEST BAY. To your left, a narrow passage runs between conduit banks toward what looks like a maintenance junction.",
+      "choices": [
+        {
+          "text": "Enter the Drive Core Test Bay",
+          "goto": "e_eng_2"
+        },
+        {
+          "text": "Follow the passage toward the maintenance junction",
+          "goto": "e_eng_junction"
+        },
+        {
+          "text": "Continue through the gallery toward the far end",
+          "goto": "e_eng_3"
+        }
+      ]
+    },
+    "e_eng_2": {
+      "text": "The Drive Core Test Bay is a circular room dominated by a massive cradle in its centre — the mounting point for experimental drive cores during testing. The cradle is empty now, its clamps open like the fingers of a dead hand. Scorch marks radiate outward from it across the floor and up the walls. Whatever they tested last, it did not go well.\n\nThe walls are covered in instrumentation panels, all dead. But on a workbench near the door, you find something intact: a set of handwritten research notes, pinned under a broken calibration tool. The handwriting is precise, small, the kind that belongs to someone who writes reports for a living.\n\nThe notes describe test protocols for 'artefact-integrated propulsion' — attempts to use Precursor technology as a component in human drive systems. The results are clinical: 'Artefact refuses integration. Rejects all bonding agents. Surface temperature increases during contact with human-manufactured components. Recommend discontinuation of programme.'\n\nThe last entry is dated eleven years ago. Below it, in different handwriting, a single line: 'Bureau assumes control of all Precursor materials. Effective immediately.'\n\nThe Bureau. Malachar's people. They were here a decade ago, stripping the station of anything Precursor-related. The Void Compass was the one they missed.",
+      "choices": [
+        {
+          "text": "Search the bay more thoroughly",
+          "goto": "e_eng_notes"
+        },
+        {
+          "text": "Return to the gallery",
+          "goto": "e_eng_1"
+        }
+      ]
+    },
+    "e_eng_notes": {
+      "text": "You work your way around the test bay, opening panels and checking storage compartments. Most are empty — the Bureau was thorough. But in a sealed locker beneath the main console, you find a binder of handling protocols for Precursor materials.\n\nThe protocols are detailed and deeply cautious. They describe Precursor artefacts as 'non-responsive to electromagnetic analysis,' 'thermally anomalous,' and 'resistant to all forms of mechanical stress testing.' One section catches your eye: a procedure for Precursor chambers. Pressure plates, light-carrying channels, geometric triggers. The researchers had mapped the mechanisms. They could not understand them, but they could describe them.\n\nYou tear out the relevant pages and fold them into your jacket. The knowledge won't change what you find, but it might change how fast you recognise it.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Return to the gallery",
+          "goto": "e_eng_1"
+        }
+      ]
+    },
+    "e_eng_3": {
+      "text": "The gallery narrows as you move deeper into Engineering Section 4. The workbenches give way to heavy machinery — reactor test rigs, shielding assemblies, things bolted to the floor with industrial fasteners thicker than your arm. Everything is cold and dark and covered in a fine grey dust that no one has disturbed in years.\n\nThen you hear it. A low mechanical whine, cycling up and down. Not station systems — too regular, too deliberate. Something is active ahead.\n\nYou round a corner and see it: a security drone, wedged in the junction where Engineering Section 4 meets the main lower deck corridor. It is an old model — Station Authority hardware, not Imperial — hovering half a metre off the ground, its sensor array sweeping back and forth. Its chassis is dented and one of its stabiliser fins is bent, but its weapons port is intact and tracking.\n\nIt has been here since before the station fell. Still running its patrol route. Still following orders from an authority that no longer exists.",
+      "choices": [
+        {
+          "text": "Try to slip past while its sensor sweeps away from you",
+          "goto": "e_eng_drone_luck"
+        },
+        {
+          "text": "Destroy it",
+          "goto": "e_eng_drone_fight"
+        },
+        {
+          "text": "Use the EMP grenade to disable it",
+          "goto": "e_eng_drone_emp",
+          "requires_item": "emp_grenade"
+        },
+        {
+          "text": "Go back — find another route",
+          "goto": "e_eng_1"
+        }
+      ]
+    },
+    "e_eng_drone_luck": {
+      "text": "You time the sweep. The drone's sensor array rotates on a five-second cycle — three seconds scanning forward, two seconds returning. You wait for the return sweep and move.",
+      "test_luck": {
+        "lucky_text": "You cross the junction in the blind spot between sweeps, pressing yourself flat against the far wall. The drone's sensor passes over the space you occupied a second ago and finds nothing. You exhale and keep moving.",
+        "lucky_goto": "e_eng_beyond",
+        "unlucky_text": "Your boot catches a cable on the floor. The drone's sensor snaps toward the vibration and locks on. A targeting laser paints your chest red. You throw yourself sideways as the first shot scorches the wall behind you. No choice now.",
+        "unlucky_goto": "e_eng_drone_fight",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 2
+      }
+    },
+    "e_eng_drone_fight": {
+      "text": "The drone registers you as hostile and drops into combat mode. Its chassis tilts forward, weapons port deploying, and it fires. The shot goes wide — the bent stabiliser fin throws off its aim — but the next one won't miss.",
+      "combat": {
+        "enemy": "security_drone",
+        "win_goto": "e_eng_beyond",
+        "flee_goto": "e_eng_1",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "e_eng_drone_emp": {
+      "text": "You pull the pin on the EMP grenade and roll it across the floor toward the drone. The detonation is a sharp blue-white flash and a sound like a transformer exploding. The drone drops out of the air instantly, hitting the deck with a clang that echoes through the corridor. Its sensor array goes dark. Its weapons port locks mid-rotation.\n\nThe lights in this section die too — everything electronic within range is dead. You navigate by touch for twenty metres until the station's systems pick up again.",
+      "remove_items": [
+        "emp_grenade"
+      ],
+      "choices": [
+        {
+          "text": "Continue through the junction",
+          "goto": "e_eng_beyond"
+        }
+      ]
+    },
+    "e_eng_beyond": {
+      "text": "Beyond the drone junction, the corridor connects to the main lower deck route. You are past Engineering Section 4 and closer to Research Lab 7. The waypoint arrow on your data chip adjusts, pointing ahead and slightly down.\n\nFrom here, you can see the approaches to the lab. The corridor is wider, the ceiling higher — pre-Imperial architecture showing through the station's later modifications. The walls are smoother, the angles cleaner. You are entering the oldest part of the station.\n\nAhead, you notice a side passage with faded writing on the walls. To your right, the corridor floor looks wrong — the deck plates are discoloured. And from further on, you can hear boots.",
+      "choices": [
+        {
+          "text": "Head for Research Lab 7",
+          "goto": "e_10"
+        },
+        {
+          "text": "Check the side passage with the writing",
+          "goto": "e_research_notes"
+        },
+        {
+          "text": "The deck plates ahead look wrong — proceed carefully",
+          "goto": "e_deck_trap"
+        },
+        {
+          "text": "Imperial patrol ahead — assess the situation",
+          "goto": "e_imp_patrol_2"
+        }
+      ]
+    },
+    "e_eng_junction": {
+      "text": "The maintenance junction is a cramped node where six conduit runs converge. A terminal is mounted on the wall — old but powered, its screen casting a faint green glow across the pipes and cables. Station infrastructure monitoring. Still running on backup power after all these years.\n\nYou tap the screen. It takes a moment to respond, then displays a schematic of the lower decks — crude, outdated, but functional. You can see the corridors you've been walking through, and ahead of you, marked in red, Research Lab 7.\n\nThe terminal also shows active power signatures. Most of the lower deck is dead, but three clusters of activity are lit up: the lab itself, a node near where you heard the Imperial comms, and a third signature you don't recognise — deeper, below the main deck level, pulsing in a slow rhythm that doesn't match any station system you know.\n\nYou study the schematic. There's a service route from here that bypasses the main corridor entirely, running through old coolant infrastructure directly to the lab approach.",
+      "choices": [
+        {
+          "text": "Take the service route to Research Lab 7",
+          "goto": "e_lab_approach"
+        },
+        {
+          "text": "Return to the gallery and continue exploring",
+          "goto": "e_eng_1"
+        }
+      ]
+    },
+    "e_flood_1": {
+      "text": "The passage slopes downward. After twenty metres the reason becomes clear: coolant. A burst pipe somewhere above has been leaking for years, and the lowest section of this corridor is flooded. The liquid is ankle-deep, dark, and slightly viscous — reactor coolant, non-toxic but unpleasant. It is cold enough to feel through your boots.\n\nConduit banks run along both walls above the waterline, their cables sagging and corroded. The ceiling is low here, forcing you to duck. Your light reflects off the dark surface of the coolant in a way that makes the corridor look longer than it is.\n\nThe passage continues ahead, the water deepening slightly. You can see a junction thirty metres on where the corridor branches. From somewhere ahead — hard to tell exactly where, with the acoustics distorted by the water — you hear a rhythmic dripping that isn't quite random enough to be natural.",
+      "choices": [
+        {
+          "text": "Wade through toward the junction",
+          "goto": "e_flood_2"
+        },
+        {
+          "text": "Go back — this route is too exposed",
+          "goto": "e_1"
+        }
+      ]
+    },
+    "e_flood_2": {
+      "text": "The water reaches mid-calf at the deepest point. It is achingly cold, and each step sends ripples ahead of you that make the reflections on the ceiling shift and slide. The dripping sound resolves as you get closer — it is coming from a cracked pipe above the junction, drops falling into the flooded corridor with metronomic regularity.\n\nAt the junction, the water shallows. To your left, a passage slopes upward and dries out — you can see station lighting ahead, the first you've seen in this section. To your right, the corridor continues at the same level, flooded, and ends at a sealed bulkhead with a faded sign: LOWER RESEARCH WING — AUTHORISED PERSONNEL ONLY.\n\nThe bulkhead has a keycard reader. Its indicator light blinks amber — powered but locked.",
+      "choices": [
+        {
+          "text": "Take the left passage — upward toward the light",
+          "goto": "e_flood_exit"
+        },
+        {
+          "text": "Use the security keycard on the bulkhead",
+          "goto": "e_flood_lab",
+          "requires_item": "security_keycard"
+        },
+        {
+          "text": "Try to force the bulkhead open",
+          "goto": "e_flood_force"
+        }
+      ]
+    },
+    "e_flood_force": {
+      "text": "You brace yourself against the corridor wall and pull at the bulkhead. The mechanism is old and the water has corroded the lower track. The door shifts — a centimetre, two — then jams. You pull harder. Something gives, and the door lurches open with a grinding shriek that echoes through the flooded corridor.\n\nThe noise carries. Sound travels strangely through water and metal, and a shriek like that could be heard two sections away. You freeze and listen. Nothing comes back. But that doesn't mean nothing heard it.\n\nBeyond the bulkhead, a short corridor slopes upward out of the flood zone and opens into a dry antechamber. This is a back entrance to the research wing.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Enter the research wing",
+          "goto": "e_flood_lab"
+        }
+      ]
+    },
+    "e_flood_exit": {
+      "text": "You climb the passage, grateful to be out of the water. The floor dries under your boots and the temperature rises marginally — still cold, but not the bone-deep chill of the flooded section.\n\nThe passage connects to the main lower deck corridor. You recognise the intersection from the station schematics. Research Lab 7 is ahead, through the wider corridor with the pre-Imperial architecture. A half-open door to your left shows a room with projected maps on the wall — someone important is inside.",
+      "choices": [
+        {
+          "text": "Head for Research Lab 7",
+          "goto": "e_10"
+        },
+        {
+          "text": "You hear voices ahead — Imperial soldiers",
+          "goto": "e_3"
+        },
+        {
+          "text": "Look through the half-open door — an officer is inside",
+          "goto": "e_imp_officer"
+        }
+      ]
+    },
+    "e_flood_lab": {
+      "text": "The keycard reader chirps and the amber light turns green. The bulkhead disengages with a heavy clunk and slides open, water spilling through the gap. Beyond it, a short corridor slopes upward out of the flood zone and opens into a dry antechamber.\n\nThis is a back entrance to the research wing. The walls here are cleaner, better maintained — someone kept this section in working order long after the rest of the lower decks were abandoned. Research equipment lines the walls: sealed storage cases, environmental monitoring stations, a decontamination arch that flickers weakly as you pass through it.\n\nAhead, through a reinforced glass partition, you can see the circular chamber of Research Lab 7. The Void Compass is visible on its pedestal, pulsing with that slow silver light.",
+      "choices": [
+        {
+          "text": "Enter Research Lab 7",
+          "goto": "e_10"
+        },
+        {
+          "text": "Search the antechamber first",
+          "goto": "e_lab_ante"
+        }
+      ]
+    },
+    "e_lab_ante": {
+      "text": "The antechamber was a staging area for researchers entering Lab 7. Lockers line one wall, most hanging open and empty. Environmental suits on hooks, cracked and faded. A clipboard on the workbench holds a yellowed form: PRECURSOR MATERIALS HANDLING — DAILY LOG.\n\nThe log entries span three months. The handwriting changes every few days — different researchers on rotation. Most entries are brief and clinical. 'No change in artefact luminescence.' 'Temperature variance within expected parameters.' 'Artefact non-responsive to all stimuli.'\n\nThe last entry is longer. Different tone. 'The compass responded today. First confirmed response in 14 months of observation. Dr. Vasquez was running a standard proximity scan when the silver veins brightened. She reported a sensation of directional awareness — a pull, she called it. Toward galactic north-east. The sensation lasted approximately four seconds before the artefact returned to baseline. Dr. Vasquez has been removed from the project per Bureau protocol 7.'\n\nRemoved. You notice the word. Not reassigned. Removed.",
+      "choices": [
+        {
+          "text": "Enter Research Lab 7",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_lab_approach": {
+      "text": "The service route is a crawl through old coolant infrastructure — narrow, lightless, and full of pipes that radiate residual heat from systems that shut down years ago. You move on hands and knees in places, navigating by the schematic you memorised at the terminal.\n\nAfter ten minutes you emerge through an access panel into a corridor you recognise from the station map. Research Lab 7 is ahead. You approached from a direction the Imperial patrols aren't covering — they set up their cordon along the main routes, not the service tunnels.\n\nYou can hear them, faintly. Boots on metal, comms chatter. But between you and the lab, the corridor is empty.",
+      "choices": [
+        {
+          "text": "Enter Research Lab 7",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_imp_disarray": {
+      "text": "The corridors beyond the sensor relay are different now. You can hear it — the Imperial comms net has fractured. Fragments of confused transmissions echo from side passages. Soldiers calling in positions that don't match the terrain. Orders countermanded, then countermanded again. The false sensor data is doing its work.\n\nYou pass a junction and see two soldiers arguing over a portable display. One is jabbing at the screen, insisting this corridor should read as cleared. The other is looking at the actual corridor — dark, unmapped, nothing like what his display shows. Neither of them sees you.\n\nThe confusion won't last forever. But right now, Malachar's advance team is chasing ghosts.",
+      "choices": [
+        {
+          "text": "Move past them while they're distracted",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_imp_pursuit": {
+      "text": "You sprint after the fleeing soldier. He has a head start but he is carrying the sensor relay — a bulky piece of equipment that slows him down. You hear his boots ahead, the scrape of the relay against the walls as he takes corners too fast.\n\nThe corridor branches. Left — the sound is louder. You take the turn and see him twenty metres ahead, fumbling with his comm unit while running. He hasn't reported yet. The unit is dead — your fight must have damaged the local relay.\n\nHe sees you behind him and drops the sensor equipment. Now it is just a man running from another man in a dark corridor.",
+      "test_luck": {
+        "lucky_text": "You close the distance. The soldier stumbles on a loose deck plate and goes down hard. By the time he rolls over, you are standing above him. He raises his hands. You take his comm unit — dead, useless — and his sidearm. You leave him in the dark. He won't report anything without his equipment, and by the time he finds his way out, you will be long gone.",
+        "lucky_goto": "e_10",
+        "unlucky_text": "The soldier reaches a junction and ducks through a doorway you didn't see. You hear the door seal behind him — a lock engaging. He is gone, and in a few minutes he will find a working comm terminal and report everything. You have wasted time and gained nothing.",
+        "unlucky_goto": "e_10",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "e_imp_patrol_2": {
+      "text": "You hear them before you see them — boots on metal, the click of a weapon being safetied, low voices exchanging sector codes. A second Imperial patrol, moving along the corridor ahead of you. Two soldiers, same grey armour, same professional bearing. They are sweeping the approach to Research Lab 7.\n\nThey haven't seen you yet. The corridor has an alcove ten metres ahead — a recessed doorway to a sealed compartment. Cover, if you can reach it in time.",
+      "choices": [
+        {
+          "text": "Slip into the alcove and wait for them to pass",
+          "goto": "e_imp_standoff"
+        },
+        {
+          "text": "Attack before they spot you",
+          "goto": "e_imp_patrol_fight"
+        },
+        {
+          "text": "The sabotaged sensors have them looking the wrong way — walk past openly",
+          "goto": "e_imp_patrol_bluff",
+          "requires_flag": "sensors_sabotaged"
+        },
+        {
+          "text": "Have Voss draw them away",
+          "goto": "e_imp_voss_draw",
+          "requires_flag": "voss_allied"
+        }
+      ]
+    },
+    "e_imp_standoff": {
+      "text": "You reach the alcove and press yourself into the recessed doorway. The metal is cold against your back. You control your breathing — slow, shallow, through your nose. The frost from your breath would give you away if they looked closely.\n\nThe soldiers pass within two metres of you. You can see the scuff marks on their boots, the condensation on their helmet visors. One of them pauses. His sensor display pings — a contact, maybe. He checks. The display shows nothing. He moves on.\n\nYou wait. Their footsteps recede. Ten seconds. Twenty. The corridor is empty again.\n\nYour heart is beating hard enough to feel in your teeth.",
+      "test_luck": {
+        "lucky_text": "They pass without incident. You wait another thirty seconds to be sure, then move. The route to Research Lab 7 is clear.",
+        "lucky_goto": "e_10",
+        "unlucky_text": "As you step out of the alcove, one of the soldiers glances back. Eye contact, half a second. He shouts a warning and both of them turn, weapons rising.",
+        "unlucky_goto": "e_imp_patrol_fight",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "e_imp_patrol_fight": {
+      "text": "The soldier closest to you reacts fast — trained reflexes, weapon up and firing in under a second. The shot goes wide in the confined space but the next one won't. You close the distance and engage.",
+      "combat": {
+        "enemy": "imperial_soldier",
+        "win_goto": "e_10",
+        "flee_goto": "e_10",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "e_imp_patrol_bluff": {
+      "text": "Their sensors show this sector as cleared. Their helmet displays confirm it — no contacts, no anomalies. According to every instrument they carry, you are not here.\n\nYou walk. Not running, not skulking. Walking, the way someone walks through a corridor they have every right to be in. The soldiers' helmet visors track movement automatically, but their displays override — cleared sector, no contacts. One of them glances in your direction. His eyes slide past you the way eyes slide past furniture.\n\nVoss, walking beside you, does not breathe until they are twenty metres behind you. Then he lets out a slow, controlled exhale through his nose.\n\n'That,' he says quietly, 'should not have worked.'",
+      "choices": [
+        {
+          "text": "Keep moving toward the lab",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_imp_voss_draw": {
+      "text": "Voss reads the situation without needing to be told. He pulls a spent power cell from his belt and hurls it down a side corridor. The clatter echoes — metallic, sharp, convincing. Both soldiers' heads snap toward the sound.\n\n'Contact — sector nine,' one of them says into his comm, already moving. His partner follows. They round the corner and disappear, chasing nothing.\n\nVoss watches them go with an expression that might be contempt or might be pity. It is hard to tell with Voss.",
+      "choices": [
+        {
+          "text": "Move to Research Lab 7 while they're gone",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_imp_officer": {
+      "text": "Through a half-open doorway, you see something that makes you stop. A room — an old station briefing room, repurposed. Maps of the lower decks are projected on the far wall, marked with Imperial sector codes and search patterns. Equipment cases line the floor. And standing with his back to you, speaking into a comm unit, is an officer.\n\nNot a soldier. An officer. Bureau insignia on his collar, a datapad in his free hand. He is issuing orders — calmly, precisely, the way you'd read a shopping list. Sector assignments. Search parameters. Timetables. This is the man coordinating the advance team's sweep of the lower decks.\n\nHe has not seen you. The door is half-open and you are in shadow. You could listen. You could act. Or you could leave before he turns around.",
+      "choices": [
+        {
+          "text": "Listen to his orders — learn their search pattern",
+          "goto": "e_imp_eavesdrop"
+        },
+        {
+          "text": "His datapad is on the table — cut the strap and take it",
+          "goto": "e_imp_datapad",
+          "requires_item": "vibro_knife"
+        },
+        {
+          "text": "Leave quietly — not worth the risk",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_imp_eavesdrop": {
+      "text": "You press yourself against the wall beside the door and listen. The officer's voice is clear — he speaks with the flat precision of someone reading from a script.",
+      "test_luck": {
+        "lucky_text": "'Squad two, redirect to sectors twelve through fifteen. Lab 7 approach is low priority — the sensor sweep shows it clear.' He pauses, listening to a reply. 'Understood. Inquisitor Malachar's ETA is forty-five minutes. He wants the perimeter secured before he boards.'\n\nForty-five minutes. That's your window. And they're redirecting away from the lab. You file the information and move, knowing exactly how much time you have.",
+        "lucky_goto": "e_10",
+        "unlucky_text": "The officer pauses mid-sentence. His head tilts. He heard something — your breathing, a boot shifting on the deck, something. His hand moves to his sidearm.\n\n'Who's there?'\n\nYou don't wait for him to finish the question. You move — fast — away from the door and down the corridor. Behind you, the officer is shouting into his comm. Your position is compromised.",
+        "unlucky_goto": "e_10",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 2
+      }
+    },
+    "e_imp_datapad": {
+      "text": "The datapad is sitting on the edge of the table, its strap looped around the back of a chair. The officer is facing the wall projection, comm unit to his ear. His back is to you.\n\nYou ease the door open another centimetre. Reach through. The vibro-knife's molecular edge cuts through the strap without resistance — a clean separation, silent. You lift the datapad and pull back.\n\nThe officer keeps talking. He doesn't notice.\n\nIn the corridor, you thumb the datapad on. It's locked, but the display shows the current status screen — a map of the lower decks with patrol positions, search schedules, and a countdown timer labelled 'MALACHAR ARRIVAL.' The timer reads forty-two minutes.\n\nYou know where every patrol is. You know where they're going. And you know how long you have.",
+      "add_luck": 1,
+      "choices": [
+        {
+          "text": "Head for Research Lab 7 — you know exactly which route is clear",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_research_notes": {
+      "text": "A side passage off the main lower deck corridor leads to a narrow room that might once have been a records office. Filing cabinets line the walls, most of them forced open and emptied. But the walls themselves are covered in something the Bureau's cleaners missed — or chose to ignore.\n\nResearch notes. Handwritten, pinned directly to the metal with magnetic clips. They are old — the paper is yellowed, the ink faded — and they predate the Bureau's takeover by at least a decade. Station researchers, the original team. People who studied the Precursor artefacts not for military advantage but out of curiosity.\n\nThe notes describe the artefacts' behaviour in clinical detail. 'Non-responsive to electrical stimulus.' 'Surface temperature consistently 2.3 degrees above ambient, regardless of external conditions.' 'Artefact appears to absorb specific wavelengths of light — analysis pending.' Beside each note, someone has drawn careful diagrams of the artefacts. The drawings are precise but the proportions are wrong — the angles don't resolve into shapes your mind can hold. You look at them and they seem to shift.\n\nOne note, near the bottom, is different. Written in a shakier hand, with no diagram. 'I held the compass today. It showed me a direction. I know where it wants to go. I am afraid I will always know.'",
+      "choices": [
+        {
+          "text": "Move on",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_deck_trap": {
+      "text": "The corridor floor here is wrong. You notice it the way you notice anything on a scavenging run — not consciously, not with analysis. Your feet notice. The deck plates flex under your weight in a way they shouldn't.\n\nYou stop. Look down. The plate you're standing on is discoloured — a slightly different shade of grey from its neighbours. And the bolts holding it in place are newer than the rest. Someone replaced this plate. Recently enough that the corrosion hasn't matched.\n\nBelow you, through the seam, you can see darkness. A drop. The plate is a false floor — step on the wrong section and it will give way.",
+      "test_luck": {
+        "lucky_text": "You step carefully, testing each plate before committing your weight. The false section is three metres long. You pick your way across, one hand on the wall for balance, and reach solid decking on the far side. Past the trap, the corridor continues — warmer, drier. Precursor construction is visible in the walls now, smooth dark metal emerging from beneath layers of human-installed panelling. Research Lab 7 is close.",
+        "lucky_goto": "e_10",
+        "unlucky_text": "You shift your weight to test the next plate and the one under your back foot gives way. Your leg drops through the gap. You catch yourself on the edge, arms braced, your lower body dangling over a three-metre drop into a maintenance shaft. You haul yourself up, scraping your ribs on the broken plate edge, and roll onto solid decking. Your side aches and your hands are cut. But past the trap, the corridor continues — warmer, drier. Precursor construction shows through the walls. Research Lab 7 is close.",
+        "unlucky_goto": "e_10",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 3
+      }
+    },
+    "e_lab_side": {
+      "text": "A door off the main lab chamber leads to a smaller room. This was a secondary research space — workbenches, sealed containers, instrument racks. And on the benches, arranged with museum-like care, a dozen Precursor artefacts.\n\nAll of them are dead.\n\nYou can see the difference immediately. The compass on its pedestal pulses with that slow silver light — alive, aware, responding. These objects are inert. Dark metal, complex geometry, the same alien craftsmanship. But no light. No warmth. No sense of presence.\n\nSome are cracked. One has been cut in half — a clean bisection that must have taken industrial equipment. Another is scorched, its surface bubbled and distorted by extreme heat. The researchers tried everything. Electricity, force, fire. The artefacts endured all of it and gave nothing back.\n\nThe compass was the only one that still worked. The only one that still listened.",
+      "choices": [
+        {
+          "text": "Check if the Precursor disc responds to anything here",
+          "goto": "e_lab_disc",
+          "requires_item": "precursor_disc"
+        },
+        {
+          "text": "Return to the main lab",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_lab_disc": {
+      "text": "You take the Precursor disc from your jacket and hold it near the dead artefacts. Nothing. The disc is as inert as they are — room temperature, silent, ordinary.\n\nThen you turn toward the main lab, toward the compass on its pedestal, and the disc warms in your hand. Not much. A few degrees. But in this room full of dead things, even that faint response feels like a shout.\n\nThe raised lines on the disc's surface — the ones that converge toward a single edge — are pointing the same direction the compass pulses. The same direction. Always the same direction.\n\nThey were made to work together. You are sure of it in a way that bypasses thought. The disc is not a separate artefact. It is a component. A piece of something larger that includes the compass and the room below the antechamber and the signal from galactic north-east.\n\nYou put the disc away. It is warm against your ribs, a mirror to the compass's heat.",
+      "choices": [
+        {
+          "text": "Return to the main lab",
+          "goto": "e_10"
+        }
+      ]
+    },
+    "e_escape_service": {
+      "text": "You remember the service route from the terminal schematic — a maintenance crawlway that runs parallel to the main corridor but two metres lower, beneath the deck plates. The access point is a floor hatch fifteen metres from the lab entrance. You find it by counting conduit junctions.\n\nThe hatch is stiff but opens. Below, the crawlway is dark and tight. You lower yourself in and pull the hatch closed above you. The sounds of pursuit — boots, shouted orders — are muffled now, filtered through the deck plating above your head.\n\nYou crawl. The space is barely wide enough for your shoulders, and the Compass presses against your chest with each forward motion. It is warm. It pulses steadily, unhurried, as if the concept of pursuit does not apply to it.",
+      "choices": [
+        {
+          "text": "Keep crawling toward the cargo bays",
+          "goto": "e_escape_service_2"
+        }
+      ]
+    },
+    "e_escape_service_2": {
+      "text": "The crawlway runs for fifty metres before opening into a junction where three maintenance shafts converge. You can stand here, barely. Above you, through the deck plates, the sounds of the Imperial search are fading — they are sweeping the main corridors, not the infrastructure beneath them.\n\nA vertical shaft leads upward. According to the schematic, it connects to the cargo bay level — a direct route that bypasses the corridors where the soldiers are searching.",
+      "test_luck": {
+        "lucky_text": "The shaft has maintenance rungs set into the wall. You climb quickly, the Compass a warm weight against your ribs. At the top, a hatch opens into a quiet section of the cargo bay. No soldiers. No patrols. You are through.",
+        "lucky_goto": "b_1",
+        "unlucky_text": "The shaft's maintenance rungs are corroded. Halfway up, one snaps under your weight. You catch yourself on the next rung, the impact jarring through your shoulders, and haul yourself up the remaining distance. At the top, you emerge into the cargo bay, scraped and winded but clear of the Imperial cordon.",
+        "unlucky_goto": "b_1",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 2
+      }
+    },
+    "e_alarm_atmo": {
+      "text": "The station knows something is wrong. You feel it before you see it — a shift in air pressure, subtle, as though the lower decks just inhaled. Then the lighting changes. The emergency strips along the corridor ceiling switch from white to red, and for a moment the entire lower deck looks like the inside of something alive.\n\nBlast doors begin to move. Not all of them — the station's automation is patchy, failing in sections — but enough to change the geography of the corridors around you. Routes that were open three minutes ago are closing. Others are opening for the first time in years, releasing air that smells of cold metal and machine oil.\n\nThe PA crackles. The automated voice is Imperial standard — flat, clipped, inhuman. 'Security condition red. All personnel report to assigned stations. Unauthorised movement in restricted sectors will be met with lethal force.'\n\nThe voice repeats. And repeats. It will keep repeating until someone with authority tells it to stop, and that person is Malachar.",
+      "choices": [
+        {
+          "text": "Move through the chaos — the changed routes might work in your favour",
+          "goto": "e_14"
+        }
+      ]
+    },
+    "e_escape_alt": {
+      "text": "You take the side corridor. It is narrower than the main route but clear — no soldiers, no sensor equipment. The lighting here is dead entirely, and you navigate by the wall under your hand and the faint red glow leaking from the main corridor behind you.\n\nThe corridor curves. The curve is wrong — too smooth, too deliberate. The walls here are Precursor construction again, the same dark metal you saw in the antechamber. The station was built around this, and this was here first.\n\nThe Compass responds. A pulse of warmth through your jacket, stronger than before. It knows where it is. It knows what these walls are.",
+      "choices": [
+        {
+          "text": "Follow the Precursor corridor",
+          "goto": "e_escape_alt_2"
+        }
+      ]
+    },
+    "e_escape_alt_2": {
+      "text": "The corridor ends at a vertical shaft. Precursor-built — the same smooth dark metal, the same absence of bolts or welds. The shaft goes up. There are no rungs, no ladder, but the walls have irregularities — shallow handholds, placed at intervals that suggest a climber with longer arms than yours.\n\nYou climb. It is not easy. The handholds are smooth and the spacing forces you to stretch for each one. But the metal is warm under your fingers, and the Compass pulses with each grip as if encouraging you.",
+      "test_luck": {
+        "lucky_text": "You climb cleanly, finding a rhythm in the alien spacing. At the top, the shaft opens into a maintenance space between decks. From here, a human-built corridor leads toward the cargo bays. You are above the Imperial cordon.",
+        "lucky_goto": "b_1",
+        "unlucky_text": "Your hand slips on a smooth section. You drop two metres before catching yourself, the impact wrenching your shoulder. You hang there for a moment, breathing hard, then force yourself upward. At the top, a maintenance space. A corridor toward the cargo bays. You made it, but the fall cost you.",
+        "unlucky_goto": "b_1",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 3
+      }
     }
   },
   "start_passage": "s_1"
