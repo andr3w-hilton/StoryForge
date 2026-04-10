@@ -1395,9 +1395,7 @@
         "unlucky_text": "A cold feeling settles in your stomach. The chart is complex — the reef channels are narrow and the currents are marked in red. This will not be easy. The Adamant will be tested.",
         "unlucky_goto": "a_77a",
         "lucky_stamina_cost": 0,
-        "unlucky_stamina_cost": 0,
-        "skip_goto": "a_77a",
-        "skip_text": "Study every hazard — go in prepared for the worst"
+        "unlucky_stamina_cost": 0
       }
     },
     "a_77": {
