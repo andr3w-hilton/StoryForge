@@ -152,15 +152,23 @@
     },
 
     "e_eng_beyond": {
-      "text": "Beyond the drone junction, the corridor connects to the main lower deck route. You are past Engineering Section 4 and closer to Research Lab 7. The waypoint arrow on your data chip adjusts, pointing ahead and slightly down.\n\nFrom here, you can see the approaches to the lab. The corridor is wider, the ceiling higher — pre-Imperial architecture showing through the station's later modifications. The walls are smoother, the angles cleaner. You are entering the oldest part of the station.",
+      "text": "Beyond the drone junction, the corridor connects to the main lower deck route. You are past Engineering Section 4 and closer to Research Lab 7. The waypoint arrow on your data chip adjusts, pointing ahead and slightly down.\n\nFrom here, you can see the approaches to the lab. The corridor is wider, the ceiling higher — pre-Imperial architecture showing through the station's later modifications. The walls are smoother, the angles cleaner. You are entering the oldest part of the station.\n\nAhead, you notice a side passage with faded writing on the walls. To your right, the corridor floor looks wrong — the deck plates are discoloured. And from further on, you can hear boots.",
       "choices": [
         {
           "text": "Head for Research Lab 7",
           "goto": "e_10"
         },
         {
-          "text": "You hear Imperial voices ahead — investigate",
-          "goto": "e_3"
+          "text": "Check the side passage with the writing",
+          "goto": "e_research_notes"
+        },
+        {
+          "text": "The deck plates ahead look wrong — proceed carefully",
+          "goto": "e_deck_trap"
+        },
+        {
+          "text": "Imperial patrol ahead — assess the situation",
+          "goto": "e_imp_patrol_2"
         }
       ]
     },
@@ -212,8 +220,19 @@
       ]
     },
 
-    "e_flood_exit": {
-      "text": "You climb the passage, grateful to be out of the water. The floor dries under your boots and the temperature rises marginally — still cold, but not the bone-deep chill of the flooded section.\n\nThe passage connects to the main lower deck corridor. You recognise the intersection from the station schematics. Research Lab 7 is ahead, through the wider corridor with the pre-Imperial architecture.",
+    "e_flood_force": {
+      "text": "You brace yourself against the corridor wall and pull at the bulkhead. The mechanism is old and the water has corroded the lower track. The door shifts — a centimetre, two — then jams. You pull harder. Something gives, and the door lurches open with a grinding shriek that echoes through the flooded corridor.\n\nThe noise carries. Sound travels strangely through water and metal, and a shriek like that could be heard two sections away. You freeze and listen. Nothing comes back. But that doesn't mean nothing heard it.\n\nBeyond the bulkhead, a short corridor slopes upward out of the flood zone and opens into a dry antechamber. This is a back entrance to the research wing.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Enter the research wing",
+          "goto": "e_flood_lab"
+        }
+      ]
+    },
+
+    "e_flood_exit":{
+      "text": "You climb the passage, grateful to be out of the water. The floor dries under your boots and the temperature rises marginally — still cold, but not the bone-deep chill of the flooded section.\n\nThe passage connects to the main lower deck corridor. You recognise the intersection from the station schematics. Research Lab 7 is ahead, through the wider corridor with the pre-Imperial architecture. A half-open door to your left shows a room with projected maps on the wall — someone important is inside.",
       "choices": [
         {
           "text": "Head for Research Lab 7",
@@ -222,6 +241,10 @@
         {
           "text": "You hear voices ahead — Imperial soldiers",
           "goto": "e_3"
+        },
+        {
+          "text": "Look through the half-open door — an officer is inside",
+          "goto": "e_imp_officer"
         }
       ]
     },
@@ -236,17 +259,6 @@
         {
           "text": "Search the antechamber first",
           "goto": "e_lab_ante"
-        }
-      ]
-    },
-
-    "e_flood_force": {
-      "text": "You brace yourself against the corridor wall and pull at the bulkhead. The mechanism is old and the water has corroded the lower track. The door shifts — a centimetre, two — then jams. You pull harder. Something gives, and the door lurches open with a grinding shriek that echoes through the flooded corridor.\n\nThe noise carries. Sound travels strangely through water and metal, and a shriek like that could be heard two sections away. You freeze and listen. Nothing comes back. But that doesn't mean nothing heard it.",
-      "add_stamina": -1,
-      "choices": [
-        {
-          "text": "Go through quickly",
-          "goto": "e_flood_lab"
         }
       ]
     },
@@ -364,7 +376,7 @@
       "text": "The soldier closest to you reacts fast — trained reflexes, weapon up and firing in under a second. The shot goes wide in the confined space but the next one won't. You close the distance and engage.",
       "combat": {
         "enemy": "imperial_soldier",
-        "win_goto": "e_imp_patrol_after",
+        "win_goto": "e_10",
         "flee_goto": "e_10",
         "flee_allowed": true,
         "flee_stamina_cost": 3
@@ -386,16 +398,6 @@
       "choices": [
         {
           "text": "Move to Research Lab 7 while they're gone",
-          "goto": "e_10"
-        }
-      ]
-    },
-
-    "e_imp_patrol_after": {
-      "text": "The soldier goes down. You check the corridor — clear, for now. But the noise of the fight carries in these metal corridors, and you have no way of knowing how many more patrols are between you and the lab.\n\nThe soldier's comm unit crackles with traffic — confused orders, garbled sector reports. Whatever is happening with the Imperial advance team, coordination is not their strong point right now.",
-      "choices": [
-        {
-          "text": "Move quickly to Research Lab 7",
           "goto": "e_10"
         }
       ]
@@ -456,23 +458,13 @@
     "e_deck_trap": {
       "text": "The corridor floor here is wrong. You notice it the way you notice anything on a scavenging run — not consciously, not with analysis. Your feet notice. The deck plates flex under your weight in a way they shouldn't.\n\nYou stop. Look down. The plate you're standing on is discoloured — a slightly different shade of grey from its neighbours. And the bolts holding it in place are newer than the rest. Someone replaced this plate. Recently enough that the corrosion hasn't matched.\n\nBelow you, through the seam, you can see darkness. A drop. The plate is a false floor — step on the wrong section and it will give way.",
       "test_luck": {
-        "lucky_text": "You step carefully, testing each plate before committing your weight. The false section is three metres long. You pick your way across, one hand on the wall for balance, and reach solid decking on the far side. The trap — whoever set it — was not meant for someone as cautious as you.",
-        "lucky_goto": "e_deck_trap_clear",
-        "unlucky_text": "You shift your weight to test the next plate and the one under your back foot gives way. Your leg drops through the gap. You catch yourself on the edge, arms braced, your lower body dangling over a three-metre drop into a maintenance shaft. You haul yourself up, scraping your ribs on the broken plate edge, and roll onto solid decking. Your side aches and your hands are cut.",
-        "unlucky_goto": "e_deck_trap_clear",
+        "lucky_text": "You step carefully, testing each plate before committing your weight. The false section is three metres long. You pick your way across, one hand on the wall for balance, and reach solid decking on the far side. Past the trap, the corridor continues — warmer, drier. Precursor construction is visible in the walls now, smooth dark metal emerging from beneath layers of human-installed panelling. Research Lab 7 is close.",
+        "lucky_goto": "e_10",
+        "unlucky_text": "You shift your weight to test the next plate and the one under your back foot gives way. Your leg drops through the gap. You catch yourself on the edge, arms braced, your lower body dangling over a three-metre drop into a maintenance shaft. You haul yourself up, scraping your ribs on the broken plate edge, and roll onto solid decking. Your side aches and your hands are cut. But past the trap, the corridor continues — warmer, drier. Precursor construction shows through the walls. Research Lab 7 is close.",
+        "unlucky_goto": "e_10",
         "lucky_stamina_cost": 0,
         "unlucky_stamina_cost": 3
       }
-    },
-
-    "e_deck_trap_clear": {
-      "text": "Past the false floor, the corridor continues toward Research Lab 7. You can feel the change in the air — warmer, drier, as if the environmental systems in this section are running on a different standard. The Precursor construction is closer now. You can see it in the walls — smooth dark metal emerging from beneath layers of human-installed panelling.",
-      "choices": [
-        {
-          "text": "Continue to Research Lab 7",
-          "goto": "e_10"
-        }
-      ]
     },
 
     "e_lab_side": {
