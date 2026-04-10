@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Flag Running — Coming Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #080b10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  /* Card locked to cover's exact proportions: 400x596 cover, 660px content panel */
+  .card {
+    display: flex;
+    width: 1060px;
+    height: 596px;
+    background: #0b1018;
+    border: 1px solid #252d3a;
+    box-shadow:
+      0 0 0 1px #161d28,
+      0 24px 80px rgba(0,0,0,0.9);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      165deg,
+      transparent 0px,
+      transparent 48px,
+      rgba(255,255,255,0.006) 48px,
+      rgba(255,255,255,0.006) 49px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── LEFT: Cover — pixel-perfect fit ── */
+  .cover-side {
+    flex: 0 0 400px;
+    height: 596px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-side img {
+    width: 400px;
+    height: 596px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* Thin gold seam between cover and content */
+  .cover-side::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 1px; height: 100%;
+    background: linear-gradient(to bottom, transparent, #5a4510 20%, #5a4510 80%, transparent);
+    opacity: 0.35;
+  }
+
+  /* ── RIGHT: Content — three-zone layout ── */
+  .content-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 36px 48px 32px 44px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ZONE 1 — Title block */
+  .genre-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.28em;
+    color: #7a5c12;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: 2.55rem;
+    line-height: 1.06;
+    color: #ddd5b0;
+    font-weight: normal;
+    margin-bottom: 8px;
+    letter-spacing: 0.01em;
+  }
+
+  .author {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    color: #333b48;
+    text-transform: uppercase;
+  }
+
+  /* ZONE 2 — Hook */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, #6a4e10, transparent);
+    opacity: 0.4;
+  }
+
+  .divider-icon {
+    font-size: 0.68rem;
+    color: #7a5c12;
+    opacity: 0.55;
+  }
+
+  .hook {
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: #7a8490;
+    font-style: italic;
+  }
+
+  .hook .beat {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+
+  .hook .beat:last-child { margin-bottom: 0; }
+
+  .hook strong {
+    color: #b4aa8a;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  /* ZONE 3 — Footer */
+  .footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .stats {
+    display: flex;
+    gap: 24px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.54rem;
+    letter-spacing: 0.22em;
+    color: #272e3a;
+    text-transform: uppercase;
+  }
+
+  .stat-value {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: #7a5c12;
+    letter-spacing: 0.06em;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #1e2630;
+    padding: 7px 15px;
+    background: rgba(122, 92, 18, 0.05);
+  }
+
+  .badge-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #7a5c12;
+    flex-shrink: 0;
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  .badge-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    color: #7a5c12;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="cover-side">
+    <img src="cover_art/Black Flag Cover.png" alt="Black Flag Running">
+  </div>
+
+  <div class="content-side">
+
+    <div>
+      <div class="genre-tag">⚓ &nbsp; High Seas Adventure</div>
+      <h1 class="title">Black Flag<br>Running</h1>
+      <div class="author">by Andrew Hilton &nbsp;·&nbsp; StoryForge</div>
+    </div>
+
+    <div>
+      <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-icon">✦</div>
+      </div>
+      <p class="hook">
+        <span class="beat"><strong>Nassau is a free republic.</strong> For now.</span>
+        <span class="beat">The Crown's warships sit at the harbour mouth. Eleven days. No shots fired. Commodore Ashford is waiting for something specific — buried in the Shallows of Perdition, eight leagues south.</span>
+        <span class="beat">A sunken galleon. A war chest. A sealed pouch called <strong>the Red Correspondence</strong> — letters that could end his career if anyone read them.</span>
+        <span class="beat">You've just arrived. You have a fast sloop, a loyal crew, and a chart to the wreck. Nassau is watching to see what kind of captain you are.</span>
+      </p>
+    </div>
+
+    <div class="footer">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Genre</span>
+          <span class="stat-value">High Seas</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Endings</span>
+          <span class="stat-value">8</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Passages</span>
+          <span class="stat-value">260+</span>
+        </div>
+      </div>
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span class="badge-text">Released Tonight on StoryForge</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

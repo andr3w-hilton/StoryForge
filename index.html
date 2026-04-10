@@ -1422,7 +1422,7 @@ async function loadAdventureList() {
         container.innerHTML = '<div class="loading-text">No adventures found.</div>';
         return;
     }
-    for (const adv of list) {
+    for (const adv of list.filter(a => !a.hidden)) {
         const card = document.createElement('div');
         card.className = 'adventure-card';
         if (adv.accent_color) card.style.setProperty('--card-accent', adv.accent_color);

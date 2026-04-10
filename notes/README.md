@@ -13,14 +13,14 @@ Process docs, specs, and adventure TODOs.
 
 | File | Adventure |
 |------|-----------|
-| [leviathan_spec.md](leviathan_spec.md) | Tide of the Leviathan — full flag/ending/act spec (expansion complete) |
+| [the_crypt_of_count_valdric_spec.md](the_crypt_of_count_valdric_spec.md) | The Crypt of Count Valdric — flag/ending/act spec |
+| [leviathan_spec.md](leviathan_spec.md) | Tide of the Leviathan — full flag/ending/act spec |
 
-## Adventure TODOs
+## Adventure Status
 
-| File | Adventure | Status |
-|------|-----------|--------|
-| [valdric_todo.md](valdric_todo.md) | The Crypt of Count Valdric | 43 passages — needs expansion |
-| [scavenger_todo.md](scavenger_todo.md) | The Scavenger of New Babylon Station | 57 passages — needs expansion |
-| [hollow_king_todo.md](hollow_king_todo.md) | The Throne of the Hollow King | 76 passages — polished, expansion optional |
-
-Tide of the Leviathan is fully expanded (293 passages, 6 endings) and needs no further work.
+| Adventure | Passages | Endings | Flags | Status |
+|-----------|----------|---------|-------|--------|
+| [Tide of the Leviathan](leviathan_spec.md) | 293 | 4V / 3D | 44 set, 33 checked | Done — no further work needed |
+| [The Scavenger of New Babylon Station](scavenger_todo.md) | 200 | 6V / 5D | 13 set, 13 checked | Done — expansion complete (v2.1) |
+| [The Crypt of Count Valdric](valdric_todo.md) | 95 | 5V / 5D | 13 set, 13 checked | Done — expansion complete (v2.0) |
+| [The Throne of the Hollow King](hollow_king_todo.md) | 76 | 2V / 3D | 13 set, 13 checked | Polished — expansion optional |

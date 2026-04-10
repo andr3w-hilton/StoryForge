@@ -2,51 +2,34 @@
 
 ## Current State
 
-- **Passages:** 43 | **Version:** 1.0
-- **Victory endings:** 1 (`26`) — no variation regardless of player choices
-- **Death endings:** 3 (`death_riddle`, `death_wraith`, `death_flee_valdric`)
-- **Combats:** 6 | **Luck tests:** 2
+- **Passages:** 95 | **Version:** 2.0
+- **Victory endings:** 5 (`end_sealed`, `end_freed`, `end_pact_broken`, `end_sera_stays`, `end_cursed`)
+- **Defeat endings:** 5 (`death_riddle`, `death_wraith`, `death_flee_valdric`, `death_ring_claim`, `death_valdric_surges`)
+- **Combats:** 8 | **Luck tests:** 6
+- **Flags:** 13 set, 13 checked — all clean
 
-**Summary:** Weakest adventure in the collection. Characters Sera (ghost girl ally) and Aldric (tragic ghost count) are sketched in but deliver zero mechanical payoff. 9 flags fire into nothing.
-
----
-
-## Flag Audit
-
-| Flag | Status | Notes |
-|------|--------|-------|
-| `aldric_warned_candle` | ✓ ok | |
-| `has_candle_already` | ✓ ok | |
-| `met_sera` | ✗ orphaned | Set but never checked |
-| `helped_sera` | ✗ orphaned | Set but never checked |
-| `sera_allied` | ✗ orphaned | Set but never checked |
-| `met_aldric` | ✗ orphaned | Set but never checked |
-| `aldric_warned_wraith` | ✗ orphaned | Set but never checked |
-| `saw_vision` | ✗ orphaned | Set but never checked |
-| `read_priest_note` | ✗ orphaned | Set but never checked |
-| `candle_used` | ✗ orphaned | Set but never checked |
-| `wraith_destroyed` | ✗ orphaned | Set but never checked |
+**Summary:** Fully expanded in v2.0. Sera and Aldric both have meaningful mechanical arcs. All 5 victory endings are flag-gated with distinct outcomes. No orphaned flags. Story works as-is.
 
 ---
 
-## TODO
+## Flag Audit (v2.0)
 
-### Spec
-- [ ] Write `adventures/the_crypt_of_count_valdric_spec.md`
-- [ ] Define 8–10 flags — wire all current orphans or cut them
-- [ ] Design 4–6 endings: `end_sealed` (basic), `end_freed` (Aldric at peace), `end_sera_stays` (Sera remains by choice), `end_cursed` (player takes the curse), plus death variants
-- [ ] Map out Sera arc — she should matter mechanically, not just atmospherically
-- [ ] Map out wraith_destroyed payoff — should gate an alternate approach to Valdric
+All 13 flags clean — no orphans.
 
-### Expansion (~200 passages across 3 acts)
-- [ ] Re-prefix existing passages to `v_` (Act 1)
-- [ ] Add `"start_passage": "v_1"` to adventure JSON
-- [ ] Act 2 (`c_`) — deep crypt: Sera's full backstory, Aldric confrontation, the pact revealed (~80 new passages)
-- [ ] Act 3 (`k_`) — the Sealing Chamber: flag-gated finale, 4–6 divergent endings (~50 new passages)
-- [ ] Spin up Opus for each act draft (see EXPANSION_GUIDE.md for prompt template)
+---
 
-### Polish
-- [ ] All 9 orphaned flags gate something meaningful, or are removed
-- [ ] Sera has real agency — at minimum one ending where her alliance changes the outcome
-- [ ] Differentiate victory endings — Aldric-at-peace vs. crypt-sealed-but-cursed at minimum
-- [ ] Flag audit panel shows all flags ✓ ok
+## What Could Be Better (if expanding)
+
+- The `end_cursed` ending is intentionally bleak — no counterweight "bittersweet" option between it and the clean `end_freed`
+- Aldric's pre-curse life is mentioned but not shown — a memory passage or flashback could deepen him
+- Sera's fate in `end_sealed` (she remains trapped) is never directly addressed
+
+---
+
+## TODO (lower priority — story works as-is)
+
+### If Proceeding with Further Expansion
+- [ ] Write expansion spec if targeting ~200 passages
+- [ ] Consider a 6th ending: player takes on Aldric's curse willingly to spare him (distinct from `end_cursed`)
+- [ ] Add 1–2 memory/flashback passages for Aldric's pre-undead life
+- [ ] Clarify Sera's fate in `end_sealed` — give her a line of closure

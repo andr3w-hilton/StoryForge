@@ -1,5 +1,20 @@
 [
   {
+    "id": "black_flag_running",
+    "title": "Black Flag Running",
+    "author": "Andrew Hilton",
+    "accent_color": "#8b6914",
+    "genre_tag": "HIGH SEAS",
+    "theme_icon": "⚓",
+    "cover_image": "cover_art/Black Flag Cover.png",
+    "hero_image": "cover_art/Black Flag Hero.png",
+    "hidden": true,
+    "is_new": true,
+    "endings_count": 8,
+    "passage_count": 260,
+    "introduction": "Nassau stinks of low tide and ambition. You smell it before you see the port — tar and fish and something underneath, a particular sweetness that means too many people living too close together without enough to lose.\n\nThe Adamant slips into harbour on the morning watch, and the first thing you see is not the fort or the market or the long row of ships stripped to their ribs — it is the three Crown warships sitting at the mouth of the bay, close enough that you can read their names. Crown's Justice. Fervent. Resolve. Three ships to Nassau's none. Commodore Ashford is patient. He has been here eleven days, your harbour pilot tells you. He has not fired a shot.\n\nHe is waiting for something.\n\nYou have come to Nassau for work. What you have arrived into is something larger — a free republic counting the hours until it stops being free, a sunken ship with secrets that could end a career or start a war, and four factions pulling in four directions with Nassau's future between them.\n\nThe Adamant's crew is watching you. The harbour is watching you. Somewhere above the waterline, the town is already deciding what kind of captain you are."
+  },
+  {
     "id": "tide_of_the_leviathan",
     "title": "Tide of the Leviathan",
     "author": "Andrew Hilton",
@@ -9,7 +24,6 @@
     "introduction": "The storm took your ship three days ago. The Windborne went down in minutes — one moment you were fighting the sails, the next you were in black water, choking on brine, watching the mast disappear beneath the waves.\n\nYou washed ashore at Saltmere, a grey port town clinging to cliffs above the Sunken Reaches — a vast stretch of shallow reef and drowned ruins where the sea swallows ships whole. The locals pulled you from the surf, fed you, and told you something that turned your blood cold.\n\nThe storm was not natural. Beneath the Reaches, something ancient stirs — a being the fisherfolk call the Leviathan. A cult of zealots, the Drowned Priests, has been performing rituals to awaken it fully. When the tide comes in tonight, they will complete the final rite.\n\nYour crew is missing. Your ship is gone. But you still have your cutlass and three days' worth of provisions. Your adventure begins at the Saltmere harbour.",
     "cover_image": "cover_art/Leviathan Cover.jpeg",
     "hero_image": "cover_art/Leviathan Hero.jpeg",
-    "is_new": true,
     "endings_count": 7,
     "passage_count": 293
   },
