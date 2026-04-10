@@ -167,12 +167,21 @@ Every item must have at least one passage where it is called out by name and cha
 ### Act 1 — s_ (The Station)
 **Tone:** Bustling, time-pressured. Factions visible. Player building their toolkit and reading the board before descending.
 
+**Passage budget:**
+```
+Migrated passages:   10   (s_1 through s_10)
+Named new passages:   6   (s_3a, s_harko_meet, s_harko_accept, s_harko_decline, s_colour_1–3)
+Fill passages:       19   (connective tissue, market exploration, extra Harko branch beats)
+─────────────────────────
+Act minimum:         35
+```
+
 **Spine (minimum path):**
 `s_1` → `s_4` (elevator) or `h_1` (shafts) → Act 2
 
 **Existing passages retained:** `s_1` through `s_10` (see migration map)
 
-**New passages to write (~25 new):**
+**New passages to write (35 minimum total):**
 
 #### s_3 extension — Zara and the resistance
 After Zara's existing speech, add a choice:
@@ -202,12 +211,21 @@ Optional branch from `s_1`: the market edge. A refugee family, a dead scavenger 
 ### Act 2 — h_ (The Hab Ring / Maintenance)
 **Tone:** Tightening. Darkness pressing in. The station's history surfacing. Something wrong in the lower levels.
 
+**Passage budget:**
+```
+Migrated passages:   14   (h_1 through h_14)
+Named new passages:   7   (h_new_freq, h_new_second_chance + outcomes, h_new_vibro_knife, h_new_terminal, h_new_stalker_win)
+Fill passages:       29   (flooded section, dead scavenger, extra crawler, shaft collapse, connective tissue)
+─────────────────────────
+Act minimum:         50
+```
+
 **Spine (minimum path):**
 `h_1` → `h_5` → `h_6` or `h_9` → bulkhead → `h_14` or `h_12`/`h_13` → Act 3
 
 **Existing passages retained:** `h_1` through `h_14` (see migration map)
 
-**New passages to write (~35-40 new):**
+**New passages to write (50 minimum total):**
 
 #### h_new_freq — Voss gives his comm frequency
 New passage inserted after `h_3` (accept Voss), before `h_5`.
@@ -263,12 +281,21 @@ All branches reconnect before the bulkhead.
 ### Act 3 — e_ (Engineering / Lower Decks)
 **Tone:** Alien. Ancient. The compass is real and it knows you're here.
 
+**Passage budget:**
+```
+Migrated passages:   18   (e_1 through e_18)
+Named new passages:   5   (e_new_data_chip, e_new_compass_vision, e_new_compass_fragment, e_new_signal, e_new_signal_sent)
+Fill passages:       42   (expanded lower deck exploration, Precursor sub-chambers, additional Imperial encounters, atmosphere)
+─────────────────────────
+Act minimum:         65
+```
+
 **Spine (minimum path):**
 `e_1` → `e_3` or `e_10` → `e_12` or `e_13` → `e_new_signal` or direct to Act 4
 
 **Existing passages retained:** `e_1` through `e_18` (see migration map)
 
-**New passages to write (~40-45 new):**
+**New passages to write (65 minimum total):**
 
 #### e_new_data_chip — the chip is recognised
 New passage in Research Lab 7, before the compass is taken.
@@ -331,12 +358,23 @@ One choice: "Move" → `b_1`.
 ### Act 4 — b_ (The Bridge / Final Confrontation)
 **Tone:** Consequence. Every decision lands. The bill comes due.
 
+**Passage budget:**
+```
+Migrated passages:   11   (b_1 through b_9, end_survivor, end_lone_wolf)
+Named new passages:  13   (b_new_pa, b_new_harko_exit, b_new_patrol, b_new_compass_reveal, b_voss_gate, b_new_voss_path1/2, b_new_voss_extract, b_new_voss_rescued, b_new_stim_pack, death_extraction)
+Ending gate chain:    5   (end_gate_1 through end_gate_3b)
+New endings:          4   (end_legend, end_resistance_give/keep, end_pyrrhic)
+Fill passages:       17   (Malachar confrontation variants, escape route branches, atmosphere)
+─────────────────────────
+Act minimum:         50
+```
+
 **Spine (minimum path):**
 `b_1` → `b_2` → fight or negotiate → escape → ending
 
 **Existing passages retained:** `b_1` through `b_9`, `end_lone_wolf` (was `23a`)
 
-**New passages to write (~45-50 new):**
+**New passages to write (50 minimum total):**
 
 #### b_new_pa — Malachar docks
 New passage inserted at the top of Act 4, before or during `b_1`.

@@ -145,11 +145,28 @@ Every item must have an entry. If an item has no narrative use, either give it o
 
 For each act, write:
 - **Tone** (one sentence)
+- **Passage budget** — explicit counts, not approximations (see below)
 - **The spine** — the mandatory path, the minimum passages a rushing player takes
 - **Major branches** — 2–4 optional branches, each with a flag payoff
 - **Key beats** — passage-by-passage notes for the structurally critical moments
 
 You do not need to write the prose in the spec. Notes are enough. Opus will write the prose.
+
+#### Passage budget (required field for every act)
+
+```
+Migrated passages:    N   (existing passages being renamed into this act)
+Named new passages:   N   (passages explicitly described in the spec)
+Fill passages:        N   (exploration, atmosphere, connective tissue — unnamed but required)
+─────────────────────────
+Act minimum:          N   (Opus must reach this before submitting)
+```
+
+**Fill passages are not optional.** They are the exploration branches, atmospheric side rooms, and connector passages that make the act feel like a world rather than a logic diagram. Name the required ones; specify a hard minimum count for the rest.
+
+Opus will implement every named passage and then stop unless you give it a number to hit. A spec that says "~10–15 passages of expanded exploration" gets 3. A spec that says "Fill passages: 12 minimum" gets 12.
+
+> **Experience note:** On the Scavenger and Leviathan expansions, every act came in 30–50% short of the planned target. The cause was identical each time — approximate language in the spec ("~N passages", "some atmospheric passages") which Opus treated as an upper bound rather than a floor. Hard minimums fix this.
 
 ---
 
@@ -242,6 +259,14 @@ Format: { "passages": { "id": {...}, ... } } — new passages only, not the full
 
 ## Prose style
 [Genre, tone, tense (second person present), any specific voice notes]
+
+## Passage count requirement
+This act must contain at least [N] passages. After writing all named passages,
+count your total. If you are below [N], you are not finished — add more
+exploration branches, atmospheric side passages, and optional encounters until
+you reach the minimum. Do not submit the draft until the count is met.
+
+To count: the number of keys in your "passages" object must be ≥ [N].
 
 ## Validation requirement
 After writing, run this validator and fix any errors before finishing:
@@ -505,6 +530,7 @@ All conditions are ANDed. Only one of each per choice. No OR conditions. No `req
 
 ### After each Opus draft
 
+- [ ] Passage count meets the act minimum from the spec — if short, send it back
 - [ ] Validator passes (no broken gotos, no unreachable passages)
 - [ ] No duplicate choice labels (both gated and ungated versions of the same label)
 - [ ] No Opus-invented enemy IDs (must match live JSON)
