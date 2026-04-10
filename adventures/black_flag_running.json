@@ -835,6 +835,10 @@
       "text": "\"Harbourmaster.\" The big man steps forward. His fists are the size of grapefruit. \"The harbourmaster is a drunk who hasn't left the fort in four days. You want to hide behind him?\"\n\nThe other Gallant sailors are standing now. This is going wrong quickly.\n\nYour hand moves to the cutlass at your belt. The weight of it — familiar, solid. The big man sees the movement and pauses. He is angry, but he is not stupid. A dock fight with a captain is different from shoving around a deckhand.",
       "choices": [
         {
+          "text": "Hold your ground — let them make the first move",
+          "goto": "a_36a"
+        },
+        {
           "text": "Draw the cutlass — make it clear you won't be pushed",
           "goto": "a_37"
         },
@@ -2927,6 +2931,11 @@
           "text": "Weigh anchor and make for the reef channel",
           "goto": "s_40",
           "requires_no_flag": "morrow_committed"
+        },
+        {
+          "text": "The lagoon is quiet — weigh anchor",
+          "goto": "s_28",
+          "requires_no_flag": "morrow_rival"
         }
       ]
     },
@@ -3211,7 +3220,7 @@
       "choices": [
         {
           "text": "Continue to Nassau",
-          "goto": "s_55"
+          "goto": "s_48a"
         }
       ]
     },
@@ -3591,6 +3600,11 @@
         {
           "text": "Step forward and address the captains",
           "goto": "r_6"
+        },
+        {
+          "text": "Morrow is here — and she has not come to listen",
+          "goto": "r_5a",
+          "requires_flag": "morrow_rival"
         }
       ]
     },
@@ -4002,7 +4016,7 @@
       "choices": [
         {
           "text": "Press the attack",
-          "goto": "r_37"
+          "goto": "r_36a"
         }
       ]
     },
@@ -4520,6 +4534,166 @@
       "text": "Ashford's marines are thorough.\n\nYou are disarmed, searched, and escorted to the brig in under three minutes. The cell is small, clean, and has a lock that a professional locksmith would admire. The marines do not speak. They do not need to — every movement is practiced, efficient, the product of years of training and the particular competence of men who serve under a commodore who tolerates nothing less.\n\nAshford visits you once. He stands outside the cell in his dress uniform, hands behind his back, and looks at you the way an entomologist looks at a pinned specimen.\n\n\"You came aboard my ship,\" he says. \"Under a flag of truce, which I honoured. And you attempted to use stolen Crown documents as leverage against a serving officer of His Majesty's Navy.\"\n\nHe pauses. His voice is measured, precise, utterly without emotion.\n\n\"The charge is piracy. The evidence is your presence aboard this vessel, your possession of stolen Crown correspondence, and the testimony of my officers. The sentence, under Admiralty law, is death.\"\n\nHe produces a document — already prepared, already signed. Your name, the date, the charges, the disposition. The paperwork was done before you boarded.\n\n\"You will be transferred to Port Royal for trial,\" he says. \"The trial will be brief. The outcome is not in question.\"\n\nHe turns and walks away. His footsteps recede down the corridor. The cell door does not rattle — it is too well-made for that.\n\nYou sit on the narrow bench and look at the porthole. Nassau is visible through the thick glass — the harbour, the fort, the town. All of it close enough to see, none of it close enough to reach.\n\nNassau will not come for you. Nassau does not know where you are, and by the time it finds out, the Crown's Justice will be at sea. Your name will appear in Admiralty records as a pirate taken in lawful action. The file will be closed. The sea will go on.\n\nThe light through the porthole dims as the sun sets. Nassau's harbour lanterns begin to glow. They are very beautiful, seen from the inside of a cell on a warship that will carry you to your execution.\n\nThey are the last beautiful thing you see.",
       "ending": true,
       "ending_type": "death"
+    },
+    "a_36a": {
+      "text": "The big man does not need a second invitation. He comes at you fast — not a brawl, a deliberate assault, the kind that ends with someone in the harbour.\n\nNassau is watching. It always is.",
+      "combat": {
+        "enemy": "harbour_thug",
+        "win_goto": "a_50",
+        "flee_goto": "a_38",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "s_28": {
+      "text": "You are almost ready to go when Pell calls down from the masthead.\n\n\"Captain. Sail in the channel. Small — two-masted. Not Crown and not Morrow.\"\n\nA third party. Someone else has been tracking the San Cristobal. As you watch, the sloop's bow swings toward the lagoon — and toward the Adamant, sitting low in the water with everything you just recovered.",
+      "choices": [
+        {
+          "text": "Stand to — run out the guns",
+          "goto": "s_28a"
+        },
+        {
+          "text": "Hail them before they close",
+          "goto": "s_28b"
+        },
+        {
+          "text": "Cut cable and run for the channel now",
+          "goto": "s_40",
+          "style": "danger"
+        }
+      ]
+    },
+    "s_28a": {
+      "text": "They come in anyway — three men over the rail before you can reload. Opportunists. They are not organised enough to be a real threat, but they are desperate enough to be dangerous.",
+      "combat": {
+        "enemy": "rival_crew",
+        "win_goto": "s_28c",
+        "flee_goto": "s_40",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "s_28b": {
+      "text": "\"Stand off!\" you call across the water. \"This wreck is worked out. Nothing left worth diving for.\"\n\nA pause. The sloop slows. A man at the bow cups his hands. \"We'll see for ourselves.\"\n\nHe does not believe you. But he is not sure you are lying either. The sloop drifts, undecided.",
+      "test_luck": {
+        "lucky_text": "The bluff holds. The sloop comes about and threads back out through the reef channel. You watch her go, then give the order to weigh anchor before she changes her mind.",
+        "lucky_goto": "s_40",
+        "unlucky_text": "They have made up their minds. The sloop closes fast and men come over the rail.",
+        "unlucky_goto": "s_28a",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "s_28c": {
+      "text": "The last man drops back into the water and swims for his sloop. You watch from the rail as they haul him aboard and make for the channel at speed — too fast, and they scrape coral on the way out. Their problem now.\n\nPell appears at your shoulder. \"We should go.\"",
+      "choices": [
+        {
+          "text": "Agreed — weigh anchor",
+          "goto": "s_40"
+        }
+      ]
+    },
+    "s_48a": {
+      "text": "You are two leagues north of the Shallows when the second vessel appears — not the Fervent, a smaller brig running hard from the east, cutting across your course. She was waiting.\n\nAshford had two ships on this patrol. The Fervent was the signal. This one is the answer if you ignore it.\n\nShe comes alongside fast, marines at the rail.",
+      "choices": [
+        {
+          "text": "Crowd on sail — try to outrun her",
+          "goto": "s_48b"
+        },
+        {
+          "text": "Hold course — let them come alongside",
+          "goto": "s_48c"
+        }
+      ]
+    },
+    "s_48b": {
+      "text": "The Adamant is fast, but she is heavy today — riding low with everything in her hold. The brig gains steadily.",
+      "test_luck": {
+        "lucky_text": "A squall line appears on the eastern horizon and you drive into it — rain hammering the deck, visibility dropping to nothing. When the weather clears, the brig is gone. You sail north with wet rigging and a crew that does not ask questions.",
+        "lucky_goto": "s_55",
+        "unlucky_text": "She runs you down. A shot across the bow — a warning, not a miss. Her captain wants to board, not fight.",
+        "unlucky_goto": "s_48c",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "s_48c": {
+      "text": "The brig comes alongside and three marines drop to the Adamant's deck — efficient, professional, weapons drawn but not threatening. Their sergeant looks at the Adamant's waterline, then at you.\n\n\"You ignored the Fervent's signal, Captain. The Commodore would like to know why.\"",
+      "combat": {
+        "enemy": "naval_marine",
+        "win_goto": "s_48d",
+        "flee_goto": "s_55",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
+    },
+    "s_48d": {
+      "text": "The marines go back over the rail. The brig falls away behind you, her captain watching from the quarterdeck — noting everything, noting your colours, noting the Adamant's waterline.\n\nAshford will hear about this before you reach Nassau.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Push on for Nassau — no time to waste",
+          "goto": "s_55"
+        }
+      ]
+    },
+    "r_5a": {
+      "text": "She is on the platform before you can reach it. Morrow and four of her people, blocking the steps. The assembled captains go quiet.\n\n\"You have no standing here,\" Morrow says. Her voice carries. She means it to. \"You have been in Nassau three weeks. You do not get to call a council.\"\n\nThe captains watch. This is what they came to see — not your speech, but whether you can handle this.",
+      "choices": [
+        {
+          "text": "Face her down — \"Nassau decides who has standing, not you\"",
+          "goto": "r_5b"
+        },
+        {
+          "text": "Let her say her piece, then take the platform anyway",
+          "goto": "r_5c"
+        },
+        {
+          "text": "\"I know about Thomas.\" — use the secret",
+          "goto": "r_5d",
+          "requires_flag": "morrow_secret_known"
+        }
+      ]
+    },
+    "r_5b": {
+      "text": "A long moment. The captains are very still.\n\nYou step forward — not toward her, just forward, onto the same level. You do not drop your hand to your cutlass. You do not need to.\n\n\"Nassau decides,\" you say again. Quieter this time. Just for her.\n\nMorrow reads you. She has spent twenty years reading captains. Whatever she finds, she steps back. Not far — a foot, maybe two. Enough.",
+      "test_luck": {
+        "lucky_text": "The captains shift. An old captain with a white beard begins to clap — slow, deliberate. Two others join him. Morrow turns and walks off the platform. She will not help you today. But she will not stop you either.",
+        "lucky_goto": "r_6",
+        "unlucky_text": "Morrow does not move. \"Words,\" she says, to the assembled captains. \"A stranger with words and a fast ship, asking you to die for Nassau.\" She pauses. \"How many of your crews does he know by name?\"\n\nIt lands. You will have to work harder for this.",
+        "unlucky_goto": "r_6",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 2
+      }
+    },
+    "r_5c": {
+      "text": "You wait. Let her speak. The captains listen to Morrow — you know that, you have always known that — and interrupting her here would cost more than letting her finish.\n\nShe speaks for two minutes. Measured, political, correct about every fact. You are new here. You do not have standing. Nassau has survived this long without outside help.\n\nWhen she is done, you step forward.\n\n\"She is right about everything she said,\" you tell the assembled captains. \"And Nassau is still going to fall unless someone acts. I am acting. You can watch or you can join me.\"\n\nMorrow leaves without a word. The captains stay.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Address the captains",
+          "goto": "r_6"
+        }
+      ]
+    },
+    "r_5d": {
+      "text": "You say it quietly, so only she can hear.\n\n\"I know about Thomas. I knew at the Shallows. I said nothing then and I am saying nothing now.\" A beat. \"That has not changed.\"\n\nMorrow goes very still. The captains cannot hear this. They see their formidable captain frozen on the platform steps and do not understand why.\n\nShe steps aside. She does not look at you as you pass. She does not leave — she stays at the back of the platform, arms folded, saying nothing for the rest of the council.\n\nIt is not support. It is the absence of opposition. Today, that is enough.",
+      "choices": [
+        {
+          "text": "Take the platform",
+          "goto": "r_6"
+        }
+      ]
+    },
+    "r_36a": {
+      "text": "The Adamant comes alongside the Crown's Justice to press the attack — and Crown marines drop from the flagship's rail onto the Adamant's deck. Ashford's men do not need orders for this. Boarding is what they train for.",
+      "combat": {
+        "enemy": "naval_marine",
+        "win_goto": "r_37",
+        "flee_goto": "r_37",
+        "flee_allowed": true,
+        "flee_stamina_cost": 3
+      }
     }
   }
 }
