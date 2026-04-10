@@ -1919,7 +1919,7 @@ function endCombat(result) {
 function testLuck() {
     const roll = rollDice(2);
     const lucky = roll <= gameState.luck.current;
-    gameState.luck.current = Math.max(0, gameState.luck.current - 1);
+    if (!lucky) gameState.luck.current = Math.max(0, gameState.luck.current - 1);
     updateSidebar();
     return lucky;
 }

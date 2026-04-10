@@ -88,12 +88,13 @@
     "naval_marine": {
       "name": "Crown Marine",
       "skill": 7,
-      "stamina": 6
+      "stamina": 10,
+      "damage_bonus": 1
     },
     "naval_officer": {
       "name": "Naval Officer",
       "skill": 8,
-      "stamina": 8
+      "stamina": 10
     },
     "rival_crew": {
       "name": "Rival Pirate Crew",
@@ -103,12 +104,12 @@
     "morrow_enforcer": {
       "name": "Morrow's Enforcer",
       "skill": 7,
-      "stamina": 7
+      "stamina": 9
     },
     "harbour_thug": {
       "name": "Harbour Thug",
       "skill": 5,
-      "stamina": 5
+      "stamina": 7
     },
     "morrow": {
       "name": "Captain Reyna Morrow",
