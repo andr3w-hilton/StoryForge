@@ -822,7 +822,7 @@ function testLuck() {
 
     const threshold = state.luckCurrent + 1; // before decrement
     const pTotEl = el('player-total');
-    pTotEl.textContent = `${roll} vs ${threshold}`;
+    pTotEl.textContent = lucky ? `R${roll} ≤ Lk${threshold}` : `R${roll} > Lk${threshold}`;
     pTotEl.className   = 'dice-total ' + (lucky ? 'win' : 'lose');
 
     addLog(

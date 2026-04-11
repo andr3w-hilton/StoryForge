@@ -555,6 +555,21 @@
             color: var(--ink-dim);
         }
 
+        .combatant-divider {
+            border-top: 1px solid var(--border);
+            margin: 0.4rem 0;
+        }
+
+        .combatant-bar-label {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            text-align: center;
+            margin-bottom: 0.2rem;
+        }
+
         .combatant-box .combatant-stats span {
             color: var(--ink);
         }
@@ -1273,16 +1288,16 @@
             <div class="combatants">
                 <div class="combatant-box enemy-box">
                     <div class="combatant-name" id="enemy-name"></div>
-                    <div class="combatant-stats">
-                        SKILL <span id="enemy-skill"></span>
-                    </div>
+                    <div class="combatant-stats">SKILL <span id="enemy-skill"></span></div>
+                    <div class="combatant-divider"></div>
+                    <div class="combatant-bar-label">Stamina</div>
                     <div class="stat-bar-track enemy-bar-track"><div class="stat-bar-fill enemy-bar" id="bar-enemy" style="width:100%"></div></div>
                 </div>
                 <div class="combatant-box player-box">
                     <div class="combatant-name">You</div>
-                    <div class="combatant-stats">
-                        SKILL <span id="combat-player-skill"></span>
-                    </div>
+                    <div class="combatant-stats">SKILL <span id="combat-player-skill"></span></div>
+                    <div class="combatant-divider"></div>
+                    <div class="combatant-bar-label">Stamina</div>
                     <div class="stat-bar-track enemy-bar-track"><div class="stat-bar-fill player-combat-bar" id="bar-combat-player" style="width:100%"></div></div>
                 </div>
             </div>
