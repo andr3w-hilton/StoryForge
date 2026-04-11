@@ -2116,7 +2116,7 @@ async function testLuckInCombat() {
 
     // Show luck result in total slot
     const pTotEl = document.getElementById('combat-player-total');
-    pTotEl.textContent = `R${roll} · Lk${threshold}`;
+    pTotEl.textContent = lucky ? `R${roll} ≤ Lk${threshold}` : `R${roll} > Lk${threshold}`;
     pTotEl.className   = 'dice-total ' + (lucky ? 'win' : 'lose');
 
     // Register luck decrement after animation lands
@@ -2229,7 +2229,7 @@ async function resolveLuckTest(luckDef) {
 
     // Show roll vs luck label
     const luckTotalEl = document.getElementById('luck-dice-total');
-    luckTotalEl.textContent = `R${roll} · Lk${gameState.luck.current + 1}`;
+    luckTotalEl.textContent = lucky ? `R${roll} ≤ Lk${gameState.luck.current + 1}` : `R${roll} > Lk${gameState.luck.current + 1}`;
     luckTotalEl.className   = 'dice-total ' + (lucky ? 'win' : 'lose');
     luckTotalEl.style.display = 'block';
 
