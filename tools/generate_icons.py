@@ -348,7 +348,7 @@ def build_icon(size):
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    for size, path in [(512, "icon-512.png"), (192, "icon-192.png")]:
+    for size, path in [(512, "../icon-512.png"), (192, "../icon-192.png")]:
         buf = build_icon(size)
         write_png(buf, size, path)
 

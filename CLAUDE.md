@@ -9,9 +9,13 @@ server.py                                        # HTTP server for local dev (~9
 index.html                                       # Single-file client — all CSS, HTML, JS (~700 lines)
 adventures/
   index.json                                     # Static manifest — adventure list for the select screen
-  the_crypt_of_count_valdric.json
-  the_scavenger_of_new_babylon_station.json
+  <adventure_id>.json                            # One file per adventure
 Dockerfile                                       # Python 3.11-slim, port 8080
+
+tools/                                           # Backend design and authoring tools (not served)
+  analyse_paths.py                               # Path arrival analyser — detects flag-context bugs
+  adventure_map.html                             # Visual passage graph + flag audit panel
+  generate_icons.py                              # Generates icon-192.png / icon-512.png (run from tools/)
 ```
 
 **Server:** Pure HTTP, no WebSockets. `ThreadingHTTPServer` on port 8080. Used for local dev only.

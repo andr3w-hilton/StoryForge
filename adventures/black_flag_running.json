@@ -1045,7 +1045,7 @@
       "choices": [
         {
           "text": "Return to report this to Harlow at the Broken Wheel",
-          "goto": "a_15",
+          "goto": "a_15b",
           "requires_flag": "met_harlow"
         },
         {
@@ -1108,7 +1108,7 @@
       "choices": [
         {
           "text": "Report to Harlow at the Broken Wheel",
-          "goto": "a_15",
+          "goto": "a_15b",
           "requires_flag": "met_harlow"
         },
         {
@@ -1125,7 +1125,7 @@
       "choices": [
         {
           "text": "Report to Harlow at the Broken Wheel",
-          "goto": "a_15",
+          "goto": "a_15b",
           "requires_flag": "met_harlow"
         },
         {
@@ -1146,7 +1146,7 @@
       "choices": [
         {
           "text": "Report to Harlow at the Broken Wheel",
-          "goto": "a_15",
+          "goto": "a_15b",
           "requires_flag": "met_harlow"
         },
         {
@@ -1174,7 +1174,8 @@
         {
           "text": "Find Harlow — Morrow's lieutenant at the bar. You have information she needs",
           "goto": "a_15",
-          "requires_flag": "marine_confronted"
+          "requires_flag": "marine_confronted",
+          "requires_no_flag": "met_harlow"
         },
         {
           "text": "Find Aldous Crane — the Harbour Council's factor",
@@ -2011,7 +2012,8 @@
         },
         {
           "text": "Write a reply — safe passage is worth considering",
-          "goto": "n_27"
+          "goto": "n_27",
+          "requires_no_flag": "ashford_contact"
         },
         {
           "text": "Burn the note and tell no one",
@@ -2024,7 +2026,8 @@
       "choices": [
         {
           "text": "Write a reply — safe passage is worth considering",
-          "goto": "n_27"
+          "goto": "n_27",
+          "requires_no_flag": "ashford_contact"
         },
         {
           "text": "Burn the note and tell no one",
@@ -2298,7 +2301,8 @@
         },
         {
           "text": "Write a reply — safe passage is worth considering",
-          "goto": "n_27"
+          "goto": "n_27",
+          "requires_no_flag": "ashford_contact"
         },
         {
           "text": "Burn the note and tell no one",
@@ -3637,7 +3641,8 @@
         {
           "text": "Show the Red Correspondence",
           "goto": "r_10",
-          "requires_item": "red_correspondence"
+          "requires_item": "red_correspondence",
+          "requires_no_flag": "ashford_exposed"
         },
         {
           "text": "Show the war chest",
@@ -3666,7 +3671,8 @@
         {
           "text": "Now show the Red Correspondence",
           "goto": "r_10",
-          "requires_item": "red_correspondence"
+          "requires_item": "red_correspondence",
+          "requires_no_flag": "ashford_exposed"
         },
         {
           "text": "Now show the war chest",
@@ -3690,7 +3696,8 @@
         {
           "text": "Now show the Red Correspondence",
           "goto": "r_10",
-          "requires_item": "red_correspondence"
+          "requires_item": "red_correspondence",
+          "requires_no_flag": "ashford_exposed"
         },
         {
           "text": "Now show the war chest",
@@ -3800,7 +3807,8 @@
         {
           "text": "Show the Red Correspondence as well",
           "goto": "r_10",
-          "requires_item": "red_correspondence"
+          "requires_item": "red_correspondence",
+          "requires_no_flag": "ashford_exposed"
         },
         {
           "text": "Call for a final vote",
@@ -4233,7 +4241,8 @@
         {
           "text": "Use the Red Correspondence publicly",
           "goto": "r_10",
-          "requires_item": "red_correspondence"
+          "requires_item": "red_correspondence",
+          "requires_no_flag": "ashford_exposed"
         },
         {
           "text": "Launch a desperate assault with the Dragon's Breath",
@@ -4776,6 +4785,15 @@
         {
           "text": "Thank her and head back to the Adamant",
           "goto": "a_60"
+        }
+      ]
+    },
+    "a_15b": {
+      "text": "You find Harlow at her usual spot at the bar. She looks up when you sit, reads your expression, and puts down her cup.\n\n\"Talk.\"\n\nYou give her the short version. The marine. What you found. Crown surveillance running deeper than anyone admitted — patient, systematic, personal. When you finish, she is quiet for a moment.\n\n\"Morrow already suspects Ashford has eyes in the harbour. This makes it certain.\" She stands and adjusts her belt. \"It changes the timeline. Go — we'll move faster than planned.\"\n\nShe is already turning away before you reach the door.",
+      "choices": [
+        {
+          "text": "Return to the Broken Wheel",
+          "goto": "a_56"
         }
       ]
     }
