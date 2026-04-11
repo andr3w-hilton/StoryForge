@@ -1282,8 +1282,7 @@
                 <div class="combatant-box player-box">
                     <div class="combatant-name">You</div>
                     <div class="combatant-stats">
-                        SKILL <span id="combat-player-skill"></span> &nbsp;|&nbsp;
-                        STAMINA <span id="combat-player-stamina"></span>
+                        SKILL <span id="combat-player-skill"></span>
                     </div>
                     <div class="stat-bar-track enemy-bar-track"><div class="stat-bar-fill player-combat-bar" id="bar-combat-player" style="width:100%"></div></div>
                 </div>
@@ -1981,8 +1980,7 @@ function startCombat(combatDef) {
 }
 
 function updateCombatPlayerStats() {
-    document.getElementById('combat-player-skill').textContent   = getEffectiveSkill();
-    document.getElementById('combat-player-stamina').textContent = gameState.stamina.current;
+    document.getElementById('combat-player-skill').textContent = getEffectiveSkill();
     document.getElementById('bar-combat-player').style.width =
         `${(gameState.stamina.current / gameState.stamina.max) * 100}%`;
 }
