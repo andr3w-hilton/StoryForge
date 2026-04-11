@@ -1324,6 +1324,7 @@
                 <div class="die luck-die idle" id="lkd1">⚀</div>
                 <div class="die luck-die idle" id="lkd2">⚀</div>
             </div>
+            <div class="dice-total" id="luck-dice-total" style="text-align:center;display:none"></div>
             <div class="luck-result" id="luck-result-box"></div>
             <div class="combat-buttons">
                 <button class="btn btn-luck"  id="btn-test-luck">Test Your Luck</button>
@@ -2115,7 +2116,7 @@ async function testLuckInCombat() {
 
     // Show luck result in total slot
     const pTotEl = document.getElementById('combat-player-total');
-    pTotEl.textContent = `${roll} vs ${threshold}`;
+    pTotEl.textContent = `R${roll} · Lk${threshold}`;
     pTotEl.className   = 'dice-total ' + (lucky ? 'win' : 'lose');
 
     // Register luck decrement after animation lands
@@ -2198,7 +2199,9 @@ function renderLuckTest(luckDef) {
         btnDecline.style.display = 'none';
     }
 
-    document.getElementById('luck-dice-row').style.display = 'none';
+    document.getElementById('luck-dice-row').style.display  = 'none';
+    document.getElementById('luck-dice-total').style.display = 'none';
+    document.getElementById('luck-dice-total').textContent   = '';
     ['lkd1','lkd2'].forEach(id => {
         const el = document.getElementById(id);
         el.textContent = '⚀';
@@ -2223,6 +2226,12 @@ async function resolveLuckTest(luckDef) {
     // Register luck decrement now that dice have landed
     gameState.luck.current = Math.max(0, gameState.luck.current - 1);
     updateSidebar();
+
+    // Show roll vs luck label
+    const luckTotalEl = document.getElementById('luck-dice-total');
+    luckTotalEl.textContent = `R${roll} · Lk${gameState.luck.current + 1}`;
+    luckTotalEl.className   = 'dice-total ' + (lucky ? 'win' : 'lose');
+    luckTotalEl.style.display = 'block';
 
     const resultBox = document.getElementById('luck-result-box');
 
