@@ -24,7 +24,19 @@
       "Bash(git status:*)",
       "Bash(git pull:*)",
       "Bash(git stash:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(git:*)",
+      "Bash(del combat_additions.py)",
+      "Bash(where python:*)",
+      "Skill(push-droplet)",
+      "Bash(ls /c/Users/ahilt/PycharmProjects/StoryForge/*.bat)",
+      "Bash(mkdir -p /c/Users/ahilt/bin)",
+      "Bash(cat)",
+      "Bash(chmod +x /c/Users/ahilt/bin/python3)",
+      "WebSearch",
+      "Bash(taskkill /F /FI \"IMAGENAME eq python.exe\" /FI \"WINDOWTITLE eq *\")",
+      "Bash(taskkill //F //FI \"IMAGENAME eq python.exe\")",
+      "Bash(grep:*)"
     ]
   }
 }
