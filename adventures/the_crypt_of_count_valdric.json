@@ -24,7 +24,7 @@
         "sword": {
             "name": "Sword",
             "type": "weapon",
-            "skill_bonus": 0,
+            "skill_bonus": 1,
             "description": "A plain but well-maintained iron sword."
         },
         "silver_dagger": {

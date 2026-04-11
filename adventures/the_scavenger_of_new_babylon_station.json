@@ -23,7 +23,7 @@
         "vibro_knife": {
             "name": "Vibro-Knife",
             "type": "weapon",
-            "skill_bonus": 0,
+            "skill_bonus": 1,
             "description": "A short blade with a molecular-edge oscillator. Standard scavenger kit — good for cutting cable and throats alike."
         },
         "plasma_pistol": {

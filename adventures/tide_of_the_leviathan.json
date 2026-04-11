@@ -23,7 +23,7 @@
     "cutlass": {
       "name": "Cutlass",
       "type": "weapon",
-      "skill_bonus": 0,
+      "skill_bonus": 1,
       "description": "A well-worn cutlass. Salt-pitted but reliable."
     },
     "flintlock_pistol": {
@@ -84,8 +84,7 @@
     "morrow_journal": {
       "name": "Morrow's Journal",
       "type": "quest",
-      "description": "A waterproof-sealed journal taken from Morrow's sanctum. His handwriting grows increasingly inhuman toward the end.",
-      "skill_bonus": 1
+      "description": "A waterproof-sealed journal taken from Morrow's sanctum. His handwriting grows increasingly inhuman toward the end."
     },
     "ancient_seal_fragment": {
       "name": "Ancient Seal Fragment",
