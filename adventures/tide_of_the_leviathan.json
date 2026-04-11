@@ -182,7 +182,8 @@
       "choices": [
         {
           "text": "Talk to Old Pell the navigator",
-          "goto": "s_2a"
+          "goto": "s_2a",
+          "requires_no_flag": "has_tide_chart"
         },
         {
           "text": "Buy the rum",
@@ -190,11 +191,13 @@
         },
         {
           "text": "Ask the barkeep what she knows",
-          "goto": "s_2e"
+          "goto": "s_2e",
+          "requires_no_flag": "knows_symbol_danger"
         },
         {
           "text": "Investigate the muttering drunk in the corner",
-          "goto": "s_2f"
+          "goto": "s_2f",
+          "requires_no_flag": "knows_temple_layout"
         },
         {
           "text": "Check the cellar door beneath the stairs",
@@ -208,7 +211,7 @@
       ]
     },
     "s_2a": {
-      "text": "Old Pell is a ruin of a man — hollow-cheeked, rheumy-eyed, hands shaking around his tankard. But when you mention the Sunken Reaches, something sharpens in his gaze.\n\n'The Reaches,' he mutters. 'Aye, I sailed them. Before.' He pulls a waterproof tube from inside his coat and unrolls a chart across the table. Tidal patterns, depth soundings, reef markers — and there, circled in faded red ink, a spot marked TEMPLE.\n\n'The Drowned Priests use the tides,' he says. 'The temple is only accessible at low tide. Come high water, it's twenty fathoms under. Their ritual needs to be completed before the tide turns — if it is, the Leviathan wakes fully.' He pushes the chart towards you. 'Take it. I'm done with the sea.'\n\nHe grips your wrist suddenly. 'Your ship. The Windborne. Your first mate — the one with the brass compass. I saw him.' His voice drops. 'Three nights ago, walking on the water. Dead-eyed. Drowned. They took him.'\n\nBefore you go, Pell spends another few minutes describing the Reaches in grim detail — the tidal currents, the submerged ruins, how to move and fight in chest-deep water without losing your footing. His hard-won knowledge sharpens your instincts.",
+      "text": "Old Pell is a ruin of a man — hollow-cheeked, rheumy-eyed, hands shaking around his tankard. But when you mention the Sunken Reaches, something sharpens in his gaze.\n\n'The Reaches,' he mutters. 'Aye, I sailed them. Before.' He pulls a waterproof tube from inside his coat and unrolls a chart across the table. Tidal patterns, depth soundings, reef markers — and there, circled in faded red ink, a spot marked TEMPLE.\n\n'The Drowned Priests use the tides,' he says. 'The temple is only accessible at low tide. Come high water, it's twenty fathoms under. Their ritual needs to be completed before the tide turns — if it is, the Leviathan wakes fully.' He pushes the chart towards you. 'Take it. I'm done with the sea.' He stares at the grain of the table for a moment. 'Had a good ship once. Fast brigantine. The Adamant. Good crew.' He doesn't elaborate.\n\nHe grips your wrist suddenly. 'Your ship. The Windborne. Your first mate — the one with the brass compass. I saw him.' His voice drops. 'Three nights ago, walking on the water. Dead-eyed. Drowned. They took him.'\n\nBefore you go, Pell spends another few minutes describing the Reaches in grim detail — the tidal currents, the submerged ruins, how to move and fight in chest-deep water without losing your footing. His hard-won knowledge sharpens your instincts.",
       "add_items": [
         "tide_chart"
       ],
@@ -220,7 +223,8 @@
       "choices": [
         {
           "text": "Ask Pell about getting a boat to the Reaches",
-          "goto": "s_2c"
+          "goto": "s_2c",
+          "requires_no_flag": "knows_kael"
         },
         {
           "text": "Buy the rum before you leave",
@@ -245,7 +249,8 @@
         },
         {
           "text": "Ask the barkeep what she knows",
-          "goto": "s_2e"
+          "goto": "s_2e",
+          "requires_no_flag": "knows_symbol_danger"
         },
         {
           "text": "Leave the tavern",
@@ -299,7 +304,8 @@
         },
         {
           "text": "Investigate the muttering drunk",
-          "goto": "s_2f"
+          "goto": "s_2f",
+          "requires_no_flag": "knows_temple_layout"
         },
         {
           "text": "Leave the tavern",
@@ -381,7 +387,8 @@
         {
           "text": "Talk to Old Pell again",
           "goto": "s_2d",
-          "requires_flag": "kael_allied"
+          "requires_flag": "kael_allied",
+          "requires_no_flag": "pell_warned_you"
         },
         {
           "text": "Go back inside the tavern",
@@ -394,20 +401,30 @@
       "choices": [
         {
           "text": "Step in and help Kael fight the thugs",
-          "goto": "s_3a"
+          "goto": "s_3a",
+          "requires_no_flag": "skiff_stolen"
         },
         {
           "text": "Try to talk the thugs down",
-          "goto": "s_3b"
+          "goto": "s_3b",
+          "requires_no_flag": "skiff_stolen"
         },
         {
           "text": "Call out to Kael by name",
           "goto": "s_3g",
-          "requires_flag": "knows_kael"
+          "requires_flag": "knows_kael",
+          "requires_no_flag": "skiff_stolen"
         },
         {
           "text": "Watch from a distance and wait for it to play out",
-          "goto": "s_3c"
+          "goto": "s_3c",
+          "requires_no_flag": "skiff_stolen"
+        },
+        {
+          "text": "Find Kael — the skiff is already gone",
+          "goto": "s_3f",
+          "requires_flag": "skiff_stolen",
+          "requires_no_flag": "knows_warehouse"
         }
       ]
     },
@@ -438,7 +455,8 @@
       "choices": [
         {
           "text": "Ask Kael if she knows where they'll take the boat",
-          "goto": "s_3f"
+          "goto": "s_3f",
+          "requires_no_flag": "knows_warehouse"
         },
         {
           "text": "Head to the tavern to regroup",
@@ -491,7 +509,8 @@
         },
         {
           "text": "Ask Kael about herself before you go",
-          "goto": "s_3h"
+          "goto": "s_3h",
+          "requires_no_flag": "kael_told_story"
         },
         {
           "text": "You're ready — meet Kael at dusk",
@@ -616,7 +635,8 @@
         },
         {
           "text": "Ask Silas what he knows about the Reaches",
-          "goto": "s_5d"
+          "goto": "s_5d",
+          "requires_no_flag": "knows_tide_window"
         },
         {
           "text": "Leave the chandlery",
@@ -640,7 +660,8 @@
         },
         {
           "text": "Ask Silas what he knows about the Reaches",
-          "goto": "s_5d"
+          "goto": "s_5d",
+          "requires_no_flag": "knows_tide_window"
         },
         {
           "text": "Leave the chandlery",
@@ -1149,7 +1170,11 @@
         },
         {
           "text": "Climb below to investigate the thumping",
-          "goto": "r_20"
+          "goto": "r_20",
+          "requires_no_flags": [
+            "spared_first_mate",
+            "defeated_first_mate"
+          ]
         },
         {
           "text": "Leave the wreck",
@@ -1243,7 +1268,8 @@
         {
           "text": "Back away slowly toward the hatch",
           "goto": "r_28",
-          "style": "danger"
+          "style": "danger",
+          "requires_no_flag": "spared_first_mate"
         }
       ]
     },
@@ -1820,7 +1846,8 @@
         {
           "text": "Back away slowly",
           "goto": "r_28",
-          "style": "danger"
+          "style": "danger",
+          "requires_no_flag": "spared_first_mate"
         }
       ]
     },
@@ -1834,7 +1861,8 @@
         {
           "text": "Drop your weapon and back away",
           "goto": "r_28",
-          "style": "danger"
+          "style": "danger",
+          "requires_no_flag": "spared_first_mate"
         }
       ]
     },

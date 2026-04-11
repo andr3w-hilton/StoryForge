@@ -21,12 +21,34 @@ on concrete narrative inconsistencies:
   Mode 5 --flag FLAG   — All passages where FLAG is uncertain (reachable
                          both with and without it set).
 
+Scaling:
+    Adventures with many independent optional flags (e.g. open hub towns)
+    produce a combinatorial explosion of (passage, flag-set) states. Two caps
+    are available to keep the BFS tractable:
+
+    --per-passage-cap N (default 200)
+        Stop collecting new flag-states for a passage once N distinct arrival
+        states have been seen for it. BFS continues into the rest of the graph,
+        so every passage is reached; only the per-passage flag variety is
+        sampled. This is the recommended guard for large adventures — it gives
+        broad coverage with a bounded runtime.
+
+    --max-states N (default 0 = unlimited)
+        Hard stop on total visited (passage, flags) pairs. Acts as a safety
+        net. With --per-passage-cap in effect this limit is rarely needed.
+
+    Both caps produce partial results. Re-entry bugs are almost always caught
+    even with low per-passage caps because the violation path is short (visit
+    setter, loop back). Use --per-passage-cap 0 for a fully exact run on small
+    adventures, or --passage / --flag for targeted deep-dives.
+
 Usage:
     py analyse_paths.py --adventure black_flag_running
     py analyse_paths.py --adventure black_flag_running --uncertainty --top 30
     py analyse_paths.py --adventure black_flag_running --passage a_42
     py analyse_paths.py --adventure black_flag_running --flag met_harlow
     py analyse_paths.py --adventure black_flag_running --audit
+    py analyse_paths.py --adventure tide_of_the_leviathan --per-passage-cap 0
 """
 
 import json
@@ -98,24 +120,49 @@ def get_successor_pids(passage: dict, flags_after: frozenset) -> list:
     return successors
 
 
-def run_bfs(adventure: dict) -> tuple[dict, int]:
+def run_bfs(
+    adventure: dict,
+    max_states: int = 0,
+    per_passage_cap: int = 0,
+    uncapped_passages: set | None = None,
+) -> tuple[dict, int, bool, int]:
     """
     BFS over (passage_id, frozenset_of_flags) states.
 
+    Args:
+        max_states        — hard stop on total visited states (0 = unlimited).
+        per_passage_cap   — stop collecting new flag-states for a passage once
+                            this many have been seen for it (0 = unlimited).
+                            New visits to a capped passage are still marked
+                            visited (draining queue duplicates) but their
+                            successors are not enqueued, so the cap propagates
+                            forward cleanly. BFS continues into the rest of the
+                            graph, giving every passage a chance to be reached.
+        uncapped_passages — set of passage IDs exempt from per_passage_cap
+                            (used by --passage mode to get the full picture for
+                            one specific passage without lifting the global cap).
+
     Returns:
-        arrival_states  — passage_id -> set of frozensets (flags BEFORE this
-                          passage's own arrival effects fire)
-        total_states    — total (passage, flags) pairs visited
+        arrival_states    — passage_id -> set of frozensets (flags on arrival,
+                            BEFORE this passage's own set_flags / clear_flags)
+        total_states      — total (passage, flags) pairs visited
+        global_capped     — True if max_states was hit before BFS completed
+        n_passages_capped — number of passages that hit per_passage_cap
     """
     passages = adventure['passages']
     start = adventure.get('start_passage', '1')
+    uncapped = uncapped_passages or set()
 
     arrival_states: dict[str, set] = defaultdict(set)
     visited: set = set()
+    passages_capped: set = set()
     queue = deque()
     queue.append((start, frozenset()))
 
     while queue:
+        if max_states and len(visited) >= max_states:
+            return dict(arrival_states), len(visited), True, len(passages_capped)
+
         pid, flags = queue.popleft()
         state = (pid, flags)
         if state in visited:
@@ -124,6 +171,15 @@ def run_bfs(adventure: dict) -> tuple[dict, int]:
 
         if pid not in passages:
             continue  # broken goto — skip (existing validator catches these)
+
+        # Per-passage cap: once we have enough flag-state variety for this
+        # passage, stop expanding from it. It has still been "reached" for
+        # coverage purposes; we just don't keep adding new flag permutations.
+        if (per_passage_cap
+                and pid not in uncapped
+                and len(arrival_states[pid]) >= per_passage_cap):
+            passages_capped.add(pid)
+            continue
 
         arrival_states[pid].add(flags)
 
@@ -138,7 +194,7 @@ def run_bfs(adventure: dict) -> tuple[dict, int]:
             if succ_state not in visited:
                 queue.append((succ_pid, flags_after))
 
-    return dict(arrival_states), len(visited)
+    return dict(arrival_states), len(visited), False, len(passages_capped)
 
 
 # ---------------------------------------------------------------------------
@@ -448,14 +504,52 @@ def main() -> None:
 
     parser.add_argument('--top', type=int, default=20, metavar='N',
                         help='Number of results to show in --uncertainty mode (default: 20)')
+    parser.add_argument('--per-passage-cap', type=int, default=200, metavar='N',
+                        help='Max distinct flag-states tracked per passage (default: 200; '
+                             '0 = unlimited). Keeps BFS tractable on adventures with many '
+                             'independent optional flags. Every passage is still reached; '
+                             'only per-passage flag variety is sampled.')
+    parser.add_argument('--max-states', type=int, default=0, metavar='N',
+                        help='Hard stop on total visited (passage, flags) pairs '
+                             '(default: 0 = unlimited). Safety net; rarely needed when '
+                             '--per-passage-cap is active.')
 
     args = parser.parse_args()
 
     adventure = load_adventure(args.adventure)
+    n_passages = len(adventure['passages'])
     title = adventure.get('title', args.adventure)
+
+    # In --passage mode, lift the per-passage cap for the target so the audit
+    # sees its complete flag picture.
+    uncapped = {args.passage} if args.passage else set()
+
     print(f'Analysing "{title}"...', end=' ', flush=True)
-    arrival_states, total_states = run_bfs(adventure)
-    print(f'done. ({total_states:,} states)\n')
+    arrival_states, total_states, global_capped, n_capped = run_bfs(
+        adventure,
+        max_states=args.max_states,
+        per_passage_cap=args.per_passage_cap,
+        uncapped_passages=uncapped,
+    )
+    n_reached = len(arrival_states)
+
+    # Build header suffix
+    tags = []
+    if global_capped:
+        tags.append(f'GLOBAL CAP {args.max_states:,}')
+    if n_capped:
+        tags.append(f'{n_capped} passage(s) per-passage-capped')
+    tag_str = '  [' + ', '.join(tags) + ']' if tags else ''
+    print(f'done. ({total_states:,} states, {n_reached}/{n_passages} passages reached){tag_str}\n')
+
+    if global_capped:
+        print(f'  *** Global cap hit ({args.max_states:,} states) — results are partial. ***')
+        print(f'  Lower --per-passage-cap or use --passage / --flag for targeted analysis.\n')
+    elif n_capped and args.per_passage_cap:
+        print(f'  Note: {n_capped}/{n_passages} passages were per-passage-capped at '
+              f'{args.per_passage_cap} states. Flag variety at those passages is sampled,')
+        print(f'  not exhaustive. Re-entry bugs are still reliably detected. Use')
+        print(f'  --per-passage-cap 0 for a fully exact run (may be slow on large adventures).\n')
 
     if args.passage:
         report_passage(adventure, arrival_states, args.passage)
