@@ -529,18 +529,17 @@
 
         .combatants {
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+            border: 1px solid var(--border);
         }
 
         .combatant-box {
             flex: 1;
-            min-width: 140px;
             background: var(--parchment);
-            border: 1px solid var(--border);
-            padding: 1rem;
+            padding: 0.6rem 0.8rem;
             text-align: center;
         }
+
+        .combatant-box.enemy-box { border-right: 1px solid var(--border); }
 
         .combatant-box .combatant-name {
             font-family: 'IM Fell English', serif;
@@ -831,7 +830,8 @@
         .stat-bar-fill.skill-bar   { background: var(--skill-color); }
         .stat-bar-fill.stamina-bar { background: var(--stamina-color); }
         .stat-bar-fill.luck-bar    { background: var(--luck-color); }
-        .stat-bar-fill.enemy-bar   { background: var(--red-hi); }
+        .stat-bar-fill.enemy-bar          { background: var(--red-hi); }
+        .stat-bar-fill.player-combat-bar  { background: var(--green-hi); }
         .enemy-bar-track { margin-top: 0.4rem; }
 
         /* Inventory */
@@ -1178,9 +1178,6 @@
                 padding: 1rem;
             }
 
-            .combatants {
-                flex-direction: column;
-            }
         }
     </style>
 </head>
@@ -1288,7 +1285,7 @@
                         SKILL <span id="combat-player-skill"></span> &nbsp;|&nbsp;
                         STAMINA <span id="combat-player-stamina"></span>
                     </div>
-                    <div class="stat-bar-track enemy-bar-track"><div class="stat-bar-fill stamina-bar" id="bar-combat-player" style="width:100%"></div></div>
+                    <div class="stat-bar-track enemy-bar-track"><div class="stat-bar-fill player-combat-bar" id="bar-combat-player" style="width:100%"></div></div>
                 </div>
             </div>
             <!-- Dice tray: enemy left (under enemy box), player right (under player box) -->
