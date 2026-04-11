@@ -156,6 +156,19 @@
             50%       { opacity: 0.45; }
         }
 
+        .card-victory-badge {
+            position: absolute;
+            bottom: 0.55rem;
+            right: 0.7rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.18em;
+            color: var(--gold-hi);
+            border: 1px solid var(--gold);
+            padding: 0.15rem 0.45rem;
+            background: var(--parchment);
+        }
+
         .adventure-card:hover {
             background: var(--parchment-hi);
             border-left-color: var(--card-accent, var(--gold-hi));
@@ -441,13 +454,18 @@
             border: 1px solid var(--border);
             border-left: 3px solid var(--gold);
             padding: 1.5rem;
+            min-height: 120px;
+        }
+
+        .passage-box p {
             line-height: 1.85;
             font-family: 'IM Fell English', serif;
             font-size: 1.05rem;
             color: var(--ink);
-            white-space: pre-line;
-            min-height: 120px;
+            margin: 0 0 0.85em 0;
         }
+
+        .passage-box p:last-child { margin-bottom: 0; }
 
         /* Choices */
         .choices {
@@ -575,6 +593,86 @@
         .btn-luck:hover    { background: rgba(200, 150, 30, 0.1); }
         .btn-flee    { border-color: var(--border); color: var(--ink-dim); }
         .btn-flee:hover    { background: var(--parchment-hi); }
+
+        /* Dice tray */
+        .dice-tray {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            background: var(--parchment-hi);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dice-tray.luck-mode { justify-content: center; }
+
+        .dice-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .dice-pair { display: flex; gap: 0.3rem; }
+
+        .die {
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gold);
+            background: var(--parchment);
+            border-radius: 4px;
+            font-size: 1.5rem;
+            line-height: 1;
+            color: var(--ink);
+            user-select: none;
+        }
+
+        .die.idle  { color: var(--border); border-color: var(--border); }
+
+        .die.rolling {
+            color: var(--ink-dim);
+            border-color: var(--border);
+            animation: dieShake 0.08s steps(2) infinite;
+        }
+
+        .die.luck-die              { border-color: var(--gold-hi); color: var(--gold-hi); }
+        .die.luck-die.rolling      { border-color: var(--gold);    color: var(--gold); }
+
+        @keyframes dieShake {
+            0%   { transform: translate(-1px,  0px); }
+            50%  { transform: translate( 1px,  1px); }
+            100% { transform: translate( 0px, -1px); }
+        }
+
+        .dice-total {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.06em;
+            color: var(--ink-dim);
+            min-height: 1em;
+            text-align: center;
+        }
+
+        .dice-total.win  { color: var(--green-hi); }
+        .dice-total.lose { color: var(--red-hi); }
+
+        .dice-vs {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.2em;
+            color: var(--border);
+            padding-bottom: 1.25rem;
+        }
+
+        /* Standalone luck test dice */
+        .luck-dice-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+        }
 
         /* Luck test UI */
         .luck-test-area {
@@ -733,6 +831,8 @@
         .stat-bar-fill.skill-bar   { background: var(--skill-color); }
         .stat-bar-fill.stamina-bar { background: var(--stamina-color); }
         .stat-bar-fill.luck-bar    { background: var(--luck-color); }
+        .stat-bar-fill.enemy-bar   { background: var(--red-hi); }
+        .enemy-bar-track { margin-top: 0.4rem; }
 
         /* Inventory */
         .inv-list {
@@ -750,6 +850,7 @@
         }
 
         .inv-item .inv-item-name { color: var(--ink); }
+        .inv-item .inv-item-stats { font-size: 0.72rem; color: var(--ink-dim); margin-top: 0.1rem; }
 
         .provisions-row {
             display: flex;
@@ -1179,6 +1280,7 @@
                         SKILL <span id="enemy-skill"></span> &nbsp;|&nbsp;
                         STAMINA <span id="enemy-stamina"></span>
                     </div>
+                    <div class="stat-bar-track enemy-bar-track"><div class="stat-bar-fill enemy-bar" id="bar-enemy" style="width:100%"></div></div>
                 </div>
                 <div class="combatant-box player-box">
                     <div class="combatant-name">You</div>
@@ -1186,6 +1288,25 @@
                         SKILL <span id="combat-player-skill"></span> &nbsp;|&nbsp;
                         STAMINA <span id="combat-player-stamina"></span>
                     </div>
+                    <div class="stat-bar-track enemy-bar-track"><div class="stat-bar-fill stamina-bar" id="bar-combat-player" style="width:100%"></div></div>
+                </div>
+            </div>
+            <!-- Dice tray: enemy left (under enemy box), player right (under player box) -->
+            <div class="dice-tray" id="combat-dice-tray">
+                <div class="dice-group" id="combat-enemy-dice">
+                    <div class="dice-pair">
+                        <div class="die idle" id="ced1">⚀</div>
+                        <div class="die idle" id="ced2">⚀</div>
+                    </div>
+                    <div class="dice-total" id="combat-enemy-total"></div>
+                </div>
+                <div class="dice-vs" id="dice-vs">VS</div>
+                <div class="dice-group" id="combat-player-dice">
+                    <div class="dice-pair">
+                        <div class="die idle" id="cpd1">⚀</div>
+                        <div class="die idle" id="cpd2">⚀</div>
+                    </div>
+                    <div class="dice-total" id="combat-player-total"></div>
                 </div>
             </div>
             <div class="combat-log" id="combat-log"></div>
@@ -1202,6 +1323,10 @@
             <div class="combatant-stats" style="font-size:0.82rem">
                 Current LUCK: <span id="luck-current-display" style="color:var(--gold-hi)"></span>
             </div>
+            <div class="luck-dice-row" id="luck-dice-row" style="display:none">
+                <div class="die luck-die idle" id="lkd1">⚀</div>
+                <div class="die luck-die idle" id="lkd2">⚀</div>
+            </div>
             <div class="luck-result" id="luck-result-box"></div>
             <div class="combat-buttons">
                 <button class="btn btn-luck"  id="btn-test-luck">Test Your Luck</button>
@@ -1213,6 +1338,7 @@
         <!-- Ending -->
         <div class="ending-area" id="ending-area" style="display:none">
             <div class="ending-title" id="ending-title"></div>
+            <div id="ending-stats" style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;color:var(--ink-dim);margin:0.5rem 0 0.25rem;line-height:1.8;text-align:center;"></div>
             <button class="btn btn-primary" id="btn-play-again">Play Again</button>
         </div>
     </div>
@@ -1271,6 +1397,7 @@
 <div class="death-overlay" id="death-overlay">
     <h2>You have died.</h2>
     <p id="death-message">Your adventure ends here. Perhaps next time fortune will smile upon you.</p>
+    <div id="death-recap" style="font-family:'Share Tech Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;color:var(--ink-dim);margin:0.75rem 0 0;line-height:1.8;"></div>
     <button class="btn btn-primary" id="btn-try-again">Try Again</button>
 </div>
 
@@ -1338,7 +1465,8 @@ const gameState = {
     flags:    new Set(),    // story state flags
     provisions: 0,
     combat: null,           // { enemy, enemyCurrentStamina, pendingDamage, lastHitPlayer }
-    inCombat: false
+    inCombat: false,
+    visitedPassages: new Set()
 };
 
 // ══════════════════════════════════════════════════════
@@ -1359,6 +1487,65 @@ function rollDice(count) {
     let total = 0;
     for (let i = 0; i < count; i++) total += Math.floor(Math.random() * 6) + 1;
     return total;
+}
+
+function rollDiceIndividual(count) {
+    const results = [];
+    for (let i = 0; i < count; i++) results.push(Math.floor(Math.random() * 6) + 1);
+    return results;
+}
+
+const DICE_FACES  = ['⚀','⚁','⚂','⚃','⚄','⚅'];
+const DICE_ANIM_MS = 650;
+
+function animateDice(ids, results) {
+    return new Promise(resolve => {
+        const els = ids.map(id => document.getElementById(id));
+        els.forEach(el => { el.classList.remove('idle'); el.classList.add('rolling'); });
+        const iv = setInterval(() => {
+            els.forEach(el => el.textContent = DICE_FACES[Math.floor(Math.random() * 6)]);
+        }, 80);
+        setTimeout(() => {
+            clearInterval(iv);
+            els.forEach((el, i) => {
+                el.textContent = DICE_FACES[results[i] - 1];
+                el.classList.remove('rolling');
+            });
+            resolve();
+        }, DICE_ANIM_MS);
+    });
+}
+
+function setDiceTrayMode(mode) {
+    const tray = document.getElementById('combat-dice-tray');
+    if (mode === 'luck') {
+        tray.classList.add('luck-mode');
+        document.getElementById('dice-vs').style.display               = 'none';
+        document.getElementById('combat-enemy-dice').style.display     = 'none';
+        document.getElementById('combat-player-dice').style.display    = '';
+    } else {
+        tray.classList.remove('luck-mode');
+        document.getElementById('dice-vs').style.display               = '';
+        document.getElementById('combat-enemy-dice').style.display     = '';
+        document.getElementById('combat-player-dice').style.display    = '';
+    }
+}
+
+function clearDiceTotals() {
+    ['combat-player-total','combat-enemy-total'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) { el.textContent = ''; el.className = 'dice-total'; }
+    });
+}
+
+function resetCombatDice() {
+    setDiceTrayMode('combat');
+    clearDiceTotals();
+    ['cpd1','cpd2','ced1','ced2'].forEach(id => {
+        const el = document.getElementById(id);
+        el.textContent = '⚀';
+        el.className = 'die idle';
+    });
 }
 
 // Animate a stat value counting up to its final number
@@ -1432,6 +1619,8 @@ async function loadAdventureList() {
                 ${adv.theme_icon ? `<span class="card-theme-icon">${adv.theme_icon}</span>` : ''}
                 ${adv.genre_tag  ? `<span class="card-genre-tag">${adv.genre_tag}</span>`   : ''}
             </div>` : '';
+        let victoryBadge = '';
+        try { if (localStorage.getItem(`storyforge_victory_${adv.id}`)) victoryBadge = '<div class="card-victory-badge">VICTORY</div>'; } catch (e) {}
         card.innerHTML = `
             ${adv.cover_image ? `<img class="card-cover" src="${adv.cover_image}" alt="">` : ''}
             <div class="card-body">
@@ -1442,6 +1631,7 @@ async function loadAdventureList() {
                 ${adv.introduction ? `<div class="card-intro">${adv.introduction}</div>` : ''}
             </div>
             ${adv.is_new ? `<div class="card-new-badge">NEW</div>` : ''}
+            ${victoryBadge}
         `;
         card.addEventListener('click', () => {
             const save = loadSave(adv.id);
@@ -1487,6 +1677,7 @@ async function continueAdventure(id) {
         gameState.provisions = save.provisions;
         gameState.combat     = null;
         gameState.inCombat   = false;
+        gameState.visitedPassages = new Set();
         document.getElementById('game-title').textContent = gameState.adventure.title;
         showScreen('game');
         updateSidebar();
@@ -1597,6 +1788,7 @@ function rollCharacter() {
         gameState.provisions = cfg.starting_provisions || 0;
         gameState.combat  = null;
         gameState.inCombat = false;
+        gameState.visitedPassages = new Set();
 
         document.getElementById('btn-begin').disabled = false;
     }, 900);
@@ -1621,6 +1813,7 @@ function navigateToPassage(id) {
     }
 
     gameState.currentPassage = id;
+    gameState.visitedPassages.add(id);
     gameState.inCombat = false;
     gameState.combat = null;
 
@@ -1684,7 +1877,14 @@ function hideAllAreas() {
 }
 
 function renderPassage(passage) {
-    document.getElementById('passage-text').textContent = passage.text;
+    const box = document.getElementById('passage-text');
+    box.innerHTML = '';
+    for (const chunk of passage.text.split('\n')) {
+        if (!chunk.trim()) continue;
+        const p = document.createElement('p');
+        p.textContent = chunk;
+        box.appendChild(p);
+    }
     hideAllAreas();
 
     if (passage.ending) {
@@ -1734,7 +1934,17 @@ function renderEnding(passage) {
     const isVictory = passage.ending_type === 'victory';
     titleEl.textContent = isVictory ? 'Victory!' : 'Defeat.';
     titleEl.className = `ending-title ${isVictory ? 'victory' : 'defeat'}`;
+
+    const visited = gameState.visitedPassages.size;
+    const total   = gameState.adventure ? Object.keys(gameState.adventure.passages).length : 0;
+    const pct     = total ? Math.round((visited / total) * 100) : 0;
+    document.getElementById('ending-stats').textContent =
+        `${visited} of ${total} passages explored (${pct}%)`;
+
     document.getElementById('ending-area').style.display = 'flex';
+    if (isVictory && gameState.adventureId) {
+        try { localStorage.setItem(`storyforge_victory_${gameState.adventureId}`, '1'); } catch (e) {}
+    }
 }
 
 // ══════════════════════════════════════════════════════
@@ -1756,22 +1966,27 @@ function startCombat(combatDef) {
     document.getElementById('enemy-name').textContent    = enemyDef.name;
     document.getElementById('enemy-skill').textContent   = enemyDef.skill;
     document.getElementById('enemy-stamina').textContent = enemyDef.stamina;
+    document.getElementById('bar-enemy').style.width     = '100%';
     updateCombatPlayerStats();
 
+    resetCombatDice();
     document.getElementById('combat-log').innerHTML = '';
     addLogEntry(`A ${enemyDef.name} stands before you!`, 'neutral');
 
     document.getElementById('btn-attack').disabled = false;
     document.getElementById('btn-combat-luck').style.display = 'none';
-    document.getElementById('btn-flee').style.display =
-        combatDef.flee_allowed ? 'inline-block' : 'none';
+    const fleeBtn = document.getElementById('btn-flee');
+    fleeBtn.style.display = combatDef.flee_allowed ? 'inline-block' : 'none';
+    fleeBtn.dataset.allowed = combatDef.flee_allowed ? 'true' : 'false';
 
     document.getElementById('combat-area').style.display = 'flex';
 }
 
 function updateCombatPlayerStats() {
-    document.getElementById('combat-player-skill').textContent  = getEffectiveSkill();
+    document.getElementById('combat-player-skill').textContent   = getEffectiveSkill();
     document.getElementById('combat-player-stamina').textContent = gameState.stamina.current;
+    document.getElementById('bar-combat-player').style.width =
+        `${(gameState.stamina.current / gameState.stamina.max) * 100}%`;
 }
 
 function addLogEntry(text, cssClass) {
@@ -1783,31 +1998,51 @@ function addLogEntry(text, cssClass) {
     log.scrollTop = log.scrollHeight;
 }
 
-function attackRound() {
+async function attackRound() {
     const combat = gameState.combat;
-    const playerAttack = rollDice(2) + getEffectiveSkill();
-    const enemyAttack  = rollDice(2) + combat.enemyDef.skill;
+
+    // Predetermine rolls before animation starts
+    const pd = rollDiceIndividual(2);
+    const ed = rollDiceIndividual(2);
+    const playerAttack = pd[0] + pd[1] + getEffectiveSkill();
+    const enemyAttack  = ed[0] + ed[1] + combat.enemyDef.skill;
 
     document.getElementById('btn-attack').disabled = true;
     document.getElementById('btn-combat-luck').style.display = 'none';
+    document.getElementById('btn-flee').style.display = 'none';
 
-    addLogEntry(`You attack: ${playerAttack}   ${combat.enemyDef.name}: ${enemyAttack}`, 'neutral');
+    // Animate — enemy dice left, player dice right
+    setDiceTrayMode('combat');
+    clearDiceTotals();
+    await Promise.all([
+        animateDice(['ced1','ced2'], ed),
+        animateDice(['cpd1','cpd2'], pd)
+    ]);
+
+    // Show totals with win/lose colour
+    const pWins = playerAttack > enemyAttack;
+    const tie   = playerAttack === enemyAttack;
+    const pTotEl = document.getElementById('combat-player-total');
+    const eTotEl = document.getElementById('combat-enemy-total');
+    pTotEl.textContent = `R${pd[0]+pd[1]} + Sk${getEffectiveSkill()} = ${playerAttack}`;
+    eTotEl.textContent = `R${ed[0]+ed[1]} + Sk${combat.enemyDef.skill} = ${enemyAttack}`;
+    pTotEl.className = 'dice-total' + (tie ? '' : pWins  ? ' win' : ' lose');
+    eTotEl.className = 'dice-total' + (tie ? '' : !pWins ? ' win' : ' lose');
+
+    addLogEntry(`You: ${playerAttack}  |  ${combat.enemyDef.name}: ${enemyAttack}`, 'neutral');
 
     if (playerAttack > enemyAttack) {
-        // Player wins round
         const baseDmg = getEffectiveDamage();
         combat.lastHitPlayer = false;
         combat.baseDamage    = baseDmg;
         combat.pendingDamage = baseDmg;
         addLogEntry(`You wound the ${combat.enemyDef.name} for ${baseDmg} STAMINA!`, 'player-win');
         document.getElementById('btn-combat-luck').style.display = 'inline-block';
-        // Apply damage after luck decision window (or immediately via button re-enable)
         document.getElementById('btn-attack').dataset.pendingTarget = 'enemy';
         document.getElementById('btn-attack').textContent = 'Continue';
         document.getElementById('btn-attack').disabled = false;
         document.getElementById('btn-attack').onclick = applyPendingDamage;
     } else if (enemyAttack > playerAttack) {
-        // Enemy wins round
         combat.lastHitPlayer = true;
         combat.pendingDamage = 2;
         addLogEntry(`The ${combat.enemyDef.name} wounds you for 2 STAMINA!`, 'enemy-win');
@@ -1823,6 +2058,8 @@ function attackRound() {
         document.getElementById('btn-attack').onclick = attackRound;
     }
 
+    const flee = document.getElementById('btn-flee');
+    if (flee.dataset.allowed === 'true') flee.style.display = 'inline-block';
     updateCombatPlayerStats();
 }
 
@@ -1840,6 +2077,8 @@ function applyPendingDamage() {
         combat.enemyCurrentStamina -= dmg;
         document.getElementById('enemy-stamina').textContent =
             Math.max(0, combat.enemyCurrentStamina);
+        document.getElementById('bar-enemy').style.width =
+            `${Math.max(0, combat.enemyCurrentStamina / combat.enemyDef.stamina) * 100}%`;
         if (combat.enemyCurrentStamina <= 0) {
             addLogEntry(`The ${combat.enemyDef.name} is defeated!`, 'player-win');
             endCombat('victory');
@@ -1861,13 +2100,32 @@ function applyPendingDamage() {
     document.getElementById('btn-attack').disabled = false;
 }
 
-function testLuckInCombat() {
-    const lucky = testLuck();
+async function testLuckInCombat() {
+    // Predetermine result before animation
+    const ld = rollDiceIndividual(2);
+    const roll    = ld[0] + ld[1];
+    const lucky   = roll <= gameState.luck.current;
+    const threshold = gameState.luck.current;
+
     const combat = gameState.combat;
     document.getElementById('btn-combat-luck').style.display = 'none';
+    document.getElementById('btn-attack').disabled = true;
+
+    // Switch tray to luck mode and animate player dice only
+    setDiceTrayMode('luck');
+    ['cpd1','cpd2'].forEach(id => document.getElementById(id).className = 'die luck-die idle');
+    await animateDice(['cpd1','cpd2'], ld);
+
+    // Show luck result in total slot
+    const pTotEl = document.getElementById('combat-player-total');
+    pTotEl.textContent = `${roll} vs ${threshold}`;
+    pTotEl.className   = 'dice-total ' + (lucky ? 'win' : 'lose');
+
+    // Register luck decrement after animation lands
+    gameState.luck.current = Math.max(0, gameState.luck.current - 1);
+    updateSidebar();
 
     if (!combat.lastHitPlayer) {
-        // Player hit enemy: lucky = base+1, unlucky = base-1 (min 1)
         const base = combat.baseDamage || 2;
         if (lucky) {
             combat.pendingDamage = base + 1;
@@ -1877,7 +2135,6 @@ function testLuckInCombat() {
             addLogEntry(`Unlucky! Your blow glances off — only ${Math.max(1, base - 1)} STAMINA damage.`, 'luck-bad');
         }
     } else {
-        // Enemy hit player: lucky = -1 (1 total), unlucky = +1 extra (3 total)
         if (lucky) {
             combat.pendingDamage = 1;
             addLogEntry(`Lucky! You deflect most of the blow — only 1 STAMINA damage!`, 'luck-good');
@@ -1887,6 +2144,7 @@ function testLuckInCombat() {
         }
     }
 
+    document.getElementById('btn-attack').disabled = false;
     updateSidebar();
 }
 
@@ -1920,7 +2178,7 @@ function endCombat(result) {
 function testLuck() {
     const roll = rollDice(2);
     const lucky = roll <= gameState.luck.current;
-    if (!lucky) gameState.luck.current = Math.max(0, gameState.luck.current - 1);
+    gameState.luck.current = Math.max(0, gameState.luck.current - 1);
     updateSidebar();
     return lucky;
 }
@@ -1943,11 +2201,32 @@ function renderLuckTest(luckDef) {
         btnDecline.style.display = 'none';
     }
 
+    document.getElementById('luck-dice-row').style.display = 'none';
+    ['lkd1','lkd2'].forEach(id => {
+        const el = document.getElementById(id);
+        el.textContent = '⚀';
+        el.className = 'die luck-die idle';
+    });
     document.getElementById('btn-test-luck').onclick = () => resolveLuckTest(luckDef);
 }
 
-function resolveLuckTest(luckDef) {
-    const lucky = testLuck();
+async function resolveLuckTest(luckDef) {
+    // Predetermine result before animation
+    const ld = rollDiceIndividual(2);
+    const roll  = ld[0] + ld[1];
+    const lucky = roll <= gameState.luck.current;
+
+    document.getElementById('btn-test-luck').disabled    = true;
+    document.getElementById('btn-decline-luck').disabled = true;
+
+    // Animate the luck dice
+    document.getElementById('luck-dice-row').style.display = 'flex';
+    await animateDice(['lkd1','lkd2'], ld);
+
+    // Register luck decrement now that dice have landed
+    gameState.luck.current = Math.max(0, gameState.luck.current - 1);
+    updateSidebar();
+
     const resultBox = document.getElementById('luck-result-box');
 
     if (lucky) {
@@ -2007,9 +2286,9 @@ function resolveLuckTest(luckDef) {
     resultBox.style.display = 'block';
     updateSidebar();
 
-    document.getElementById('btn-test-luck').style.display = 'none';
+    document.getElementById('btn-test-luck').style.display   = 'none';
     document.getElementById('btn-decline-luck').style.display = 'none';
-    document.getElementById('btn-skip-luck').style.display = 'inline-block';
+    document.getElementById('btn-skip-luck').style.display   = 'inline-block';
 
     const gotoId = lucky ? luckDef.lucky_goto : luckDef.unlucky_goto;
     document.getElementById('btn-skip-luck').onclick = () => {
@@ -2040,6 +2319,16 @@ function useProvisions() {
 
 function showDeath() {
     clearSave();
+    const visited = gameState.visitedPassages.size;
+    const lines = [`Survived ${visited} passage${visited === 1 ? '' : 's'}`];
+    if (gameState.items.length > 0) {
+        const names = gameState.items.map(id => {
+            const def = gameState.adventure?.items?.[id];
+            return def ? def.name : id;
+        });
+        lines.push(`Carried: ${names.join(', ')}`);
+    }
+    document.getElementById('death-recap').innerHTML = lines.join('<br>');
     document.getElementById('death-overlay').classList.add('active');
 }
 
@@ -2101,7 +2390,16 @@ function updateSidebar() {
         const def = gameState.adventure ? gameState.adventure.items[id] : null;
         const div = document.createElement('div');
         div.className = 'inv-item';
-        div.innerHTML = `<span class="inv-item-name">${def ? def.name : id}</span>`;
+        const statParts = [];
+        if (def) {
+            if (def.skill_bonus)     statParts.push(`SKILL +${def.skill_bonus}`);
+            if (def.damage_bonus)    statParts.push(`DMG +${def.damage_bonus}`);
+            if (def.stamina_restore) statParts.push(`Restores ${def.stamina_restore} STAMINA`);
+        }
+        const statsHtml = statParts.length
+            ? `<div class="inv-item-stats">${statParts.join(' · ')}</div>`
+            : '';
+        div.innerHTML = `<span class="inv-item-name">${def ? def.name : id}</span>${statsHtml}`;
         invList.appendChild(div);
     }
 

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StoryForge — Dice Animation Playground</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* StoryForge palette */
+  --parchment:    #1a1610;
+  --parchment-hi: #221f17;
+  --ink:          #c8b89a;
+  --ink-dim:      #8a7a65;
+  --gold:         #8a7355;
+  --gold-hi:      #c9a96e;
+  --red-hi:       #c94040;
+  --green-hi:     #6aaa6a;
+  --border:       #3a3228;
+
+  /* Playground chrome */
+  --ui-bg:      #0f0f0f;
+  --ui-surface: #1a1a1a;
+  --ui-border:  #2e2e2e;
+  --ui-text:    #c0c0c0;
+  --ui-dim:     #666;
+}
+
+body {
+  background: var(--ui-bg);
+  color: var(--ui-text);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: 'IM Fell English', serif;
+  color: var(--gold-hi);
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 2rem;
+}
+
+.playground {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* ══════════════════════════════════════
+   Controls panel
+══════════════════════════════════════ */
+
+.controls-panel {
+  width: 230px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  position: sticky;
+  top: 2rem;
+}
+
+.ctrl-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.ctrl-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ui-dim);
+}
+
+.ctrl-value {
+  color: var(--gold-hi);
+}
+
+input[type=range] {
+  width: 100%;
+  accent-color: var(--gold-hi);
+  cursor: pointer;
+}
+
+.preset-row {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.preset-btn {
+  flex: 1;
+  padding: 0.35rem 0.4rem;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-border);
+  color: var(--ui-dim);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.preset-btn:hover, .preset-btn.active {
+  border-color: var(--gold-hi);
+  color: var(--gold-hi);
+}
+
+.ctrl-btn {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-hi);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.15s, border-color 0.15s;
+  text-align: left;
+}
+
+.ctrl-btn:hover:not(:disabled) {
+  background: rgba(201,169,110,0.07);
+  border-color: var(--gold-hi);
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.ctrl-meta {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--ui-dim);
+  line-height: 1.5;
+}
+
+.ctrl-meta span { color: var(--gold-hi); }
+
+/* Divider */
+.ctrl-divider {
+  border: none;
+  border-top: 1px solid var(--ui-border);
+}
+
+/* ══════════════════════════════════════
+   Prompt output
+══════════════════════════════════════ */
+
+.prompt-box {
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-border);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  position: relative;
+}
+
+.prompt-box-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ui-dim);
+  margin-bottom: 0.4rem;
+}
+
+#prompt-text {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--ui-text);
+  padding-right: 3.5rem;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  padding: 0.28rem 0.55rem;
+  background: transparent;
+  border: 1px solid var(--ui-border);
+  color: var(--ui-dim);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.copy-btn:hover { color: var(--ui-text); border-color: var(--ui-text); }
+
+/* ══════════════════════════════════════
+   Phone frame
+══════════════════════════════════════ */
+
+.preview-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.phone-frame {
+  width: 375px;
+  height: 667px;
+  border-radius: 44px;
+  border: 9px solid #181410;
+  box-shadow:
+    0 0 0 1px #080604,
+    inset 0 0 0 1px #2e2820,
+    0 32px 90px rgba(0,0,0,0.75),
+    0 8px 20px rgba(0,0,0,0.5);
+  overflow: hidden;
+  background: var(--parchment);
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Dynamic island / notch */
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 26px;
+  background: #181410;
+  border-radius: 0 0 18px 18px;
+  z-index: 20;
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: var(--parchment);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: 30px; /* notch clearance */
+}
+
+/* ══════════════════════════════════════
+   Game header (inside phone)
+══════════════════════════════════════ */
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 1rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.game-title {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.82rem;
+  color: var(--gold-hi);
+}
+
+.btn-quit {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 0.18rem 0.45rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+/* ══════════════════════════════════════
+   Combat area (inside phone)
+══════════════════════════════════════ */
+
+.combat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.combat-header {
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: var(--red-hi);
+  padding: 0.45rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.combatants {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.combatant-box {
+  flex: 1;
+  padding: 0.55rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.combatant-box.enemy-box { border-right: 1px solid var(--border); }
+
+.combatant-name {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.85rem;
+  color: var(--gold-hi);
+}
+
+.combatant-stats {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--ink-dim);
+  letter-spacing: 0.05em;
+}
+
+.enemy-bar-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0.2rem;
+}
+
+.enemy-bar-fill {
+  height: 100%;
+  background: var(--red-hi);
+  border-radius: 2px;
+  transition: width 0.5s steps(8);
+}
+
+/* ══════════════════════════════════════
+   Dice tray
+══════════════════════════════════════ */
+
+.dice-tray {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.9rem;
+  background: var(--parchment-hi);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  min-height: 74px;
+  transition: background 0.3s;
+}
+
+.dice-tray.luck-mode {
+  justify-content: center;
+  gap: 1.2rem;
+  background: rgba(201,169,110,0.05);
+  border-color: var(--gold);
+}
+
+.dice-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.dice-pair {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.die {
+  font-size: 1.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gold);
+  background: var(--parchment);
+  border-radius: 5px;
+  color: var(--ink);
+  user-select: none;
+  line-height: 1;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.die.idle {
+  color: var(--border);
+  border-color: var(--border);
+}
+
+.die.rolling {
+  color: var(--ink-dim);
+  border-color: var(--border);
+  animation: dieShake 0.08s steps(2) infinite;
+}
+
+.die.luck-die {
+  border-color: var(--gold-hi);
+  color: var(--gold-hi);
+}
+
+.die.luck-die.rolling {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+@keyframes dieShake {
+  0%   { transform: translate(-1px, 0); }
+  50%  { transform: translate(1px, 1px); }
+  100% { transform: translate(0, -1px); }
+}
+
+.dice-total {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-dim);
+  min-height: 1em;
+  text-align: center;
+  transition: color 0.2s;
+}
+
+.dice-total.win  { color: var(--green-hi); font-weight: bold; }
+.dice-total.lose { color: var(--red-hi); }
+
+.vs-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: var(--border);
+  padding-bottom: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   Combat log (inside phone)
+══════════════════════════════════════ */
+
+.combat-log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.63rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.log-entry { line-height: 1.55; }
+.log-entry.neutral    { color: var(--ink-dim); }
+.log-entry.player-win { color: var(--green-hi); }
+.log-entry.enemy-win  { color: var(--red-hi); }
+.log-entry.luck-good  { color: var(--gold-hi); }
+.log-entry.luck-bad   { color: var(--ink-dim); }
+
+/* ══════════════════════════════════════
+   Combat buttons (inside phone)
+══════════════════════════════════════ */
+
+.combat-buttons {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.game-btn {
+  flex: 1;
+  padding: 0.5rem 0.4rem;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-hi);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.15s, border-color 0.15s;
+  touch-action: manipulation;
+}
+
+.game-btn:hover:not(:disabled) { background: rgba(201,169,110,0.09); }
+
+.game-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.game-btn.luck-btn {
+  border-color: var(--gold-hi);
+  flex: 1.2;
+}
+
+.game-btn.flee-btn {
+  border-color: #5a2828;
+  color: #b06060;
+  flex: 0.8;
+}
+
+.game-btn.flee-btn:hover:not(:disabled) { background: rgba(201,64,64,0.07); }
+</style>
+</head>
+<body>
+
+<h1>StoryForge — Dice Animation Playground</h1>
+
+<div class="playground">
+
+  <!-- ══════════ Controls ══════════ -->
+  <aside class="controls-panel">
+
+    <div class="ctrl-group">
+      <div class="ctrl-label">Roll Duration — <span class="ctrl-value" id="dur-label">650ms</span></div>
+      <input type="range" id="dur-slider" min="400" max="1000" step="50" value="650">
+      <div class="preset-row">
+        <button class="preset-btn" data-dur="400">Fast</button>
+        <button class="preset-btn active" data-dur="650">Normal</button>
+        <button class="preset-btn" data-dur="900">Cinematic</button>
+      </div>
+    </div>
+
+    <hr class="ctrl-divider">
+
+    <div class="ctrl-group">
+      <div class="ctrl-label">Luck Test</div>
+      <button class="ctrl-btn" id="luck-trigger">⚄  Test Your Luck</button>
+      <div class="ctrl-meta">
+        Current LUCK: <span id="luck-display">7</span> / 10
+      </div>
+    </div>
+
+    <hr class="ctrl-divider">
+
+    <div class="ctrl-group">
+      <button class="ctrl-btn" id="reset-btn">↺  Reset Combat</button>
+    </div>
+
+    <hr class="ctrl-divider">
+
+    <div class="prompt-box">
+      <div class="prompt-box-label">Implementation note</div>
+      <div id="prompt-text">Loading…</div>
+      <button class="copy-btn" id="copy-btn">Copy</button>
+    </div>
+
+  </aside>
+
+  <!-- ══════════ Phone preview ══════════ -->
+  <main class="preview-col">
+
+    <div class="phone-frame">
+      <div class="phone-screen">
+
+        <!-- Game header -->
+        <div class="game-header">
+          <div class="game-title">Tide of the Leviathan</div>
+          <button class="btn-quit">Save &amp; Quit</button>
+        </div>
+
+        <!-- Combat area -->
+        <div class="combat-area">
+
+          <div class="combat-header">⚔ &nbsp;Combat</div>
+
+          <!-- Combatants -->
+          <div class="combatants">
+            <div class="combatant-box enemy-box">
+              <div class="combatant-name">Stone Golem</div>
+              <div class="combatant-stats">SKILL <span id="enemy-skill">9</span></div>
+              <div class="enemy-bar-track">
+                <div class="enemy-bar-fill" id="enemy-bar" style="width:60%"></div>
+              </div>
+            </div>
+            <div class="combatant-box player-box">
+              <div class="combatant-name">You</div>
+              <div class="combatant-stats">SKILL <span id="player-skill">8</span></div>
+              <div class="enemy-bar-track">
+                <div class="enemy-bar-fill" id="player-bar" style="width:100%;background:var(--green-hi)"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dice tray: enemy left (matches enemy-box above), player right (matches player-box above) -->
+          <div class="dice-tray" id="dice-tray">
+            <div class="dice-group" id="enemy-group">
+              <div class="dice-pair">
+                <div class="die idle" id="ed1">⚀</div>
+                <div class="die idle" id="ed2">⚀</div>
+              </div>
+              <div class="dice-total" id="enemy-total"></div>
+            </div>
+
+            <div class="vs-label" id="vs-label">VS</div>
+
+            <div class="dice-group" id="player-group">
+              <div class="dice-pair">
+                <div class="die idle" id="pd1">⚀</div>
+                <div class="die idle" id="pd2">⚀</div>
+              </div>
+              <div class="dice-total" id="player-total"></div>
+            </div>
+          </div>
+
+          <!-- Combat log -->
+          <div class="combat-log" id="combat-log">
+            <div class="log-entry neutral">A Stone Golem rises from the rubble!</div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="combat-buttons">
+            <button class="game-btn" id="btn-attack">Attack</button>
+            <button class="game-btn luck-btn" id="btn-luck" style="display:none">Test Luck</button>
+            <button class="game-btn flee-btn" id="btn-flee">Flee</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+<script>
+// ─── Constants ────────────────────────────────────────────────
+const FACES        = ['⚀','⚁','⚂','⚃','⚄','⚅'];
+const PLAYER_SKILL = 8;
+const ENEMY_SKILL  = 9;
+const ENEMY_MAX    = 10;
+const PLAYER_MAX   = 20;
+
+// ─── State ────────────────────────────────────────────────────
+const state = {
+  duration:      650,
+  enemyStamina:  6,
+  playerStamina: 20,
+  luckCurrent:   7,
+  animating:     false
+};
+
+// ─── Helpers ──────────────────────────────────────────────────
+const el  = id => document.getElementById(id);
+const die = id => el(id);
+
+function rollDie() { return Math.floor(Math.random() * 6) + 1; }
+
+function addLog(text, cls) {
+  const log = el('combat-log');
+  const div = document.createElement('div');
+  div.className = 'log-entry ' + cls;
+  div.textContent = text;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+
+function clearTotals() {
+  ['player-total','enemy-total'].forEach(id => {
+    el(id).textContent = '';
+    el(id).className = 'dice-total';
+  });
+}
+
+function setDiceIdle() {
+  ['pd1','pd2','ed1','ed2'].forEach(id => {
+    const d = die(id);
+    d.textContent = '⚀';
+    d.className = 'die idle';
+  });
+}
+
+function updateEnemyBar() {
+  const pct = Math.max(0, (state.enemyStamina / ENEMY_MAX) * 100);
+  el('enemy-bar').style.width = pct + '%';
+}
+
+function updatePlayerBar() {
+  const pct = Math.max(0, (state.playerStamina / PLAYER_MAX) * 100);
+  el('player-bar').style.width = pct + '%';
+}
+
+// ─── Attack round ─────────────────────────────────────────────
+function attackRound() {
+  if (state.animating) return;
+  state.animating = true;
+
+  el('btn-attack').disabled = true;
+  el('btn-flee').disabled   = true;
+
+  // Resolve rolls now so result is predetermined
+  const p1 = rollDie(), p2 = rollDie();
+  const e1 = rollDie(), e2 = rollDie();
+  const pAS = p1 + p2 + PLAYER_SKILL;
+  const eAS = e1 + e2 + ENEMY_SKILL;
+
+  // Switch tray to combat mode
+  const tray = el('dice-tray');
+  tray.classList.remove('luck-mode');
+  el('vs-label').style.display  = '';
+  el('player-group').style.display = '';
+  el('enemy-group').style.display  = '';
+  clearTotals();
+
+  // Start cycling
+  const allIds = ['pd1','pd2','ed1','ed2'];
+  allIds.forEach(id => { die(id).className = 'die rolling'; });
+
+  const iv = setInterval(() => {
+    allIds.forEach(id => {
+      die(id).textContent = FACES[Math.floor(Math.random() * 6)];
+    });
+  }, 80);
+
+  setTimeout(() => {
+    clearInterval(iv);
+
+    // Snap to actual results
+    die('pd1').textContent = FACES[p1 - 1];
+    die('pd2').textContent = FACES[p2 - 1];
+    die('ed1').textContent = FACES[e1 - 1];
+    die('ed2').textContent = FACES[e2 - 1];
+    allIds.forEach(id => { die(id).className = 'die'; });
+
+    // Show totals
+    const pWins = pAS > eAS;
+    const tie   = pAS === eAS;
+
+    const pTotEl = el('player-total');
+    const eTotEl = el('enemy-total');
+    pTotEl.textContent = `R${p1+p2} + Sk${PLAYER_SKILL} = ${pAS}`;
+    eTotEl.textContent = `R${e1+e2} + Sk${ENEMY_SKILL} = ${eAS}`;
+    pTotEl.className = 'dice-total' + (tie ? '' : pWins ? ' win' : ' lose');
+    eTotEl.className = 'dice-total' + (tie ? '' : !pWins ? ' win' : ' lose');
+
+    // Resolve outcome
+    if (tie) {
+      addLog('Both attacks clash — no damage dealt.', 'neutral');
+    } else if (pWins) {
+      addLog(`You wound the Stone Golem for 2 STAMINA!`, 'player-win');
+      state.enemyStamina = Math.max(0, state.enemyStamina - 2);
+      updateEnemyBar();
+      if (state.enemyStamina <= 0) {
+        addLog('The Stone Golem crumbles into rubble!', 'player-win');
+        el('btn-attack').textContent = 'Victory!';
+        el('btn-attack').disabled = true;
+        el('btn-flee').disabled   = true;
+        state.animating = false;
+        updatePrompt();
+        return;
+      }
+    } else {
+      addLog(`The Stone Golem strikes you for 2 STAMINA!`, 'enemy-win');
+      state.playerStamina = Math.max(0, state.playerStamina - 2);
+      updatePlayerBar();
+    }
+
+    el('btn-attack').disabled = false;
+    el('btn-flee').disabled   = false;
+    state.animating = false;
+    updatePrompt();
+  }, state.duration);
+}
+
+// ─── Luck test ────────────────────────────────────────────────
+function testLuck() {
+  if (state.animating || state.luckCurrent <= 0) return;
+  state.animating = true;
+
+  el('btn-attack').disabled    = true;
+  el('luck-trigger').disabled  = true;
+
+  const l1 = rollDie(), l2 = rollDie();
+  const roll  = l1 + l2;
+  const lucky = roll <= state.luckCurrent;
+  state.luckCurrent = Math.max(0, state.luckCurrent - 1);
+  el('luck-display').textContent = state.luckCurrent;
+
+  // Switch tray to luck mode (2 centred gold dice, no VS)
+  const tray = el('dice-tray');
+  tray.classList.add('luck-mode');
+  el('vs-label').style.display  = 'none';
+  el('enemy-group').style.display = 'none';
+  el('player-group').style.display = '';
+  clearTotals();
+
+  const luckIds = ['pd1','pd2'];
+  luckIds.forEach(id => { die(id).className = 'die luck-die rolling'; });
+
+  const iv = setInterval(() => {
+    luckIds.forEach(id => {
+      die(id).textContent = FACES[Math.floor(Math.random() * 6)];
+    });
+  }, 80);
+
+  setTimeout(() => {
+    clearInterval(iv);
+
+    die('pd1').textContent = FACES[l1 - 1];
+    die('pd2').textContent = FACES[l2 - 1];
+    luckIds.forEach(id => { die(id).className = 'die luck-die'; });
+
+    const threshold = state.luckCurrent + 1; // before decrement
+    const pTotEl = el('player-total');
+    pTotEl.textContent = `${roll} vs ${threshold}`;
+    pTotEl.className   = 'dice-total ' + (lucky ? 'win' : 'lose');
+
+    addLog(
+      lucky
+        ? `Fortune favours you! (rolled ${roll} ≤ ${threshold})`
+        : `The fates are against you. (rolled ${roll} > ${threshold})`,
+      lucky ? 'luck-good' : 'luck-bad'
+    );
+
+    el('btn-attack').disabled   = false;
+    el('luck-trigger').disabled = state.luckCurrent <= 0;
+    state.animating = false;
+    updatePrompt();
+  }, state.duration);
+}
+
+// ─── Reset ────────────────────────────────────────────────────
+function resetCombat() {
+  state.enemyStamina  = 6;
+  state.playerStamina = 20;
+  state.luckCurrent   = 7;
+  state.animating     = false;
+
+  updateEnemyBar();
+  updatePlayerBar();
+  el('luck-display').textContent = 7;
+  el('combat-log').innerHTML = '<div class="log-entry neutral">A Stone Golem rises from the rubble!</div>';
+  el('btn-attack').textContent = 'Attack';
+  el('btn-attack').disabled    = false;
+  el('btn-flee').disabled      = false;
+  el('luck-trigger').disabled  = false;
+  el('dice-tray').classList.remove('luck-mode');
+  el('vs-label').style.display  = '';
+  el('player-group').style.display = '';
+  el('enemy-group').style.display  = '';
+  clearTotals();
+  setDiceIdle();
+  updatePrompt();
+}
+
+// ─── Duration controls ────────────────────────────────────────
+el('dur-slider').addEventListener('input', function() {
+  state.duration = +this.value;
+  el('dur-label').textContent = state.duration + 'ms';
+  document.querySelectorAll('.preset-btn').forEach(b =>
+    b.classList.toggle('active', +b.dataset.dur === state.duration));
+  updatePrompt();
+});
+
+document.querySelectorAll('.preset-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    state.duration = +btn.dataset.dur;
+    el('dur-slider').value = state.duration;
+    el('dur-label').textContent = state.duration + 'ms';
+    document.querySelectorAll('.preset-btn').forEach(b =>
+      b.classList.toggle('active', b === btn));
+    updatePrompt();
+  });
+});
+
+el('btn-attack').addEventListener('click', attackRound);
+el('btn-flee').addEventListener('click',   () => addLog('You flee from the Stone Golem!', 'neutral'));
+el('luck-trigger').addEventListener('click', testLuck);
+el('reset-btn').addEventListener('click',    resetCombat);
+
+// ─── Prompt output ────────────────────────────────────────────
+function updatePrompt() {
+  const d     = state.duration;
+  const feel  = d <= 450 ? 'fast and snappy' : d >= 850 ? 'slow and cinematic' : 'balanced';
+  const frames = Math.round(d / 80);
+  el('prompt-text').textContent =
+    `Implement dice roll animation at ${d}ms duration (${feel}). ` +
+    `Each die cycles through ⚀–⚅ at 80ms/frame (~${frames} frames) then snaps to the actual d6 result. ` +
+    `Combat shows 4 dice simultaneously — 2 player (left) vs 2 enemy (right) with a VS divider. ` +
+    `Luck tests switch the tray to 2 centred gold-tinted dice, hiding the enemy group. ` +
+    `Totals (roll + skill) appear below each pair after landing, coloured green/red for winner/loser.`;
+}
+
+// ─── Copy ─────────────────────────────────────────────────────
+el('copy-btn').addEventListener('click', () => {
+  navigator.clipboard.writeText(el('prompt-text').textContent).catch(() => {});
+  const btn = el('copy-btn');
+  btn.textContent = 'Copied!';
+  setTimeout(() => btn.textContent = 'Copy', 1500);
+});
+
+// Init
+updatePrompt();
+</script>
+</body>
+</html>
