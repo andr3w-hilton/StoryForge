@@ -294,7 +294,8 @@
         },
         {
           "text": "Explore the Treasury corridor to the left",
-          "goto": "18"
+          "goto": "18",
+          "requires_no_flag": "has_ring"
         },
         {
           "text": "Examine the sealed door to the right",
@@ -308,17 +309,20 @@
         {
           "text": "Sit down at the table",
           "goto": "15",
-          "requires_no_flag": "explored_chapel"
+          "requires_no_flag": "explored_chapel",
+          "requires_no_flags": ["sat_banquet"]
         },
         {
           "text": "Sit down at the table",
           "goto": "15_late",
-          "requires_flag": "explored_chapel"
+          "requires_flag": "explored_chapel",
+          "requires_no_flag": "sat_banquet"
         },
         {
           "text": "Light the Candle of Dead-Speak and sit down",
           "goto": "16",
-          "requires_item": "candle_of_dead_speak"
+          "requires_item": "candle_of_dead_speak",
+          "requires_no_flag": "sat_banquet"
         },
         {
           "text": "Walk past the banquet without stopping",
@@ -370,7 +374,8 @@
       "choices": [
         {
           "text": "Descend to the Treasury",
-          "goto": "18"
+          "goto": "18",
+          "requires_no_flag": "has_ring"
         },
         {
           "text": "Return to the Court of Echoes and take a different path",

@@ -1725,6 +1725,7 @@ function isChoiceAvailable(choice) {
     if (choice.requires_item && !gameState.items.includes(choice.requires_item)) return false;
     if (choice.requires_flag && !gameState.flags.has(choice.requires_flag)) return false;
     if (choice.requires_no_flag && gameState.flags.has(choice.requires_no_flag)) return false;
+    if (choice.requires_no_flags && choice.requires_no_flags.some(f => gameState.flags.has(f))) return false;
     return true;
 }
 

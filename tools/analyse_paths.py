@@ -74,9 +74,12 @@ def get_successor_pids(passage: dict, flags_after: frozenset) -> list:
     for c in passage.get('choices', []):
         rf = c.get('requires_flag')
         rnf = c.get('requires_no_flag')
+        rnfs = c.get('requires_no_flags', [])
         if rf and rf not in flags_after:
             continue
         if rnf and rnf in flags_after:
+            continue
+        if any(f in flags_after for f in rnfs):
             continue
         successors.append(c['goto'])
 
