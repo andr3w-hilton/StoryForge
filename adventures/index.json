@@ -1,5 +1,19 @@
 [
   {
+    "id": "the_hollow_forest",
+    "title": "The Hollow Forest",
+    "author": "Andrew Hilton",
+    "accent_color": "#4a6741",
+    "genre_tag": "SURVIVAL",
+    "theme_icon": "⊕",
+    "cover_image": "cover_art/The Hollow Forrest Cover.png",
+    "hero_image": "cover_art/The Hollow Forrest Hero.png",
+    "is_new": true,
+    "endings_count": 6,
+    "passage_count": 267,
+    "introduction": "Three weeks ago, Marek sent his last message from the eastern forest: \u201cI think I\u2019ve found the cause.\u201d He was a territorial warden \u2014 official access, methodical notes, the kind of man who logged everything. Then nothing.\n\nYou\u2019ve been sent to find him. The forest on the empire\u2019s eastern margin is where you start. You have his last known position, a survey map, and a hunting knife. What you don\u2019t have is any certainty about what you\u2019re walking into.\n\nThe forest looks wrong. You can\u2019t say exactly how. Not yet."
+  },
+  {
     "id": "black_flag_running",
     "title": "Black Flag Running",
     "author": "Andrew Hilton",
@@ -8,7 +22,6 @@
     "theme_icon": "⚓",
     "cover_image": "cover_art/Black Flag Cover.png",
     "hero_image": "cover_art/Black Flag Hero.png",
-    "is_new": true,
     "endings_count": 9,
     "passage_count": 343,
     "introduction": "Nassau stinks of low tide and ambition. You smell it before you see the port — tar and fish and something underneath, a particular sweetness that means too many people living too close together without enough to lose.\n\nThe Adamant slips into harbour on the morning watch, and the first thing you see is not the fort or the market or the long row of ships stripped to their ribs — it is the three Crown warships sitting at the mouth of the bay, close enough that you can read their names. Crown's Justice. Fervent. Resolve. Three ships to Nassau's none. Commodore Ashford is patient. He has been here eleven days, your harbour pilot tells you. He has not fired a shot.\n\nHe is waiting for something.\n\nYou have come to Nassau for work. What you have arrived into is something larger — a free republic counting the hours until it stops being free, a sunken ship with secrets that could end a career or start a war, and four factions pulling in four directions with Nassau's future between them.\n\nThe Adamant's crew is watching you. The harbour is watching you. Somewhere above the waterline, the town is already deciding what kind of captain you are."

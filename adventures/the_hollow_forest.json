@@ -1,0 +1,3056 @@
+{
+  "title": "The Hollow Forest",
+  "author": "Andrew Hilton",
+  "version": "1.0",
+  "start_passage": "f_1",
+  "accent_color": "#4a6741",
+  "genre_tag": "SURVIVAL",
+  "theme_icon": "⊕",
+  "introduction": "Three weeks ago, Marek sent his last message from the eastern forest: “I think I’ve found the cause.” He was a territorial warden — official access, methodical notes, the kind of man who logged everything. Then nothing.\n\nYou’ve been sent to find him. The forest on the empire’s eastern margin is where you start. You have his last known position, a survey map, and a hunting knife. What you don’t have is any certainty about what you’re walking into.\n\nThe forest looks wrong. You can’t say exactly how. Not yet.",
+  "character": {
+    "skill_base": 6,
+    "skill_dice": 1,
+    "stamina_base": 14,
+    "stamina_dice": 2,
+    "luck_base": 6,
+    "luck_dice": 1,
+    "starting_items": [
+      "hunting_knife",
+      "flint_steel",
+      "waterskin",
+      "forest_map"
+    ],
+    "starting_provisions": 6
+  },
+  "items": {
+    "hunting_knife": {
+      "name": "Hunting Knife",
+      "type": "weapon",
+      "skill_bonus": 1,
+      "description": "A long-bladed knife, good for skinning and for worse."
+    },
+    "flint_steel": {
+      "name": "Flint & Steel",
+      "type": "tool",
+      "description": "Reliable fire-starter. Essential in the wet."
+    },
+    "waterskin": {
+      "name": "Waterskin",
+      "type": "tool",
+      "description": "Carries water. What you fill it from matters."
+    },
+    "forest_map": {
+      "name": "Forest Map",
+      "type": "tool",
+      "description": "An official survey map of the eastern margin. Parts of it are wrong."
+    },
+    "rope": {
+      "name": "Rope",
+      "type": "tool",
+      "description": "Thirty feet of braided rope. Found in Marek's first camp."
+    },
+    "mentors_journal": {
+      "name": "Marek's Journal",
+      "type": "tool",
+      "description": "Marek's field notes. Careful, methodical, increasingly disturbed."
+    },
+    "soil_samples": {
+      "name": "Soil Samples",
+      "type": "tool",
+      "description": "Vials of earth from the contamination sites. The compound is in them."
+    },
+    "imperial_documents": {
+      "name": "Imperial Documents",
+      "type": "tool",
+      "description": "Strategic papers. Proof of intent, not just method."
+    },
+    "provisions": {
+      "name": "Provisions",
+      "type": "consumable",
+      "stamina_restore": 4,
+      "description": "Hard rations. Running low is a slow emergency."
+    }
+  },
+  "enemies": {
+    "wolf": {
+      "name": "Wolf",
+      "skill": 7,
+      "stamina": 6
+    },
+    "wolf_pack": {
+      "name": "Wolf Pack",
+      "skill": 8,
+      "stamina": 12
+    },
+    "imperial_agent": {
+      "name": "Imperial Agent",
+      "skill": 8,
+      "stamina": 9
+    },
+    "desperate_man": {
+      "name": "Desperate Man",
+      "skill": 5,
+      "stamina": 6
+    }
+  },
+  "passages": {
+    "f_1": {
+      "text": "The margin road ends in stones the colour of old bone, and beyond them the forest begins. You stand at the boundary post â€” a chest-high pillar of weathered granite, the imperial sigil scoured almost smooth by sixty winters of rain â€” and look in.\n\nThe trees at the edge are oak and ash and rowan, the same species that line every road in the eastern provinces. They look ordinary. Then the line shifts. Twenty paces in, the canopy darkens, the trunks grow closer, the species mix changes in a way you cannot quite name. There is a quality of silence that you only notice once you stop making your own noise. No wood pigeons. No jay calls. The wind moves the upper branches but no birds come down to feed.\n\nYou unfold the forest map. It is creased, official, dated three years ago â€” the eastern margin survey, drawn at one inch to a furlong. Marek's notes are scratched in the corner in his small, careful hand. The last message from him was a single line, sent by post from the margin village four weeks gone:\n\nI think I've found the cause.\n\nThree weeks of silence after that. Then his employer wrote to you, formally, asking whether you would consider going in to look. You agreed before you finished reading the letter.\n\nThe map shows two routes from the boundary post toward the operating area where Marek had been documenting the soil. One follows the river south and east through the valley. The other climbs the ridge to the north and tracks the high ground.\n\nYou shoulder your pack. The smell coming out of the trees is leaf-mould and cold water and something else underneath. Not bad. Just unfamiliar.",
+      "choices": [
+        {
+          "text": "Take the valley path along the river.",
+          "goto": "f_5_valley"
+        },
+        {
+          "text": "Take the ridge path along the high ground.",
+          "goto": "f_5_ridge"
+        }
+      ]
+    },
+    "f_5_valley": {
+      "text": "The valley path drops away from the boundary post in a long shallow gradient, the ground softening underfoot from packed gravel to pine needle to leaf litter. Within a hundred paces the road becomes a track, and within another hundred the track becomes a suggestion â€” a flattening of the undergrowth where feet have passed before, not often.\n\nThe river is below you and to the right, more sound than sight. You catch it through gaps: brown water, slow, the colour of strong tea. Your boots find the rhythm of root and stone. The smell is wetter here. Moss on every south face.\n\nThe map shows a stone bridge perhaps a mile in, where the path crosses a tributary. Beyond it, the valley widens before narrowing again at the ford.",
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "f_v1"
+        }
+      ]
+    },
+    "f_v1": {
+      "text": "An hour in. The valley is doing what valleys do â€” channelling air and water and light along its axis. The air smells right. The light is doing strange things in the canopy: thin shafts of it angling down, finding patches of fern and bracken to set briefly alight, then moving on. You walk in and out of cold and warmth.\n\nA squirrel watches you from a low branch. It does not flush. It does not chitter. It watches you pass with the still, considering attention of an animal that has decided you are not worth the energy of fear. Six paces on, you look back. It is gone, with no sound of departure.\n\nThe path forks. Both branches are vague. The map shows only one.",
+      "choices": [
+        {
+          "text": "Follow the path that matches the map.",
+          "goto": "f_v2"
+        },
+        {
+          "text": "Take the unmarked fork â€” it looks better trodden.",
+          "goto": "f_v2_alt"
+        }
+      ]
+    },
+    "f_v2": {
+      "text": "You take the marked branch. Within fifty paces it becomes clear the map is right about the route, even if it is wrong about other things: the ground here has been walked, often, by something with the regular stride of a person carrying weight.\n\nThe undergrowth thins. You pass a patch of nettles that have been broken at knee height in a long, deliberate sweep â€” someone scything them aside with a stick. The break is not fresh. Two weeks, perhaps. You crouch and look. The cut ends are dry but not yet brown. You think of Marek and how he hated nettles.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_v3"
+        }
+      ]
+    },
+    "f_v2_alt": {
+      "text": "The unmarked fork pulls you up and to the left, away from the river. The trees thicken. Within two hundred paces the path peters into nothing â€” just a deer trail that thins to a thread and ends at a tangle of bramble. You stand a moment, listening. No water sound. You have lost the river entirely.\n\nYou retrace your steps. The fork looks different from this side; you almost miss the way back. Half an hour wasted, the light a little lower. Lesson noted.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Take the marked branch this time.",
+          "goto": "f_extra_2"
+        }
+      ]
+    },
+    "f_v3": {
+      "text": "The path runs alongside the river for a stretch, close enough now that you can see the water. It moves slowly. Where it slacks against a sandbar, a film sits on the surface â€” not oily, not exactly. A pale matt sheen, the kind milk leaves on a cold cup. You crouch on the bank.\n\nThe water smells of nothing. Not the iron-and-leaf smell of clean river water. Just the absence of smell. You touch it with two fingers and bring it to your nose. Nothing. You wipe your hand on your trousers without thinking and immediately wish you had not.\n\nYou do not fill the waterskin here.",
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "f_v4"
+        }
+      ]
+    },
+    "f_v4": {
+      "text": "The map shows the stone bridge ahead. You hear the tributary before you see it â€” a faster, brighter sound than the main river, water running over rock. The path drops toward the crossing.\n\nYou come around a bend in the trees and stop.",
+      "choices": [
+        {
+          "text": "Look at the crossing.",
+          "goto": "f_10_valley"
+        }
+      ]
+    },
+    "f_v5": {
+      "text": "Past the broken bridge, the path climbs up the far bank in a series of switchbacks. The going is harder. Your calves notice. Halfway up you stop to drink â€” sparingly, from your own waterskin, the village water you brought in â€” and look back. The river below moves brown and slow. The film catches the light wrong.\n\nA hawk flies along the valley at your eye level, fifty paces out. It is hunting. It does not stoop. It quarters the valley back and forth and finds nothing to dive on. You watch until it passes out of sight beyond the next bend.",
+      "choices": [
+        {
+          "text": "Continue up the path.",
+          "goto": "f_v6"
+        }
+      ]
+    },
+    "f_v6": {
+      "text": "The path levels onto a flat shelf of ground above the river. You smell something. Animal. Not strong. Not fresh, either.\n\nFifteen paces off the path, in a patch of disturbed bracken, you see the shape: a deer, lying on its side. The position is wrong. A deer that falls dead does not fall like that. It has lain itself down deliberately and not got up.\n\nYou step closer.",
+      "choices": [
+        {
+          "text": "Examine the deer.",
+          "goto": "f_15"
+        },
+        {
+          "text": "Leave it. Keep moving.",
+          "goto": "f_v7"
+        }
+      ]
+    },
+    "f_v7": {
+      "text": "You leave the deer. It is not your business, you tell yourself, and you only half believe it. The image stays with you for another mile.\n\nThe path continues along the upper shelf. The river falls away below. You forage as you walk â€” a habit from years of margin work. There is a scattering of late mushrooms in the leaf litter, but you do not know this part of the forest and you leave them. Better hungry than poisoned.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_extra_11"
+        }
+      ]
+    },
+    "f_v8": {
+      "text": "Late afternoon. The shelf path bends back toward the river and brings you to a place where a smaller stream feeds in from the higher ground to your left. The water in this side stream looks different. Clearer. Faster.\n\nThe map does not mark it.",
+      "choices": [
+        {
+          "text": "Follow the side stream uphill briefly.",
+          "goto": "f_32"
+        },
+        {
+          "text": "Stay on the main path.",
+          "goto": "f_18"
+        }
+      ]
+    },
+    "f_5_ridge": {
+      "text": "The ridge path climbs steeply for the first quarter-mile, switchbacking up through a stand of birch that gives way to older oak. You feel the climb in your thighs and the cold air in your lungs. The smell up here is different from the valley: drier, with the sharp note of leaf-mould baked by what little autumn sun has reached it.\n\nWhen you reach the top of the climb you turn and look back. The boundary post is a pale dot below. Beyond it, the open country of the eastern province rolls away in browns and yellows, ordered and flat. From here it looks like a different world.\n\nYou turn to face the way ahead. The ridge runs north and east, a long spine of rising ground with the canopy pressing in on both sides.",
+      "choices": [
+        {
+          "text": "Continue along the ridge.",
+          "goto": "f_r1"
+        }
+      ]
+    },
+    "f_r1": {
+      "text": "The ridge path is narrow but sound. The footing is good â€” old leaf litter packed down by years of rain and freeze. You can see further from up here, when the trees allow: glimpses of the valley to your right, brown and folded in mist, and far to the north a darker mass where the deep forest begins.\n\nThere is wind. Not strong, but constant. It moves the upper branches and brings sounds up from the valley intermittently â€” a crow, the hush of the river, the snap of a branch falling somewhere. The forest has more voice from up here. The silence is patchy.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_extra_3"
+        }
+      ]
+    },
+    "f_r2": {
+      "text": "You pass through a stretch of dead ground â€” a half-acre where every tree has lost its leaves out of season. The trunks are not down. They are standing, bare, the bark intact. The ground beneath them is bright with fallen leaves the colour of brass. They came off all at once, recently. There is no wind damage. No fire. No insect bloom you can see.\n\nYou walk through it quickly. On the far side, the canopy resumes. You stop and look back at the dead patch. The line is clean: leaves on one side, none on the other, drawn as if by a knife edge along the soil.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_r3"
+        }
+      ]
+    },
+    "f_r3": {
+      "text": "The ridge widens to a small plateau, perhaps twenty paces across at its broadest. There is a view to the east. You take the chance to sit a moment on a flat slab of stone at the lip and chew a strip of dried meat.\n\nFrom here you can see the country ahead: the ridge continues for another mile, then the ground drops into a hollow before climbing again into the older forest. You think you see smoke, very faint, from somewhere down in the hollow. A campfire, perhaps. It could be any number of things â€” a charcoal-burner, a forester, Marek himself. You note the bearing.",
+      "choices": [
+        {
+          "text": "Continue along the ridge.",
+          "goto": "f_r4"
+        }
+      ]
+    },
+    "f_r4": {
+      "text": "The path narrows. To your left the ground drops sharply into a small re-entrant valley, the slope steep enough that you would not want to fall into it. To your right, gentler ground, dense with bramble. You stay to the centre of the path.\n\nA branch ahead has been broken across the path at chest height. Not snapped by wind â€” cut. The break is clean on one side, jagged on the other. Someone has wrenched it down to mark something. There is no obvious reason.",
+      "choices": [
+        {
+          "text": "Step over and continue.",
+          "goto": "f_r5"
+        }
+      ]
+    },
+    "f_r5": {
+      "text": "You come to a clearing. The map says a clearing should be here â€” a wide flat space marked with the tiny dot-and-circle that the survey uses for old felling areas, places kept clear by woodsmen for charcoal stacks.\n\nThere is no clearing. There is, instead, a stand of birch and ash, the trees thirty feet tall, all of them young. You stand at the edge and look in. The trees are closely spaced and uniform in age. They were not here three years ago when this map was drawn. They were not here, and now they are.\n\nYou reckon with the map being wrong.",
+      "choices": [
+        {
+          "text": "Press through the new growth.",
+          "goto": "f_10_ridge"
+        }
+      ]
+    },
+    "f_r6": {
+      "text": "Beyond the false clearing, the path resumes â€” a little harder to find now, since whoever last walked it did so before the trees came up. You push through. Your sleeves catch on twigs. You think about the map, folded in your inner pocket, and the survey teams who must have produced it: men with theodolites and chains, walking the ground in measured paces, recording what they saw. You wonder how they would have written down what you have just seen.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_r7"
+        }
+      ]
+    },
+    "f_r7": {
+      "text": "The ridge takes a long bend to the north. You walk it. There is a rhythm to ridge-walking that the body finds when the mind stops interfering. You let yourself fall into it. Footfall. Breath. The pack on your shoulders. The cold of the air on the side of your face.\n\nYou pass a lone holly tree, its berries still green, and beneath it the white feathers of a wood pigeon scattered in a tight circle. A goshawk kill, by the look. Days old.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_r8"
+        }
+      ]
+    },
+    "f_r8": {
+      "text": "Late afternoon. The light has thickened. The ridge begins to drop, slowly at first, then more steeply, into the hollow where you saw the smoke earlier. You can no longer see the smoke. Either it has gone out, or you are too low to see over the trees, or you imagined it.\n\nThe path forks. Down into the hollow, or along a contour that seems to skirt it.",
+      "choices": [
+        {
+          "text": "Drop into the hollow.",
+          "goto": "f_r9"
+        },
+        {
+          "text": "Skirt the hollow on the contour path.",
+          "goto": "f_r10"
+        }
+      ]
+    },
+    "f_r9": {
+      "text": "The hollow path is gentle and the smell of woodsmoke does come up to meet you, faint, then unmistakable. But by the time you reach the bottom there is no fire. There is, instead, a circle of stones with cold ash in the middle of it, and the bracken pressed flat in a man-shape beside it. Someone slept here last night. They have moved on.\n\nYou crouch by the ashes. They are still warm in the centre when you push your fingers in. Very recent. You stand up quickly and look around. Nothing. The hollow is quiet.",
+      "choices": [
+        {
+          "text": "Move on, more wary now.",
+          "goto": "f_15"
+        }
+      ]
+    },
+    "f_r10": {
+      "text": "The contour path keeps you out of the hollow. You can see the tops of the trees in it as you walk above. Once, you think you see movement â€” a flash of dark colour through the canopy, the wrong size and shape for a deer. It does not repeat.\n\nThe path bends back inward and brings you down a long slope of bracken to a place where the ridge ends and the forest floor takes over again. You can no longer see far ahead. The trees close in.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_15"
+        }
+      ]
+    },
+    "f_10_valley": {
+      "text": "Where the bridge should be, there is no bridge.\n\nThe map is clear: a stone bridge, two arches, dressed limestone. There are abutments â€” squared blocks of limestone, mossed, half-collapsed on the near bank. There is a single pier in the middle of the tributary, a rough stub of stone with grass growing on its top. There is no span. There has not been one for a long time. The masonry that should be lying in the water is not lying in the water. The river is shallow here and you would see it.\n\nThere is no rubble. There is no sign that the bridge ever fell. There are only the abutments and the pier, as if the bridge between them had been lifted away whole and carried off.\n\nThe tributary itself is shallow â€” knee deep at most, fast over rounded stones. You can wade.",
+      "choices": [
+        {
+          "text": "Wade across.",
+          "goto": "f_v5"
+        }
+      ]
+    },
+    "f_10_ridge": {
+      "text": "You push through the new growth and come out the other side onto the path. You stop and consider what you have just walked through.\n\nIf the survey teams were here three years ago â€” and the dating on the map is unambiguous â€” then this stand of trees has come up in three years. The trees are thirty feet tall. Birch and ash do not do that. Not in three years. Not in twenty.\n\nYou look at the map again. The little dot-and-circle. The careful pen-strokes of the surveyor. Either the surveyor lied, which is possible, or the trees grew, which should not be possible, or someone has planted thirty-foot trees in a clearing, which is absurd.\n\nYou fold the map. The certainty you walked in with has gone.",
+      "choices": [
+        {
+          "text": "Move on.",
+          "goto": "f_r6"
+        }
+      ]
+    },
+    "f_15": {
+      "text": "The deer is a roe doe, perhaps two years old. Healthy, by the look â€” the coat thick, the body in good condition for the season. She has not been killed. There is no wound, no torn throat, no broken neck. She has simply lain herself down.\n\nNo predator has fed on her. The flies are present but not swarming â€” perhaps a dozen, dull and slow. You expect more. In the warm afternoon, on a fresh deer, you should be brushing them off your face. There are not enough flies. Something is wrong with the flies, or with the deer, or both.\n\nYou crouch and look at the ground around her body. The leaf litter is undisturbed except where her own weight has pressed it. And in a rough oval the size of a wagon wheel, centred on her, the soil colour is wrong. Not dark loam. A pale grey-green. As if it has been bleached, or salted, or drained of something.\n\nYou stand up and step back. You note it. You do not have a word for it. You move on.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_18"
+        }
+      ]
+    },
+    "f_18": {
+      "text": "The light is beginning to fail. You can feel it in the air before you see it in the sky â€” a particular cooling, a flatness in the colours. To the west, low cloud is moving in, and with it the smell of rain coming. Not now, but tonight.\n\nYou need shelter. You find a place: a leaning oak with a hollow at the base, the ground around it dry, a fallen branch you can drag across to make a windbreak. Twenty minutes' work and you have a serviceable lean-to. You crawl in and out checking the angle of any rain that comes.\n\nThe question is fire. The flint and steel is in your pack. There is dead wood within easy walking distance â€” birch bark, dry twigs, a couple of split branches you can manage. With fire, the night will be survivable. Without, it will be cold and wet and you will not sleep well.",
+      "choices": [
+        {
+          "text": "Use the flint and steel. Make a fire.",
+          "goto": "f_18_fire",
+          "requires_item": "flint_steel"
+        },
+        {
+          "text": "Sleep cold. Save the effort.",
+          "goto": "f_18_nofire"
+        }
+      ]
+    },
+    "f_18_fire": {
+      "text": "You gather wood while there is still light enough to see what you are picking up. Birch bark from a fallen log, dry as paper. A handful of last-year's bracken, cracked between your hands. Twigs from the underside of a fir, where they stay dry in any weather. You build the fire small, the way a careful man does â€” a tight cone, the bark at the base, the bracken stuffed beneath.\n\nThe flint sparks on the third strike. The bracken catches. The bark catches. You feed it twigs.\n\nIt is a small fire, and it is the difference between two kinds of night.",
+      "set_flags": [
+        "has_fire"
+      ],
+      "choices": [
+        {
+          "text": "Settle in by the fire.",
+          "goto": "f_20_warm"
+        }
+      ]
+    },
+    "f_18_nofire": {
+      "text": "You decide against the fire. The wood is more damp than it looks, your hands are tired, the light is going. You eat cold provisions and crawl into the lean-to with your coat drawn around you and your pack against your back.\n\nThe rain comes after dark. You hear it first in the canopy, a hush spreading from the west, and then it reaches the lean-to and you discover the angle of your roof was not quite as good as you thought.",
+      "test_luck": {
+        "lucky_text": "You sleep in fits but you sleep. The rain stops before midnight. You wake stiff and cold but functional.",
+        "lucky_goto": "f_20_cold_lucky",
+        "unlucky_text": "The rain finds you. By the small hours your coat is wet through and you are shivering hard enough that you cannot sleep. You sit up, hugging your knees, watching the dark, waiting it out.",
+        "unlucky_goto": "f_20_cold_unlucky",
+        "lucky_stamina_cost": 1,
+        "unlucky_stamina_cost": 3,
+        "lucky_add_items": [],
+        "unlucky_add_items": []
+      }
+    },
+    "f_20_warm": {
+      "text": "You feed the fire down to a steady glow and sit with your back against the oak, the heat of it on your shins, the smoke going up cleanly into the canopy. The rain when it comes goes around the edge of your shelter, not into it.\n\nYou notice something while you are tending the fire. The wood from one of the logs you split â€” a piece of alder, the bark grey, the inner wood pale â€” burns wrong. It catches. It produces flame. But the smoke from it carries a chemical sharpness, a thin acrid note that is not woodsmoke. It is the smell of something underneath the wood.\n\nYou pick the alder out of the fire with a stick and let it lie aside. The remaining wood burns clean. You add it sparingly. You catalogue what you have noticed: the alder by the shelter burns wrong. You file it. You sleep.",
+      "choices": [
+        {
+          "text": "Wake to morning.",
+          "goto": "f_21"
+        }
+      ]
+    },
+    "f_20_cold_lucky": {
+      "text": "Morning comes grey and damp. You unfold yourself from the lean-to with the slow effort of a body that has lost more heat than it should have. You stamp your feet, swing your arms, get your blood moving. Your coat is half-dry, your boots damp. You eat. You go on.\n\nThe day has the quality of a day after a bad night: a thin, fragile alertness, easily disturbed.",
+      "choices": [
+        {
+          "text": "Set out.",
+          "goto": "f_extra_1"
+        }
+      ]
+    },
+    "f_20_cold_unlucky": {
+      "text": "Dawn finds you cold to the bone. Your coat is heavy with rain. Your boots squelch when you stand. You force yourself through the morning ritual â€” eat, pack, walk â€” but every action is slower than it should be. Your hands are clumsy on the laces. You drop a strap twice before you get the pack right.\n\nYou will pay for this night for the rest of the day.",
+      "choices": [
+        {
+          "text": "Set out anyway.",
+          "goto": "f_extra_5"
+        }
+      ]
+    },
+    "f_21": {
+      "text": "Some time before dawn â€” the sky still a deep blue, the fire down to coals â€” you wake. Not from a dream. From a sound, or the absence of one.\n\nYou lie still and listen. The rain has stopped. The forest is quiet, but it is the wrong quiet. Then you hear it: a careful step at the edge of your firelight. The shift of leaf-litter under a paw. Another step.\n\nYou turn your head, slowly. Yellow eyes catch the embers and reflect.\n\nA wolf. Lean, full-grown, standing perhaps fifteen paces out, its head low, its ears forward. It is not crouched to charge. It is investigating. The fire has drawn it. Wolves do not normally come this close to fires.",
+      "choices": [
+        {
+          "text": "Stay perfectly still and let it watch.",
+          "goto": "f_21_still"
+        },
+        {
+          "text": "Stand up slowly and add wood to the fire to drive it back.",
+          "goto": "f_21_fire"
+        },
+        {
+          "text": "Reach for the hunting knife and prepare to fight.",
+          "goto": "f_21_fight"
+        }
+      ]
+    },
+    "f_21_still": {
+      "text": "You do not move. You breathe through your mouth, slowly. The wolf stands at the edge of the light for what feels like a long minute and is probably less. It watches you, you watch it. Its ribs show. Not starving. Lean.\n\nThen, with the unhurried economy of a healthy animal, it turns and walks back into the trees. No sound after. No second pass. You lie awake until the first grey of morning, your hand on the knife the whole time.",
+      "choices": [
+        {
+          "text": "Wait for dawn.",
+          "goto": "f_22"
+        }
+      ]
+    },
+    "f_21_fire": {
+      "text": "You sit up slowly. The wolf's eyes track the movement but it does not retreat. You reach for a piece of split wood and lay it on the coals. The wood is dry. It catches almost at once and the flame leaps. The wolf flinches, takes two steps back, and stops.\n\nYou add another piece. The fire grows. The wolf watches the flames with a flat dislike, then turns and is gone, in the silent way of a wolf that has decided it is not interested.",
+      "test_luck": {
+        "lucky_text": "It does not return. You sit by the high fire until dawn, more awake than you would like, but unharmed.",
+        "lucky_goto": "f_22",
+        "unlucky_text": "Twenty minutes later you hear it again â€” the careful step, the shift of weight. It has not gone far. This time it comes in.",
+        "unlucky_goto": "f_21_combat",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0,
+        "lucky_add_items": [],
+        "unlucky_add_items": []
+      }
+    },
+    "f_21_fight": {
+      "text": "You take the knife from your belt. The blade is short but the edge is good. You stand, slowly, putting the fire between yourself and the wolf.\n\nThe wolf reads the change in posture and does what wolves do when challenged at a fire: it commits. It comes in low and fast.",
+      "choices": [
+        {
+          "text": "Meet it.",
+          "goto": "f_21_combat"
+        }
+      ]
+    },
+    "f_21_combat": {
+      "combat": {
+        "enemy": "wolf",
+        "win_goto": "f_21_won",
+        "flee_goto": "f_21_fled",
+        "flee_allowed": true,
+        "flee_stamina_cost": 0
+      },
+      "text": "The branch is not enough. It comes in low and fast — no hesitation, no posturing, the way a hungry animal moves when it has decided. You drop the burning stick and get the knife up between you.\n\nIt is not a long fight."
+    },
+    "f_21_won": {
+      "text": "The wolf goes down hard against your shelter pole, breath rasping, then still. You stand over it with the knife slick. It is a young male, lean, the coat in good condition. It has no obvious sickness. You wonder why it pressed a fire it should have avoided.\n\nYou do not skin it. You drag the body twenty paces from your camp and leave it. You are awake the rest of the night.",
+      "choices": [
+        {
+          "text": "Wait for dawn.",
+          "goto": "f_22"
+        }
+      ]
+    },
+    "f_21_fled": {
+      "text": "You break and run from the firelight, the wolf after you for ten paces, then less, then nothing. When you stop and turn, the dark is empty. You make your way back to the shelter from a different angle, knife drawn. The fire has burned down. The wolf is gone.\n\nYou do not sleep again.",
+      "choices": [
+        {
+          "text": "Wait for dawn.",
+          "goto": "f_22"
+        }
+      ]
+    },
+    "f_22": {
+      "text": "Morning. You break camp at first light and find the path again within a few minutes. The forest has a clean, washed quality after the rain. The smells are sharper. Birds â€” a single robin somewhere, then nothing else. The robin sounds out of place.\n\nA hundred paces along the path, you see the first mark. A cut on the trunk of an oak, at chest height, the shape of a chevron. The wood is fresh, pale, the sap not yet darkened. It is not a blaze of the kind hunters use. It is too neat â€” the angles too consistent, the depth controlled.\n\nThirty paces on, another, on a beech. Same height, same shape. Then another. Then another.\n\nThey are spaced at regular intervals. Survey spacing. They are leading somewhere, and they are not Marek's. Marek used cairns: a small stack of stones at the base of a tree, easily missed, easily kicked apart. He did not cut trees.",
+      "choices": [
+        {
+          "text": "Follow the markers.",
+          "goto": "f_22_follow"
+        },
+        {
+          "text": "Ignore them. Stay on your own course.",
+          "goto": "f_22_ignore"
+        }
+      ]
+    },
+    "f_22_follow": {
+      "text": "You decide to follow the markers. They lead you off the path, gently, in a curving line that takes you up a slight rise to the north. Whoever cut them was not in a hurry, and not concerned with the easiest going. They wanted to be findable, but only by someone who knew to look.\n\nAt the twentieth or so marker, the chevron changes. A small horizontal bar is added beneath it. Three trees later, a vertical stroke through it. You do not know the cipher. But you understand that this is one.\n\nThe last mark is on a young birch. Hanging from a branch above it, in a waxed canvas sack, is a cache.",
+      "set_flags": [
+        "followed_markers"
+      ],
+      "choices": [
+        {
+          "text": "Open the cache.",
+          "goto": "f_22_cache"
+        }
+      ]
+    },
+    "f_22_cache": {
+      "text": "You unhook the sack. It is heavy. The canvas is in good condition, the wax fresh, the seams machine-stitched. You loosen the drawstring.\n\nInside: a parcel of dried meat wrapped in oiled paper. A small loaf of dense travel bread. A tin canteen, full and sealed. And in a side pocket, a folded note in a hand you do not know â€” short, terse: For S. Pickup confirmed. Move to next at marker chain D.\n\nYou hold the canteen up to the light. There is a small stamp pressed into the metal at the base. An imperial mark, the kind used on quartermaster's stores, easy to miss if you are not looking for it.\n\nThe cache was placed. For someone. By someone with imperial supply.",
+      "choices": [
+        {
+          "text": "Take what you can carry. Leave the note where it was.",
+          "goto": "f_22_after"
+        },
+        {
+          "text": "Take only the canteen. Leave the rest.",
+          "goto": "f_22_after_light"
+        },
+        {
+          "text": "Replace everything. Take nothing.",
+          "goto": "f_22_after_none"
+        }
+      ],
+      "add_stamina": 2
+    },
+    "f_22_after": {
+      "text": "You take the food and the canteen and re-hang the empty sack as you found it, with the note tucked back inside. The hand it was written in is not Serrin's, you think, though you have not yet met Serrin and you do not know why his name is in your head. You have not read it. The S could be anything.\n\nYou continue on, heavier in the pack and lighter in the conscience than you would like.",
+      "add_stamina": 2,
+      "choices": [
+        {
+          "text": "Move on.",
+          "goto": "f_extra_7"
+        }
+      ]
+    },
+    "f_22_after_light": {
+      "text": "You take only the canteen. You tell yourself that water is the most important thing and that you are leaving the food for whoever it was meant for. You hang the sack as you found it.\n\nThe canteen is heavier than it should be in your pack. You walk on.",
+      "choices": [
+        {
+          "text": "Move on.",
+          "goto": "f_extra_10"
+        }
+      ]
+    },
+    "f_22_after_none": {
+      "text": "You replace everything. You hang the sack carefully and step back. Whatever this cache is for, it is not yours. You return to your own line of march.\n\nYou are hungrier than you would like to be, and you feel cleaner than you would like to admit.",
+      "choices": [
+        {
+          "text": "Move on.",
+          "goto": "f_28"
+        }
+      ]
+    },
+    "f_22_ignore": {
+      "text": "You do not follow the markers. Whoever made them is doing imperial work â€” the spacing, the discipline of the cuts â€” and your business is Marek, who did not cut trees. You stay on your line.\n\nThe markers continue past you for a few hundred paces and then peel off to the north. You watch the last of them disappear into the trees and feel a small relief that is also, perhaps, a small foolishness.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_22_alone"
+        }
+      ]
+    },
+    "f_22_alone": {
+      "text": "An hour beyond the last marker, the path you are following thins to nothing and you have to navigate by the lay of the land â€” the slope of the ground, the angle of the light, the run of the streams as the map (more or less) describes them. It is slower work and demands more attention.\n\nAt midday, you stop to eat the last of your road bread. There is a small clearing beside a fallen log. As you sit, a cock pheasant breaks from the bracken twenty paces off and goes up in a clatter of wings. Your hand goes to the knife before you realise. Pheasants are still pheasants. The forest is mostly the forest.\n\nYou eat. You go on.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_extra_9"
+        }
+      ]
+    },
+    "f_28": {
+      "text": "Mid-afternoon. The path â€” or your best approximation of one â€” drops into a shallow bowl of ground sheltered on three sides by older oak. There is the smell of old fire. You stop.\n\nIt is a camp. Not occupied. Not recent â€” the ash in the fire-scar is grey-white and rain-washed, and the bracken bedding has flattened and begun to rot at the edges. Three weeks, you think, perhaps four. The right age.\n\nYou step into it carefully and stand a moment, looking. Then you start to read it the way you would read a page.\n\nThe fire-scar is rectangular, not round â€” the way Marek made fires, longwise, for cooking on a flat stone. The shelter line was tied off on a sapling with a tautline hitch â€” you can see where the bark has been compressed in the right pattern. There is a square of trampled bracken where his bedroll lay, the head end against the slope so the blood would not pool in his face if he were ill. He was particular about that.\n\nYou crouch by the fire-scar. Marek was here. He stayed several days. He left in his own time, taking his gear with him. He left nothing he would have wanted left.\n\nExcept one thing. Hung from the lower branch of the nearest oak, coiled neatly and tied off with a clove hitch, is a length of rope. Forty feet of it. Good rope, hemp, well kept.\n\nYou stand looking at it for some time. Either he forgot it, which is not like him, or he left it for someone. For a follower. For you.",
+      "add_items": [
+        "rope"
+      ],
+      "choices": [
+        {
+          "text": "Take the rope and search the camp more carefully.",
+          "goto": "f_28a"
+        },
+        {
+          "text": "Take the rope and move on.",
+          "goto": "f_28b"
+        }
+      ]
+    },
+    "f_28a": {
+      "text": "You take the rope and stow it. Then you walk the camp slowly, in expanding circles from the fire-scar.\n\nTen paces north, in the leaf-litter, a small square of bark has been peeled from a young ash and replaced. You lift it. Beneath, scratched into the white wood, is a single word in Marek's small careful hand: NORTH. An arrow, pointing further into the forest. Below the arrow, a mark like a circle with a line through it â€” his shorthand for danger.\n\nYou replace the bark.",
+      "choices": [
+        {
+          "text": "Move on.",
+          "goto": "f_28c"
+        }
+      ]
+    },
+    "f_28b": {
+      "text": "You take the rope and you move on. You do not search further. You do not want to find anything that would change the picture you have of Marek leaving this camp on his own two feet, in his own time, alive.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_28c"
+        }
+      ]
+    },
+    "f_28c": {
+      "text": "Beyond the camp, the ground rises again into a long oak gallery â€” old trees, thirty feet apart, the canopy high and the underwood almost absent. Walking is easy here. You make good time.\n\nYou do not see another animal for an hour. Not a squirrel, not a deer, not a bird. The gallery is empty. Only the trees, moving slightly when the wind reaches them.",
+      "choices": [
+        {
+          "text": "Continue through the gallery.",
+          "goto": "f_extra_12"
+        }
+      ]
+    },
+    "f_30": {
+      "text": "The oak gallery ends at a small stream. The stream is bright. Faster than the river. The water, where you crouch to it, smells of leaf and stone â€” the smell river water should have. You fill the waterskin. It is a small relief that you did not know you were looking for.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_36"
+        }
+      ]
+    },
+    "f_32": {
+      "text": "You leave the main path and follow the side stream up the slope. It is steeper than it looks and your calves burn within fifty paces, but you push on. The stream gets clearer the higher you go. After a quarter of a mile of climbing through alder and hazel, the trees open and you find the spring.\n\nIt comes out of a cleft in a slab of old rock, cold to the touch, falling perhaps three feet into a basin worn into the stone. The water in the basin is so clear you can see the individual grains of sand on its bottom. You can smell the water â€” clean, mineral, faintly cold.\n\nYou empty your waterskin and refill it from the basin. The first mouthful tastes like winter.",
+      "set_flags": [
+        "clean_water_source"
+      ],
+      "add_stamina": 1,
+      "choices": [
+        {
+          "text": "Return to the path.",
+          "goto": "f_32a"
+        }
+      ]
+    },
+    "f_32a": {
+      "text": "You scramble back down to the main path with cold knees and a full skin. You look back once at the line of alder marking the spring's course. You think you will remember the way. You hope so.",
+      "choices": [
+        {
+          "text": "Continue along the main path.",
+          "goto": "f_18"
+        }
+      ]
+    },
+    "f_36": {
+      "text": "The forest changes character through the late afternoon. The trees grow further apart, but larger; the undergrowth thins; the light gets in. You feel, briefly, that you are in an ordinary wood. Then you notice that the light is wrong â€” it is too late in the day to be this colour. The slant is wrong. You check the sun through the canopy. It is where it should be. The light is doing something else.\n\nYou shake the thought off and walk on.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_extra_4"
+        }
+      ]
+    },
+    "f_38": {
+      "text": "You smell the camp before you see it. Woodsmoke â€” proper woodsmoke, with the tang of bacon underneath. Fat in a pan. You stop on the path and stand listening, and you hear a man laugh, easy and quiet, and another voice answer in a normal speaking tone.\n\nYou come around a stand of hazel and they see you the same moment you see them.\n\nThree of them. A camp set up properly: oilskin tarp, neat fire-pit, packs racked against a log. Good gear. A canvas-and-leather field case open beside the senior man, with what looks like surveyor's tools laid out on the cloth â€” a small theodolite, a brass chain, a notebook in oilskin.\n\n\"Hello,\" says the senior man. He is perhaps fifty, lean, weather-worn, with a beard kept short and grey eyes that do not quite seem to settle on you. He stands up unhurriedly. \"You'll be the second one through this week.\"\n\nThe other two â€” a younger woman, dark-haired, and a heavy-set man with the build of a soldier â€” look up and nod, friendly, unsurprised. The woman has a piece of bacon on a stick over the embers.\n\n\"Serrin,\" the senior man says, putting out a hand. \"Imperial Survey, Eastern Margins. Yourself?\"",
+      "choices": [
+        {
+          "text": "Give your name and accept his handshake.",
+          "goto": "f_38_meet"
+        }
+      ]
+    },
+    "f_38_meet": {
+      "text": "You give your name. His hand is dry and his grip is brief. He says, \"Pleased,\" and means it, or seems to. He gestures to the fire.\n\n\"You're welcome to the warmth and a piece of bacon while you decide whether you're staying or moving on. There's good light for another two hours. The next decent camping ground is an hour ahead at most. We're set up here for the night either way.\"\n\nThe younger woman â€” she introduces herself as Mira â€” hands you a tin mug of something hot. It is tea, sweet, strong. The heavy-set man does not give a name, only a nod. Serrin sees you notice.\n\n\"That's Hask,\" he says, smiling slightly. \"He doesn't talk much. It's a virtue in our line of work.\"\n\nYou drink the tea. Serrin asks, mildly, conversationally, what brings you in this far. He has the careful manner of a man who is interested in your answer but would not press for it if you preferred not to give it. He mentions, in passing, that they have seen sign of someone three days ahead of you, heading northeast â€” a man on his own, moving steadily, knowing his way.\n\n\"Friend of yours, perhaps,\" Serrin says.",
+      "choices": [
+        {
+          "text": "Stay and camp with them tonight.",
+          "goto": "f_38_camp"
+        },
+        {
+          "text": "Thank them and move on while there is light.",
+          "goto": "f_38_leave"
+        }
+      ]
+    },
+    "f_38_camp": {
+      "text": "You stay. The afternoon turns into evening with the easy rhythm of a good camp. Hask cuts firewood without speaking, in clean efficient strokes. Mira cooks: bacon, then a stew of dried beef and barley, then tea again, and a small ration of brandy from a tin flask Serrin produces with a slight ceremonial air.\n\nSerrin asks questions in the way of a man who genuinely wants to know things. What did you make of the forest at the margin. Did you find the bridge. (You glance at him at that, but his face shows only friendly interest.) Did you see anything in the dead patches that surprised you. He listens to your answers with attention, sometimes nodding, sometimes asking a follow-up that suggests he has been here longer than you and seen more than you, and is only checking what you noticed.\n\nIt does not feel like an interrogation. It feels like a conversation between professionals. Mira contributes occasionally â€” a wry comment, a small joke. Hask sharpens his knife and listens.\n\nWhen you sleep, by their fire, under the oilskin awning, you sleep well. The first good sleep since you crossed the boundary post.",
+      "add_stamina": 3,
+      "choices": [
+        {
+          "text": "Wake to morning and move on.",
+          "goto": "f_38_morning"
+        }
+      ]
+    },
+    "f_38_morning": {
+      "text": "You wake to the smell of coffee. Real coffee, ground and brewed, the kind only a well-funded survey team would carry into the field. Serrin pours you a tin cup of it without asking. The day is bright.\n\nThey are packing as you eat. They are heading further east along the margin, mapping a section of the dead patches. \"We may be a few days behind you,\" Serrin says, \"but we'll be in country by the same fork. If anything goes amiss for you, you might bear that in mind.\"\n\nIt is not quite an offer of help. It is closer to a placeholder for one. He shakes your hand again and Hask gives you, unexpectedly, half a loaf of dense travel bread wrapped in a cloth.\n\nYou shoulder your pack and go on.",
+      "choices": [
+        {
+          "text": "Continue toward the deep forest.",
+          "goto": "f_45"
+        }
+      ],
+      "add_stamina": 2
+    },
+    "f_38_leave": {
+      "text": "You thank them for the tea and stand. Serrin's grey eyes do not quite settle on you, but his smile is warm enough.\n\n\"Of course,\" he says. \"Light's the great currency out here. Don't waste it on us. I'll note your direction in the journal â€” easterly, toward the deep forest. If anything goes amiss, that's where we'll start looking.\"\n\nIt is gracefully said. You find you do not know how to refuse the gesture without rudeness, and so you accept it: yes, easterly, toward the deep forest, looking for a friend.\n\nMira gives you a small smile. Hask does not look up from the fire.\n\nYou walk on. Within ten paces you cannot smell the smoke any more. Within fifty, you cannot hear them.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_42"
+        }
+      ]
+    },
+    "f_42": {
+      "text": "An hour past the survey camp. The light is falling fast now and you need to make your own shelter again, less practiced this time. You find a clump of fir with a dry hollow at its base and crawl in. It is not a good camp. It will do.\n\nYou eat a cold supper. You think about Serrin's eyes â€” the way they did not quite settle. The way he said the word friend.",
+      "choices": [
+        {
+          "text": "Sleep, badly. Move on at first light.",
+          "goto": "f_45"
+        }
+      ]
+    },
+    "f_45": {
+      "text": "Mid-morning. The forest changes again, and this time the change is unambiguous.\n\nThe trees ahead are larger. Older. Thirty paces further on, you cannot see the ground for the leaf-fall. The trunks press closer together. The canopy, which should be denser given the size of the trees, is thinner. Light gets through in a way it should not. You crane your neck.\n\nThe canopy is thinner because the trees are dying from the top down. Crown dieback. The upper branches of half the trees you can see are leafless and pale, the bark sloughing in long strips. The lower canopy â€” the working canopy, the leaves that take in light â€” is doing its best. But the crowns are gone. From the air, this stretch of forest would look healthy. From beneath it, you can see what is happening.\n\nThere is a smell here. Not strong. The ground smell of the deer, cold-bright and chemical, but spread thinly through the air. You taste it on the back of your tongue.\n\nThe map shows nothing unusual at this point. The map is, as you have learned, a kind of fiction.",
+      "choices": [
+        {
+          "text": "Continue toward the deep forest.",
+          "goto": "f_48"
+        }
+      ]
+    },
+    "f_48": {
+      "text": "You stand at the threshold.\n\nIt is not a line, exactly. It is a deepening. The trees grow taller. The light grows thinner. The path becomes a suggestion of a path, and then less than that. The smell on the back of your tongue grows specific.\n\nYou check the knife on your belt. You check the rope coiled at the side of your pack. You take a swallow of water from the skin and re-stopper it carefully. You fold the map and put it away. The map is no use here. The map was never any use here.\n\nYou look back once. You can still see the way you came, in patches, between the trees. The ridge in the far distance. The pale strip of sky over the valley. You fix it in your mind because you suspect you will not see it the same way again.\n\nThen you turn forward, and you cross.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "d_1"
+        }
+      ]
+    },
+    "f_extra_1": {
+      "text": "The ground here is soft with moss. You walk for a long stretch without speaking aloud, which you have not realised you have been doing, in fits and starts, since you crossed the boundary post. You stop yourself from doing it and the silence comes in around you with the small weight of an animal settling on your chest.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_22"
+        }
+      ]
+    },
+    "f_extra_2": {
+      "text": "You cross a fallen beech, the trunk furred with moss, the inside of it hollow and soft when you put your hand in. A wood-mouse darts out across your boot. You feel a small, ridiculous pleasure at it: an ordinary animal doing an ordinary thing.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_v3"
+        }
+      ]
+    },
+    "f_extra_3": {
+      "text": "The fog comes up out of the valley in the early afternoon, drifting up the slopes in slow rolls. Within minutes the trees twenty paces ahead are softened to grey shapes. Within an hour you cannot see thirty feet.\n\nYou slow your pace. You navigate by the slope of the ground.",
+      "choices": [
+        {
+          "text": "Continue carefully.",
+          "goto": "f_r2"
+        }
+      ]
+    },
+    "f_extra_4": {
+      "text": "You stop to forage at the edge of a clearing where late blackberries cling to a thicket. You eat what you can pick without thorns. They are sweet, slightly past their best, and ordinary. You stand among them eating with your fingers stained dark, listening to the absence of birdsong in a place where birds should be feeding on these same berries, and you understand, with a cold small clarity, that something is wrong with the birds.",
+      "add_stamina": 1,
+      "choices": [
+        {
+          "text": "Move on.",
+          "goto": "f_extra_8"
+        }
+      ]
+    },
+    "f_extra_5": {
+      "text": "A hawk in the upper branches. You see it before it sees you and you stop. It is an immature goshawk, brown-flecked, hunched on a horizontal branch. You wait for it to flush.\n\nIt does not flush. You watch it for a full minute. Its head turns once, slowly, to track something at the edge of its vision. Otherwise it does not move. It is watching the forest floor with the patient attention of a thing that intends to be there for hours.\n\nYou pass beneath it. It does not look at you.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_22"
+        }
+      ]
+    },
+    "f_extra_6": {
+      "text": "You think about the message. I think I've found the cause. Marek was not given to drama. He was given to careful sentences in which every word carried weight. The cause of what, he did not say, because he assumed you would know â€” and you did know, in the broad sense: the eastern forest was sick. It had been sick for a generation. The empire had sent surveys. Marek had gone in privately, on his own coin, on his own time, because the official surveys were not asking the right questions.\n\nYou wonder what the right questions are.",
+      "choices": [
+        {
+          "text": "Walk on.",
+          "goto": "f_38"
+        }
+      ]
+    },
+    "f_extra_7": {
+      "text": "A patch of mushrooms at the base of a beech â€” fly agarics, the red caps bright as a wound in the leaf-litter. You leave them. You know what they do. You walk on, and a hundred paces later you come upon another patch, and another beyond that. A long line of them, running through the forest in a curve as if marking something underground.\n\nYou make a small detour to keep clear.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_28"
+        }
+      ]
+    },
+    "f_extra_8": {
+      "text": "Late afternoon light through high cloud. The colour of the forest goes flat and the temperature drops a degree. You feel it on the back of your neck before you notice it on your hands. You add a layer.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_extra_6"
+        }
+      ]
+    },
+    "f_extra_9": {
+      "text": "You find a cairn beside the path â€” three flat stones, stacked, the topmost one with a small chip out of one corner. It is one of Marek's. Your throat tightens, foolishly, at the sight of it.\n\nHe was here. Heading the same direction you are. You add a fourth stone to the cairn before you walk on, and you do not know why you do it.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_28"
+        }
+      ]
+    },
+    "f_extra_10": {
+      "text": "You navigate by sight of the sun through the canopy. The path you have been on has thinned to deer-trail. You match the contours of the map, more or less, and the map agrees, more or less, and you trust both of them less than you would like.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_28"
+        }
+      ]
+    },
+    "f_extra_11": {
+      "text": "A thin rain begins, then stops. Then begins again. You walk through it. Your hat keeps the worst from your face. The smell of the forest changes with the wet â€” leaf-mould rises, the alder has its faint chemical edge, the moss puts out the green smell of moss.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_v8"
+        }
+      ]
+    },
+    "f_extra_12": {
+      "text": "You sit a moment on a log to rest your legs. There is a beetle on the bark beside you, dark green, the size of a thumbnail. It is not moving. You watch it for half a minute. It is alive â€” you can see the slight movement of its mouthparts â€” but it is not moving. You touch it gently with the tip of a twig. It does not respond.\n\nYou move the twig away. The beetle stays as it was. You stand up and walk on.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "f_30"
+        }
+      ]
+    },
+    "d_1": {
+      "text": "The threshold is behind you. The forest you walk into now is older.\n\nThe trees are larger here, the trunks broader than two of you laid end to end. The canopy closes overhead and the light changes quality — not darker, exactly, but thinner, as if filtered through something fine. The ground is deep with leaf-fall. Your boots make almost no sound.\n\nYou pass a stand of mature oak. The bark on three of them is lifting away from the trunks in long sheets, curling like old paper. Beneath the lifted bark the wood is pale and dry. There is no insect tracery, no fungal bloom. Only the dryness, like something cured.\n\nYou stop and listen. The sound of the forest is wrong. Not silence — there is a small wind moving in the upper branches, and somewhere ahead a woodpecker is working at a dead tree — but the sound is too thin. There should be more. Birdsong at this hour. The small movements of mice and squirrels in the leaf-litter. The hum of insects at the canopy gaps.\n\nYou listen to the woodpecker for a while. It works steadily, methodically. It finds nothing. Whatever was in the tree is already gone.",
+      "choices": [
+        {
+          "text": "Push on along what remains of the path.",
+          "goto": "d_3"
+        },
+        {
+          "text": "Examine the lifted bark more closely.",
+          "goto": "d_2"
+        }
+      ]
+    },
+    "d_2": {
+      "text": "You crouch by the nearest oak and lift a sheet of bark away from the trunk. It comes free in your hand without resistance, light as old vellum.\n\nThe inner surface is dry. There is no sap, no moisture, no smell of resin. The wood beneath is pale and slightly powdery to the touch. You rub a little between thumb and finger. It is the texture of fine ash.\n\nYou lay the bark back against the trunk. It does not hold. It falls into the leaf-litter at your feet.\n\nYou wipe your hand on your trousers and stand.",
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "d_3"
+        }
+      ]
+    },
+    "d_3": {
+      "text": "The path is intermittent now — a suggestion through the leaf-fall, broken by deadfall and reasserted thirty paces on. You follow what remains of it by feel as much as by sight.\n\nThe ground rises gently. Through the trunks ahead you can hear water — a low, continuous sound that resolves, as you walk, into the voice of a river.",
+      "choices": [
+        {
+          "text": "Head down toward the water.",
+          "goto": "d_5"
+        },
+        {
+          "text": "Stop and check the map.",
+          "goto": "d_4"
+        }
+      ]
+    },
+    "d_4": {
+      "text": "You unfold the map and find your approximate position by the rise and the watercourse. The river is marked. So is a bridge, half a day downstream of where you must be.\n\nYou study the path-markings. The map shows a single forester's track running roughly along the line you are walking. It does not show the deadfall. It does not show the dying oaks. The map was drawn by someone who walked this in summer, in a year when the forest was still itself.\n\nYou fold the map away.",
+      "choices": [
+        {
+          "text": "Head down toward the water.",
+          "goto": "d_5"
+        }
+      ]
+    },
+    "d_5": {
+      "text": "The slope steepens. You go down it sideways, one hand on the trunks of the smaller trees for balance. Halfway down you stop.\n\nThere is a deer below you, lying in the leaf-litter at the foot of the slope. It is not moving. It is not, you think after a long moment of looking at it, recently dead — the body has the slack settled look of something that has been there for days, but the carrion-smell is faint, and there are no flies. There should be flies.\n\nThe deer is intact. No wound. No predator damage. It lay down here and it stopped.",
+      "choices": [
+        {
+          "text": "Skirt around it and continue down to the river.",
+          "goto": "d_8"
+        },
+        {
+          "text": "Examine the deer.",
+          "goto": "d_6"
+        }
+      ]
+    },
+    "d_6": {
+      "text": "You step closer. The deer is a young hind, a yearling. Its eyes are open and dry. The flank is unmarked. You crouch and look at the muzzle. There is a faint dark staining around the nostrils and the corners of the mouth. Not blood. Something more like the residue left when water dries on metal.\n\nYou do not touch it.\n\nYou stand and back away, and the smell on the back of your tongue is the smell that was on the air at the dying oaks.",
+      "choices": [
+        {
+          "text": "Continue down to the river.",
+          "goto": "d_8"
+        }
+      ]
+    },
+    "d_8": {
+      "text": "The river runs broad and shallow over a stony bed. On the map it is marked as a reliable water source.\n\nUp close, the colour of the water is slightly off. Not dramatically — not the ochre of iron, not the white of glacial silt. Just not quite right. A faint cast at the edges of the riffles, where the water slows. You watch a long moment before you can name what it reminds you of: the colour of weak tea, gone cold.\n\nYou kneel and put your hand in. The water is cold and the smell on your wet hand is faint but present. The same smell.",
+      "choices": [
+        {
+          "text": "Refill from the clean spring you mapped earlier instead — you will not drink this.",
+          "goto": "d_8_clean",
+          "requires_flag": "clean_water_source"
+        },
+        {
+          "text": "Approach the river bank to drink.",
+          "goto": "d_8_river",
+          "requires_no_flag": "clean_water_source"
+        },
+        {
+          "text": "Move on without water.",
+          "goto": "d_10"
+        }
+      ]
+    },
+    "d_8_clean": {
+      "text": "You know this water. You have seen it before, upstream, where the springs feed clean.\n\nYou backtrack a quarter mile to a feeder you remember from your earlier crossings — a small cold seep coming straight out of stone, the kind of water Marek taught you to trust. You fill the skin slowly, letting the silt settle, and stopper it.\n\nYou rejoin the river path with the weight of full water against your hip. The river beside you moves the wrong colour and you do not look at it.",
+      "add_stamina": 1,
+      "choices": [
+        {
+          "text": "Continue downstream toward the crossing.",
+          "goto": "d_10"
+        }
+      ]
+    },
+    "d_8_river": {
+      "text": "Your throat is dry. The river is right there. The wrongness is faint — a cast in the colour, a smell that might only be wet stone.\n\nYou crouch at the edge with the waterskin open. Whether or not you drink is a thing you decide in the next moment.",
+      "test_luck": {
+        "lucky_text": "Something stops you. The smell, sharper now with your face this close to the water. The way a fish would not be in this. You stand up without filling the skin and step back. Your throat will hurt for a few hours. It will pass.",
+        "lucky_goto": "d_8_didnt_drink",
+        "unlucky_text": "You drink. The water has almost no taste. You fill the skin. Half a mile further on the first wave of nausea finds you — a low, slow turning under the breastbone. You keep walking. There is nothing else to do.",
+        "unlucky_goto": "d_8_drank",
+        "lucky_stamina_cost": 1,
+        "unlucky_stamina_cost": 3
+      }
+    },
+    "d_8_didnt_drink": {
+      "text": "You walk on with the empty skin and a dry mouth. The river beside you continues its low conversation with the stones. You do not look at it.",
+      "choices": [
+        {
+          "text": "Continue downstream toward the crossing.",
+          "goto": "d_10"
+        }
+      ]
+    },
+    "d_8_drank": {
+      "text": "The nausea sits in you and does not leave. You walk through it. You stop once and crouch over the leaf-litter, but nothing comes up. Your hands are cold.\n\nAfter a time the worst of it dulls into a low, persistent unwellness. It does not go away.",
+      "choices": [
+        {
+          "text": "Push on toward the crossing.",
+          "goto": "d_10"
+        }
+      ]
+    },
+    "d_10": {
+      "text": "The path follows the river downstream. The trees here are thinner, more recent — second growth, by the look of them, on what was once cleared ground. The understorey is sparse. You see no birds.\n\nA hundred paces on you find a place where someone has been. A patch of trampled fern, a scuff in the moss where boots have turned. Not recent — yesterday at the earliest, perhaps two days. You crouch and look. One set of prints. Larger than yours. Heading the same way.",
+      "choices": [
+        {
+          "text": "Follow the prints.",
+          "goto": "d_12"
+        },
+        {
+          "text": "Step off the path and parallel it through the trees.",
+          "goto": "d_11"
+        }
+      ]
+    },
+    "d_11": {
+      "text": "You move twenty paces into the trees and walk parallel to the path, keeping it visible at the edge of your peripheral vision. The going is harder — more deadfall, more ducking under low branches — but you are not on the trail.\n\nYou are not sure why you have done this. The prints were old. There is no one ahead of you that you know of. But the unease has been building since the river, and the unease wants you off the obvious line.\n\nAfter a quarter mile the trees open and you see the path again, and beyond the path, the river bend, and the place where the bridge should be.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Rejoin the path and approach the crossing.",
+          "goto": "d_12"
+        }
+      ]
+    },
+    "d_12": {
+      "text": "The bridge is gone.\n\nThe map shows a sturdy timber bridge here, the kind a logging crew would build. What is here instead is a debris dam — a snarl of fallen trunks and brush wedged across the narrows, twenty feet wide and head-high in the middle. Water spills through it in a dozen small white falls. The original bridge timbers are part of it, you think, near the bottom.\n\nThe debris is crossable. You can see the line — two long trunks at the upstream face, mostly stripped of bark, slick-looking. The current beneath is fast and dark.\n\nThe far bank is twelve paces off.",
+      "choices": [
+        {
+          "text": "Tie the rope as a handline and cross carefully.",
+          "goto": "d_12_rope",
+          "requires_item": "rope"
+        },
+        {
+          "text": "Cross without aid — pick your way across the trunks.",
+          "goto": "d_12_unaided"
+        },
+        {
+          "text": "Look for a ford further downstream.",
+          "goto": "d_13"
+        }
+      ]
+    },
+    "d_12_rope": {
+      "text": "You uncoil the rope. There is a stub of broken bridge-timber jutting from the dam at the near side, and a forked branch at the far end of the upstream trunk — enough to anchor a handline. You make the throw twice before it sets.\n\nWith the rope taut at waist-height you cross slowly, three points of contact at all times. The trunks shift under your weight but the line holds. Halfway across you stop because the spray has soaked your trousers and your hands are numb. You make yourself breathe. You go on.\n\nOn the far bank you coil the rope wet and heavy back into your pack. Your hands are shaking but you are across.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Continue into the trees on the far side.",
+          "goto": "d_15"
+        }
+      ]
+    },
+    "d_12_unaided": {
+      "text": "You step out onto the upstream trunk. It is slicker than it looked. You go in a low crouch, hands on the trunk, feeling for the dry patches with your boots.\n\nFour steps out the trunk shifts under you.",
+      "test_luck": {
+        "lucky_text": "You drop flat and grip with both arms. The trunk settles. You wait for the shake in your legs to stop, then keep going, slower. You reach the far bank wet to the knees and trembling, but unharmed.",
+        "lucky_goto": "d_15",
+        "unlucky_text": "Your foot goes. You catch yourself with one elbow against the trunk as the leg drops into the water and the current pulls. You haul yourself out and forward in a panic of scraped wood and freezing water. You make the far bank. Your trousers are soaked, there is a long graze along your forearm, and one of your boots has lost a strap.",
+        "unlucky_goto": "d_15",
+        "lucky_stamina_cost": 1,
+        "unlucky_stamina_cost": 3
+      }
+    },
+    "d_13": {
+      "text": "You walk downstream a quarter mile, looking for shallows. The river runs against a steep cut bank for most of that distance, and where it eases there is no good crossing — soft mud, deep pools, no clear bed.\n\nYou come to a place where the water broadens over a stretch of gravel. It looks fordable. You wade in to mid-thigh before the current takes hold of your boots and tells you it is faster than it looked.",
+      "choices": [
+        {
+          "text": "Push across — commit to the ford.",
+          "goto": "d_13_ford"
+        },
+        {
+          "text": "Back out and return to the debris dam.",
+          "goto": "d_12_back"
+        }
+      ]
+    },
+    "d_13_ford": {
+      "text": "You set your weight against the current and walk. The water rises to your waist. You keep your eyes on the far bank and your feet feeling for the bed.\n\nHalf-way across a submerged stone shifts under you and you go down to your chest before you catch your balance. Cold all through. You walk the last six paces with your teeth clamped and your fingers losing feeling, and you fall up the gravel of the far bank on hands and knees.",
+      "add_stamina": -3,
+      "choices": [
+        {
+          "text": "Strip the worst of the wet, warm yourself, and go on.",
+          "goto": "d_15"
+        }
+      ]
+    },
+    "d_12_back": {
+      "text": "You return upstream to the debris dam. Your legs are wet to the knee and your patience is thin.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Tie the rope as a handline and cross carefully.",
+          "goto": "d_12_rope",
+          "requires_item": "rope"
+        },
+        {
+          "text": "Cross unaided across the trunks.",
+          "goto": "d_12_unaided"
+        }
+      ]
+    },
+    "d_15": {
+      "text": "On the far side of the river the forest changes again.\n\nThe trees are smaller here, more uniform — the look of a stand that grew in after a long-ago clearance and was never thinned. The understorey is sparse. The leaf-fall is thin. The ground feels harder under your boots.\n\nThe path picks up again, more confidently than before. You follow it. Somewhere ahead is — by the map and by the rumour you came in on — Marek's working country. The watershed he was studying. The place his last letters mentioned.\n\nThe path curves. You walk.",
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "d_18"
+        },
+        {
+          "text": "Stop to forage — your provisions will not last forever.",
+          "goto": "d_16"
+        }
+      ]
+    },
+    "d_16": {
+      "text": "You stop in a small clearing where the leaf-fall is thin and the ground is dappled with light. You look for what you know — hazel, beech mast, the bracket fungus that takes well in stew, the late berries on the thorn at the edges.\n\nYou walk in widening circles for a quarter hour. There is nothing. The hazel you find is old and bare. The thorn carries no fruit. You turn one of the rotting logs at the clearing edge and there are no grubs, no woodlice, no centipedes. Only the soft pale wood, slightly powdery to the touch.\n\nYou stand a long time looking at the empty log.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Move on. There is nothing here.",
+          "goto": "d_18"
+        }
+      ]
+    },
+    "d_18": {
+      "text": "The path drops into a shallow valley. The trees on the slopes are mixed — beech, oak, some hornbeam — and the air is briefly cooler. You hear, a little to the south, the sound of someone breathing.\n\nYou stop. You listen. Not breathing — sobbing. Quiet, exhausted sobbing. A man's voice, by the pitch of it.",
+      "choices": [
+        {
+          "text": "Move quietly toward the sound.",
+          "goto": "d_20"
+        },
+        {
+          "text": "Skirt wide around it and continue along the path.",
+          "goto": "d_19"
+        }
+      ]
+    },
+    "d_19": {
+      "text": "You step off the path and move quietly south of it through the trees, giving the sound a wide berth. You do not look back.\n\nThe sobbing fades. After a while there is no sound at all. Just your own breathing and the small sounds of your boots in the leaves.\n\nThe path curves back to you a half mile on. You rejoin it.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "d_22"
+        }
+      ]
+    },
+    "d_20": {
+      "text": "You move through the trees toward the sound. You come on him in a small hollow in the lee of a fallen beech.\n\nHe is sitting with his back against the log, knees drawn up, hands over his face. He is in middle years — heavyset, weather-worn, the dark stained clothes of a charcoal-burner. There is a small bundle next to him and a billhook in the leaf-litter at his feet. His hat is off. His hair is matted with sweat.\n\nHe hears you and looks up. He does not reach for the billhook. His face is the grey of someone four days lost and badly frightened, and when he tries to speak he has to start three times before the words come.\n\n\"You're not one of them,\" he says. It is not a question. It is something he is making sure of.",
+      "choices": [
+        {
+          "text": "Sit with him. Share food and water. Let him talk.",
+          "goto": "d_20_help",
+          "requires_item": "provisions"
+        },
+        {
+          "text": "Speak with him gently. Share what little water you have, but not food.",
+          "goto": "d_20_no_food"
+        },
+        {
+          "text": "Tell him you cannot stay. Move on.",
+          "goto": "d_20_leave"
+        },
+        {
+          "text": "Keep a hand on your knife. Treat him as a threat.",
+          "goto": "d_20_wary"
+        }
+      ]
+    },
+    "d_20_help": {
+      "text": "You sit on the leaf-litter across from him and unbuckle your pack. You break a portion of provisions and pass it to him. He stares at it for a long moment before he takes it. He eats slowly, in small careful bites, like someone who has remembered partway through that he is starving.\n\nYou pass him the waterskin. He drinks and gives it back. The colour is coming into his face.\n\nHe is from Vethara, he says. The charcoal-burner community at the upper edge of the valley, four days' walk south-east of here. He came in to cut hazel for the kilns and he lost the line of his own marks on the second day. Since then he has been walking in circles and drinking from streams that have made him sick. He says he has seen things he cannot account for. A stand of pine where every needle was on the ground. A fox that came up to him and would not move when he shouted. He says the word for it in his own dialect, which you do not know, and then he says: wrong. Wrong all through.\n\nHe does not know the way out any better than you do. But he can describe Vethara, and the path that leads to it from the deep forest, in the precise detail of a man who has walked it a thousand times. He makes you repeat it back to him before he is satisfied.\n\nYou give him a second portion of provisions for the road. He does not have the strength to come with you. He says he will rest and then walk south by the sun.\n\nYou leave him sitting against the log with his hat back on.",
+      "remove_items": [
+        "provisions"
+      ],
+      "set_flags": [
+        "knows_vethara"
+      ],
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "d_22"
+        }
+      ]
+    },
+    "d_20_no_food": {
+      "text": "You crouch in front of him with empty hands. You tell him you have no food. You tell him you have a little water, and he drinks what you can spare.\n\nHe looks at you a long time. Then he tells you what he can, in case you make it out and he does not. He is from Vethara — the charcoal-burner community at the upper edge of the valley. He came in to cut hazel and lost his marks. He has seen things he cannot account for. He thinks something is in the water. He thinks it has been put there.\n\nHe makes you repeat the path to Vethara back to him before he is satisfied.\n\nYou leave him sitting against the log. There is nothing else you can do.",
+      "set_flags": [
+        "knows_vethara"
+      ],
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "d_22"
+        }
+      ]
+    },
+    "d_20_leave": {
+      "text": "You step back from the hollow. He watches you go. He does not call after you. He does not move.\n\nYou rejoin the path with a feeling in your chest you do not name. The sobbing does not start again.",
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "d_22"
+        }
+      ]
+    },
+    "d_20_wary": {
+      "text": "You keep your hand on the hilt of your knife. He sees this. Something changes in his face — not anger. A tired closing-over.\n\n\"Suit yourself,\" he says.\n\nHe stands up too quickly. The billhook is in his hand. You do not think he means to use it but he is past sensible thought, four days lost and starving, and the sight of an armed stranger has snapped something in him.\n\nHe comes at you.",
+      "combat": {
+        "enemy": "desperate_man",
+        "win_goto": "d_20_after_combat",
+        "flee_goto": "d_20_fled",
+        "flee_allowed": true,
+        "flee_stamina_cost": 1
+      }
+    },
+    "d_20_after_combat": {
+      "text": "He goes down in the leaf-litter and does not get up. After a moment you see that he is breathing, shallow and ragged.\n\nYou crouch by him and look at his face. You do not know whether he will live. You do what you can — you set the billhook out of reach, you fold his coat under his head, you leave him your second waterskin if you have one and a portion of food if you can spare it. The wrongness of it sits in you.\n\nYou stand and walk on. You do not look back.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "d_22"
+        }
+      ]
+    },
+    "d_20_fled": {
+      "text": "You back away with both hands raised, then turn and run. He does not pursue you. After thirty paces the trees close and you cannot hear him.\n\nYou walk for a long time before you slow.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "d_22"
+        }
+      ]
+    },
+    "d_22": {
+      "text": "The path climbs out of the valley. The trees thin into a band of older oaks, wide-spaced, the leaf-litter deep and dry.\n\nYou walk for an hour. The light comes down at low angles through the trunks. The shadows are long. You realise, after a while, that you have not seen or heard a single bird in all of that hour. Not a wing-beat. Not a call. Not even the distant complaint of a crow.\n\nThere is movement at the edge of your vision and you turn fast. It is a dark shape low in the leaf-litter, twenty paces off — moving the wrong way for a hare, the wrong shape for a fox. You stand still and watch.",
+      "choices": [
+        {
+          "text": "Approach quietly to see what it is.",
+          "goto": "d_23"
+        },
+        {
+          "text": "Leave it alone and continue walking.",
+          "goto": "d_24"
+        }
+      ]
+    },
+    "d_23": {
+      "text": "You move toward it slowly, keeping to soft ground. At ten paces you can see it clearly.\n\nIt is a badger. It is moving in a small tight circle in the leaves, head low, walking the same circle over and over. You watch for a long minute. The circle is perhaps three feet across. The badger walks it with absolute concentration, as if it has somewhere to be at the next step and the next.\n\nIt does not notice you. It does not stop.\n\nYou step back into the trees and leave it to its circle.",
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "d_25"
+        }
+      ]
+    },
+    "d_24": {
+      "text": "You leave it alone. Whatever it was is its own business. You keep walking and after a hundred paces the path bends and the movement is behind you and forgotten.",
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "d_25"
+        }
+      ]
+    },
+    "d_25": {
+      "text": "Where the path drops down into a hollow you find a stand of trees you have not seen before — not in shape, but in colour.\n\nThey are beeches, eight or nine of them, growing close. The trunks at the base, where they meet the leaf-litter, carry a discolouration in a band a hand's breadth high. It is the colour of wet rust, but it is not rust. It runs around each trunk in a continuous band, even on the side furthest from the slope. It is not weather-staining. It is not lichen. You crouch and look at it for a long time.\n\nThe smell is here, stronger than at the river. Faintly chemical. Wrong for rot. Wrong for blight.",
+      "choices": [
+        {
+          "text": "Cut a sample of the discoloured bark with your knife.",
+          "goto": "d_25_sample",
+          "requires_item": "hunting_knife"
+        },
+        {
+          "text": "Note the spot, take nothing, and move on.",
+          "goto": "d_27"
+        }
+      ]
+    },
+    "d_25_sample": {
+      "text": "You take the knife and slice a thin curl of bark from one of the trunks at the discoloured band. The bark comes away easier than it should. The cut surface beneath is wet, and the discolouration transfers immediately to the steel of the blade — a faint orange-brown smear that does not wipe clean on your sleeve.\n\nYou hold the blade up close. The smell on it is sharper than the smell in the air. It is the smell of the water at the river. It is the smell on the muzzle of the deer.\n\nYou wrap the bark sample carefully in a scrap of cloth and stow it in your pack. You wipe the blade on the leaf-litter. The stain on the steel does not come off.",
+      "choices": [
+        {
+          "text": "Move on.",
+          "goto": "d_27"
+        }
+      ]
+    },
+    "d_27": {
+      "text": "You climb out of the hollow and the smell thins, though it does not leave you. You realise after a while that you cannot tell whether you can still smell it or whether it has settled in your nose.\n\nThe path runs on along the contour of a long slope. You walk. The light is starting to slant.",
+      "choices": [
+        {
+          "text": "Push on while there is still light.",
+          "goto": "d_30"
+        },
+        {
+          "text": "Stop and rest a while — sit, drink, breathe.",
+          "goto": "d_28"
+        },
+        {
+          "text": "Step off the path to forage among a pocket of healthier trees.",
+          "goto": "d_27_aside"
+        }
+      ]
+    },
+    "d_28": {
+      "text": "You stop in a sheltered spot in the lee of a great oak and sit with your back to the trunk. You eat a portion of provisions if you have them. You drink, sparingly, from your skin.\n\nThe forest goes on without you for a quarter hour. Nothing comes near. Nothing makes a sound that requires your attention.\n\nWhen you stand again your legs are stiff but the worst of the day's tiredness has eased back.",
+      "add_stamina": 2,
+      "choices": [
+        {
+          "text": "Continue along the path.",
+          "goto": "d_30"
+        }
+      ]
+    },
+    "d_30": {
+      "text": "The slant of the light tells you the day is going. You estimate two hours of useful walking left.\n\nThe path forks. The left fork rises along the slope toward higher ground. The right fork drops into thicker trees, following what looks like a small dry watercourse. The map shows neither fork.",
+      "choices": [
+        {
+          "text": "Take the higher fork.",
+          "goto": "d_31"
+        },
+        {
+          "text": "Take the lower fork into the trees.",
+          "goto": "d_32"
+        }
+      ]
+    },
+    "d_31": {
+      "text": "You climb. The path along the higher ground is firmer and easier walking, and after a quarter hour it brings you out onto a long shoulder of bare rock with a view across the canopy.\n\nThe view is bad.\n\nFrom up here you can see what was hidden below: a long pale streak through the green of the forest, a quarter mile wide and running roughly with the line of the watershed. From above it looks like a winter colour through summer trees — not dead, exactly. Dying. Half the canopy in that strip is gone.\n\nYou look a long time before you climb back down.",
+      "choices": [
+        {
+          "text": "Descend and find a place to camp.",
+          "goto": "d_33"
+        }
+      ]
+    },
+    "d_32": {
+      "text": "You take the lower fork. The path drops into thicker trees and the air cools. The dry watercourse runs beside you, choked with leaf-fall and old branches.\n\nA quarter mile in the watercourse opens into a small flat hollow ringed by hornbeam, and at the centre of the hollow is the unmistakable shape of a camp.",
+      "choices": [
+        {
+          "text": "Approach the camp carefully.",
+          "goto": "d_35"
+        }
+      ]
+    },
+    "d_33": {
+      "text": "You descend from the bare rock back into the trees. The light is going faster now. You need ground for the night.\n\nThe slope evens out into a shallow draw choked with hornbeam. Through the trees ahead you see the unmistakable shape of a camp.",
+      "choices": [
+        {
+          "text": "Approach carefully.",
+          "goto": "d_35"
+        }
+      ]
+    },
+    "d_35": {
+      "text": "You stop at the edge of the hollow and look in.\n\nIt is a camp. It has been a camp for some time. There is a tarp pitched between three trees with a low neat ridge, the canvas weathered but intact. Beneath the tarp a bedroll, a folded blanket, a small stack of cut firewood. A firepit, the stones blackened, the ash old. A workbench made of a split log with two stumps as supports. On the workbench: a row of small glass vials in a wooden rack, three of them empty, two of them stoppered and full of something dark. Beside the rack a notebook, weighted shut by a stone.\n\nThe camp is intact and abandoned. There is no sign of struggle. No sign of hurry. There is also no sign that anyone has been here in some days.\n\nYou know, before you cross to the workbench, before you read a word of it: this is Marek's.",
+      "add_items": [
+        "mentors_journal"
+      ],
+      "choices": [
+        {
+          "text": "Go to the workbench. Take the journal.",
+          "goto": "d_36"
+        },
+        {
+          "text": "Search the bedroll and the pack first.",
+          "goto": "d_35a"
+        },
+        {
+          "text": "Look at the firepit and the wood-stack.",
+          "goto": "d_35b"
+        },
+        {
+          "text": "Walk the perimeter of the camp first.",
+          "goto": "d_35c"
+        }
+      ]
+    },
+    "d_35a": {
+      "text": "You crouch by the bedroll. It has been folded — not thrown back, not left open as a man leaving in haste would leave it. Folded in thirds, the blanket squared on top. There is a leather satchel beside it, its flap closed and buckled.\n\nYou open the satchel. Inside: a spare shirt, neatly rolled. A small whetstone. A pencil case. A leather wallet of folded papers — not the journal, but earlier work, sketches and lists in Marek's hand. Maps with watershed lines drawn in. A small purse of coins.\n\nA man does not pack his bedroll like this if he intends to come back tonight. A man does not leave his coin purse if he intends never to return. He went somewhere he expected to be back from. He went on his own feet, and not in great hurry. And he has not come back.",
+      "choices": [
+        {
+          "text": "Go to the workbench.",
+          "goto": "d_36"
+        },
+        {
+          "text": "Look at the firepit and the wood-stack.",
+          "goto": "d_35b"
+        },
+        {
+          "text": "Walk the perimeter of the camp.",
+          "goto": "d_35c"
+        }
+      ]
+    },
+    "d_35b": {
+      "text": "You crouch by the firepit. The ash is old — settled, slightly damp on the surface from a rain three or four days back. There has been no fire here for at least that long.\n\nThe wood-stack beside the pit is cut to even lengths and stacked under a small lean-to of bark to keep it dry. There is a great deal of it. Marek built up his fuel like a man who intended to be here a while.\n\nYou put your hand on the lean-to bark. It is dry. It would still light.",
+      "choices": [
+        {
+          "text": "Go to the workbench.",
+          "goto": "d_36"
+        },
+        {
+          "text": "Search the bedroll.",
+          "goto": "d_35a"
+        },
+        {
+          "text": "Walk the perimeter of the camp.",
+          "goto": "d_35c"
+        }
+      ]
+    },
+    "d_35c": {
+      "text": "You walk the edge of the hollow. There is one trail in — the way you came. There is, you find on the far side, one trail out — narrow, beaten into the moss by repeated walking, heading off through the trees toward the upstream of the dry watercourse. He walked it many times. To his sampling sites, you think.\n\nAt the lip of the hollow on the western side you find something else. Two sets of unfamiliar bootprints in soft ground beneath a leaning hazel. Larger than yours. Quality boots — the heel-marks crisp, not the rounded heels of working boots. Recent. Within a few days.\n\nYou look a long time at the prints before you go back to the camp.",
+      "choices": [
+        {
+          "text": "Go to the workbench.",
+          "goto": "d_36"
+        },
+        {
+          "text": "Search the bedroll.",
+          "goto": "d_35a"
+        },
+        {
+          "text": "Look at the firepit.",
+          "goto": "d_35b"
+        }
+      ]
+    },
+    "d_36": {
+      "text": "You cross to the workbench. You lift the stone off the notebook. You sit on one of the stumps with your back to the firepit and the failing light over your shoulder.\n\nYou open the notebook.",
+      "choices": [
+        {
+          "text": "Read it carefully, cover to cover, while there is still light.",
+          "goto": "d_38_full"
+        },
+        {
+          "text": "Skim it for the most recent entries.",
+          "goto": "d_38_skim"
+        }
+      ]
+    },
+    "d_38_full": {
+      "text": "You read it through. It takes you the last of the light.\n\nThe early entries are Marek as you remember him. Precise dates. Locations to within a few hundred paces. The watershed mapped and re-mapped. Sample numbers cross-referenced to the vials on the rack. The handwriting open and unhurried.\n\nA week in, a pattern: a discolouration in the bank-soil at certain points along the river. Always on the same bank. Always at distances that do not correspond to natural deposit. He notes the regularity and is, in that early entry, only puzzled.\n\nA few days later he has walked the watershed. The pattern holds. The discolouration follows the line of the hydrology with — he writes the word in capitals — INTENT. He names the compound by its mineral signature. He calls it chrysite. He notes it is not native to this geology. He notes it would have been carried in.\n\nThe entries shorten. The handwriting tightens.\n\nThe second-to-last entry, dated five days ago: \"A surveyor's party came through the camp this morning. Two men, very polite. Imperial papers, in order. They said they were mapping the watershed for the new forestry assessment and had been asked to check in on me, as I had been in the field a long time. They offered to escort me back to the edge. I told them I needed another week. They were very understanding. They knew the precise location of my western sampling site. I had not told them. They left at noon and I have not slept tonight.\"\n\nThe last entry, dated three days ago, is a single line: \"I am going to the upstream point in the morning. If anyone reads this who is not me — be careful at the cache.\"\n\nYou close the notebook. The light is gone. You sit in the dark for a long time before you move to lay your bedroll next to his.",
+      "set_flags": [
+        "knows_contamination",
+        "read_journal_full",
+        "warned_about_cache"
+      ],
+      "choices": [
+        {
+          "text": "Sleep here. Push on at first light.",
+          "goto": "d_40"
+        }
+      ]
+    },
+    "d_38_skim": {
+      "text": "You flick through the notebook in the failing light, looking for the recent entries. The early pages are dense with measurements and you let them go.\n\nThe last few entries are shorter. He mentions a compound by name — chrysite — and a pattern in the watershed. He mentions a surveyor's party who came through the camp five days ago. Imperial papers. Very polite. He writes that they knew the location of his western sampling site and that he had not told them.\n\nThe last entry is a line: \"I am going to the upstream point in the morning. If anyone reads this who is not me — be careful at the cache.\"\n\nYou close the notebook. The light is going. You will read it properly when there is time.",
+      "set_flags": [
+        "warned_about_cache"
+      ],
+      "choices": [
+        {
+          "text": "Sleep here. Push on at first light.",
+          "goto": "d_40"
+        }
+      ]
+    },
+    "d_40": {
+      "text": "You sleep poorly. The wind moves in the canvas of the tarp. Something — once, deep in the night — calls a long single note from somewhere upstream. Not a wolf. Not an owl. You do not place it.\n\nYou wake before the light. You eat a small portion of provisions if you have them. You break camp slowly, packing Marek's notebook into the inner pocket of your coat. You leave the tarp and the bedroll. He may yet come back.\n\nYou stand at the edge of the hollow. The narrow trail leading upstream — Marek's working trail — is faint in the half-light. You take it.",
+      "add_stamina": 2,
+      "choices": [
+        {
+          "text": "Follow Marek's trail upstream.",
+          "goto": "d_42"
+        }
+      ]
+    },
+    "d_42": {
+      "text": "The trail follows the dry watercourse upstream into thicker trees. The going is slower than yesterday. You stop frequently to find the next mark.\n\nThe forest here is in worse shape. The canopy gap is wider, and the standing dead wood is more frequent — pale grey trunks rising out of the leaf-litter, branchless, the bark sloughed away. The smell is in the air constantly now, faint but constant, and the back of your tongue is sore with it.\n\nThe map you carry is no help. The dry watercourse is not on it. The contour of the land does not match. You navigate by Marek's marks alone — small notches cut into trunks at eye height, every fifty paces or so. Without them you would be lost in an hour.\n\nThe trail forks. One branch continues upstream along the watercourse. The other turns north, climbing out of the valley toward higher ground. Both are marked.",
+      "choices": [
+        {
+          "text": "Continue upstream along the watercourse — toward Marek's sampling sites.",
+          "goto": "d_43"
+        },
+        {
+          "text": "Take the north branch — toward higher ground.",
+          "goto": "d_47"
+        }
+      ]
+    },
+    "d_43": {
+      "text": "You stop in a small clearing where the trail crosses a patch of sun. You drink. You check the knife at your belt. You look back the way you came and see only the trees closing the trail behind you.\n\nThere is a sound, brief and small, behind you in the leaf-litter. You turn fast. There is nothing.",
+      "test_luck": {
+        "lucky_text": "You stand a long minute. Whatever it was does not repeat. Probably a settled branch, a movement of pressure in the wood. You turn forward and go on.",
+        "lucky_goto": "d_44",
+        "unlucky_text": "Out of the corner of your eye, fifty paces back along the trail, you catch a movement that is not the movement of trees. It is gone before you can resolve it. You stand a long minute waiting for it to come again. It does not. You go on, but slower, and you stop more often to look behind you.",
+        "unlucky_goto": "d_44",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 1
+      }
+    },
+    "d_44": {
+      "text": "You follow the watercourse to its highest reach — a cleft in a low ridge where in wetter seasons a small spring would feed it. The spring is not running. The cleft is dry.\n\nThis is where Marek's work was. You can see the marks of it: small wooden pegs driven into the bank at intervals, each numbered. A sequence of five, twenty paces apart, all on the eastern bank. Where the pegs are, the soil is visibly wrong — a paler colour, a finer texture, with the distinct absence of the small herbs and mosses that grow elsewhere in the cleft. A dead band, two feet wide, running with the line of the watercourse.\n\nYou kneel by the second peg. Beside it, almost hidden in the leaves, you find what you were hoping for: a small cloth roll of empty glass vials. Spares. Marek's hand.",
+      "add_items": [
+        "soil_samples"
+      ],
+      "set_flags": [
+        "found_soil_samples"
+      ],
+      "choices": [
+        {
+          "text": "Take samples carefully with the knife — proper cuts, sealed vials.",
+          "goto": "d_44a",
+          "requires_item": "hunting_knife"
+        },
+        {
+          "text": "Take what samples you can with your bare hands.",
+          "goto": "d_44b"
+        }
+      ]
+    },
+    "d_44a": {
+      "text": "You work slowly. You take a clean vial, scrape soil into it with the flat of the knife from a point clear of the peg, stopper it, mark the position by the peg number on a scrap of cloth. You do this five times. The smell as you cut into the soil is unmistakable: the river-smell, sharper.\n\nThe stained band is consistent at every peg. The depth of the discolouration is the same. The pattern is not what a flood deposit looks like. It is not what a leak from a single source looks like. It is what something looks like when it has been put, deliberately, at intervals along a watershed.\n\nYou stow the vials carefully in the centre of your pack, wrapped in cloth. Your hands smell of it for the rest of the day no matter how many times you wipe them on the leaves.",
+      "choices": [
+        {
+          "text": "Leave the cleft and find a place to think.",
+          "goto": "d_46"
+        }
+      ]
+    },
+    "d_44b": {
+      "text": "You scoop soil into the vials with your bare hands. The work is dirty and you cannot keep it clean. The smell is on you for the rest of the day. The samples are imperfect, but they are samples.\n\nThe stained band is consistent at every peg. The pattern is not natural. It has been put here.",
+      "choices": [
+        {
+          "text": "Leave the cleft and find a place to think.",
+          "goto": "d_46"
+        }
+      ]
+    },
+    "d_46": {
+      "text": "You sit on the ridge above the cleft. The morning is cold. You hold the vials in their cloth wrap on your lap and look down at the dead band running along the watercourse below.\n\nYou think about Marek's last entry. The upstream point. He was here, three or four days ago, doing what you have just done.\n\nHe did not come back to the camp.",
+      "choices": [
+        {
+          "text": "Continue. There is more to find.",
+          "goto": "d_50"
+        }
+      ]
+    },
+    "d_47": {
+      "text": "You take the north branch. The trail climbs steeply out of the valley through dying birch. You stop twice to breathe.\n\nThe trail levels onto a low ridge and bends west, and then you see it ahead through the trees: a small, neatly built shelter against a stone outcrop. The roof is sound. There is no smoke from the chimney-vent. Beside the door, an axe is leaned against the wall — the steel free of rust, the haft oiled. Recently used.\n\nThis is not Marek's. The build is wrong, the materials too uniform — milled timber, brought in.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Approach the shelter — the cache.",
+          "goto": "d_48"
+        },
+        {
+          "text": "Watch from the trees a while before approaching.",
+          "goto": "d_47a"
+        },
+        {
+          "text": "Leave it alone and go back down to the watercourse.",
+          "goto": "d_47_back"
+        }
+      ]
+    },
+    "d_47a": {
+      "text": "You sit in the trees forty paces back and watch.\n\nA quarter hour. Nothing moves at the shelter. The axe stays where it is. No smoke. No sound. There is nobody home — or nobody home at this moment.\n\nYou wait a little longer. The stillness is complete.",
+      "choices": [
+        {
+          "text": "Approach the shelter.",
+          "goto": "d_48"
+        },
+        {
+          "text": "Leave it. Go back down to the watercourse.",
+          "goto": "d_47_back"
+        }
+      ]
+    },
+    "d_47_back": {
+      "text": "You back away from the ridge and pick your way down to the watercourse. The descent is harder than the climb. You do not look back at the shelter.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Continue along Marek's trail.",
+          "goto": "d_44"
+        }
+      ]
+    },
+    "d_48": {
+      "text": "You cross to the shelter. The door is unlatched. Inside, it is dry and ordered.\n\nA narrow bunk along one wall, made up with a clean blanket. A small iron stove with kindling stacked beside it. A shelf of provisions — hard biscuit, cured meat in waxed paper, a sealed jar of honey. A flask of water on a low table, the metal bright. Folded clothes on a chest. A spare oil-lamp.\n\nIt is the kindest sight you have seen in two days. It is also too kind. The stove is brushed clean. The blanket is recently aired. Someone passed through here within the last few days and left it expecting to use it again — or expecting someone to find it.",
+      "choices": [
+        {
+          "text": "Examine the shelter carefully before touching anything — look at maker's marks.",
+          "goto": "d_48a",
+          "requires_flag": "knows_contamination"
+        },
+        {
+          "text": "Examine the shelter carefully — Marek warned you about a cache.",
+          "goto": "d_48a",
+          "requires_flag": "warned_about_cache",
+          "requires_no_flag": "knows_contamination"
+        },
+        {
+          "text": "Eat, drink, and rest. You need this.",
+          "goto": "d_48_use"
+        },
+        {
+          "text": "Take nothing. Leave the way you came.",
+          "goto": "d_48_leave"
+        }
+      ]
+    },
+    "d_48a": {
+      "text": "You move slowly through the shelter, looking for marks.\n\nThe stove has a maker's stamp on the underside: a small five-pointed star inside a circle. The waxed paper of the cured meat carries the same mark, faintly, in dark red ink. The blanket — when you turn back its corner — has the mark embroidered into a hem-tag in dark thread.\n\nYou know the mark. It is the seal of the imperial supply. You have seen it before on requisition orders for the marches. You see it now in a charcoal-burner's shelter four days deep into a forest no imperial supply train has any business in.\n\nThis is not a cache for travellers. This is a cache that has been put here, for someone, by people who do not want their hand seen. The food is probably safe. Probably.\n\nYou stand a long time in the doorway with the choice in front of you.",
+      "choices": [
+        {
+          "text": "Take what you need. You are starving and you cannot afford pride.",
+          "goto": "d_48_use"
+        },
+        {
+          "text": "Take nothing. Whatever this place is, you will not be in their debt.",
+          "goto": "d_48_leave"
+        }
+      ]
+    },
+    "d_48_use": {
+      "text": "You eat. The biscuit is dry but good. The cured meat tastes of salt and smoke and — if you let yourself notice — nothing else, which is the taste of food that has been properly preserved by people with money and equipment. You drink from the flask. The water is clean and slightly metallic.\n\nYou rest a half hour on the bunk. Your legs stop trembling. The light through the small window is clear.\n\nWhen you stand to leave you fold the blanket as you found it. You take a portion of the biscuit and meat for the road. You leave the door as you found it.",
+      "set_flags": [
+        "used_cache"
+      ],
+      "add_stamina": 4,
+      "choices": [
+        {
+          "text": "Continue on.",
+          "goto": "d_50"
+        }
+      ]
+    },
+    "d_48_leave": {
+      "text": "You step back from the shelter and pull the door to. You do not eat from it. You do not drink from it. You do not take anything.\n\nWhatever else you have lost in this forest, you have not yet sat down at someone else's table without knowing whose table it is.\n\nYou turn down the slope toward the watercourse with your stomach tight and your hands cold.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Continue on.",
+          "goto": "d_50"
+        }
+      ]
+    },
+    "d_50": {
+      "text": "You walk on for an hour. The forest is the forest, bad in the ways you have come to expect. You climb a low ridge and stop on the open ground at the top, and you sit down in the leaf-litter with your back against a fallen trunk and you let what you know assemble itself.\n\nMarek's notes. The dead band along the watercourse. The cleft above. The pegs at intervals. The chrysite he named in his hand. The smell on the deer's muzzle, the discolouration on the bark, the cast in the colour of the river. The badger walking its small circle. The deer that lay down without a wound. The empty rotting log.\n\nYou think also of the surveyors. The ones who said they were mapping the watershed. Who knew the location of Marek's western sampling site without being told. Who left at noon, very polite, very understanding.\n\nIt is not a forest dying.\n\nIt is a forest being killed. By a hand. With a purpose.",
+      "set_flags": [
+        "knows_contamination"
+      ],
+      "choices": [
+        {
+          "text": "Stand. Walk on. There is more to do.",
+          "goto": "d_52"
+        }
+      ]
+    },
+    "d_52": {
+      "text": "You walk the ridge along its length. The trail has all but disappeared. You navigate by sun and slope, working broadly westward by your sense of where the edge of the forest must be.\n\nThe afternoon is warm and there is no wind. The smell sits on the ground.",
+      "choices": [
+        {
+          "text": "Press on through the warm afternoon.",
+          "goto": "d_54"
+        },
+        {
+          "text": "Stop and rest in the shade.",
+          "goto": "d_53"
+        }
+      ]
+    },
+    "d_53": {
+      "text": "You rest in the shade of a great beech that is not yet sick. The bark is sound. There is moss on the north side. You put your hand against the trunk and you feel the small chill of a tree that is doing its work.\n\nYou stay longer than you mean to. When you stand again the light has shifted considerably.",
+      "add_stamina": 2,
+      "choices": [
+        {
+          "text": "Walk on.",
+          "goto": "d_54"
+        }
+      ]
+    },
+    "d_54": {
+      "text": "The ridge drops away into a long descent through mixed wood. The path you come down is not a path so much as a line of least resistance — but at the foot of the slope you find a beaten line in the leaves that is unmistakably a trail. Not Marek's. Wider. Walked by more than one person.\n\nYou crouch and look at it. Two sets of bootprints, perhaps three. The same crisp heel-marks you saw at the camp.",
+      "choices": [
+        {
+          "text": "Follow the trail at a careful distance.",
+          "goto": "d_55"
+        },
+        {
+          "text": "Cross the trail and continue west off the line.",
+          "goto": "d_56"
+        }
+      ]
+    },
+    "d_55": {
+      "text": "You follow the trail at a distance, keeping to softer ground where you will leave less sign. The trail runs west along the contour, then bends and drops into a stand of close-grown pine.\n\nIn the pine you stop, because the trail is no longer the only thing on it.\n\nA wolf is standing on the trail twenty paces ahead. It is thin. Its coat is patchy. It is in the wrong country for the season — wolves should be much higher this time of year, in the open country above the treeline. It is not crouched. It is not ready to come at you. It is standing in the trail with its head low and its ears flat and looking at you with a look that is not predator and not prey. It is the look of an animal as lost as you are.",
+      "choices": [
+        {
+          "text": "Light a branch from the flint and steel and drive it off.",
+          "goto": "d_55_fire",
+          "requires_item": "flint_steel",
+          "requires_flag": "has_fire"
+        },
+        {
+          "text": "Light a torch with your flint and steel — fire will scare it.",
+          "goto": "d_55_fire",
+          "requires_item": "flint_steel",
+          "requires_no_flag": "has_fire"
+        },
+        {
+          "text": "Back away slowly without breaking eye contact.",
+          "goto": "d_55_back"
+        },
+        {
+          "text": "Stand your ground. Knife in hand.",
+          "goto": "d_55_combat"
+        }
+      ]
+    },
+    "d_55_fire": {
+      "text": "You crouch slowly, keeping your eyes on it, and gather a handful of dry needles and a strip of bark from the nearest pine. You strike the flint twice before the spark takes. The flame catches small and then runs up the bark.\n\nYou stand and step forward with the burning bark held at arm's length. The wolf retreats two paces. You step forward again, and again. It turns and goes off the trail at an unhurried angle and disappears among the pines.\n\nYou stand a minute holding the burning bark. You let it burn down on a patch of bare earth and you grind the last of it out with your boot. The smell of pine smoke hangs in the cold air and is, briefly, the cleanest thing you have smelled all day.",
+      "choices": [
+        {
+          "text": "Move on along the trail.",
+          "goto": "d_57"
+        }
+      ]
+    },
+    "d_55_back": {
+      "text": "You take a step back. Slow. Then another. You keep your eyes on the wolf and your hands open at your sides.",
+      "test_luck": {
+        "lucky_text": "It watches you for a long moment. Then it turns its head away — a small dismissive motion, like a creature that has decided you are not its problem — and it walks off the trail into the pines and is gone. You stand a minute breathing before you walk on.",
+        "lucky_goto": "d_57",
+        "unlucky_text": "It does not move. You take another step back. Something in the way you move — too fast, too eager to be away — changes its mind for it. It comes forward at a low quick lope and there is no more time.",
+        "unlucky_goto": "d_55_combat",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "d_55_combat": {
+      "text": "You set your feet. You bring the knife up. The wolf reads your stance and decides.",
+      "combat": {
+        "enemy": "wolf",
+        "win_goto": "d_55_won",
+        "flee_goto": "d_55_fled",
+        "flee_allowed": true,
+        "flee_stamina_cost": 0
+      }
+    },
+    "d_55_won": {
+      "text": "It dies hard. When it is over you are kneeling beside it in the pine needles with your hands shaking and the knife red and the smell of pine sap and blood mixed in your nose.\n\nIt was thin. The ribs are visible through the patchy coat. There was almost nothing in its belly.\n\nYou clean the knife on a tuft of needles and stand.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Move on along the trail.",
+          "goto": "d_57"
+        }
+      ]
+    },
+    "d_55_fled": {
+      "text": "You break off the line and run. The wolf does not pursue you for long — perhaps fifty paces — and then it stops, and after another fifty paces of running you stop too, with your hands on your knees and your chest burning.\n\nYou walk a wide loop through the pines and rejoin the trail a quarter mile further on. You do not see the wolf again.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Continue along the trail.",
+          "goto": "d_57"
+        }
+      ]
+    },
+    "d_56": {
+      "text": "You step over the trail and continue west off the line of it. The going is harder — no path, more deadfall, the slope working against you — but you are not on a trail that someone else has walked.\n\nA half mile of this and you are tired and scratched and the light is going. You climb a small rise and from the top you can see, through the trees, a thin column of woodsmoke a quarter mile to the south.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Approach the smoke carefully.",
+          "goto": "d_58"
+        },
+        {
+          "text": "Avoid the smoke. Camp rough out here.",
+          "goto": "d_56_camp"
+        }
+      ]
+    },
+    "d_56_camp": {
+      "text": "You make a cold camp in the lee of a fallen oak. No fire — the smoke would bring whoever made the other smoke to you. You eat a portion of provisions if you have them. You sleep in your coat.\n\nThe night is long. You wake twice to nothing. In the morning the cold has settled into your bones and you are slower starting than you would like to be.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Rise and continue west toward the forest edge.",
+          "goto": "h_1"
+        }
+      ]
+    },
+    "d_57": {
+      "text": "You walk on along the trail another half hour. The pines thin and the ground levels and you smell, before you see, a fire.\n\nWoodsmoke. Clean — birch and beech, properly seasoned. Coming from somewhere ahead and to the south of the trail.",
+      "choices": [
+        {
+          "text": "Approach carefully.",
+          "goto": "d_58"
+        },
+        {
+          "text": "Step off the trail and skirt wide around the smoke.",
+          "goto": "d_56_camp"
+        }
+      ]
+    },
+    "d_58": {
+      "text": "You move toward the smoke from the upwind side and crouch in the trees forty paces back.\n\nIt is a small neat camp in a clearing. Two men. A cookfire. A canvas wall-tent of good quality. Two packs leaned against a log, military in their cut. The men are not in uniform. They are dressed for the country — good wool, sound boots — and they are eating from tin plates and talking quietly.\n\nThey are the surveyors. The same two from the description in Marek's journal. You have not seen them before but you know them at sight.\n\nOne of them looks up. He looks directly at the patch of trees where you are crouched and he raises a hand in unhurried greeting. He calls out, in an easy voice: \"Walker. We've been hoping you'd come this way. Come and have something hot.\"\n\nHe names a campsite — a small place by a feeder stream where you slept the night you crossed the river margin. You did not tell him about it. You did not tell anyone.",
+      "choices": [
+        {
+          "text": "Stand up. Walk into the camp.",
+          "goto": "d_58_approach"
+        },
+        {
+          "text": "Stay where you are. Watch a moment longer.",
+          "goto": "d_58_watch"
+        }
+      ]
+    },
+    "d_58_watch": {
+      "text": "You stay crouched. The man who called out lowers his hand. He says something to his companion, low, and they go on with their meal as if you were not there. They do not come looking. They do not get up.\n\nThis, somehow, is worse than if they had.\n\nThe minutes pass. The light is going. You will have to do something soon — sit out here all night with no fire, or walk in to them, or leave them and go on.",
+      "choices": [
+        {
+          "text": "Stand up. Walk into the camp.",
+          "goto": "d_58_approach"
+        },
+        {
+          "text": "Withdraw quietly. Find your own way west in the dusk.",
+          "goto": "d_58_decline"
+        }
+      ]
+    },
+    "d_58_approach": {
+      "text": "You stand up out of the trees. They watch you walk in without surprise. The one who called out — older, broader, a face that smiles easily — gets up and offers you a tin plate. The other does not stand. He nods once and goes on eating.\n\nYou take the plate. Stew. Properly seasoned. The first hot food you have had in two days.\n\n\"You'll be looking for Marek,\" the older one says. He says it kindly. \"He's safe. We found him three days ago, came down with a fever from drinking the bad water — he'd been pushing himself too hard. We've got him resting at our forward camp, half a day west of here. We're heading back at first light. You're welcome to walk with us.\"\n\nHe smiles. The smile is the smile of a man who knows you have nowhere else to go.\n\nYou look at the stew on your plate. You look at the second man, who has not stopped eating. You look at the trees behind them, which give nothing away.",
+      "choices": [
+        {
+          "text": "Accept. Eat, sleep here, walk with them at first light.",
+          "goto": "d_58_go_with"
+        },
+        {
+          "text": "Thank them. Eat. Then make excuses and go on alone in the dusk.",
+          "goto": "d_58_decline"
+        }
+      ]
+    },
+    "d_58_go_with": {
+      "text": "You eat the stew. You sleep by their fire. They are courteous. They do not ask you questions. They do not search your pack while you sleep, as far as you can tell — and you check it carefully in the morning, and nothing is missing, and that is somehow not a comfort.\n\nIn the grey of first light you break camp with them and you walk west at their pace. The older one tells you stories about the survey work, easy stories, well told. The younger one walks behind you. You feel his eyes on the back of your neck the whole way.\n\nYou are walking, you understand quite clearly, into something. You have decided, for reasons you would rather not examine, to walk into it on your own feet.",
+      "set_flags": [
+        "trusted_survey_team"
+      ],
+      "add_stamina": 2,
+      "choices": [
+        {
+          "text": "Walk on into the day.",
+          "goto": "h_1"
+        }
+      ]
+    },
+    "d_58_decline": {
+      "text": "You finish the stew. You hand back the plate. You tell them, with as much grace as you can manage, that you have agreed to meet a colleague at a marked point further west and that you will press on while there is light.\n\nThe older one nods slowly. \"Suit yourself,\" he says. \"Mind the wolves. There's a pack come down out of the high country.\"\n\nYou nod. You shoulder your pack. You walk out of the firelight and into the dusk.\n\nThe trees close behind you. You walk hard for a quarter hour before you slow.",
+      "choices": [
+        {
+          "text": "Push on west in the failing light.",
+          "goto": "d_58_navigate"
+        }
+      ]
+    },
+    "d_58_navigate": {
+      "text": "The light is bad. The ground is unfamiliar. You navigate by what slope you can feel under your boots and by the sense, more than the sight, of the slope of the ridge ahead.",
+      "test_luck": {
+        "lucky_text": "You find a clear line under a stand of beech that takes you up and over the low ridge with no real trouble. On the far side you make a cold camp in the deep leaf-litter and you sleep in your coat. The night is long but uneventful.",
+        "lucky_goto": "h_1",
+        "unlucky_text": "You take a wrong line down a slope that turns into a long crashing slide through brambles. You come to rest at the bottom scratched and winded, with one ankle that does not feel right when you put weight on it. You make a cold camp where you lie. You will pay for this in the morning.",
+        "unlucky_goto": "h_1",
+        "lucky_stamina_cost": 1,
+        "unlucky_stamina_cost": 4
+      }
+    },
+    "d_27_aside": {
+      "text": "You step off the path to the side and find a small pocket of older trees the contamination seems to have spared. The bark is sound. There is moss. Beneath one beech, in the leaf-litter, you find a cluster of late autumn russula — the brown-capped kind, edible if you trust the look of them.\n\nYou crouch and examine them. They look right. They smell right. You take three and stow them in a cloth pocket of the pack.",
+      "choices": [
+        {
+          "text": "Rejoin the path.",
+          "goto": "d_30"
+        }
+      ]
+    },
+    "h_1": {
+      "text": "You hear him before you see him.\n\nMarek's voice, threading through the alders down a slope you have not yet crested. The cadence is wrong. He is answering, not speaking. Three short replies in the time it takes you to step over a rotten birch. A pause. Another short reply.\n\nYou go flat against the trunk and listen. The second voice is unhurried. Calm in a way that does not belong to anyone lost in this forest. You move forward in a crouch, one boot then the other, until the camp opens below you through a screen of bracken.\n\nIt is well-pitched. Two oilcloth tents, set square to the wind. A fire built down to good embers, not the smoking heap of the desperate. Three figures. One stands at the tree line with a rifle across his forearms, watching the wrong way — east, away from you. One squats by a packframe, sorting straps. The third sits on a folding stool by the fire, and that one is talking to Marek, and Marek is wrapped in a grey blanket with his hands around a tin cup, looking at the embers.\n\nHe looks smaller than you remember. Not thinner. Smaller. Drawn down inside himself.\n\nThe man on the stool says something you cannot catch. Marek nods. Marek says, yes. The man on the stool nods back, slowly, as though confirming something already understood between them.",
+      "choices": [
+        {
+          "text": "Walk down into the camp openly. He's alive — that is what you came for.",
+          "goto": "h_2"
+        },
+        {
+          "text": "Hold the treeline. Watch first.",
+          "goto": "h_3"
+        }
+      ]
+    },
+    "h_2": {
+      "text": "You stand up out of the bracken and the man with the rifle turns before your boot has completed its first step. He does not raise the weapon. He simply stops what he was doing and watches you come, and the fact that he was not surprised is the first thing you understand about him.\n\nThe man on the stool stands. He is older than the others, perhaps fifty, clean-shaven, with the kind of weathered face that comes from outdoor work conducted without urgency. He smiles when he sees you. The smile reaches his eyes. He looks like a man who has been waiting for a guest and is pleased the guest has arrived.\n\nMarek looks up from his cup. His face does something complicated and then settles, and he says your name, quietly, and adds, you should not have come.",
+      "choices": [
+        {
+          "text": "Step into the camp.",
+          "goto": "h_2a"
+        }
+      ]
+    },
+    "h_3": {
+      "text": "You stay low. The wind is in your face, which is luck — they will not catch your scent, and any sound carries away from you toward the ridge.\n\nYou watch for a count of two hundred. Long enough to learn the camp's grammar.\n\nThe rifleman is not patrolling. He is anchored, eyes on the eastern approach, the direction a man limping out of the deeper forest would most likely come. He is waiting for someone. Not for you, because he is not watching the slope you came down. For someone else.\n\nThe one with the packframe finishes sorting straps and goes to the second tent and lifts the flap and speaks to whoever is inside, and the answering voice is short and crisp and carries the cadence of a man giving orders.\n\nThe older man by the fire never stops watching Marek. Even while he speaks, even while he sips from his own tin cup, his attention sits on your mentor like a hand resting on a shoulder.",
+      "choices": [
+        {
+          "text": "Watch a little longer.",
+          "goto": "h_3a"
+        },
+        {
+          "text": "Step out and walk down. You have seen what you needed to see — that he is alive.",
+          "goto": "h_4"
+        },
+        {
+          "text": "Pull back. Circle the camp. There may be a better way to reach him.",
+          "goto": "h_5"
+        }
+      ]
+    },
+    "h_4": {
+      "text": "You stand and the rifleman sees you in the same heartbeat. He does not raise the rifle. He calls something soft over his shoulder, and the older man at the fire looks up and finds you on the slope, and his face arranges itself into pleasure.\n\nYou go down.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_4a"
+        }
+      ]
+    },
+    "h_5": {
+      "text": "You back out the way you came, slow and low, until the camp is below the rise and you can stand without being seen. You circle north, working through the thinning birches, looking for a vantage from which Marek might see you without the others.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_5a"
+        }
+      ]
+    },
+    "h_6": {
+      "text": "His face goes through three things at once. Recognition. Relief. And then something tightening — the calculation of a man who has just had a problem made larger.\n\nHe glances back at the camp. Then at you.\n\nGo, he says, very quietly. Not back the way you came. North. Stay off the markers. There is a forester's hut northeast of here, half a mile, under the hearthstone — \n\nA voice from the camp calls his name. Friendly. Patient.\n\nGet out, he says. I will find a way. Then, as though continuing a thought aloud: under the hearthstone. Northeast.\n\nHe picks up the kettle and turns and walks back up the slope. He does not look back.",
+      "set_flags": [
+        "marek_trusts_you"
+      ],
+      "choices": [
+        {
+          "text": "Honour what he asked. Move northeast toward the hut.",
+          "goto": "h_42"
+        },
+        {
+          "text": "You cannot leave him there. Walk into the camp.",
+          "goto": "h_6a"
+        }
+      ]
+    },
+    "h_10": {
+      "text": "The older man comes around the fire to meet you. He extends a hand. His grip is dry and exactly firm enough.\n\nSerrin, he says. Imperial Survey, Northern Marches. You must be the friend.\n\nHe says it as though Marek has spoken of you often. Perhaps he has. Marek is still sitting on the stool, the blanket over his shoulders, the cup in his hands, looking up at you with an expression that does not quite resolve.\n\nWe found him three days ago, Serrin says, gesturing for you to sit. He had turned his ankle and run his supplies to the bottom. Lost in his own woods, can you imagine. He smiles at Marek, fond. Marek manages a small upturn of the mouth in return.\n\nYou are welcome to share what we have, Serrin says. Tea. There is a stew on shortly. We are walking out tomorrow, all of us together, and I assume you will want to walk out with us.\n\nThe rifleman has gone back to watching the eastern approach. The man at the packframe glances at you once, mildly, and returns to his work. The fire is good. The tea, when Serrin pours it, smells of bergamot and something else, herbal, that you cannot place.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_10a"
+        }
+      ]
+    },
+    "h_11": {
+      "text": "You take the cup. Serrin nods, pleased, and settles back onto his stool. The tea is warm. You do not drink it immediately. Marek watches you over the rim of his own.\n\nSerrin makes conversation. He is good at it. He asks where you came in, and listens to your answer with genuine attention, and corrects himself once when he names a tributary wrong and laughs at his own mistake. He is the kind of man you would want to drink with, in a different season, in a different forest.\n\nYou notice, after some minutes, that no one has asked what you were doing here.",
+      "choices": [
+        {
+          "text": "Wait for an opening to speak with Marek alone.",
+          "goto": "h_11a"
+        }
+      ]
+    },
+    "h_12": {
+      "text": "Thank you, you say, but you have water of your own, and you would prefer to stand for a moment, your legs are stiff.\n\nSerrin smiles as though this were the most reasonable thing anyone has said to him in a week. Of course, he says. Stretch. Walk. The camp is yours.\n\nHe does not seem put out. He resumes his conversation with the man at the packframe — quiet, technical, something about a strap. Marek watches you from his stool. He does not speak. He does not need to. The not-speaking is itself a communication.",
+      "choices": [
+        {
+          "text": "Move closer to Marek without making it obvious.",
+          "goto": "h_12a"
+        }
+      ]
+    },
+    "h_20": {
+      "text": "The chance comes. Serrin is bent over a folding map with the packframe man, both of them facing away. The rifleman is still looking east. Marek rises slowly, the blanket sliding from his shoulders, and goes to the kettle, and you find a reason to be near the kettle too.\n\nThree sentences. He gives you three sentences, in a voice barely above the sound of his own breathing, while pretending to test the kettle's weight.",
+      "choices": [
+        {
+          "text": "Listen. (You are carrying his journal.)",
+          "goto": "h_21",
+          "requires_item": "mentors_journal"
+        },
+        {
+          "text": "Listen. (You read what he left.)",
+          "goto": "h_21",
+          "requires_flag": "read_journal_full"
+        },
+        {
+          "text": "Listen. (You don't have his notes.)",
+          "goto": "h_22",
+          "requires_no_flag": "read_journal_full"
+        }
+      ]
+    },
+    "h_21": {
+      "text": "You read it, he says. Good. The documents are under the hearthstone of the old forester's hut. Northeast, half a mile. A leather case. Take it out before anything else happens.\n\nHe puts the kettle down. He does not look at you again. He carries the kettle back toward the fire and Serrin glances up and smiles and says something about the tea being almost stewed.",
+      "set_flags": [
+        "marek_trusts_you"
+      ],
+      "choices": [
+        {
+          "text": "Sit with what you have just been told.",
+          "goto": "h_25"
+        }
+      ]
+    },
+    "h_22": {
+      "text": "Don't drink the tea, he says. Don't trust Serrin. There are documents — I cannot tell you where yet, not here. Stay close, find me alone again.\n\nHe puts the kettle down. He does not look at you again. He carries the kettle back toward the fire and Serrin glances up and smiles and says something about the tea being almost stewed.",
+      "choices": [
+        {
+          "text": "Sit with what you have just been told.",
+          "goto": "h_25"
+        }
+      ]
+    },
+    "h_25": {
+      "text": "You move back toward the fire because moving away from it now would be the wrong shape. Serrin pours you more tea you have not drunk. He talks. The packframe man laughs at something Serrin says. The rifleman remains at his post.\n\nThe question is not what Marek told you. The question is whether he believes you are here because you came alone, or because Serrin's people brought you in.",
+      "choices": [
+        {
+          "text": "He needs to know you came on your own. (You did not trust the survey team.)",
+          "goto": "h_26",
+          "requires_no_flag": "trusted_survey_team"
+        },
+        {
+          "text": "He saw you arrive friendly with their kind. Show him his own journal. (Have journal.)",
+          "goto": "h_27",
+          "requires_flag": "trusted_survey_team"
+        },
+        {
+          "text": "He saw you arrive friendly with their kind. You have nothing of his. Risk it. (Test your luck.)",
+          "goto": "h_28",
+          "requires_flag": "trusted_survey_team"
+        }
+      ]
+    },
+    "h_26": {
+      "text": "Later, as the light goes blue and Serrin sets a second pot to boil, Marek finds another moment. He does not need much. A glance, held a quarter-second too long. A nod.\n\nIt is enough. He knows you are not theirs. He knows you came in alone, off the markers, off the cache route, and that everything you say from this point can be trusted as your own.\n\nHe is not free. He is cooperating with them because the alternative was worse, in some way you do not yet understand. But he is on your side of the line, and he believes you are on his.",
+      "set_flags": [
+        "marek_trusts_you"
+      ],
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_31"
+        }
+      ]
+    },
+    "h_27": {
+      "text": "Later, as Serrin steps away to relieve himself in the trees, you cross to the fire and crouch beside Marek as if to warm your hands. You let the corner of the journal show inside your jacket. Just enough.\n\nHis eyes find it. He understands. Not given to you by Serrin's people. Found in the cabin, where you knew to look. You came on his trail, not on theirs.\n\nHe looks back at the fire. He says, quietly, without moving his lips much: alright. Alright.",
+      "set_flags": [
+        "marek_trusts_you"
+      ],
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_31"
+        }
+      ]
+    },
+    "h_28": {
+      "text": "You have nothing to show him. You have only your face, your presence, the fact of having walked all this way. You will have to make him believe you on those terms alone.",
+      "test_luck": {
+        "lucky_text": "He watches you across the fire while Serrin is talking. You hold his gaze a moment longer than is comfortable. Something passes between you. He inclines his head a fraction, and you understand that you have been believed.",
+        "lucky_goto": "h_29",
+        "unlucky_text": "He watches you across the fire while Serrin is talking, and what you see in his face is a man who would like to trust you and cannot afford to. He looks away first. The window does not open.",
+        "unlucky_goto": "h_30",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "h_29": {
+      "set_flags": [
+        "marek_trusts_you"
+      ],
+      "text": "You have him. Whatever happens next, he will move with you, not against you.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_31"
+        }
+      ]
+    },
+    "h_30": {
+      "text": "You will have to do this without him. He will not actively betray you — that is not who he is — but he will not risk what he believes is the only hand he still has to play. Whatever is in front of you, you carry it alone.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_31"
+        }
+      ]
+    },
+    "h_35": {
+      "text": "Serrin finds you, after a time, on the far side of the camp where you have gone to look at nothing in particular. He arrives without sound. He stands beside you, hands in his coat pockets, looking out into the dying birches with an expression of mild regret.\n\nIt has been a difficult few days for everyone, he says. Your friend, especially. He has been in the field too long. He is tired. He has — and Serrin pauses here, choosing the word with care — formed some impressions. Of the work. Of us. Impressions a tired man forms when he has been alone too long with his own measurements.\n\nThe simplest thing, he says, is for all of us to walk out of here together tomorrow. The survey is essentially complete. Your friend goes home. You go home. The file closes, missing-person to recovered, no further notation. We have done this kind of thing before. It is, he says, the kindest outcome for everyone.\n\nHe does not mention the documents. He does not need to.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_35a"
+        }
+      ]
+    },
+    "h_36": {
+      "text": "You know what he is asking you to walk past. You have stood at the edge of the dieback. You have seen the rings of brown moss radiating out from sources that did not exist before someone put something in the soil. The kindest outcome for everyone is also the outcome in which no one ever explains what is killing this forest.\n\nSerrin watches your face. He is patient. He is, in fact, sympathetic — that is the worst thing about him. He believes the offer he is making is a generous one, and within the frame he has chosen, it is.",
+      "choices": [
+        {
+          "text": "Agree, while you think of something else.",
+          "goto": "h_38"
+        },
+        {
+          "text": "Tell him you need to walk a moment. Stall.",
+          "goto": "h_38"
+        },
+        {
+          "text": "Tell him no.",
+          "goto": "h_39"
+        }
+      ]
+    },
+    "h_37": {
+      "text": "Alright, you say. Tomorrow.\n\nSerrin nods, as though you have together resolved a small administrative matter. He claps you lightly on the shoulder. Good, he says. Good. He returns to the fire.\n\nThat night you sleep in the spare tent, and you do not sleep well.",
+      "choices": [
+        {
+          "text": "Wake before dawn.",
+          "goto": "h_72"
+        }
+      ]
+    },
+    "h_38": {
+      "text": "I need to walk, you say. I have not stopped walking in five days and I cannot stop now. Give me an hour.\n\nOf course, Serrin says. Of course. The light is good for another hour. Do not go far.\n\nYou step out of the camp. As soon as the bracken is between you and the rifleman's line of sight, you stop pretending to walk and start moving with purpose.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_38a"
+        }
+      ]
+    },
+    "h_39": {
+      "text": "I do not think I will be walking out with you, you say. Not tomorrow. Not the way you mean.\n\nSerrin looks at you for a long moment. He is not angry. He is recalibrating. You can see it happen behind his eyes — the closing of one set of options, the opening of another, the small administrative weariness of a man who has just been required to do a more difficult version of his job.\n\nAlright, he says, finally. Alright. Take a walk. Think it over. The offer stands until morning.\n\nThe rifleman has turned, very slightly, and is now watching you.",
+      "choices": [
+        {
+          "text": "Walk out of the camp while you still can.",
+          "goto": "h_38"
+        }
+      ]
+    },
+    "h_45": {
+      "text": "You go north. Not far — far enough that the camp is no longer in sight, no longer in earshot. You stop at the foot of an old beech and put your back against it and breathe.\n\nWhat Marek said. What Serrin offered. The two together build a shape you do not want to look at directly.\n\nThe forester's hut. Northeast, half a mile. He told you, or he tried to. Whether or not you believed him at the time, you believe him now.",
+      "choices": [
+        {
+          "text": "Northeast. Find the hut.",
+          "goto": "h_45a"
+        }
+      ]
+    },
+    "h_48": {
+      "text": "You find it where he said it would be. A low stone hut, single room, roof half-collapsed, the kind of structure built fifty years ago for a forester who has been dead forty. The door is not locked because there is no longer a door. You step over the threshold.\n\nThe hearth is cold. The hearthstone is a single slab of granite, hand-cut, set flush with a packed earth floor. You kneel and work your fingers under the lip of it. It comes up grudgingly, dragging soil with it.\n\nUnderneath: a rectangular cavity lined with oilcloth, and inside the oilcloth a leather document case bound with a waxed cord. The wax bears an imperial seal. Unbroken.\n\nYou cut the cord with your knife. Inside: papers. A great many papers. Internal correspondence on Survey letterhead. Operational timelines. Deployment records. The compound named by its military designation. The objective, on the third page, stated in a single sentence, in the dry register of a man writing for superiors who already know what they are reading.\n\nPopulation clearance by resource denial.\n\nYou read it twice.",
+      "add_items": [
+        "imperial_documents"
+      ],
+      "set_flags": [
+        "found_documents"
+      ],
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_48a"
+        }
+      ]
+    },
+    "h_50": {
+      "text": "You roll the papers tight, slide them inside your jacket against your ribs, and leave the hut. The light is going. The forester's track points west toward the river and east toward the camp. You take neither. You go north, into ground neither set of boots has yet flattened.",
+      "choices": [
+        {
+          "text": "Continue north toward the escape.",
+          "goto": "h_50a"
+        }
+      ]
+    },
+    "h_55": {
+      "text": "You read further. You sit on the edge of the hearth with the case open across your knees and you read every page.\n\nIt is not what you thought, even after Marek's notes, even after the soil samples. It is not a weapons test. The compound is the method, not the subject. The forest dying is not a side effect of the work. The forest dying is the work. The border communities — Vethara, the charcoal-burners' settlements, the half-dozen hamlets along the upper tributaries — were always going to be absorbed into the imperial frontier. The question, for the men whose names sit at the top of these letters, was only how. This way is faster. This way is quieter. There is no army to feed, no garrison to billet, no village burnt that anyone will be able to point to in fifty years and say, here, this is where it happened.\n\nThere will be nothing to point to. Just an empty forest, and the people who used to live in it dispersed to lowland labour markets, and no one alive who remembers why.\n\nYou close the case. Your hands are not steady.",
+      "set_flags": [
+        "knows_true_purpose"
+      ],
+      "choices": [
+        {
+          "text": "Look at the personal correspondence at the bottom of the case.",
+          "goto": "h_55b"
+        },
+        {
+          "text": "Continue.",
+          "goto": "h_55a"
+        }
+      ]
+    },
+    "h_60": {
+      "text": "Vethara is half a day off your line of escape, north and west, on the upper bend of the river. You have been there once, years ago. You remember the bridge, the long single street, the bell-house at the upper end where the road climbs into the pass.\n\nYou cover the ground hard. Your legs are not your own by the time you see the smoke of the bell-house chimney through the trees. You come down the road into the village from above and the first woman you meet on the street is hanging washing and she straightens at the sight of you and her face tells you that whatever you look like, you do not look well.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_60a"
+        }
+      ]
+    },
+    "h_61": {
+      "text": "You tell her, in short hard sentences, what is in the river. What is in the soil. What the men in the survey camps are doing. You tell her about the documents inside your jacket. You ask for the headman.\n\nShe does not waste time disbelieving you. She has watched the deer thin and the moss brown and the children's coughs deepen for two seasons. She had no name for it. You have given her one.\n\nThe headman is a stooped man of sixty with very clear eyes. He listens. He asks two questions and you answer both. He says, we will take the upper pasture. The bell will ring tonight. The women and the children will be on the road north before dark. Tell whoever is waiting for those papers that Vethara was warned.\n\nHe grips your forearm once, briefly. Then he turns and starts walking, and the woman with the washing is already moving toward the bell-house, and you have done what you came to do.",
+      "set_flags": [
+        "warned_village"
+      ],
+      "choices": [
+        {
+          "text": "Continue north toward the escape.",
+          "goto": "h_68"
+        }
+      ]
+    },
+    "h_62": {
+      "text": "You sit on the bench outside the bell-house and drink the water she brings and you cannot, in the end, find the words. The shape of it is too large. You tell her there is bad water in the lower river. You tell her to keep the children off the moss. She nods. She does not understand the size of what you are saying, and you cannot make her understand without staying, and you cannot stay.\n\nYou rise. You thank her. You go.",
+      "choices": [
+        {
+          "text": "Continue north toward the escape.",
+          "goto": "h_68"
+        }
+      ]
+    },
+    "h_65": {
+      "text": "You walk back into the camp from the north and Serrin is standing at the edge of the firelight as though he has been expecting you, because he has.\n\nYou tell him what you read. You name the compound. You name the operation. You watch his face for the small adjustments that mean the thing has landed.\n\nHe does not deny it. He does not, in any way, become less polite. He gestures for you to sit. He says, alright. Alright. You should hear it from someone who can explain it properly, since you have come this far.\n\nHe explains. He does it without malice, without theatricality. The empire's logic is, in his telling, coherent. The border communities were always going to be absorbed; the question was only the method. This way costs no soldiers. This way produces no martyrs. In fifty years there will be a forest growing back over good farmland and a frontier two hundred miles further north and no one will remember what was here. He says all of this in the tone of a man explaining a bridge collapse to an insurance assessor.\n\nWhen he finishes, he asks, mildly, whether you have anything in your jacket that should not leave this camp.",
+      "choices": [
+        {
+          "text": "Listen.",
+          "goto": "h_65a"
+        }
+      ]
+    },
+    "h_66": {
+      "text": "You push. You say the word out loud — clearance — and you watch his face do the only thing his face does, which is the smallest possible adjustment, and behind him the rifleman has shifted his weight onto his front foot.\n\nThis was the moment to leave. You have made the moment something else.",
+      "test_luck": {
+        "lucky_text": "You move first. You are out of the firelight before the rifleman has decided whether his orders permit him to act on his own initiative, and behind you Serrin is calling something steady and reasonable into the dark, and you do not stop to listen.",
+        "lucky_goto": "h_68",
+        "unlucky_text": "You do not move first. The rifleman does. The shot is not loud — the forest swallows sound — but it is enough. You are on the ground before you have understood that you have been hit, and the last thing you see is Serrin walking unhurriedly into the firelight, kneeling, opening your jacket, and removing the case with the care of a man who has done this before.",
+        "unlucky_goto": "death_agents",
+        "lucky_stamina_cost": 1,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "h_67": {
+      "text": "Nothing, you say. Nothing in my jacket. I came to find Marek. I have found him. I will walk out tomorrow.\n\nSerrin watches you for a long moment. Then he nods, once, slowly. Of course, he says. Of course you will.\n\nYou turn and walk to the spare tent. You do not look back. You lie down in your boots with the documents against your ribs.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_67a"
+        }
+      ]
+    },
+    "h_68": {
+      "text": "You meet Marek at the rendezvous, or you do not.\n\nIf he trusts you — if the moment by the kettle landed, or if the journal in your hand was enough — he will be there. He will have slipped the camp under the cover of fetching water or relieving himself in the trees, and he will have brought what he could carry, and he will know a route.\n\nIf he does not trust you, he is still in the camp, sitting by Serrin's fire, doing what he has been doing for three days, which is whatever keeps him alive the longest.\n\nEither way, you are the one carrying out what you carry out.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_68a"
+        }
+      ]
+    },
+    "h_68b": {
+      "text": "From the rendezvous you have a clean line of sight back across to the camp. The fire is still up. No one has yet noticed any absence. You will have, you estimate, an hour before they do.",
+      "choices": [
+        {
+          "text": "Move.",
+          "goto": "h_68c"
+        }
+      ]
+    },
+    "h_68c": {
+      "text": "You go.",
+      "choices": [
+        {
+          "text": "He's with you. The old logging track.",
+          "goto": "h_69",
+          "requires_flag": "marek_trusts_you"
+        },
+        {
+          "text": "Alone.",
+          "goto": "h_70",
+          "requires_no_flag": "marek_trusts_you"
+        }
+      ]
+    },
+    "h_69": {
+      "text": "He is at the rendezvous. He has Serrin's compass — taken when no one was looking — and a satchel with three days of hard rations and the small pistol he owned in his Survey years and never told anyone about.\n\nThe old logging track, he says. They mapped the river crossings and the markers and the high routes. They did not map the timber roads from before the consolidation. There is one west of here that runs to the ford below Vethara. We will not be on any line they are watching.\n\nHe says we. The plural is the first thing he has given you that feels entirely his own.",
+      "choices": [
+        {
+          "text": "Move.",
+          "goto": "h_69a"
+        }
+      ]
+    },
+    "h_70": {
+      "text": "He is not at the rendezvous. He was never coming to the rendezvous.\n\nYou stand alone at the edge of a clearing in the dark and listen for boots on bracken, and the only sound is a barn owl somewhere east of you, and after a while you understand that you are going to have to do this by yourself.",
+      "choices": [
+        {
+          "text": "Move.",
+          "goto": "h_70a"
+        }
+      ]
+    },
+    "h_72": {
+      "text": "Out is north and then west, around the long shoulder of the ridge, down through the dieback to where the ground is still living, and from there to the upper ford and the road beyond. The ground is bad. The light is going. You are not the only thing moving in this forest tonight.\n\nThere are choices in how you go.",
+      "choices": [
+        {
+          "text": "Take the river crossing — the rope makes the ford manageable.",
+          "goto": "h_73",
+          "requires_item": "rope"
+        },
+        {
+          "text": "Light a signal fire on the high ground and pray for a friendly road party.",
+          "goto": "h_74",
+          "requires_flag": "has_fire"
+        },
+        {
+          "text": "The old logging track. Marek's route.",
+          "goto": "h_75",
+          "requires_flag": "marek_trusts_you"
+        },
+        {
+          "text": "The hard way — overland, through the dieback, on legs and luck.",
+          "goto": "h_76a"
+        }
+      ]
+    },
+    "h_73": {
+      "text": "You reach the ford in full dark. The river is high — not flooded, but moving with intent. You secure the rope to the alder on the near bank and wade the line out, hand over hand, the cold knifing into your boots and up your calves. Halfway across the current takes your footing and the rope takes your weight and you finish on your hands and knees on the far bank, soaked through, breathing in long ragged pulls. But you are across. The agents will not bring their packs across a ford in the dark.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_73a"
+        }
+      ]
+    },
+    "h_74": {
+      "text": "You climb to the spur above the high ground and you build the fire there, fast, in the way the first night taught you. The flame catches. The smoke rises into the night air, marking the ridge.\n\nIt is a gamble. The right party sees it and you are out of the forest by morning. The wrong party sees it and you are not.",
+      "test_luck": {
+        "lucky_text": "Boots come up the ridge from the west, and they are not Serrin's. A road party from the timber company, drawn by a fire that should not have been there. They take you down to a wagon and a cup of something hot and a question you do not yet have to answer.",
+        "lucky_goto": "h_80",
+        "unlucky_text": "The boots that come up the ridge are Serrin's man at the head of them. He does not say anything. He does not need to.",
+        "unlucky_goto": "h_74_caught",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "h_75": {
+      "text": "The old logging track is exactly where Marek said it would be. Overgrown. Unmapped on any imperial chart less than thirty years old. You move down it through the long dark and Marek goes ahead, the compass dim in his hand, and neither of you speaks more than is necessary. By the grey hour before dawn you are at the upper ford. By full sun you are on the road. No one has followed.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_75a"
+        }
+      ]
+    },
+    "h_76": {
+      "text": "You go overland. No rope, no fire, no track. The dieback is worse on the western shoulder than anywhere you have walked, and the ground gives in places where it should hold. You twist your ankle in a moss pocket and right yourself against a dead birch and keep walking. You walk most of the night.",
+      "add_stamina": -3,
+      "test_luck": {
+        "lucky_text": "By the grey hour you are off the dieback and onto living ground, and a tributary of the upper river is loud in the dark beneath you, and you understand that you have made it.",
+        "lucky_goto": "h_76b",
+        "unlucky_text": "By the grey hour you are still in the dieback, and your ankle has gone, and the stars are wrong above you because cloud has come in, and you sit down at the foot of a dead beech to rest a moment.",
+        "unlucky_goto": "h_76_collapse",
+        "lucky_stamina_cost": 0,
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "h_77": {
+      "text": "Serrin's man is professional. He takes the case from inside your jacket. He pats you down for the rest. He does not strike you. He walks you down off the ridge to a place where Serrin is waiting, and Serrin shakes his head, very slightly, with something almost like regret.\n\nYou should have walked out with us, he says.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_77a"
+        }
+      ]
+    },
+    "h_80": {
+      "text": "You are out of the forest.\n\nThe road is real under your boots. There is a wagon track and the smell of woodsmoke that comes from a settled chimney rather than a hasty fire. You have walked the last hour without thinking about your feet.\n\nWhat you are carrying — what you are not carrying — what is at your shoulder, or is not — these things will determine the shape of the days that follow.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_81"
+        }
+      ]
+    },
+    "h_81": {
+      "text": "You take stock. The documents. The man beside you, or the empty road beside you. The village upstream, warned or unwarned. The choice you made in the camp, or that the camp made of you.",
+      "choices": [
+        {
+          "text": "(documents)",
+          "goto": "h_82",
+          "requires_flag": "found_documents"
+        },
+        {
+          "text": "(no documents)",
+          "goto": "h_90",
+          "requires_no_flag": "found_documents"
+        }
+      ]
+    },
+    "h_82": {
+      "text": "You have the case against your ribs. The seal is broken. The papers are real.",
+      "choices": [
+        {
+          "text": "(Marek is with you)",
+          "goto": "h_83",
+          "requires_flag": "marek_trusts_you"
+        },
+        {
+          "text": "(Marek is not)",
+          "goto": "end_truth_only_approach",
+          "requires_no_flag": "marek_trusts_you"
+        }
+      ]
+    },
+    "h_83": {
+      "text": "He is with you on the road. He is limping, and he is not speaking, and he is alive.",
+      "choices": [
+        {
+          "text": "(you came clean of Serrin's company)",
+          "goto": "h_84",
+          "requires_no_flag": "trusted_survey_team"
+        },
+        {
+          "text": "(you came in with their cooperation)",
+          "goto": "end_extracted_approach",
+          "requires_flag": "trusted_survey_team"
+        }
+      ]
+    },
+    "h_84": {
+      "text": "You came in alone. You walked off no one's markers. The line you have drawn through this forest is yours.",
+      "choices": [
+        {
+          "text": "(the village was warned)",
+          "goto": "end_exposure_approach",
+          "requires_flag": "warned_village"
+        },
+        {
+          "text": "(the village was not)",
+          "goto": "end_extracted_approach",
+          "requires_no_flag": "warned_village"
+        }
+      ]
+    },
+    "h_90": {
+      "text": "You have no documents. What you have is what you remember, and memory is not what stops a thing like this.",
+      "choices": [
+        {
+          "text": "(you took their cache and walked their markers)",
+          "goto": "h_91",
+          "requires_flag": "trusted_survey_team"
+        },
+        {
+          "text": "(you did not)",
+          "goto": "end_survivor_approach",
+          "requires_no_flag": "trusted_survey_team"
+        }
+      ]
+    },
+    "h_91": {
+      "text": "You came out the way they wanted you to come out. Their cache fed you. Their markers led you. Their senior man walked the last mile of road beside you and clapped you on the shoulder before he turned south.",
+      "choices": [
+        {
+          "text": "(you used the cache)",
+          "goto": "h_92",
+          "requires_flag": "used_cache"
+        },
+        {
+          "text": "(you didn't)",
+          "goto": "end_survivor_approach",
+          "requires_no_flag": "used_cache"
+        }
+      ]
+    },
+    "h_92": {
+      "text": "Their food in your stomach. Their water in your skin.",
+      "choices": [
+        {
+          "text": "(you followed their markers)",
+          "goto": "end_tool_approach",
+          "requires_flag": "followed_markers"
+        },
+        {
+          "text": "(you didn't)",
+          "goto": "end_survivor_approach",
+          "requires_no_flag": "followed_markers"
+        }
+      ]
+    },
+    "end_exposure_approach": {
+      "text": "It takes weeks. The documents go to a man in the capital who used to teach with Marek and who, after reading the first three pages, does not sleep for two days. They go from him to a journalist who has been holding a similar story together with twine and rumour for eighteen months. They go from her to a senate committee that did not want them and cannot now refuse them.\n\nThe operation does not end cleanly. These things never do. The compound is renamed, the programme is renamed, two of the men whose signatures appear in the case retire to private estates and are not pursued. But Vethara stands. The smaller hamlets stand. The dieback is mapped, named, and slowly begins to heal in the places where the source has been removed.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "end_exposure_coda"
+        }
+      ]
+    },
+    "end_exposure_coda": {
+      "text": "Marek loses his post. He loses his pension. He loses, for a time, the use of his hands to the cold he caught the third night out, when he gave you his blanket because he thought you needed it more.\n\nYou lose the work you would have had. You lose, in the small bureaucratic ways the empire reserves for those it cannot prosecute, the easy version of your life.\n\nA winter passes. Then another. In the spring of the third year you walk a path along the upper river with him, and the willow has come back where the willow had gone, and he stops at a bend you both remember and says, very quietly, that this was worth it.\n\nYou agree. You do not say so. He knows.",
+      "choices": [
+        {
+          "text": "End.",
+          "goto": "end_exposure"
+        }
+      ]
+    },
+    "end_exposure": {
+      "text": "The Hollow Forest holds. So does what you carried out of it.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_extracted_approach": {
+      "text": "The two of you go south, then east, then south again. You stay off the imperial post roads. You sleep in barns and the back rooms of inns and once, for a week, in the cellar of a sympathetic miller who asks no questions and accepts no payment.\n\nThe documents stay against your ribs. They cross three jurisdictional lines without being seen. They reach, eventually, a desk where they will be safe — though safe is not the same word as effective, and the difference will become important later.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "end_extracted_coda"
+        }
+      ]
+    },
+    "end_extracted_coda": {
+      "text": "Vethara is not warned. Vethara is, by the time anyone listens to what you brought out, no longer Vethara — its people are dispersed, its bell-house silent, its name absent from the next set of imperial maps. You learn this in a tavern in the lowlands from a man who does not know he is telling you. Marek puts down his cup and walks outside and you find him an hour later sitting on a wall and you both know, without speaking, that this is the price of the pace at which you moved.\n\nThe documents will matter, in the years to come. They have not yet. What you saved is the man beside you. What you did not save is everything you did not have time to reach.",
+      "choices": [
+        {
+          "text": "End.",
+          "goto": "end_extracted"
+        }
+      ]
+    },
+    "end_extracted": {
+      "text": "He is alive. The papers are real. The work, now, begins.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_truth_only_approach": {
+      "text": "You walk out alone. The case is against your ribs and the road is empty in front of you and behind you the forest closes the way forests close — slowly, without fanfare, as though you had never been in it at all.\n\nYou do not know what happened to him. You will not know for some time, and when you do know, it will be third-hand and partial. Whether Serrin's patience ran out. Whether Marek found, in the last hour, some way to step sideways out of the camp on his own terms. Whether he is in a cell, in a grave, or sitting in some lowland cottage under a different name reading a different newspaper.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "end_truth_only_coda"
+        }
+      ]
+    },
+    "end_truth_only_coda": {
+      "text": "You do what he would have asked you to do, because you are now the only one carrying it. You take the documents to people who can use them. You answer the questions you can answer. You go on record under your own name when going on record is what is needed.\n\nIt is not enough. It was never going to be enough. The forest goes on dying for another season before the slowest parts of the imperial machine begin to turn. Some of the smaller hamlets are absorbed before the documents are entered into evidence.\n\nBut some of them are not. And in a hearing room two years on, a man you do not know reads the third page aloud, and the room goes very quiet, and you sit at the back and think of a man wrapped in a grey blanket holding a tin cup he did not drink from.",
+      "choices": [
+        {
+          "text": "End.",
+          "goto": "end_truth_only"
+        }
+      ]
+    },
+    "end_truth_only": {
+      "text": "The truth survives. It is not what he would have called victory. You think, sometimes, that he would have called it enough.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_survivor_approach": {
+      "text": "You come out of the forest. You sit, eventually, in a roadhouse forty miles south, and you eat hot food, and you drink a cup of something that is not tea, and you tell the man behind the bar that the upper forest is dying.\n\nHe nods. He has heard. People come through. Hunters, surveyors. The forest has been bad two seasons running.\n\nYou tell him it is not natural. He nods again, in the way men nod at things they cannot do anything about.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "end_survivor_coda"
+        }
+      ]
+    },
+    "end_survivor_coda": {
+      "text": "Three months later you are still saying it. To a clerk at a ministry desk who takes notes and files them somewhere. To an old colleague of Marek's who listens, kindly, and asks if you have proof, and accepts your honest answer that you do not.\n\nThe forest gets quieter. The dieback widens. Marek is, as far as anyone can tell you, still missing. The empire's records describe him as a presumed-deceased survey officer last seen in the Northern Marches. The file does not close. The file does not need to close. The file simply ceases to be a file anyone consults.\n\nYou are alive. That is what you have. Some seasons it will feel like a great deal. Other seasons it will feel like very little.",
+      "choices": [
+        {
+          "text": "End.",
+          "goto": "end_survivor"
+        }
+      ]
+    },
+    "end_survivor": {
+      "text": "You came out of the forest. The forest is still there.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "end_tool_approach": {
+      "text": "Serrin walks the last mile with you personally. You and Marek both. He is, as ever, easy company. He talks about a vineyard his cousin runs in the southern provinces. He laughs at his own anecdote about a bear that once walked through a survey camp in his second year. At the crossroads he stops, shakes Marek's hand, then yours, and says it has been a difficult few days but you both did very well.\n\nHe means it. That is the part that will, in the years to come, be hardest to carry.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "end_tool_coda"
+        }
+      ]
+    },
+    "end_tool_coda": {
+      "text": "The report you did not write was written by someone else. The route you took is on a map now, in an office in the capital, with a small annotation in a margin: passable on foot, late autumn, with light supplies. The cache you ate from is restocked. The markers you followed have been extended a further fifteen miles north.\n\nMarek goes home. He does not speak much, in the months that follow. He does not, ever, ask you what you saw in the forester's hut, because you did not go to the forester's hut, because the route they walked you out on did not pass it.\n\nA year later you read in a regional paper that the Vethara settlement has been formally dissolved due to ongoing population decline. You sit with the paper in your lap for a long time. Then you fold it and put it in a drawer with the other papers you have folded and put away. There are a number of them now.",
+      "choices": [
+        {
+          "text": "End.",
+          "goto": "end_tool"
+        }
+      ]
+    },
+    "end_tool": {
+      "text": "You walked out of the forest. The forest, in walking you out, made use of you.",
+      "ending": true,
+      "ending_type": "victory"
+    },
+    "death_agents": {
+      "text": "Serrin kneels beside you in the wet bracken and opens your jacket and removes the case with the unhurried care of a man who has, in a long career, done this a small number of times.\n\nHe is not pleased. He is not displeased. He is, as he has been throughout, professional.\n\nYou should have walked out with us, he says again, very quietly. He closes your jacket. He stands. He gestures to the rifleman, who begins to do the work of making this look like something it was not.\n\nThe forest does not record what is done in it. That is the operation's first principle. It is also, you understand at the very end, the worst thing about him.",
+      "ending": true,
+      "ending_type": "death"
+    },
+    "h_2a": {
+      "text": "The packframe man stands as you reach the level ground. He is younger than the others — late twenties, perhaps, with the spare build of a man who walks for a living. He nods at you civilly and steps aside to let you pass. His hand never leaves the strap of the framepack, and the framepack is closer to the second tent than it needs to be for the work he was doing.\n\nYou note all of this without changing your face. Marek does not stand. The blanket is grey wool, regulation issue, the kind of blanket the Northern Survey provides to its officers and to no one else.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_10"
+        }
+      ]
+    },
+    "h_3a": {
+      "text": "The man at the packframe is not, you decide, sorting straps. He is performing the act of sorting straps. The same buckle has gone through his hands four times. His attention is on the second tent, the one you cannot see into.\n\nThe second tent has a fly rigged out from its eastern face — the kind of awning a man rigs when he intends to sit under it and write, and does not want the wind on his pages. There is a folding camp table beneath the fly. There is a leather despatch case on the table, beside an oil lamp not yet lit.\n\nYou file all of this away.",
+      "choices": [
+        {
+          "text": "Continue watching.",
+          "goto": "h_3b"
+        }
+      ]
+    },
+    "h_3b": {
+      "text": "The light shifts. The wind, which had been carrying away from you, drops for a long moment and then returns. The rifleman's head turns half a degree and you flatten yourself further into the bracken and the moment passes.\n\nIt is time to stop watching. Either you go down or you go around.",
+      "choices": [
+        {
+          "text": "Down.",
+          "goto": "h_4"
+        },
+        {
+          "text": "Around.",
+          "goto": "h_5"
+        }
+      ]
+    },
+    "h_4a": {
+      "text": "Halfway down the slope you stop fitting the bracken to your boots and start walking openly, because openly is now the only thing left to be. The rifleman tracks you all the way in. Serrin stands and waits, hands at his sides, the smile arriving slightly before you do.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_10"
+        }
+      ]
+    },
+    "h_5a": {
+      "text": "The ground north of the camp is harder than the slope you came in on. Old windfall, cross-cut by a deer track that no longer sees deer. You move slowly. You stop twice when the wind shifts and once when something moves in the underbrush that turns out to be a vole.\n\nIt takes you longer than you would like.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Continue circling.",
+          "goto": "h_5b"
+        }
+      ]
+    },
+    "h_5b": {
+      "text": "From the lip of the draw you have a clean line down to the back of the second tent. The fly is rigged. The despatch case is on the table. Serrin's voice carries faintly from the fire — something he is reading aloud to Marek, in the conversational tone of a man who knows he will not be interrupted.\n\nThe stream is below you. The path to the stream comes up between the tents and goes down past your position.",
+      "choices": [
+        {
+          "text": "Wait. Marek will come for water.",
+          "goto": "h_6"
+        }
+      ]
+    },
+    "h_6a": {
+      "text": "He is back at the fire before you have moved. Serrin says something. Marek says something brief in return. The kettle is set on the stones. The conversation resumes.\n\nWhatever happens next, the window has closed. He has used the moment he had.",
+      "choices": [
+        {
+          "text": "Northeast. The hut.",
+          "goto": "h_48"
+        },
+        {
+          "text": "Walk into the camp anyway. Whatever this is, do it together.",
+          "goto": "h_10"
+        }
+      ]
+    },
+    "h_10a": {
+      "text": "Serrin is, in his small movements, a man entirely at ease. He is not performing ease. He has the bearing of someone whose superiority of position is so complete he has never had cause to think about it. He pours tea with one hand, gestures with the other, and when he laughs it is a real laugh — short, open, immediately gone.\n\nThe rifleman does not turn. The packframe man has resumed his straps. Marek's eyes, you notice, do not leave the fire.",
+      "choices": [
+        {
+          "text": "Sit with the cup.",
+          "goto": "h_11"
+        },
+        {
+          "text": "Stay standing.",
+          "goto": "h_12"
+        }
+      ]
+    },
+    "h_11a": {
+      "text": "You hold the cup. The bergamot is real bergamot. The other thing — the herbal note you cannot name — is faint enough that you would not be sure of it if you were not looking for it. It might be nothing. It might be valerian, or hop, or one of half a dozen things a careful man might add to a tea offered to a tired guest.\n\nYou do not drink. You hold the cup as though you were about to drink, and you wait.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_20a"
+        }
+      ]
+    },
+    "h_12a": {
+      "text": "From your standing position you can see Marek's hands around his cup. They are steady, but they are steady in the particular way of a man who has decided to make them so. The knuckles of his right hand are raw. He has been gripping things — pencils, blanket-edges, his own forearm — harder than he needs to.\n\nHe has been here longer than three days.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_20"
+        }
+      ]
+    },
+    "h_20a": {
+      "text": "The packframe man has gone into the second tent to fetch something. The rifleman is rolling his shoulders against the cold. Serrin is bent over the map, finger tracing a tributary, brow furrowed in genuine concentration over what is, you suspect, an entirely unimportant line.\n\nThe window is open.",
+      "choices": [
+        {
+          "text": "Take it.",
+          "goto": "h_20"
+        }
+      ]
+    },
+    "h_31": {
+      "text": "Night settles. The stars come out cold above the camp. Serrin tells a story about a survey he ran in the southern hills, twenty years ago, and laughs at his own punchline, and the rifleman laughs too — the first sound you have heard the rifleman make. The fire is good. The stew, when it comes, is good.\n\nMarek eats. He eats slowly, and he chews thoroughly, and when Serrin offers him a second helping he accepts. He is, in his way, performing the wellness Serrin requires of him.\n\nYou take a bowl and you eat what you can. You sleep, eventually, in the spare tent, with your knife under the rolled jacket that serves as your pillow. You do not dream.",
+      "choices": [
+        {
+          "text": "Wake.",
+          "goto": "h_35"
+        }
+      ]
+    },
+    "h_35a": {
+      "text": "Serrin lets you have the silence. He is good at silence — better than most men are at conversation. He waits beside you until the wind shifts and then, very softly, as though the matter were already settled, says: think it over. There is no hurry. We will speak again before dawn.\n\nHe walks back toward the fire. He does not look back.",
+      "choices": [
+        {
+          "text": "You know exactly what he is asking. (You understand the contamination.)",
+          "goto": "h_36",
+          "requires_flag": "knows_contamination"
+        },
+        {
+          "text": "Stall. Spend the night.",
+          "goto": "h_38"
+        },
+        {
+          "text": "Agree. Walk out tomorrow.",
+          "goto": "h_37"
+        }
+      ]
+    },
+    "h_38a": {
+      "text": "The bracken closes behind you. Forty paces in, you crouch and wait and listen. No one follows. Not yet. They are confident enough in the offer Serrin made you to give you the hour.\n\nYou will not be back inside the hour.",
+      "choices": [
+        {
+          "text": "Move.",
+          "goto": "h_38b"
+        }
+      ]
+    },
+    "h_38b": {
+      "text": "The choice is the same as it was at the fire, in different clothes. Northeast, where Marek pointed. North, where your own legs would carry you. The light is going. Whatever you choose, you will be choosing in the half-hour before dark.",
+      "choices": [
+        {
+          "text": "Northeast — the hut.",
+          "goto": "h_48",
+          "requires_flag": "marek_trusts_you"
+        },
+        {
+          "text": "Northeast — follow the dieback to its source.",
+          "goto": "h_48",
+          "requires_flag": "found_soil_samples"
+        },
+        {
+          "text": "North.",
+          "goto": "h_45"
+        }
+      ]
+    },
+    "h_45a": {
+      "text": "You do not stay long at the foot of the beech. The sky is closing in, and there is more light in the west than you would have thought, and the more you sit the harder it will be to start again.\n\nYou stand. You take a bearing off the lowering sun. Northeast.",
+      "choices": [
+        {
+          "text": "Walk.",
+          "goto": "h_48"
+        }
+      ]
+    },
+    "h_48a": {
+      "text": "You sit a moment with the case across your knees. The hut is silent. A jay calls somewhere outside. The light through the hole in the roof is the colour of tea.\n\nYou fold the seal back over its broken cord — for what it is worth — and slide the cord into your pocket. You do not know why. Perhaps because it is still, even broken, a thing that means something.",
+      "choices": [
+        {
+          "text": "Take the case and go.",
+          "goto": "h_50"
+        },
+        {
+          "text": "Read further.",
+          "goto": "h_55"
+        }
+      ]
+    },
+    "h_50a": {
+      "text": "You go fast at first, then slower as your legs remember what they have been doing for a week. The track points west toward the river and you do not take it. The track points east toward the camp and you do not take it. There is a third way, north through the standing birches, where no track exists because no track is needed.",
+      "choices": [
+        {
+          "text": "North.",
+          "goto": "h_68"
+        }
+      ]
+    },
+    "h_55a": {
+      "text": "The reading does not, as you might have thought, make the world clearer. It makes the world heavier.\n\nYou understand, now, the size of the thing in your hands. You understand what was taken from Marek by the men who built that camp. You understand what is owed to the small communities downstream of what is in the soil.\n\nYou close the case. You stand.",
+      "choices": [
+        {
+          "text": "Vethara. Warn them.",
+          "goto": "h_60",
+          "requires_flag": "knows_vethara"
+        },
+        {
+          "text": "Find Serrin. Make him say it.",
+          "goto": "h_65",
+          "requires_flag": "knows_true_purpose"
+        },
+        {
+          "text": "Out. Get this to the world that can use it.",
+          "goto": "h_68"
+        }
+      ]
+    },
+    "h_60a": {
+      "text": "The street is short. Twenty houses, maybe. A communal byre at the lower end. The bell-house at the upper. Children somewhere out of sight, calling to one another in the upper pasture. Smoke from three chimneys, no more than that, on a winter afternoon when there should have been smoke from twenty.\n\nThe village has been thinning. They have not yet given a name to what is thinning them. You have come with a name.",
+      "choices": [
+        {
+          "text": "Tell her what you know. Ask for the headman.",
+          "goto": "h_61a",
+          "requires_flag": "knows_contamination"
+        },
+        {
+          "text": "Ask only for water. You are too tired to do this properly.",
+          "goto": "h_62",
+          "requires_no_flag": "knows_contamination"
+        }
+      ]
+    },
+    "h_65a": {
+      "text": "He does not raise his voice once. He explains the funding cycle. He explains the demographic projections. He explains, with a kind of dry honest weariness, that he himself did not design the operation but that he agrees, on balance, that it is preferable to the alternatives the planning committee was considering in its earlier sessions.\n\nThis is the thing you have to hold onto: he believes what he is saying. The evil of him is not that he is lying. The evil of him is that the lie has been told upstream, by men he respects, and he is the place where the lie meets the forest.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_65b"
+        }
+      ]
+    },
+    "h_65b": {
+      "text": "When he is done, he sits back on his stool and looks at you across the fire and waits. He has given you the long answer. He believes you owe him the courtesy of a considered response.\n\nMarek is still wrapped in the grey blanket. He is no longer pretending to look at the embers. He is looking at you.",
+      "choices": [
+        {
+          "text": "Leave.",
+          "goto": "h_68"
+        },
+        {
+          "text": "Push him. (You have the documents.)",
+          "goto": "h_66",
+          "requires_item": "imperial_documents"
+        },
+        {
+          "text": "Tell him you have nothing.",
+          "goto": "h_67"
+        }
+      ]
+    },
+    "h_68a": {
+      "text": "The rendezvous is a stand of three old larches on a knuckle of rock half a mile north of the camp. You picked it on the way out — Marek would know to come here, if he were coming. You wait.\n\nThe wind is up. You can hear, very faintly, the camp behind you — the murmur of men who are not yet aware that anything has gone wrong.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_68b"
+        }
+      ]
+    },
+    "h_69a": {
+      "text": "He hands you the compass. You take it. He hands you a strip of dried meat from his satchel and says, eat it now, you will not want to stop later, and you eat it now.\n\nWe go, he says. We do not stop until the upper ford. If I fall behind, you do not wait. You take the case and you go.\n\nYou tell him you will not leave him behind. He looks at you a moment and nods, and you both understand that the agreement was a courtesy on both sides.",
+      "choices": [
+        {
+          "text": "Move.",
+          "goto": "h_72a"
+        }
+      ]
+    },
+    "h_70a": {
+      "text": "You wait one more quarter hour, because you have to, because not waiting would be a thing you would carry the rest of your life. He does not come.\n\nWhat you carry, you carry alone.",
+      "choices": [
+        {
+          "text": "Move.",
+          "goto": "h_72a"
+        }
+      ]
+    },
+    "h_72a": {
+      "text": "The first hour out is the worst. The dieback on the western shoulder is heavier than on any ground you walked in Acts before this — the moss is brown to its roots, the birches stand like bones, and where you put your boot the ground gives a half-inch more than it should.\n\nThis is the centre of what they did. You are walking through the success of the operation.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_72"
+        }
+      ]
+    },
+    "h_73a": {
+      "text": "On the far bank you sit a long minute and pour the water out of your boots. Your hands are shaking with cold but they are shaking, which is better than not shaking. You stand. The track on this side leads up through living birches. You take it.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_80a"
+        }
+      ]
+    },
+    "h_75a": {
+      "text": "Twice, in the long dark, Marek stops and lifts a hand and you both go still. Boots on the ridge, perhaps, or perhaps only the wind in dead branches. Each time, after a long minute, he lowers the hand and you go on.\n\nThey are not on this track. They never were.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_80a"
+        }
+      ]
+    },
+    "h_76a": {
+      "text": "Twice your boot goes through the moss into a hollow no surface deer would have sprung. Twice you catch yourself against a dead trunk. The trunks are not always sound. Once, a section of bark comes away in your hand and you nearly go down.\n\nYou keep walking because stopping is a worse choice than walking.",
+      "add_stamina": -1,
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_76"
+        }
+      ]
+    },
+    "h_80a": {
+      "text": "You walk a final hour with the road firm under you. The sound of your boots on the gravel is the first ordinary sound you have heard in a week. You do not, at first, recognise it as ordinary.\n\nA crow goes overhead, calling, and the call is clean — no answer comes back, because there are no other crows on this stretch of road, but the absence is the absence of an ordinary forest, not the absence of life itself. You have crossed back into the world that is still working.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_80"
+        }
+      ]
+    },
+    "h_55b": {
+      "text": "You find a folded sheet at the bottom of the case that is not on Survey letterhead. It is a personal letter from one of the senior names on the operation, written to another of the senior names, in a hand that has the looseness of long acquaintance.\n\nThe letter is, by the standards of what surrounds it, not damning. It is worse than damning. It is casual. The two men whose names you are reading have been corresponding about this for years. There are jokes. There are references to a shared boat. There is a postscript about a wife's recovery from an illness.\n\nYou put the letter back in the case last, on top of everything else.",
+      "choices": [
+        {
+          "text": "Close the case.",
+          "goto": "h_55a"
+        }
+      ]
+    },
+    "h_61a": {
+      "text": "She walks you to the bell-house herself. The headman is mending a harness in the lee of the wall. He stands when he sees her face. He does not yet know what he is about to be told, but he knows, by the way she walks, that it will require him to stop mending the harness.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_61"
+        }
+      ]
+    },
+    "h_67a": {
+      "text": "You lie awake the whole night. Twice you hear soft footsteps near your tent and once the flap is briefly lifted — by the wind, you tell yourself, by the wind. Before first light you are gathering your few things in the dark, slowly, slowly. The camp is silent. The sentries have shifted.",
+      "choices": [
+        {
+          "text": "Move.",
+          "goto": "h_68"
+        }
+      ]
+    },
+    "h_77a": {
+      "text": "Serrin walks at your shoulder down off the spur. He talks, quietly, almost kindly. He tells you that you came very close. He tells you that he respects what you did. He tells you that he wishes, for what it is worth, that things had gone differently, and you understand that the wishing is not a thing he is performing for your benefit.\n\nIt is the worst part of him.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "death_agents"
+        }
+      ]
+    },
+    "h_42": {
+      "text": "Halfway to the hut you stop and look back. The camp is below the rise, invisible from where you stand, but you can see in your mind exactly what is happening there — Serrin's small recalibration, the rifleman shifting his weight, Marek by the fire registering the texture of the silence.\n\nYou turn and walk on.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_43"
+        }
+      ]
+    },
+    "h_43": {
+      "text": "The track to the hut crosses a small creek with a rotten plank for a bridge. You test the plank. It holds. You cross.\n\nOn the far side a length of wire is staked into the ground at ankle height. Old wire — corroded, half-grown over. Not a tripwire, you decide after a moment's careful inspection. The remains of a fence, from the years when the forester had a garden here. You step over it.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_44"
+        }
+      ]
+    },
+    "h_44": {
+      "text": "The first thing you see when the hut comes into view is that someone has been here recently. Not the agents — the disturbance is too slight, the leaves only just beginning to settle back into the path. Marek, before the camp. He has been here, opened the cavity, replaced the stone, and gone on.\n\nHe knew, then. He came back here on his own. The case has been waiting for whoever could reach it next.",
+      "choices": [
+        {
+          "text": "Enter the hut.",
+          "goto": "h_48"
+        }
+      ]
+    },
+    "h_76b": {
+      "text": "You crest the ridge in the grey hour, legs gone soft with the night's walking, and stop.\n\nBelow you, on the only track that leads off the dieback and onto living ground, a man is standing.\n\nThe rifleman. He has had time to choose his ground and he has chosen it well. The track narrows to a gap between two outcroppings and he is in the gap, facing up the slope. He is watching you come.\n\nHe does not call out.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_76c"
+        }
+      ]
+    },
+    "h_76c": {
+      "text": "You set your feet on the slope. He watches you do it with the patient attention of someone who has made this calculation before and knows how it comes out.\n\nHe fights without theatre — no warning, no pause for negotiation. He comes up the slope to meet you, which is the correct tactical decision, and you understand in the first exchange that he is better trained than the desperate man in the forest, better trained perhaps than you. He does not hate you. He is simply working.",
+      "combat": {
+        "enemy": "imperial_agent",
+        "win_goto": "h_80a",
+        "flee_goto": "h_76d",
+        "flee_allowed": true,
+        "flee_stamina_cost": 2
+      }
+    },
+    "h_76d": {
+      "text": "You break back up the slope into the dieback. He follows twenty paces, maybe thirty, and stops — not because he cannot go further, but because the sky is beginning to grey and the ground is bad and someone will want an accounting.\n\nYou go north, then west in a long circuit. The hard way around the ridge. The footing is worse than the direct route. You do not fall. It costs you the better part of another hour and what is left of your reserves.",
+      "add_stamina": -2,
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_80"
+        }
+      ]
+    },
+    "h_74_caught": {
+      "text": "The boots that come up the ridge are Serrin's man at the head of them. He does not say anything. He does not need to.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "h_77",
+          "requires_flag": "found_documents"
+        },
+        {
+          "text": "Continue.",
+          "goto": "h_77b",
+          "requires_no_flag": "found_documents"
+        }
+      ]
+    },
+    "h_77b": {
+      "text": "Serrin's man is professional. He goes through your pack with systematic patience. He checks the lining of your jacket. He straightens up and says nothing to you — because there is nothing to say. You are not carrying what he was sent to find.\n\nHe walks you back down to the camp. Serrin is waiting at the fire and reads the situation in his man's face before either of you speaks.\n\nNothing, Serrin says, after a moment. It was not a question. He looks at you with the mild, slightly regretful expression of a man revising a calculation.\n\nCome and sit down, he says. There is still tea.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "end_tool_approach"
+        }
+      ]
+    },
+    "h_76_collapse": {
+      "text": "By the grey hour you are still in the dieback, and your ankle has gone, and the stars are wrong above you because cloud has come in and the cold is a weight now rather than a temperature.\n\nYou sit down to rest. You tell yourself it is for a moment.\n\nYou are found on the second morning by a forester working the edge of the dieback — a young man with a mule and the good sense to recognise the difference between a dead person and a person who is about to be. He does not ask questions. He gets you onto the mule and gets you out.\n\nYou are not carrying much. You are not sure, in the grey hours of the first day, how much of what you remember is real.",
+      "choices": [
+        {
+          "text": "Continue.",
+          "goto": "end_survivor_approach"
+        }
+      ]
+    }
+  }
+}
