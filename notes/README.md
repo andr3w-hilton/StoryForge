@@ -1,4 +1,4 @@
-# Notes
+do# Notes
 
 Process docs, specs, and adventure TODOs.
 
@@ -21,7 +21,7 @@ Process docs, specs, and adventure TODOs.
 
 | Adventure | Passages | Endings | Flags | Status |
 |-----------|----------|---------|-------|--------|
-| [The Hollow Forest](the_hollow_forest_spec.md) | 267 | 5V / 1D | 13 ok, 0 unchecked | Done — v1.0 |
+| [The Hollow Forest](the_hollow_forest_spec.md) | 270 | 5V / 1D | 13 ok, 0 unchecked | Done — v1.0 |
 | [Tide of the Leviathan](leviathan_spec.md) | 293 | 4V / 3D | 44 set, 33 checked | Done — no further work needed |
 | [The Scavenger of New Babylon Station](scavenger_todo.md) | 200 | 6V / 5D | 13 set, 13 checked | Done — expansion complete (v2.1) |
 | [The Crypt of Count Valdric](valdric_todo.md) | 95 | 5V / 5D | 13 set, 13 checked | Done — expansion complete (v2.0) |

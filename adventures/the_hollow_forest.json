@@ -399,12 +399,14 @@
     },
     "f_20_cold_unlucky": {
       "text": "Dawn finds you cold to the bone. Your coat is heavy with rain. Your boots squelch when you stand. You force yourself through the morning ritual â€” eat, pack, walk â€” but every action is slower than it should be. Your hands are clumsy on the laces. You drop a strap twice before you get the pack right.\n\nYou will pay for this night for the rest of the day.",
-      "choices": [
-        {
-          "text": "Set out anyway.",
-          "goto": "f_extra_5"
-        }
-      ]
+      "test_luck": {
+        "lucky_text": "By mid-morning you are moving again. Cold, slow, but moving. The rain has thinned to nothing. You will not be warm today. You will be warm tomorrow.",
+        "lucky_goto": "f_extra_5",
+        "lucky_stamina_cost": 0,
+        "unlucky_text": "By the small hours you have stopped shivering. You know, in some remote way, that this is the wrong sign. The cold is very even now. Even is a kind of comfort.",
+        "unlucky_goto": "death_forest_approach",
+        "unlucky_stamina_cost": 0
+      }
     },
     "f_21": {
       "text": "Some time before dawn â€” the sky still a deep blue, the fire down to coals â€” you wake. Not from a dream. From a sound, or the absence of one.\n\nYou lie still and listen. The rain has stopped. The forest is quiet, but it is the wrong quiet. Then you hear it: a careful step at the edge of your firelight. The shift of leaf-litter under a paw. Another step.\n\nYou turn your head, slowly. Yellow eyes catch the embers and reflect.\n\nA wolf. Lean, full-grown, standing perhaps fifteen paces out, its head low, its ears forward. It is not crouched to charge. It is investigating. The fire has drawn it. Wolves do not normally come this close to fires.",
@@ -963,6 +965,9 @@
           "text": "Push on toward the crossing.",
           "goto": "d_10"
         }
+      ],
+      "set_flags": [
+        "drank_river"
       ]
     },
     "d_10": {
@@ -1083,8 +1088,14 @@
       "add_stamina": -1,
       "choices": [
         {
-          "text": "Move on. There is nothing here.",
-          "goto": "d_18"
+          "text": "Continue.",
+          "goto": "d_sick_peak",
+          "requires_flag": "drank_river"
+        },
+        {
+          "text": "Continue.",
+          "goto": "d_18",
+          "requires_no_flag": "drank_river"
         }
       ]
     },
@@ -3044,13 +3055,40 @@
       ]
     },
     "h_76_collapse": {
-      "text": "By the grey hour you are still in the dieback, and your ankle has gone, and the stars are wrong above you because cloud has come in and the cold is a weight now rather than a temperature.\n\nYou sit down to rest. You tell yourself it is for a moment.\n\nYou are found on the second morning by a forester working the edge of the dieback — a young man with a mule and the good sense to recognise the difference between a dead person and a person who is about to be. He does not ask questions. He gets you onto the mule and gets you out.\n\nYou are not carrying much. You are not sure, in the grey hours of the first day, how much of what you remember is real.",
+      "text": "By the grey hour you are still in the dieback, and your ankle has gone, and the stars are wrong above you because cloud has come in and the cold is a weight now rather than a temperature.\n\nYou sit down to rest. You tell yourself it is for a moment.\n\nThe moment lengthens.",
+      "test_luck": {
+        "lucky_text": "On the second morning a forester working the edge of the dieback finds you in the root hollow — a young man with a mule and the good sense to recognise the difference between a dead person and a person who is about to be. He gets you out.",
+        "lucky_goto": "end_survivor_approach",
+        "lucky_stamina_cost": 0,
+        "unlucky_text": "The second morning comes and goes. The third morning does not feel different from the dark that preceded it.",
+        "unlucky_goto": "death_forest_approach",
+        "unlucky_stamina_cost": 0
+      }
+    },
+    "death_forest_approach": {
+      "text": "You sit down to rest because your legs will not carry you further, and you tell yourself it will be a moment, and the moment lengthens into the cold blue hour before dawn, and your hands, when you try to use them, do not entirely belong to you anymore.",
       "choices": [
         {
           "text": "Continue.",
-          "goto": "end_survivor_approach"
+          "goto": "death_forest"
         }
       ]
+    },
+    "death_forest": {
+      "text": "The forest takes you the way it has been taking everything in it this season — quietly, without ceremony, without the courtesy of a clear cause.\n\nNo one finds you. The dieback widens around the place where you sat down. The empire's operation continues on schedule. Somewhere south of here, at a fire you will never reach, Marek is still waiting.",
+      "ending": true,
+      "ending_type": "death"
+    },
+    "d_sick_peak": {
+      "text": "Two hours past the river, the nausea returns — not the manageable dull weight of the morning, but something with teeth. You stop at the edge of the path and put your hands on your knees and wait for it to pass.\n\nThe water. You knew it was wrong before you drank it. You drank it anyway.",
+      "test_luck": {
+        "lucky_text": "It passes. Not quickly, not completely, but enough. You straighten up. Your legs are uncertain for another hour, then less.",
+        "lucky_goto": "d_18",
+        "lucky_stamina_cost": 2,
+        "unlucky_text": "It does not pass. You try to walk and your legs decide otherwise. The world has narrowed to the width of the path and the weight of your pack and the cold coming up through the ground.",
+        "unlucky_goto": "death_forest_approach",
+        "unlucky_stamina_cost": 0
+      }
     }
   }
 }
